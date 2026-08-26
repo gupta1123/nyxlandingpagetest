@@ -36,7 +36,7 @@ body{margin:0}
 .c-links{display:flex;align-items:center;gap:2rem}
 .c-links a,.c-nav-cta{font-family:var(--ff-m);font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--soft);transition:color .2s}
 .c-links a:hover,.c-links a.active{color:var(--rust)}
-.c-nav-cta{justify-self:end;padding:.55rem 1rem;color:var(--cream);background:var(--ink);border-radius:999px}
+.careers-page .c-nav-cta{justify-self:end;padding:.55rem 1rem;color:var(--cream);background:var(--ink);border-radius:999px}
 .c-nav-cta:hover{background:var(--rust-dk)}
 
 /* ── hero ── */
@@ -51,9 +51,20 @@ body{margin:0}
 .c-acts{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:1.5rem}
 .c-btn{display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:0 1.15rem;border:1px solid var(--ink);border-radius:4px;font-size:.76rem;font-weight:600;transition:transform .2s,background .2s,color .2s}
 .c-btn:hover{transform:translateY(-2px)}
-.c-btn-p{color:var(--cream);background:var(--ink)}
+.careers-page .c-btn-p{color:var(--cream);background:var(--ink)}
 .c-btn-p:hover{background:var(--rust-dk)}
 .c-btn-s:hover{color:var(--rust);border-color:var(--rust)}
+
+/* Homepage-style interview image treatment */
+.career-visual{position:relative;isolation:isolate;aspect-ratio:3/2;overflow:hidden;border:1.5px solid rgba(196,160,126,.45);border-radius:14px;background:#281c16;box-shadow:0 24px 60px rgba(81,50,33,.18)}
+.career-visual>img{position:absolute;inset:-8px;z-index:0;width:calc(100% + 16px);height:calc(100% + 16px);object-fit:cover;filter:blur(2.75px) saturate(.9) contrast(.96);transform:scale(1.025)}
+.career-visual::after{content:'';position:absolute;inset:0;z-index:1;background:radial-gradient(ellipse 72% 76% at 50% 52%,rgba(15,10,7,.7) 0%,rgba(15,10,7,.5) 42%,rgba(15,10,7,.2) 74%,rgba(15,10,7,.08) 100%),linear-gradient(180deg,rgba(15,10,7,.2),rgba(15,10,7,.38));pointer-events:none}
+.career-visual-copy{position:relative;z-index:2;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:clamp(1.5rem,4vw,3rem);text-align:center;color:#fffaf1;text-shadow:0 3px 24px rgba(10,6,4,.42)}
+.career-visual-kicker{display:flex;align-items:center;gap:.55rem;margin-bottom:.85rem;font-family:var(--ff-m);font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:#efb184}
+.career-visual-kicker::before,.career-visual-kicker::after{content:'';width:22px;height:1px;background:#efb184}
+.career-visual-copy h2{max-width:11ch;font-family:var(--ff-d);font-size:clamp(1.9rem,3.5vw,3.15rem);font-weight:400;line-height:1.02;letter-spacing:-.025em}
+.career-visual-copy h2 em{font-style:italic;color:#f0a06b}
+.career-visual-copy p:last-child{max-width:38ch;margin-top:.85rem;font-size:.76rem;font-weight:300;line-height:1.65;color:rgba(255,250,241,.88)}
 
 /* ══ HERO ILLUSTRATION — a pull request ══
    The artifact every engineer reads without explanation:
@@ -209,6 +220,9 @@ body{margin:0}
   .cc{width:min(100% - 2rem,1140px)}
   .c-hero{padding:2.4rem 0 1.8rem}
   .c-hero h1{font-size:clamp(2.4rem,10vw,3.2rem)}
+  .career-visual-copy{padding:1.25rem}
+  .career-visual-copy h2{font-size:clamp(1.75rem,8vw,2.45rem)}
+  .career-visual-copy p:last-child{display:none}
   .c-acts{display:grid}
   .hire{gap:.8rem}
   .hire-roles{margin-left:0;width:100%}
@@ -251,49 +265,14 @@ body{margin:0}
         </div>
 
         <div class="rv in" style="animation-delay:.25s">
-          <div class="pr" id="pr">
-            <div class="pr-bar"><b>nyx / gajkesari</b><span>· pull request</span>
-              <span class="r"><span class="pr-state" id="prState">Review required</span><span>#482</span></span>
-            </div>
-            <div class="pr-body">
-              <div>
-                <div class="pr-title">Hold vouchers above the auto-limit until an accountant approves</div>
-                <div class="pr-branch">
-                  <code>feat/approval-gate</code> → <code>main</code>
-                  <span class="pr-who"><span class="pr-av">YS</span>opened 2 days ago</span>
-                </div>
-              </div>
-
-              <div>
-                <div class="pr-sec">Files changed · 4</div>
-                <div class="pr-file" id="pf0"><span>ui/ReviewQueue.tsx</span><span class="add">+128</span><span class="del">−14</span></div>
-                <div class="pr-file" id="pf1"><span>api/approvals.service.ts</span><span class="add">+96</span><span class="del">−8</span></div>
-                <div class="pr-file" id="pf2"><span>rules/limit.check.ts</span><span class="add">+41</span><span class="del">−0</span></div>
-                <div class="pr-file" id="pf3"><span>db/0031_audit_trail.sql</span><span class="add">+22</span><span class="del">−0</span></div>
-              </div>
-
-              <div>
-                <div class="pr-sec">Checks</div>
-                <div class="pr-check" id="pc0"><span class="ic">✓</span><span>Lint and types</span><em>—</em></div>
-                <div class="pr-check" id="pc1"><span class="ic">✓</span><span>Business rule tests</span><em>—</em></div>
-                <div class="pr-check" id="pc2"><span class="ic">✓</span><span>Connector contract tests</span><em>—</em></div>
-                <div class="pr-check" id="pc3"><span class="ic">!</span><span>Review by a teammate</span><em>—</em></div>
-              </div>
-
-              <div class="pr-note" id="prNote">
-                <span class="pr-av">SD</span>
-                <span>
-                  <b>Shubham<s id="prNoteT">commented</s></b>
-                  <p id="prNoteP">Logic looks right. Can the queue also show <em>why</em> it was held, not just that it was? A reviewer should not have to open the record.</p>
-                </span>
-              </div>
-            </div>
-            <div class="pr-foot">
-              <span class="pr-msg" id="prMsg">Waiting on review</span>
-              <span class="pr-merge" id="prBtn">Merge</span>
-            </div>
-            <svg class="cursor" id="cur" viewBox="0 0 20 20" fill="none"><path d="M3 2l12 7.2-5.4 1.3L7.4 16z" fill="#fff8ec" stroke="#2a1a10" stroke-width="1.1" stroke-linejoin="round"/></svg>
-          </div>
+          <figure class="career-visual">
+            <img src="/assets/images/interview.png" alt="A Nyx Solution team member speaking with a candidate during an interview" width="1536" height="1024" loading="eager" fetchpriority="high" />
+            <figcaption class="career-visual-copy">
+              <p class="career-visual-kicker">Real impact · Real work</p>
+              <h2>Build with purpose. <em>Ship what matters.</em></h2>
+              <p>Join a thoughtful engineering team turning complex operational problems into dependable products.</p>
+            </figcaption>
+          </figure>
         </div>
       </div>
 
@@ -529,6 +508,7 @@ document.querySelectorAll('.rv:not(.in),.bcard').forEach(el=>io.observe(el));
 /* ══ HERO · a pull request goes from opened to shipped ══ */
 (async function pr(){
   const btn=$('#prBtn'), cur=$('#cur'), host=$('#pr');
+  if(!btn||!cur||!host)return;
   const CHECKS=[['#pc0','42s'],['#pc1','142 passed'],['#pc2','Tally 6.6 · SAP S/4']];
   const reset=()=>{
     ['#pf0','#pf1','#pf2','#pf3'].forEach(f=>$(f).classList.remove('show'));
