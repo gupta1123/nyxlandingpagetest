@@ -29,15 +29,13 @@ body{margin:0}
 @keyframes cSpin{to{transform:rotate(360deg)}}
 .rv{opacity:0}.rv.in{animation:cUp .7s cubic-bezier(.22,.85,.44,1) both}
 
-/* ── nav ── */
-.c-nav{position:absolute;top:0;left:0;right:0;z-index:50;background:transparent;border-bottom:1px solid rgba(255,245,230,.2)}
-.c-nav-in{min-height:62px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:2rem}
-.careers-page .c-brand{font-family:var(--ff-d);font-size:1.32rem;color:#fffaf1;text-shadow:0 2px 16px rgba(10,6,4,.5)}
+/* ── nav · matches the Home screen ── */
+.c-nav{position:absolute;top:0;left:0;right:0;z-index:800;background:transparent;border-bottom:1px solid rgba(122,75,43,.12)}
+.c-nav-in{display:flex;align-items:center;justify-content:space-between;padding:1.15rem 0;gap:1.5rem}
+.careers-page .c-brand{font-family:var(--ff-d);font-size:1.42rem;line-height:1;color:#fffaf1;text-shadow:0 2px 18px rgba(10,6,4,.35)}
 .c-links{display:flex;align-items:center;gap:2rem}
-.careers-page .c-links a,.careers-page .c-nav-cta{font-family:var(--ff-m);font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,250,241,.88);text-shadow:0 2px 14px rgba(10,6,4,.5);transition:color .2s,background .2s,border-color .2s}
-.careers-page .c-links a:hover,.careers-page .c-links a.active{color:#f0a06b}
-.careers-page .c-nav-cta{justify-self:end;padding:.55rem 1rem;color:#fffaf1;background:rgba(17,11,8,.38);border:1px solid rgba(255,250,241,.45);border-radius:999px;backdrop-filter:blur(7px)}
-.careers-page .c-nav-cta:hover{color:#fff;background:rgba(17,11,8,.62);border-color:#fff}
+.careers-page .c-links a{font-family:var(--ff-m);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,250,241,.88);text-shadow:0 2px 14px rgba(10,6,4,.45);transition:color .2s}
+.careers-page .c-links a:hover,.careers-page .c-links a.active{color:#fff}
 
 /* ── hero ── */
 .c-hero{padding:0}
@@ -56,7 +54,7 @@ body{margin:0}
 .c-btn-s:hover{color:var(--rust);border-color:var(--rust)}
 
 /* Full homepage-style interview hero */
-.career-visual{position:relative;isolation:isolate;width:100%;height:min(900px,100svh);min-height:720px;overflow:hidden;background:#281c16}
+.career-visual{position:relative;isolation:isolate;width:100%;height:min(900px,100svh);min-height:700px;overflow:hidden;background:#281c16}
 .career-visual>img{position:absolute;inset:-8px;z-index:0;width:calc(100% + 16px);height:calc(100% + 16px);object-fit:cover;filter:blur(2.75px) saturate(.9) contrast(.96);transform:scale(1.025)}
 .career-visual::after{content:'';position:absolute;inset:0;z-index:1;background:radial-gradient(ellipse 66% 72% at 50% 47%,rgba(15,10,7,.76) 0%,rgba(15,10,7,.58) 42%,rgba(15,10,7,.28) 76%,rgba(15,10,7,.12) 100%),linear-gradient(180deg,rgba(15,10,7,.4),rgba(15,10,7,.2) 48%,rgba(15,10,7,.5));pointer-events:none}
 .career-visual-copy{position:relative;z-index:2;width:min(880px,calc(100% - 2rem));height:100%;margin:0 auto;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:6rem 1rem 10rem;text-align:center;color:#fffaf1;text-shadow:0 3px 24px rgba(10,6,4,.5)}
@@ -71,13 +69,11 @@ body{margin:0}
 .careers-page .career-visual .c-btn-s{color:#fffaf1;background:rgba(17,11,8,.3);border-color:rgba(255,250,241,.62);backdrop-filter:blur(7px)}
 .careers-page .career-visual .c-btn-s:hover{color:#fff;background:rgba(17,11,8,.48);border-color:#fff}
 .career-hiring-wrap{position:absolute;left:50%;bottom:2rem;z-index:3;transform:translateX(-50%)}
-.career-visual .hire{margin:0;color:#fffaf1;background:rgba(17,11,8,.58);border-color:rgba(255,245,230,.28);box-shadow:0 16px 38px rgba(10,6,4,.22);backdrop-filter:blur(10px)}
+.career-visual .hire{width:max-content;max-width:100%;margin:0 auto;padding:.7rem 1rem;gap:.85rem;border-radius:999px;color:#fffaf1;background:rgba(17,11,8,.58);border-color:rgba(255,245,230,.28);box-shadow:0 16px 38px rgba(10,6,4,.22);backdrop-filter:blur(10px)}
 .career-visual .hire-live{color:#efb184}
 .career-visual .hire-live i{background:#f0a06b}
+.career-visual .hire-n{font-size:1.7rem}
 .career-visual .hire-n em{color:rgba(255,250,241,.75)}
-.career-visual .hire-chip{color:#fffaf1;background:rgba(255,250,241,.1);border-color:rgba(255,245,230,.25)}
-.career-visual .hire-chip:hover{border-color:#f0a06b;background:rgba(255,250,241,.16)}
-.career-visual .hire-chip b{color:#efb184}
 
 /* ══ HERO ILLUSTRATION — a pull request ══
    The artifact every engineer reads without explanation:
@@ -217,8 +213,6 @@ body{margin:0}
 .c-foot-in>span{justify-self:end}
 
 @media(max-width:900px){
-  .c-nav-in{grid-template-columns:1fr auto}
-  .c-links{display:none}
   .bgrid{grid-template-columns:1fr 1fr}
   .rswitch{grid-template-columns:1fr}
   .rpanel{min-height:0;position:static}
@@ -230,18 +224,21 @@ body{margin:0}
 }
 @media(max-width:640px){
   .cc{width:min(100% - 2rem,1140px)}
+  .c-nav-in{flex-direction:column;align-items:flex-start;gap:.3rem;padding:.65rem 0}
+  .careers-page .c-brand{font-size:1.18rem;white-space:nowrap}
+  .c-links{gap:1.05rem}
+  .careers-page .c-links a{font-size:.6rem;letter-spacing:.04em}
   .c-hero{padding:0}
   .c-hero h1{font-size:clamp(2.4rem,10vw,3.2rem)}
-  .career-visual{height:auto;min-height:860px}
+  .career-visual{height:auto;min-height:760px}
   .career-visual>img{object-position:58% center}
-  .career-visual-copy{padding:6.5rem .25rem 14rem}
+  .career-visual-copy{padding:8.5rem .25rem 9rem}
   .career-visual-copy h1{font-size:clamp(3rem,14vw,4.2rem)}
   .career-visual-lead{font-size:.9rem;line-height:1.65}
   .career-visual .c-acts{width:min(100%,320px)}
   .career-hiring-wrap{bottom:1rem}
-  .career-visual .hire{padding:.8rem}
-  .career-visual .hire-n{font-size:1.7rem}
-  .career-visual .hire-roles{display:grid;grid-template-columns:1fr;width:100%}
+  .career-visual .hire{padding:.65rem .85rem}
+  .career-visual .hire-n{font-size:1.55rem}
   .c-acts{display:grid}
   .hire{gap:.8rem}
   .hire-roles{margin-left:0;width:100%}
@@ -259,13 +256,13 @@ body{margin:0}
   <nav class="c-nav" aria-label="Main navigation">
     <div class="cc c-nav-in">
       <a class="c-brand" href="/">Nyx Solution</a>
-      <div class="c-links">
-        <a href="/#what-we-do">Agentic AI</a>
-        <a href="/products">Products</a>
-        <a href="/about">About</a>
-        <a class="active" href="/careers">Careers</a>
-      </div>
-      <a class="c-nav-cta" href="/contact">Contact</a>
+      <ul class="c-links">
+        <li><a href="/#what-we-do">Agentic AI</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/products">Products</a></li>
+        <li><a class="active" href="/careers">Careers</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
     </div>
   </nav>
 
@@ -287,11 +284,7 @@ body{margin:0}
           <div class="cc career-hiring-wrap">
             <div class="hire rv in" style="animation-delay:.35s">
               <span class="hire-live"><i></i>Now hiring</span>
-              <span class="hire-n">02<em>open engineering roles</em></span>
-              <span class="hire-roles">
-                <a class="hire-chip" href="#open-roles">Frontend Developer <b>2–3 yrs</b></a>
-                <a class="hire-chip" href="#open-roles">Backend Developer <b>2–3 yrs</b></a>
-              </span>
+              <span class="hire-n">2<em>opening roles</em></span>
             </div>
           </div>
         </figure>

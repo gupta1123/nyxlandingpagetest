@@ -78,12 +78,14 @@ nav.scrolled{padding-top:.6rem;padding-bottom:.6rem}
 
 /* ── HERO ── */
 .ab-hero{padding:3.4rem 0 3rem;position:relative}
-.ab-hero__grid{display:grid;grid-template-columns:1fr 1.14fr;gap:3.4rem;align-items:center}
+.ab-hero__grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.14fr);gap:3.4rem;align-items:center}
 .ab-hero__eyebrow{display:inline-flex;align-items:center;gap:.55rem;margin-bottom:.9rem}
 .eyebrow-dot{width:8px;height:8px;border-radius:50%;background:var(--rust-500);animation:ping 2.2s ease-in-out infinite}
 .ab-hero__h1{font-family:var(--ff-d);font-size:clamp(2.3rem,4.5vw,3.7rem);font-weight:400;line-height:1.08;letter-spacing:-.01em;margin-bottom:1.1rem}
 .ab-hero__h1 em{font-style:italic;color:var(--rust-500)}
 .ab-hero__lead{font-size:1rem;font-weight:300;color:var(--ink-soft);line-height:1.75;max-width:50ch;margin-bottom:1.7rem}
+.ab-hero__illustration{min-width:0;aspect-ratio:3/2;background:transparent}
+.ab-hero__illustration img{display:block;width:100%;height:auto;clip-path:polygon(33.2% 10.9%,91.1% 10.9%,92.4% 12.2%,92.4% 75%,98.3% 84.6%,98.3% 88.3%,97.5% 89.2%,26.5% 89.2%,25.7% 88.3%,25.7% 84.6%,31.8% 75%,31.8% 12.2%);transform:scale(1.18);transform-origin:62% 50%}
 
 .intake{position:relative;min-height:392px}
 .board{position:relative;transform:translateZ(0)}
@@ -439,29 +441,8 @@ footer strong{color:var(--rust-300);font-weight:500}
         </div>
       </div>
 
-      <div class="scene rv in" style="animation-delay:.45s">
-        <div class="intake" id="intake">
-          <div class="slab board">
-            <div class="slab-bar"><b>Nyx operations</b><span class="sub">today · 25 Aug</span><span class="tagi live"><i></i>Live</span></div>
-            <div class="slab-body">
-              <div class="tiles">
-                <div class="tile"><b id="t1">0</b><span>lines read</span></div>
-                <div class="tile hold"><b id="t2">0</b><span>held for a person</span></div>
-                <div class="tile post"><b id="t3">0</b><span>posted</span></div>
-              </div>
-              <div class="feed">
-                <div class="feed-h"><span>Action stream</span><span>3 agents running</span></div>
-                <div class="feed-wrap"><div class="feed-scroll" id="feed"></div></div>
-              </div>
-            </div>
-          </div>
-
-          <div class="stack" id="stack">
-            <div class="paper doc d3" id="dc3"><h6><span>E-way bill</span><span>EWB-4471</span></h6><i></i><i></i><i></i><i></i><i></i><div class="amt">50.000 MT</div></div>
-            <div class="paper doc d2" id="dc2"><h6><span>Goods receipt</span><span>GRN-8841</span></h6><i></i><i></i><i></i><i></i><i></i><div class="amt">48.000 MT</div></div>
-            <div class="paper doc d1" id="dc1"><h6><span>Tax invoice</span><span>PI-88213</span></h6><i></i><i></i><i></i><i></i><i></i><div class="amt">₹18,40,000</div></div>
-          </div>
-        </div>
+      <div class="ab-hero__illustration rv in" style="animation-delay:.45s">
+        <img src="/assets/images/About.png" alt="Nyx AI agent connecting documents and business data with SAP, TallyPrime, ERP, and custom applications" width="1536" height="1024" loading="eager" fetchpriority="high" />
       </div>
     </div>
   </div>
