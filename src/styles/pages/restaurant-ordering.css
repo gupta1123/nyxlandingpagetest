@@ -1,0 +1,47 @@
+  .copy-stack {
+    display: grid;
+    gap: 0.9rem;
+    margin-top: 1rem;
+  }
+
+  .usage-grid {
+    align-items: stretch;
+  }
+
+  .usage-card h3,
+  .feature-card h3 {
+    margin-bottom: 0.5rem;
+    font-size: 1.08rem;
+  }
+
+  .usage-card p,
+  .feature-card p {
+    font-size: 0.96rem;
+    line-height: 1.72;
+  }
+
+  .mini-list {
+    margin-top: 0.9rem;
+    display: grid;
+    gap: 0.55rem;
+    list-style: none;
+    padding: 0;
+  }
+
+  .mini-list li {
+    position: relative;
+    padding-left: 1rem;
+    color: #4e3f37;
+    font-size: 0.9rem;
+  }
+
+  .mini-list li::before {
+    content: '';
+    position: absolute;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    left: 0;
+    top: 0.56rem;
+    background: var(--rust-500);
+  }

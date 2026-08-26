@@ -1,0 +1,642 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import '../styles/pages/briefly-social.css';
+---
+
+<MainLayout title="Briefly Social | Nyx Solution">
+  <nav id="mainnav">
+    <div class="nav-left">
+      <a class="nav-back" href="/products" aria-label="Back to products">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+      </a>
+      <span class="nav-logo">Nyx Solution</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#brand">Brand data</a></li>
+      <li><a href="#templates">Templates</a></li>
+      <li><a href="#ai">AI editing</a></li>
+      <li><a href="#schedule">Schedule</a></li>
+      <li><a href="#campaigns">Campaigns</a></li>
+    </ul>
+  </nav>
+
+  <div class="ticker-wrap" aria-hidden="true">
+    <div class="ticker">
+      <span class="ticker-item">Brand-data grounding</span><span class="ticker-item">Template-based creation</span>
+      <span class="ticker-item">AI-assisted editing</span><span class="ticker-item">Multi-channel scheduling</span>
+      <span class="ticker-item">Campaign visibility</span><span class="ticker-item">Social content ops</span>
+      <span class="ticker-item">Brand-data grounding</span><span class="ticker-item">Template-based creation</span>
+      <span class="ticker-item">AI-assisted editing</span><span class="ticker-item">Multi-channel scheduling</span>
+      <span class="ticker-item">Campaign visibility</span><span class="ticker-item">Social content ops</span>
+    </div>
+  </div>
+
+  <!-- ════ HERO ════ -->
+  <section class="bd-hero">
+    <div class="container">
+      <div class="bd-hero__grid">
+        <div>
+          <div class="bd-hero__eyebrow reveal-up">
+            <span class="eyebrow-dot"></span>
+            <span class="eyebrow-text">Social Content Ops</span>
+          </div>
+          <h1 class="bd-hero__h1 reveal-up" style="animation-delay:.1s">
+            Social content that stays<br/><em>on-brand,</em> moves faster,<br/>and goes live on schedule.
+          </h1>
+          <p class="bd-hero__lead reveal-up" style="animation-delay:.2s">
+            Briefly Social helps marketing teams create posts from real brand data, reuse templates, edit with AI, and schedule publishing — without breaking brand consistency or switching tools.
+          </p>
+          <div class="cta-row reveal-up" style="animation-delay:.3s">
+            <a class="btn ghost" href="#brand">See the Platform</a>
+          </div>
+        </div>
+
+        <div class="bd-hero__demo reveal-fade" style="animation-delay:.45s">
+          <div class="demo-window">
+            <div class="demo-bar">
+              <span class="demo-dot demo-dot-r"></span>
+              <span class="demo-dot demo-dot-y"></span>
+              <span class="demo-dot demo-dot-g"></span>
+              <span class="demo-bar-title">Briefly Social</span>
+              <div class="demo-bar-live"><div class="demo-bar-live-dot"></div>Live</div>
+            </div>
+            <div class="demo-body">
+              <div class="demo-steps-row">
+                <div class="demo-step-pill active" id="hs1">Brand data</div>
+                <div class="demo-step-pill" id="hs2">Template</div>
+                <div class="demo-step-pill" id="hs3">AI edit</div>
+                <div class="demo-step-pill" id="hs4">Schedule</div>
+              </div>
+
+              <!-- Panel 1 -->
+              <div class="demo-panel active" id="hp1">
+                <div class="brand-inputs">
+                  <div class="bi-label">Brand inputs</div>
+                  <div class="bi-row"><span class="bi-key">Product</span><span class="bi-val">Summer Midi Collection</span></div>
+                  <div class="bi-row"><span class="bi-key">Offer</span><span class="bi-val">20% off · 3 days only</span></div>
+                  <div class="bi-row"><span class="bi-key">Audience</span><span class="bi-val">Women 24–38 · fashion</span></div>
+                  <div class="bi-row"><span class="bi-key">Channel</span><span class="bi-val">Instagram + Stories</span></div>
+                </div>
+                <div class="arrow-row">
+                  <svg width="12" height="12" viewBox="0 0 14 14" fill="none"><path d="M7 2v10M3 8l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  Generated from brand context
+                </div>
+                <div class="post-preview" id="heroPp">
+                  <div class="pp-platform"><span class="pp-dot"></span>Instagram</div>
+                  <div class="pp-caption">☀️ Your summer upgrade is here — <span id="heroTypedCaption"></span><span class="tone-val" id="heroCursor" style="animation:blink 1s step-end infinite;font-size:.79rem">|</span></div>
+                  <div class="pp-tags" id="heroPpTags">
+                    <span class="pp-tag">#summerdrops</span>
+                    <span class="pp-tag">#newcollection</span>
+                    <span class="pp-tag">#fashiondeals</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Panel 2 -->
+              <div class="demo-panel" id="hp2">
+                <div class="template-label">Reusable templates</div>
+                <div class="template-tabs">
+                  <div class="tmpl-tab active" id="tlt1">Launch</div>
+                  <div class="tmpl-tab" id="tlt2">Offer</div>
+                  <div class="tmpl-tab" id="tlt3">Seasonal</div>
+                </div>
+                <div class="template-card show" id="heroTmplCard">
+                  <div class="tc-header"><div class="tc-h-dot"></div><span class="tc-h-label" id="heroTmplName">Launch post template</span><span class="tc-h-badge" id="heroTmplBadge">Instagram</span></div>
+                  <div class="tc-body">
+                    <div class="tc-img-ph" id="heroTmplImg">Hero image slot</div>
+                    <div class="tc-line" style="width:85%"></div>
+                    <div class="tc-line" style="width:70%"></div>
+                    <div class="tc-cta-btn"></div>
+                    <div class="tc-metrics"><span class="tc-metric">Avg reach 12k</span><span class="tc-metric">·</span><span class="tc-metric">Used 24×</span></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Panel 3 -->
+              <div class="demo-panel" id="hp3">
+                <div class="ai-edit-header">
+                  <span class="ai-edit-label">AI copy editing</span>
+                  <span class="ai-badge">✦ Rewriting…</span>
+                </div>
+                <div class="edit-before">
+                  <div class="edit-before-lbl">Original draft</div>
+                  <div class="edit-before-text"><span class="strike">Big sale on summer dresses. Buy now and get 20% off.</span></div>
+                </div>
+                <div class="edit-arrow">
+                  <svg width="12" height="12" viewBox="0 0 14 14" fill="none"><path d="M7 2v10M3 8l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  AI · Conversational · Brand-matching
+                </div>
+                <div class="edit-after show" id="heroEditAfter">
+                  <div class="edit-after-lbl">Rewritten ✓</div>
+                  <div class="edit-after-text">Your summer wardrobe upgrade is waiting — <mark class="hl-ac lit" id="heroEditMark">exclusive 20% off across our new midi collection</mark>, this weekend only. ☀️</div>
+                </div>
+                <div class="tone-row">
+                  <span class="tone-label">Tone: conversational</span>
+                  <div class="tone-track"><div class="tone-fill" style="width:68%"></div></div>
+                  <span class="tone-val">68%</span>
+                </div>
+              </div>
+
+              <!-- Panel 4 -->
+              <div class="demo-panel" id="hp4">
+                <div class="sched-header">
+                  <span class="sched-month">May 2025</span>
+                  <span class="sched-count">6 posts scheduled</span>
+                </div>
+                <div class="cal-grid">
+                  <span class="cal-dow">M</span><span class="cal-dow">T</span><span class="cal-dow">W</span><span class="cal-dow">T</span><span class="cal-dow">F</span><span class="cal-dow">S</span><span class="cal-dow">S</span>
+                  <span class="cal-day"></span><span class="cal-day"></span><span class="cal-day p">1</span><span class="cal-day">2</span><span class="cal-day p">3</span><span class="cal-day">4</span><span class="cal-day">5</span>
+                  <span class="cal-day">6</span><span class="cal-day p">7</span><span class="cal-day">8</span><span class="cal-day">9</span><span class="cal-day p">10</span><span class="cal-day">11</span><span class="cal-day">12</span>
+                  <span class="cal-day today">13</span><span class="cal-day">14</span><span class="cal-day">15</span><span class="cal-day p">16</span><span class="cal-day">17</span><span class="cal-day p">18</span><span class="cal-day">19</span>
+                </div>
+                <div class="sched-queue">
+                  <div class="sq-row show" id="sqr1"><span class="sq-time">9:00</span><span class="sq-name">Summer launch carousel</span><span class="sq-st st-live">Live ✓</span></div>
+                  <div class="sq-row show" id="sqr2"><span class="sq-time">12:30</span><span class="sq-name">Offer story · 20% off</span><span class="sq-st st-sched">Scheduled</span></div>
+                  <div class="sq-row show" id="sqr3"><span class="sq-time">18:00</span><span class="sq-name">New arrival reel</span><span class="sq-st st-draft">Draft</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="demo-float demo-float-1 reveal-fade" style="animation-delay:.9s">
+            <svg viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="5.5" stroke="currentColor" stroke-width="1.3"/><path d="M4.5 7l2 2 3-3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Always on-brand
+          </div>
+          <div class="demo-float demo-float-2 reveal-fade" style="animation-delay:1.2s">
+            <svg viewBox="0 0 14 14" fill="none"><path d="M3 7h8M8 4l3 3-3 3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Publish in minutes
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════ STATS ════ -->
+  <div class="stats-strip">
+    <div class="stat-item"><span class="stat-num" data-count="5">0</span><span class="stat-label">workflow stages unified</span></div>
+    <div class="stat-item"><span class="stat-num" data-count="80">0</span><span class="stat-label">% less rewriting from scratch</span></div>
+    <div class="stat-item"><span class="stat-num" data-count="4">0</span><span class="stat-label">channels from one brief</span></div>
+    <div class="stat-item"><span class="stat-num" data-count="3">0</span><span class="stat-label">× faster post production</span></div>
+  </div>
+
+  <!-- ════ PROBLEM ════ -->
+  <section class="bd-problem">
+    <div class="narrow">
+      <div class="bd-problem__card" id="problemCard">
+        <div class="bd-problem-icon">
+          <svg width="52" height="52" viewBox="0 0 48 48" fill="none"><rect x="4" y="6" width="18" height="22" rx="2.5" stroke="currentColor" stroke-width="1.8" stroke-dasharray="4 3"/><rect x="14" y="14" width="18" height="22" rx="2.5" fill="rgba(162,74,42,.06)" stroke="currentColor" stroke-width="1.8" stroke-dasharray="4 3"/><rect x="24" y="22" width="18" height="22" rx="2.5" fill="rgba(162,74,42,.06)" stroke="currentColor" stroke-width="1.8"/><circle cx="38" cy="38" r="7" fill="var(--sand-50)" stroke="currentColor" stroke-width="1.8"/><path d="M35.5 38h5M38 35.5v5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </div>
+        <div class="bd-problem__text">
+          <h2>Most social workflows are fragmented. That's where the inconsistency starts.</h2>
+          <p>Copy lives in one tool, visuals in another, calendars in spreadsheets, approvals in chat, and publishing in separate platform dashboards. That creates delay, inconsistency, and avoidable manual work every single week.</p>
+          <p>Briefly Social brings creation, editing, scheduling, and campaign visibility into one system — so your team can work faster without losing control of brand voice and execution.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════ FEATURE ROWS ════ -->
+  <section class="feat-section">
+    <div class="container">
+
+      <!-- 1: Brand data → post -->
+      <div class="feat-row" id="brand">
+        <div class="feat-copy reveal-up">
+          <span class="eyebrow">Create posts from real brand context</span>
+          <h2 class="sh2">Not a blank page.<br/><em>A grounded starting point.</em></h2>
+          <p>Build content using information that already matters to your brand — product names, campaign offers, launch dates, approved messaging, and channel priorities. Post drafts start from real inputs, not disconnected brainstorms.</p>
+          <ul class="bullet-list">
+            <li>Captions and variants generated from actual brand data</li>
+            <li>Less rewriting from scratch for every platform and launch</li>
+            <li>Brand voice preserved because the inputs are controlled</li>
+            <li>Generate multiple post variants from the same brief</li>
+          </ul>
+        </div>
+        <div class="feat-illu reveal-fade" style="animation-delay:.1s">
+          <div class="illu-panel brand-panel" id="brandPanel">
+            <div class="bp-title">Brand inputs → campaign post</div>
+            <div class="bp-inputs">
+              <div class="bp-inputs-label">Brand inputs</div>
+              <div class="bp-row" id="bpr1"><span class="bp-key">Product</span><span class="bp-val">Summer Midi Collection</span></div>
+              <div class="bp-row" id="bpr2"><span class="bp-key">Offer</span><span class="bp-val">20% off · limited 3 days</span></div>
+              <div class="bp-row" id="bpr3"><span class="bp-key">Audience</span><span class="bp-val">Women 24–38 · fashion-first</span></div>
+              <div class="bp-row" id="bpr4"><span class="bp-key">Tone</span><span class="bp-val">Conversational, warm</span></div>
+              <div class="bp-row" id="bpr5"><span class="bp-key">Channel</span><span class="bp-val">Instagram + Stories</span></div>
+            </div>
+            <div class="bp-arrow">
+              <svg width="12" height="12" viewBox="0 0 14 14" fill="none"><path d="M7 2v10M3 8l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Generated from brand context
+            </div>
+            <div class="bp-post" id="bpPost">
+              <div class="bp-post-head">
+                <div class="bp-post-platform">Instagram — Brand-matched ✓</div>
+                <span class="bp-post-badge">Source verified</span>
+              </div>
+              <div class="bp-caption-text">☀️ Your summer upgrade is here. <span class="hl-warm" id="bpHl1">The Summer Midi Collection</span> just dropped — and for the next 3 days, <span class="hl-warm" id="bpHl2">20% off everything</span>. Scroll, tap, treat yourself.</div>
+              <div class="bp-hashtags">
+                <span class="bp-hashtag">#summercollection</span><span class="bp-hashtag">#newdrop</span><span class="bp-hashtag">#fashionsale</span><span class="bp-hashtag">#styletips</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2: Templates -->
+      <div class="feat-row reverse" id="templates">
+        <div class="feat-copy reveal-up">
+          <span class="eyebrow">Use templates without becoming repetitive</span>
+          <h2 class="sh2">Templates that <em>speed you up</em><br/>without boxing you in.</h2>
+          <p>Templates speed up execution, but they only work when teams can adapt them quickly for different launches, channels, and audiences. Briefly Social makes that practical — structured formats for Instagram, LinkedIn, stories, and more, all adaptable per campaign.</p>
+          <ul class="bullet-list">
+            <li>Reusable layouts for launches, offers, reminders, and seasonal content</li>
+            <li>Faster adaptation across Instagram, LinkedIn, and other channels</li>
+            <li>Consistent structure without losing campaign-specific messaging</li>
+            <li>Templates track performance so you know what's working</li>
+          </ul>
+        </div>
+        <div class="feat-illu reveal-fade" style="animation-delay:.1s">
+          <div class="illu-panel tmpl-panel" id="tmplPanel">
+            <div class="tp-header">
+              <span class="tp-title">Template library</span>
+              <div class="tp-platform-tabs">
+                <div class="tpt active" id="tpt1">Instagram</div>
+                <div class="tpt" id="tpt2">LinkedIn</div>
+                <div class="tpt" id="tpt3">Stories</div>
+              </div>
+            </div>
+            <div class="tp-cards">
+              <div class="tp-card selected" id="tc1">
+                <div class="tp-card-head"><div class="tp-card-dot"></div><span class="tp-card-name">Launch</span></div>
+                <div class="tp-card-body"><div class="tp-card-img">Hero image</div><div class="tp-card-line" style="width:90%"></div><div class="tp-card-line" style="width:70%"></div><div class="tp-card-cta"></div></div>
+              </div>
+              <div class="tp-card" id="tc2">
+                <div class="tp-card-head"><div class="tp-card-dot"></div><span class="tp-card-name">Offer</span></div>
+                <div class="tp-card-body"><div class="tp-card-line" style="width:80%"></div><div class="tp-card-line" style="width:65%"></div><div class="tp-card-img" style="height:28px">Badge</div><div class="tp-card-cta"></div></div>
+              </div>
+              <div class="tp-card" id="tc3">
+                <div class="tp-card-head"><div class="tp-card-dot"></div><span class="tp-card-name">Seasonal</span></div>
+                <div class="tp-card-body"><div class="tp-card-img" style="height:44px">Campaign</div><div class="tp-card-line" style="width:85%"></div><div class="tp-card-cta"></div></div>
+              </div>
+            </div>
+            <div class="tp-adapt-bar">
+              <span class="tp-adapt-label">Templates adapt copy for selected channel automatically</span>
+              <span class="tp-adapt-count" id="tmplAdaptCount">Instagram selected</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3: AI editing -->
+      <div class="feat-row" id="ai">
+        <div class="feat-copy reveal-up">
+          <span class="eyebrow">Edit with AI and keep brand control</span>
+          <h2 class="sh2">AI that improves execution<br/><em>without losing your voice.</em></h2>
+          <p>AI editing is useful when it improves execution without drifting away from brand standards. Briefly Social uses AI as a working layer, not a replacement for judgment — rewrite captions, adapt tone for different audiences, iterate faster while keeping approval in the loop.</p>
+          <ul class="bullet-list">
+            <li>Rewrite captions to fit tone, format, or target audience</li>
+            <li>Adapt creative direction for different platforms and placements</li>
+            <li>Speed up iteration while keeping human approval in the loop</li>
+            <li>Tone and formality controls per brand and channel</li>
+          </ul>
+        </div>
+        <div class="feat-illu reveal-fade" style="animation-delay:.1s">
+          <div class="illu-panel ai-panel" id="aiPanel">
+            <div class="aip-header">
+              <span class="aip-title">AI copy editing — live</span>
+              <div class="aip-live"><div class="aip-live-dot"></div>Processing</div>
+            </div>
+            <div class="aip-before">
+              <div class="aip-before-lbl">
+                <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><rect x="2" y="1" width="8" height="10" rx="1.2" stroke="currentColor" stroke-width="1.1"/><path d="M4 4h4M4 6h3" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>
+                Original draft
+              </div>
+              <div class="aip-before-text"><span class="strike" id="aipStrike">Big sale on summer dresses. Buy now and get 20% off. Limited time only.</span></div>
+            </div>
+            <div class="aip-arrow">
+              <svg width="12" height="12" viewBox="0 0 14 14" fill="none"><path d="M7 2v10M3 8l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              AI · Conversational · Warmth +68% · Brand voice matched
+            </div>
+            <div class="aip-after" id="aipAfter">
+              <div class="aip-after-lbl">
+                <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 6l2.5 2.5L10 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                Rewritten ✓
+              </div>
+              <div class="aip-after-text">Your summer wardrobe upgrade is waiting — <mark class="hl-ac" id="aipMark1">exclusive 20% off across our new midi collection</mark>, this weekend only. Don't sleep on it. ☀️</div>
+            </div>
+            <div class="aip-controls">
+              <div class="aip-ctrl">
+                <div class="aip-ctrl-label">Warmth <span id="aipToneVal">68%</span></div>
+                <div class="aip-track"><div class="aip-fill" id="aipFill1" data-w="68%"></div></div>
+              </div>
+              <div class="aip-ctrl">
+                <div class="aip-ctrl-label">Conciseness <span id="aipConVal">54%</span></div>
+                <div class="aip-track"><div class="aip-fill" id="aipFill2" data-w="54%"></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4: Scheduling -->
+      <div class="feat-row reverse" id="schedule">
+        <div class="feat-copy reveal-up">
+          <span class="eyebrow">Schedule publishing across connected accounts</span>
+          <h2 class="sh2">One calendar.<br/><em>Every channel.</em><br/>No manual posting.</h2>
+          <p>Once social accounts are connected, teams can schedule content from the same workflow where it was created and approved. That removes another handoff and makes publishing calendars easier to manage, trust, and plan around.</p>
+          <ul class="bullet-list">
+            <li>Schedule posting directly to connected social channels</li>
+            <li>Plan weekly and campaign-based publishing calendars</li>
+            <li>Reduce last-minute manual posting work</li>
+            <li>See what's live, scheduled, and in draft at a glance</li>
+          </ul>
+        </div>
+        <div class="feat-illu reveal-fade" style="animation-delay:.1s">
+          <div class="illu-panel sched-panel" id="schedPanel">
+            <div class="sp-header">
+              <span class="sp-title">Publishing calendar · May 2025</span>
+              <div class="sp-live"><div class="sp-live-dot"></div>Synced</div>
+            </div>
+            <div class="sp-cal">
+              <div class="sp-cal-head">
+                <span class="sp-cal-month">May 2025</span>
+                <span class="sp-cal-count" id="schedCount">0 posts scheduled</span>
+              </div>
+              <div class="sp-cal-grid">
+                <span class="sp-dow">M</span><span class="sp-dow">T</span><span class="sp-dow">W</span><span class="sp-dow">T</span><span class="sp-dow">F</span><span class="sp-dow">S</span><span class="sp-dow">S</span>
+                <span class="sp-day"></span><span class="sp-day"></span><span class="sp-day p">1</span><span class="sp-day">2</span><span class="sp-day p">3</span><span class="sp-day">4</span><span class="sp-day">5</span>
+                <span class="sp-day">6</span><span class="sp-day p">7</span><span class="sp-day">8</span><span class="sp-day">9</span><span class="sp-day p">10</span><span class="sp-day">11</span><span class="sp-day">12</span>
+                <span class="sp-day today">13</span><span class="sp-day">14</span><span class="sp-day">15</span><span class="sp-day p">16</span><span class="sp-day">17</span><span class="sp-day p">18</span><span class="sp-day">19</span>
+              </div>
+            </div>
+            <span class="sp-queue-label">Today's queue</span>
+            <div class="sp-queue">
+              <div class="sp-q-row" id="spq1"><span class="sp-q-time">9:00</span><span class="sp-q-channel">Instagram</span><span class="sp-q-name">Summer launch carousel</span><span class="sq-st st-live">Live ✓</span></div>
+              <div class="sp-q-row" id="spq2"><span class="sp-q-time">12:30</span><span class="sp-q-channel">Stories</span><span class="sp-q-name">20% off drop reminder</span><span class="sq-st st-sched">Scheduled</span></div>
+              <div class="sp-q-row" id="spq3"><span class="sp-q-time">18:00</span><span class="sp-q-channel">LinkedIn</span><span class="sp-q-name">Brand story post</span><span class="sq-st st-sched">Scheduled</span></div>
+              <div class="sp-q-row" id="spq4"><span class="sp-q-time">20:00</span><span class="sp-q-channel">Instagram</span><span class="sp-q-name">New arrival reel</span><span class="sq-st st-draft">Draft</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5: Campaign visibility -->
+      <div class="feat-row" id="campaigns">
+        <div class="feat-copy reveal-up">
+          <span class="eyebrow">Run campaigns with clearer visibility</span>
+          <h2 class="sh2">See what's drafted, approved,<br/>scheduled, and <em>live.</em></h2>
+          <p>Campaign work is not only about individual posts. Teams need to know what's drafted, approved, scheduled, live, and still missing. Briefly Social makes campaigns easier to coordinate — one operating view instead of scattered status updates across tools and chats.</p>
+          <ul class="bullet-list">
+            <li>Campaign-level content planning and tracking in one view</li>
+            <li>Visibility into approvals, gaps, and launch readiness</li>
+            <li>No more status-checking in chat or spreadsheets</li>
+            <li>Campaign progress tracked from brief to published</li>
+          </ul>
+        </div>
+        <div class="feat-illu reveal-fade" style="animation-delay:.1s">
+          <div class="illu-panel campaign-panel" id="campaignPanel">
+            <div class="cp-header">
+              <span class="cp-title">Campaign board</span>
+              <span class="cp-campaign-name">Summer Drop · May 2025</span>
+            </div>
+            <div class="kanban">
+              <div class="kb-col kb-draft">
+                <div class="kb-col-head">Draft</div>
+                <div class="kb-card" id="kb1">Stories CTA<div class="kb-card-platform">Instagram</div></div>
+                <div class="kb-card" id="kb2" style="animation-delay:.08s">Founder post<div class="kb-card-platform">LinkedIn</div></div>
+              </div>
+              <div class="kb-col kb-review">
+                <div class="kb-col-head">Review</div>
+                <div class="kb-card" id="kb3">Email teaser<div class="kb-card-platform">Campaign</div></div>
+                <div class="kb-card" id="kb4" style="animation-delay:.08s">Reel script<div class="kb-card-platform">Instagram</div></div>
+              </div>
+              <div class="kb-col kb-approved">
+                <div class="kb-col-head">Approved</div>
+                <div class="kb-card" id="kb5">Hero carousel<div class="kb-card-platform">Instagram</div></div>
+                <div class="kb-card" id="kb6" style="animation-delay:.08s">Offer graphic<div class="kb-card-platform">Stories</div></div>
+              </div>
+              <div class="kb-col kb-live">
+                <div class="kb-col-head">Live ✓</div>
+                <div class="kb-card" id="kb7" style="background:rgba(46,140,79,.06);border-color:rgba(46,140,79,.2)">Launch post<div class="kb-card-platform" style="color:#1c6535">12k reach</div></div>
+              </div>
+            </div>
+            <div class="cp-progress-bar" id="cpProgBar">
+              <div class="cp-prog-label"><span>Campaign completion</span><span id="cpPct">0%</span></div>
+              <div class="cp-prog-track"><div class="cp-prog-fill" id="cpFill"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ════ HOW IT WORKS ════ -->
+  <section class="bd-how">
+    <div class="container">
+      <div class="bd-how__header">
+        <span class="eyebrow">How it works</span>
+        <h2 class="sh2">From brand brief to <em>published post</em> — in one workflow</h2>
+      </div>
+      <div class="bd-how__steps">
+        <div class="bd-step"><div class="bd-step__number">01</div><div class="bd-step__connector"></div><div class="bd-step__card"><h3>Set up your brand context</h3><p>Connect your brand data — products, offer schedule, approved messaging, and tone guidelines.</p></div></div>
+        <div class="bd-step"><div class="bd-step__number">02</div><div class="bd-step__connector"></div><div class="bd-step__card"><h3>Choose a template</h3><p>Pick a content format for your post type — launch, offer, seasonal — for the target channel.</p></div></div>
+        <div class="bd-step"><div class="bd-step__number">03</div><div class="bd-step__connector"></div><div class="bd-step__card"><h3>Generate and edit with AI</h3><p>Draft caption is generated. Use AI tools to refine tone, rewrite, or adapt for different platforms.</p></div></div>
+        <div class="bd-step"><div class="bd-step__number">04</div><div class="bd-step__connector"></div><div class="bd-step__card"><h3>Approve and schedule</h3><p>Move posts through the approval flow and schedule publishing to connected accounts — same tool.</p></div></div>
+        <div class="bd-step"><div class="bd-step__number">05</div><div class="bd-step__card"><h3>Track campaigns as units</h3><p>Manage the full campaign as a structured execution — see what's live, pending, and still needs work.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════ AUDIENCE ════ -->
+  <section class="bd-audience">
+    <div class="container">
+      <div class="bd-audience__grid">
+        <div>
+          <span class="eyebrow">Who it is for</span>
+          <h2 class="sh2">Teams that want <em>stronger control</em><br/>over social without the overhead</h2>
+          <p class="bd-audience__sub">If your team is creating social content across disconnected tools, Briefly Social can bring creation, editing, scheduling, and campaign coordination into one cleaner system.</p>
+          <ul class="bd-audience__list">
+            <li class="bd-audience__item"><span class="bd-audience__check"><svg viewBox="0 0 14 14" fill="none"><path d="M2.5 7l3.5 3.5 5.5-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Consumer brands running regular social campaigns</li>
+            <li class="bd-audience__item" style="animation-delay:.08s"><span class="bd-audience__check"><svg viewBox="0 0 14 14" fill="none"><path d="M2.5 7l3.5 3.5 5.5-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>D2C teams managing launches, offers, and seasonal drops</li>
+            <li class="bd-audience__item" style="animation-delay:.16s"><span class="bd-audience__check"><svg viewBox="0 0 14 14" fill="none"><path d="M2.5 7l3.5 3.5 5.5-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Marketing teams wanting faster content with brand consistency</li>
+            <li class="bd-audience__item" style="animation-delay:.24s"><span class="bd-audience__check"><svg viewBox="0 0 14 14" fill="none"><path d="M2.5 7l3.5 3.5 5.5-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Agencies handling multiple social calendars and approval cycles</li>
+            <li class="bd-audience__item" style="animation-delay:.32s"><span class="bd-audience__check"><svg viewBox="0 0 14 14" fill="none"><path d="M2.5 7l3.5 3.5 5.5-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Brands wanting AI-assisted creation without losing brand voice</li>
+          </ul>
+        </div>
+        <div>
+          <span class="eyebrow">Why teams choose Briefly Social</span>
+          <h2 class="sh2" style="margin-bottom:1.4rem">Operationally cleaner social, from <em>day one</em></h2>
+          <p style="font-size:.97rem;font-weight:300;line-height:1.75;margin-bottom:1rem">Teams that use Briefly Social consistently report fewer handoffs, less rewriting, and stronger brand consistency across channels — because the workflow is structured around brand data from the start, not assembled from scratch each time.</p>
+          <ul class="bullet-list">
+            <li>One system for creation, editing, scheduling, and tracking</li>
+            <li>Templates reduce repetitive work without creating monotony</li>
+            <li>AI editing speeds up iteration without replacing brand judgment</li>
+            <li>Campaign boards give clear visibility without status meetings</li>
+            <li>Scheduling removes last-minute manual posting from the routine</li>
+            <li>Brand voice is protected because inputs are controlled, not improvised</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════ CTA ════ -->
+  <section class="bd-cta" id="cta">
+    <div class="narrow">
+      <div class="bd-cta__card" id="ctaCard">
+        <div class="bd-cta__glow" aria-hidden="true"></div>
+        <span class="eyebrow">Get started</span>
+        <h2>Need a stronger social content workflow for your team?</h2>
+        <p class="bd-cta__sub">If your team is creating social content across disconnected tools, Briefly Social can bring it all into one cleaner system. We will show you how it works with your channels and brand.</p>
+        <div class="cta-row center" style="margin-top:1.8rem">
+          <a class="btn primary" href="/contact">Talk to Nyx Solution</a>
+          <a class="btn ghost" href="/products">See All Products</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer><p>&copy; 2026 <strong>Nyx Solution</strong> · Briefly Social — Social Content Ops</p></footer>
+
+  <script is:inline>
+    /* ── NAV ── */
+    window.addEventListener('scroll',()=>document.getElementById('mainnav')?.classList.toggle('scrolled',scrollY>40),{passive:true});
+
+    /* ── HERO STEP SWITCHER ── */
+    const hPills=['hs1','hs2','hs3','hs4'],hPanels=['hp1','hp2','hp3','hp4'];
+    let hCur=0;
+    function heroStep(idx){
+      hPills.forEach((id,i)=>{const el=document.getElementById(id);if(!el)return;el.classList.remove('active','done');if(i<idx)el.classList.add('done');if(i===idx)el.classList.add('active');});
+      hPanels.forEach((id,i)=>{const el=document.getElementById(id);if(el)el.classList.toggle('active',i===idx);});
+      hCur=idx;
+    }
+    document.querySelectorAll('.demo-step-pill').forEach((p,i)=>p.onclick=()=>heroStep(i));
+    setInterval(()=>heroStep((hCur+1)%4),4200);
+
+    /* hero panel 1: caption typewriter */
+    (()=>{
+      const el=document.getElementById('heroTypedCaption');
+      const cur=document.getElementById('heroCursor');
+      const pp=document.getElementById('heroPp');
+      const tags=document.getElementById('heroPpTags');
+      const phrase='the Summer Midi Collection — 20% off for 3 days only.';
+      if(!el)return;
+      setTimeout(()=>{
+        pp.classList.add('show');
+        let i=0;
+        const iv=setInterval(()=>{
+          el.textContent=phrase.slice(0,++i);
+          if(i>=phrase.length){clearInterval(iv);if(cur)cur.style.display='none';if(tags)tags.classList.add('show');}
+        },28);
+      },600);
+    })();
+
+    /* hero template switcher */
+    const heroTmplData=[
+      {name:'Launch post template',badge:'Instagram',img:'Hero image slot'},
+      {name:'Offer post template',badge:'LinkedIn',img:'Discount banner'},
+      {name:'Seasonal campaign',badge:'Stories',img:'Campaign visual'},
+    ];
+    let htCur=0;
+    function heroTmpl(idx){
+      htCur=idx;
+      ['tlt1','tlt2','tlt3'].forEach((id,i)=>{const el=document.getElementById(id);if(el)el.classList.toggle('active',i===idx);});
+      const d=heroTmplData[idx];
+      const nm=document.getElementById('heroTmplName'),bg=document.getElementById('heroTmplBadge'),img=document.getElementById('heroTmplImg');
+      if(nm)nm.textContent=d.name;if(bg)bg.textContent=d.badge;if(img)img.textContent=d.img;
+    }
+    document.querySelectorAll('.tmpl-tab').forEach((p,i)=>p.onclick=()=>heroTmpl(i));
+    setInterval(()=>heroTmpl((htCur+1)%3),3000);
+
+    /* ── INTERSECTION OBSERVER ── */
+    const seen=new Set();
+    const io=new IntersectionObserver(entries=>{
+      entries.forEach(e=>{
+        if(!e.isIntersecting||seen.has(e.target))return;
+        seen.add(e.target);e.target.classList.add('in-view');
+        const id=e.target.id;
+        if(id==='brandPanel') initBrand();
+        if(id==='tmplPanel') initTmpl();
+        if(id==='aiPanel') initAI();
+        if(id==='schedPanel') initSched();
+        if(id==='campaignPanel') initCampaign();
+        io.unobserve(e.target);
+      });
+    },{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+
+    document.querySelectorAll(
+      '.bd-step,.bd-audience__item,#brandPanel,#tmplPanel,#aiPanel,#schedPanel,#campaignPanel,#problemCard,#ctaCard'
+    ).forEach(el=>io.observe(el));
+
+    /* count-up */
+    const cio=new IntersectionObserver(entries=>{
+      entries.forEach(e=>{
+        if(!e.isIntersecting)return;
+        const el=e.target,tgt=+el.dataset.count,t0=performance.now();
+        const tick=now=>{const p=Math.min((now-t0)/1400,1);el.textContent=Math.round((1-Math.pow(1-p,3))*tgt);if(p<1)requestAnimationFrame(tick);};
+        requestAnimationFrame(tick);cio.unobserve(el);
+      });
+    },{threshold:.5});
+    document.querySelectorAll('[data-count]').forEach(el=>cio.observe(el));
+
+    /* ── BRAND PANEL ── */
+    function initBrand(){
+      ['bpr1','bpr2','bpr3','bpr4','bpr5'].forEach((id,i)=>{
+        const el=document.getElementById(id);if(el)setTimeout(()=>el.classList.add('show'),i*140+150);
+      });
+      setTimeout(()=>{
+        const post=document.getElementById('bpPost');if(post)post.classList.add('show');
+        setTimeout(()=>['bpHl1','bpHl2'].forEach((id,i)=>setTimeout(()=>{const el=document.getElementById(id);if(el)el.classList.add('lit');},i*400)),300);
+      },1000);
+    }
+
+    /* ── TEMPLATE PANEL ── */
+    let tmplPlatform=0;
+    function switchTmpl(idx){
+      tmplPlatform=idx;
+      ['tpt1','tpt2','tpt3'].forEach((id,i)=>{const el=document.getElementById(id);if(el)el.classList.toggle('active',i===idx);});
+      ['tc1','tc2','tc3'].forEach((id,i)=>{const el=document.getElementById(id);if(el)el.classList.toggle('selected',i===idx%3);});
+      const labels=['Instagram selected','LinkedIn selected','Stories selected'];
+      const el=document.getElementById('tmplAdaptCount');if(el)el.textContent=labels[idx];
+    }
+    document.querySelectorAll('.tpt').forEach((p,i)=>p.onclick=()=>switchTmpl(i));
+    function initTmpl(){
+      ['tc1','tc2','tc3'].forEach((id,i)=>{const el=document.getElementById(id);if(el)setTimeout(()=>el.classList.add('show'),i*150+100);});
+      setInterval(()=>switchTmpl((tmplPlatform+1)%3),2800);
+    }
+
+    /* ── AI PANEL ── */
+    function initAI(){
+      setTimeout(()=>{
+        const after=document.getElementById('aipAfter');if(after)after.classList.add('show');
+        setTimeout(()=>{const m=document.getElementById('aipMark1');if(m)m.classList.add('lit');},450);
+      },900);
+      setTimeout(()=>{
+        ['aipFill1','aipFill2'].forEach(id=>{const el=document.getElementById(id);if(el)el.style.width=el.dataset.w;});
+      },600);
+    }
+
+    /* ── SCHED PANEL ── */
+    function initSched(){
+      const count=document.getElementById('schedCount');
+      ['spq1','spq2','spq3','spq4'].forEach((id,i)=>{
+        setTimeout(()=>{
+          const el=document.getElementById(id);if(el)el.classList.add('show');
+          if(count)count.textContent=(i+1)+' post'+(i>0?'s':'')+' scheduled';
+        },i*220+300);
+      });
+    }
+
+    /* ── CAMPAIGN PANEL ── */
+    function initCampaign(){
+      ['kb1','kb2','kb3','kb4','kb5','kb6','kb7'].forEach((id,i)=>{
+        const el=document.getElementById(id);if(el)setTimeout(()=>el.classList.add('show'),i*100+100);
+      });
+      setTimeout(()=>{
+        const bar=document.getElementById('cpProgBar'),fill=document.getElementById('cpFill'),pct=document.getElementById('cpPct');
+        if(bar)bar.style.opacity='1';
+        if(fill){fill.style.transition='width 1.6s cubic-bezier(.22,.85,.44,1)';fill.style.width='57%';}
+        if(pct){let v=0;const t=setInterval(()=>{v=Math.min(v+2,57);pct.textContent=v+'%';if(v>=57)clearInterval(t);},35);}
+      },900);
+    }
+  </script>
+</MainLayout>

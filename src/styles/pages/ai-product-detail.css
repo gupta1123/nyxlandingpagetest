@@ -1,0 +1,117 @@
+.ai-product-page .inner-hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding-block: clamp(4.5rem, 9vw, 8rem);
+  border-bottom: 1px solid rgba(216, 200, 179, 0.7);
+}
+
+.ai-product-page .inner-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background:
+    linear-gradient(110deg, rgba(253, 248, 239, 0.98) 12%, rgba(253, 248, 239, 0.88) 58%, rgba(253, 248, 239, 0.62)),
+    url('/assets/hero/hero-image.png') center / cover no-repeat;
+}
+
+.ai-product-page .inner-hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image:
+    linear-gradient(rgba(162, 74, 42, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(162, 74, 42, 0.06) 1px, transparent 1px);
+  background-size: 46px 46px;
+  mask-image: linear-gradient(90deg, #000, transparent 76%);
+}
+
+.ai-product-page .inner-hero h1 {
+  max-width: 18ch;
+  text-wrap: balance;
+}
+
+.ai-product-page .inner-hero .lead {
+  max-width: 66ch;
+}
+
+.ai-product-page .copy-stack {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1.25rem;
+}
+
+.ai-product-page .usage-grid,
+.ai-product-page .grid-2 {
+  gap: 1.1rem;
+}
+
+.ai-product-page .usage-card,
+.ai-product-page .feature-card {
+  min-height: 100%;
+  padding: clamp(1.2rem, 2.4vw, 1.7rem);
+}
+
+.ai-product-page .usage-card h3,
+.ai-product-page .feature-card h3 {
+  color: var(--charcoal);
+}
+
+.ai-product-page .mini-list {
+  display: grid;
+  gap: 0.55rem;
+  margin-top: 1rem;
+}
+
+.ai-product-page .mini-list li {
+  position: relative;
+  padding-left: 1rem;
+  color: #5f5148;
+  font-size: 0.9rem;
+}
+
+.ai-product-page .mini-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.68em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--rust-500);
+}
+
+.ai-product-page .cta {
+  background: linear-gradient(145deg, rgba(50, 31, 24, 0.98), rgba(84, 47, 33, 0.96));
+  color: #fff4e3;
+  text-align: center;
+}
+
+.ai-product-page .cta h2 {
+  margin-inline: auto;
+}
+
+.ai-product-page .cta p {
+  color: #dcc1aa;
+  margin-inline: auto;
+}
+
+.ai-product-page .cta .btn.ghost {
+  color: #fff4e3;
+  border-color: rgba(255, 244, 227, 0.42);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+@media (max-width: 720px) {
+  .ai-product-page .inner-hero::before {
+    background:
+      linear-gradient(rgba(253, 248, 239, 0.91), rgba(253, 248, 239, 0.96)),
+      url('/assets/hero/hero-image.png') 66% center / cover no-repeat;
+  }
+
+  .ai-product-page .inner-hero {
+    padding-block: 3.6rem;
+  }
+}

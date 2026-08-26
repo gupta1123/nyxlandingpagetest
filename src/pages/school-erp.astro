@@ -1,0 +1,938 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import '../styles/pages/school-erp.css';
+---
+
+<MainLayout title="School ERP | Nyx Solution" description="Role-based school ERP for principals, teachers, admins, and parents with communication and classroom workflows.">
+  <div class="school-erp-page">
+    <!-- NAV -->
+    <nav id="mainnav">
+      <div class="container">
+        <div class="nav-inner">
+          <div style="display: flex; align-items: center; gap: 0.8rem;">
+            <a href="/products" class="back-link" title="Back to Products" style="display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 50%; background: rgba(162, 74, 42, 0.08); color: var(--rust); transition: all 0.2s ease;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+            </a>
+            <a href="/" class="brand">Nyx Solution</a>
+          </div>
+          <ul class="nav-links">
+            <li><a href="#roles">Roles</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#usage">Who uses it</a></li>
+            <li><a href="#fit">Is it for you?</a></li>
+          </ul>
+          <div class="nav-right">
+            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle Menu">
+              <span class="bar"></span>
+              <span class="bar"></span>
+            </button>
+          </div>
+
+        </div>
+      </div>
+    </nav>
+
+    <!-- TICKER -->
+    <div class="ticker-wrap" aria-hidden="true">
+      <div class="ticker-inner">
+        <span class="ti">Role-based access</span>
+        <span class="ti">Attendance tracking</span>
+        <span class="ti">Parent communication</span>
+        <span class="ti">Homework management</span>
+        <span class="ti">Leave workflows</span>
+        <span class="ti">Principal oversight</span>
+        <span class="ti">Multi-child dashboards</span>
+        <span class="ti">Teacher-parent chat</span>
+        <span class="ti">Role-based access</span>
+        <span class="ti">Attendance tracking</span>
+        <span class="ti">Parent communication</span>
+        <span class="ti">Homework management</span>
+        <span class="ti">Leave workflows</span>
+        <span class="ti">Principal oversight</span>
+        <span class="ti">Multi-child dashboards</span>
+        <span class="ti">Teacher-parent chat</span>
+        <span class="ti">Role-based access</span>
+        <span class="ti">Attendance tracking</span>
+        <span class="ti">Parent communication</span>
+        <span class="ti">Homework management</span>
+        <span class="ti">Leave workflows</span>
+        <span class="ti">Principal oversight</span>
+        <span class="ti">Multi-child dashboards</span>
+        <span class="ti">Teacher-parent chat</span>
+        <span class="ti">Role-based access</span>
+        <span class="ti">Attendance tracking</span>
+        <span class="ti">Parent communication</span>
+        <span class="ti">Homework management</span>
+        <span class="ti">Leave workflows</span>
+        <span class="ti">Principal oversight</span>
+        <span class="ti">Multi-child dashboards</span>
+        <span class="ti">Teacher-parent chat</span>
+      </div>
+    </div>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-grid">
+
+          <div>
+            <div class="hero-eyebrow ru">
+              <span class="ey-dot"></span>
+              <span class="ey-text">Education Product</span>
+            </div>
+            <h1 class="hero-h1 ru" style="animation-delay:.1s">School operations and<br>parent communication<br>in one <em>role-based</em> system</h1>
+            <p class="hero-lead ru" style="animation-delay:.2s">A practical school platform where teaching workflows, leadership visibility, and parent updates stay connected — without the WhatsApp chaos.</p>
+            <div class="cta-row ru" style="animation-delay:.3s">
+              <a class="btn-g" href="#roles">See How It Works</a>
+            </div>
+          </div>
+
+          <!-- HERO RIGHT: ROLE SWITCHER WINDOW -->
+          <div class="rf" style="animation-delay:.45s;position:relative">
+            <div class="role-window">
+              <div class="rw-bar">
+                <span class="rw-dot rwd-r"></span>
+                <span class="rw-dot rwd-y"></span>
+                <span class="rw-dot rwd-g"></span>
+                <span class="rw-title">School ERP — Role Dashboard</span>
+              </div>
+              <div class="role-tabs" id="roleTabs">
+                <div class="role-tab active" data-role="principal" id="tab-principal">
+                  <span class="role-emoji">👩💼</span>Principal
+                </div>
+                <div class="role-tab" data-role="teacher" id="tab-teacher">
+                  <span class="role-emoji">👩🏫</span>Teacher
+                </div>
+                <div class="role-tab" data-role="parent" id="tab-parent">
+                  <span class="role-emoji">👨👧</span>Parent
+                </div>
+              </div>
+              <div class="role-views">
+                <!-- PRINCIPAL VIEW -->
+                <div class="role-view active" id="view-principal">
+                  <div class="pv-stats">
+                    <div class="pv-stat">
+                      <div class="pv-stat-n" data-target="1240">0</div>
+                      <div class="pv-stat-l">Students</div>
+                    </div>
+                    <div class="pv-stat">
+                      <div class="pv-stat-n" data-target="68">0</div>
+                      <div class="pv-stat-l">Teachers</div>
+                    </div>
+                    <div class="pv-stat">
+                      <div class="pv-stat-n" data-target="94">0</div>
+                      <div class="pv-stat-l">% Attendance</div>
+                    </div>
+                  </div>
+                  <div class="pv-alerts" id="pvAlerts">
+                    <div class="pv-alert" id="pa1">
+                      <div class="pv-alert-dot" style="background:rgba(46,140,79,.6)"></div>
+                      <span>Class 8A attendance marked — 42/44 present</span>
+                    </div>
+                    <div class="pv-alert" id="pa2">
+                      <div class="pv-alert-dot" style="background:rgba(192,120,32,.6)"></div>
+                      <span>3 leave requests pending approval</span>
+                    </div>
+                    <div class="pv-alert" id="pa3">
+                      <div class="pv-alert-dot" style="background:rgba(60,90,140,.6)"></div>
+                      <span>Parent-teacher chat response rate: 91%</span>
+                    </div>
+                    <div class="pv-alert" id="pa4">
+                      <div class="pv-alert-dot" style="background:rgba(162,74,42,.6)"></div>
+                      <span>Annual Day notice sent to 1,240 parents</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- TEACHER VIEW -->
+                <div class="role-view" id="view-teacher">
+                  <div class="cp-header" style="margin-bottom:.6rem">
+                    <span class="cp-title">Class 8A — Today's Ops</span>
+                    <span class="cp-date" id="todayDate"></span>
+                  </div>
+                  <div class="tv-grid" id="tvGrid"><!-- JS --></div>
+                  <div class="att-summary" style="margin-bottom:.65rem">
+                    <div class="att-sum-card"><div class="att-sum-n" style="color:var(--green)">38</div><div class="att-sum-l">Present</div></div>
+                    <div class="att-sum-card"><div class="att-sum-n" style="color:var(--rust)">4</div><div class="att-sum-l">Absent</div></div>
+                    <div class="att-sum-card"><div class="att-sum-n">2</div><div class="att-sum-l">Leave</div></div>
+                  </div>
+                  <div class="hw-section">
+                    <div class="hw-label">Homework — Class 8A</div>
+                    <div class="hw-item" id="hw1"><span>Maths Ch. 7 — Ex 3, 4</span><span class="hw-tag tag-done">Submitted 36</span></div>
+                    <div class="hw-item" id="hw2"><span>Science diagrams — Cell biology</span><span class="hw-tag tag-pending">8 pending</span></div>
+                    <div class="hw-item" id="hw3"><span>English — Grammar worksheet</span><span class="hw-tag tag-done">All done</span></div>
+                  </div>
+                </div>
+
+                <!-- PARENT VIEW -->
+                <div class="role-view" id="view-parent">
+                  <div class="parv-switch">
+                    <div class="parv-child-btn active" id="p-child-0">👧 Aarav</div>
+                    <div class="parv-child-btn" id="p-child-1">👦 Shreya</div>
+                  </div>
+                  <div class="parv-info" id="childInfo">
+                    <div class="parv-card">
+                      <div class="parv-card-label">Attendance</div>
+                      <div class="parv-card-val" id="childAtt">94% this month</div>
+                    </div>
+                    <div class="parv-card">
+                      <div class="parv-card-label">Homework</div>
+                      <div class="parv-card-val" id="childHw">2 pending</div>
+                    </div>
+                    <div class="parv-card">
+                      <div class="parv-card-label">Class</div>
+                      <div class="parv-card-val" id="childClass">8A · Roll 14</div>
+                    </div>
+                    <div class="parv-card">
+                      <div class="parv-card-label">Teacher</div>
+                      <div class="parv-card-val" id="childTeacher">Ms. Priya S.</div>
+                    </div>
+                  </div>
+                  <div class="parv-chat">
+                    <div class="parv-chat-label">Recent message</div>
+                    <div class="ct-bubble t show">
+                      <div class="ct-av" style="background:rgba(162,74,42,.1);color:var(--rust)">PS</div>
+                      <div class="ct-text">Aarav's science project is due Friday. Please ensure he brings the chart.</div>
+                      <div class="ct-time">2:14pm</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="hero-float hf1 rf" style="animation-delay:.9s">
+              <svg viewBox="0 0 14 14" fill="none"><path d="M7 1C4.8 1 3 2.8 3 5c0 3 4 8 4 8s4-5 4-8c0-2.2-1.8-4-4-4z" stroke="currentColor" stroke-width="1.3"/></svg>
+              4 roles, one platform
+            </div>
+            <div class="hero-float hf2 rf" style="animation-delay:1.2s">
+              <svg viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="5.5" stroke="currentColor" stroke-width="1.3"/><path d="M4.5 7l2 2 3-3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              No WhatsApp groups needed
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- STATS -->
+    <div class="stats-bar">
+      <div class="stat-cell"><span class="stat-n" data-count="4">0</span><span class="stat-l">User roles in one platform</span></div>
+      <div class="stat-cell"><span class="stat-n" data-count="1240">0</span><span class="stat-l">Students managed</span></div>
+      <div class="stat-cell"><span class="stat-n" data-count="94">0</span><span class="stat-l">% avg attendance tracked</span></div>
+      <div class="stat-cell"><span class="stat-n" data-count="0">0</span><span class="stat-l">WhatsApp groups needed</span></div>
+    </div>
+
+    <!-- OVERVIEW DARK -->
+    <section class="overview">
+      <div class="container">
+        <div class="overview-inner">
+          <div class="ov-left">
+            <span style="font-family:var(--ff-m);font-size:.63rem;font-weight:700;letter-spacing:.17em;text-transform:uppercase;color:#d4906a;background:rgba(162,74,42,.18);border:1px solid rgba(162,74,42,.28);border-radius:999px;padding:.28rem .76rem;display:inline-block">Overview</span>
+            <h2 class="sh2" style="color:#f0e0ca;max-width:none;margin-top:.9rem">One platform. <em>Four roles.</em><br>Everything connected.</h2>
+            <p>School ERP is a role-based school operations and communication platform with access paths for Admin, Principal, Teacher, and Parent users.</p>
+            <p>It connects classroom workflows and parent communication so student updates, tasks, attendance, and announcements stay synchronized — without fragmented tools or WhatsApp chains.</p>
+          </div>
+          <div id="archVis">
+            <div class="arch-hub" id="archHub">🏫 &nbsp; School ERP Platform</div>
+            <div class="arch-connector"><div class="arch-connector-line" id="archLine"></div></div>
+            <div class="arch-roles">
+              <div class="arch-role" id="ar1"><span class="arch-role-emoji">👩💼</span><span class="arch-role-name">Principal</span></div>
+              <div class="arch-role" id="ar2"><span class="arch-role-emoji">🧑💻</span><span class="arch-role-name">Admin</span></div>
+              <div class="arch-role" id="ar3"><span class="arch-role-emoji">👩🏫</span><span class="arch-role-name">Teacher</span></div>
+              <div class="arch-role" id="ar4"><span class="arch-role-emoji">👨👧</span><span class="arch-role-name">Parent</span></div>
+            </div>
+            <div class="arch-perm-bars" style="margin-top:.65rem">
+              <div class="arch-perm">
+                <div class="arch-perm-label">Full access</div>
+                <div class="arch-perm-bar"><div class="arch-perm-fill" id="ab1" style="background:rgba(46,140,79,.6)" data-w="100%"></div></div>
+                <div class="arch-perm-val">100%</div>
+              </div>
+              <div class="arch-perm">
+                <div class="arch-perm-label">Ops control</div>
+                <div class="arch-perm-bar"><div class="arch-perm-fill" id="ab2" style="background:rgba(60,90,140,.5)" data-w="85%"></div></div>
+                <div class="arch-perm-val">85%</div>
+              </div>
+              <div class="arch-perm">
+                <div class="arch-perm-label">Class scope</div>
+                <div class="arch-perm-bar"><div class="arch-perm-fill" id="ab3" style="background:rgba(162,74,42,.5)" data-w="60%"></div></div>
+                <div class="arch-perm-val">60%</div>
+              </div>
+              <div class="arch-perm">
+                <div class="arch-perm-label">Child view</div>
+                <div class="arch-perm-bar"><div class="arch-perm-fill" id="ab4" style="background:rgba(107,60,140,.5)" data-w="35%"></div></div>
+                <div class="arch-perm-val">35%</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURE ROWS -->
+    <section class="feat-section" id="roles">
+      <div class="container">
+
+        <!-- 1: Role-based access → PERMISSION MATRIX -->
+        <div class="feat-row">
+          <div class="fcp ru">
+            <span class="eyebrow">Role-based access architecture</span>
+            <h2 class="sh2">Different roles.<br><em>Different views.</em><br>One platform.</h2>
+            <p>Every user sees only what they need. Principal and Admin have broader control while Teachers and Parents operate within their relevant scope — no information overload, no missed context.</p>
+            <ul class="bl">
+              <li>Principal sees all modules, all classes, all activity</li>
+              <li>Admin controls school-wide setup and communication flow</li>
+              <li>Teachers operate within their assigned classes</li>
+              <li>Parents see only their children's data</li>
+            </ul>
+          </div>
+          <div class="fil rf" style="animation-delay:.1s">
+            <div class="illu perm-panel" id="permPanel">
+              <div class="pp-title">Permission matrix — who accesses what</div>
+              <table class="perm-table">
+                <thead>
+                  <tr>
+                    <th>Module</th>
+                    <th>Principal</th>
+                    <th>Admin</th>
+                    <th>Teacher</th>
+                    <th>Parent</th>
+                  </tr>
+                </thead>
+                <tbody id="permBody">
+                  <!-- JS fills this -->
+                </tbody>
+              </table>
+              <div class="perm-legend">
+                <div class="perm-leg"><div class="perm-leg-dot" style="background:rgba(46,140,79,.2);border:2px solid rgba(46,140,79,.5)"></div>Full access</div>
+                <div class="perm-leg"><div class="perm-leg-dot" style="background:rgba(192,120,32,.15);border:2px solid rgba(192,120,32,.45)"></div>Partial</div>
+                <div class="perm-leg"><div class="perm-leg-dot" style="background:rgba(162,74,42,.08);border:2px solid rgba(162,74,42,.2)"></div>No access</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2: Teacher ops → ATTENDANCE + HOMEWORK -->
+        <div class="feat-row rv">
+          <div class="fcp ru">
+            <span class="eyebrow">Daily classroom operations</span>
+            <h2 class="sh2">Every classroom task<br>in one <em>teacher workflow</em></h2>
+            <p>Attendance, homework, class notes, and announcements live in one consistent daily flow. Teachers don't need to switch between systems or chase parents on WhatsApp to communicate updates.</p>
+            <ul class="bl">
+              <li>Mark attendance with one tap per student</li>
+              <li>Assign homework and track submission status</li>
+              <li>Post class announcements visible to all parents</li>
+              <li>Manage leave requests without email chains</li>
+            </ul>
+          </div>
+          <div class="fil rf" style="animation-delay:.1s">
+            <div class="illu class-panel" id="classPanel">
+              <div class="cp-header">
+                <span class="cp-title">Class 9B — Monday Operations</span>
+                <span class="cp-date">Mon, 21 Apr 2025</span>
+              </div>
+              <div style="font-family:var(--ff-m);font-size:.6rem;color:var(--ink-lt);margin-bottom:.3rem;text-transform:uppercase;letter-spacing:.08em">Attendance · 36 students</div>
+              <div class="att-grid" id="attGrid"><!-- JS --></div>
+              <div class="att-summary" style="margin-bottom:.65rem">
+                <div class="att-sum-card"><div class="att-sum-n" style="color:var(--green)">32</div><div class="att-sum-l">Present</div></div>
+                <div class="att-sum-card"><div class="att-sum-n" style="color:var(--rust)">3</div><div class="att-sum-l">Absent</div></div>
+                <div class="att-sum-card"><div class="att-sum-n" style="color:var(--amber)">1</div><div class="att-sum-l">Leave</div></div>
+              </div>
+              <div class="hw-section">
+                <div class="hw-label">Today's homework</div>
+                <div class="hw-item" id="chw1"><span>Maths — Ch 8, Ex 2 (Q1–5)</span><span class="hw-tag tag-done">Assigned ✓</span></div>
+                <div class="hw-item" id="chw2"><span>Science — Lab report write-up</span><span class="hw-tag tag-pending">Due Friday</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3: Parent communication → CHAT THREAD -->
+        <div class="feat-row">
+          <div class="fcp ru">
+            <span class="eyebrow">Parent-school communication</span>
+            <h2 class="sh2">Families stay connected.<br><em>Without the noise.</em></h2>
+            <p>Give families a clear, continuous window into student progress and class updates — through an organized platform, not a 500-message WhatsApp group. Every message is contextual and visible to the right people.</p>
+            <ul class="bl">
+              <li>Direct teacher-parent messaging per child</li>
+              <li>Class-wide announcements and event notices</li>
+              <li>Homework updates automatically visible to parents</li>
+              <li>Attendance reports accessible anytime</li>
+            </ul>
+          </div>
+          <div class="fil rf" style="animation-delay:.1s">
+            <div class="illu chat-panel" id="chatPanel">
+              <div class="cp-chat-header">
+                <div class="cp-chat-avatar" style="background:rgba(162,74,42,.1);color:var(--rust)">PS</div>
+                <div>
+                  <div class="cp-chat-name">Ms. Priya Sharma</div>
+                  <div class="cp-chat-role">Class Teacher · 9B</div>
+                </div>
+                <div class="cp-chat-live"><div class="cp-chat-live-dot"></div>Active now</div>
+              </div>
+              <div class="chat-thread" id="chatThread">
+                <!-- JS fills bubbles -->
+              </div>
+              <div class="ct-notif" id="chatNotif">
+                <span>📋</span>
+                <span>Class test scheduled — Friday, 25 Apr · Science Ch. 5 &amp; 6</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4: Child-first parent UX → CHILD SWITCHER -->
+        <div class="feat-row rv">
+          <div class="fcp ru">
+            <span class="eyebrow">Child-first parent experience</span>
+            <h2 class="sh2">Two children.<br>One dashboard.<br><em>No confusion.</em></h2>
+            <p>Parents with more than one child can switch between profiles instantly and see each child's attendance, homework, and messages without losing context — everything updates for the selected child.</p>
+            <ul class="bl">
+              <li>Switch between children with one tap</li>
+              <li>Attendance, homework, and messages update per child</li>
+              <li>Submit leave requests for the selected child</li>
+              <li>View birthday notifications and school events</li>
+            </ul>
+          </div>
+          <div class="fil rf" style="animation-delay:.1s">
+            <div class="illu child-panel" id="childPanel">
+              <div class="child-tabs">
+                <div class="child-tab active" id="ctab0">
+                  <span class="child-tab-emoji">👧</span>
+                  <span class="child-tab-name">Aarav · 9B</span>
+                </div>
+                <div class="child-tab" id="ctab1">
+                  <span class="child-tab-emoji">👦</span>
+                  <span class="child-tab-name">Shreya · 6A</span>
+                </div>
+              </div>
+              <div class="child-data" id="childData">
+                <div class="child-stat-row">
+                  <div class="child-stat"><div class="child-stat-n" id="cds-att">94%</div><div class="child-stat-l">Attendance</div></div>
+                  <div class="child-stat"><div class="child-stat-n" id="cds-hw">2</div><div class="child-stat-l">Pending HW</div></div>
+                  <div class="child-stat"><div class="child-stat-n" id="cds-msg">1</div><div class="child-stat-l">New msg</div></div>
+                </div>
+                <div class="child-hw-list">
+                  <div class="child-hw-item" id="cdh1"><span>Maths — Ch 8 Ex 2</span><span class="hw-tag tag-pending">Pending</span></div>
+                  <div class="child-hw-item" id="cdh2"><span>Science — Lab report</span><span class="hw-tag tag-done">Done ✓</span></div>
+                </div>
+                <div class="child-leave-form">
+                  <div class="clf-icon">📄</div>
+                  <div class="clf-text"><strong id="clf-name">Aarav</strong> — Leave request for 24 Apr</div>
+                  <div class="clf-btn">Submit</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5: Admin transparency → ADMIN DASHBOARD -->
+        <div class="feat-row">
+          <div class="fcp ru">
+            <span class="eyebrow">Operational transparency</span>
+            <h2 class="sh2">Leadership sees<br>everything. <em>In real time.</em></h2>
+            <p>Principals and admins get live visibility into how classes and communication are running — attendance rates, pending leave requests, homework coverage, and parent engagement — without asking anyone for a report.</p>
+            <ul class="bl">
+              <li>School-wide attendance and class status at a glance</li>
+              <li>Pending leave approvals with full context</li>
+              <li>Teacher-parent communication health metrics</li>
+              <li>Homework coverage across classes and grades</li>
+            </ul>
+          </div>
+          <div class="fil rf" style="animation-delay:.1s">
+            <div class="illu admin-panel" id="adminPanel">
+              <div class="ap-header">
+                <span class="ap-title">Principal Dashboard — Live</span>
+                <div class="ap-live"><div class="ap-live-dot"></div>Realtime</div>
+              </div>
+              <div class="ap-grid">
+                <div class="ap-card"><div class="ap-card-n" id="apn1">0</div><div class="ap-card-l">Students</div></div>
+                <div class="ap-card"><div class="ap-card-n" id="apn2">0</div><div class="ap-card-l">Teachers active</div></div>
+              </div>
+              <div class="ap-bar-row" id="apBars">
+                <div class="ap-bar-item"><span class="ap-bar-label">Attendance</span><div class="ap-bar-track"><div class="ap-bar-fill" id="apb1" data-w="94%"></div></div><span class="ap-bar-pct">94%</span></div>
+                <div class="ap-bar-item"><span class="ap-bar-label">HW coverage</span><div class="ap-bar-track"><div class="ap-bar-fill" id="apb2" data-w="88%"></div></div><span class="ap-bar-pct">88%</span></div>
+                <div class="ap-bar-item"><span class="ap-bar-label">Parent comm.</span><div class="ap-bar-track"><div class="ap-bar-fill" id="apb3" data-w="91%"></div></div><span class="ap-bar-pct">91%</span></div>
+              </div>
+              <div class="ap-notif-row">
+                <div class="ap-notif" id="an1"><div class="ap-notif-dot" style="background:rgba(46,140,79,.6)"></div><span>32 of 34 classes have marked attendance</span></div>
+                <div class="ap-notif" id="an2"><div class="ap-notif-dot" style="background:rgba(192,120,32,.6)"></div><span>5 leave requests awaiting approval</span></div>
+                <div class="ap-notif" id="an3"><div class="ap-notif-dot" style="background:rgba(60,90,140,.6)"></div><span>Annual Day circular sent to 1,240 parents</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6: Leave flows → LEAVE APPROVAL PIPELINE -->
+        <div class="feat-row rv">
+          <div class="fcp ru">
+            <span class="eyebrow">Integrated leave and notice flows</span>
+            <h2 class="sh2">Leave requests.<br>No email.<br><em>No WhatsApp.</em></h2>
+            <p>Handle leave requests and institutional notices inside the same platform instead of fragmented channels. Parents submit, teachers review, principal approves — with a full audit trail and no paper forms.</p>
+            <ul class="bl">
+              <li>Parents submit leave applications from the dashboard</li>
+              <li>Teacher receives and reviews with class context</li>
+              <li>Principal approves or routes with one action</li>
+              <li>Full leave history per student, always accessible</li>
+            </ul>
+          </div>
+          <div class="fil rf" style="animation-delay:.1s">
+            <div class="illu leave-panel" id="leavePanel">
+              <div class="lp-title">Leave request flow — live example</div>
+              <div class="leave-stages">
+                <div class="leave-stage active" id="ls1">
+                  <span class="leave-stage-icon">📝</span>
+                  <span class="leave-stage-label">Submitted</span>
+                </div>
+                <div class="leave-arrow">›</div>
+                <div class="leave-stage" id="ls2">
+                  <span class="leave-stage-icon">👩🏫</span>
+                  <span class="leave-stage-label">Teacher</span>
+                </div>
+                <div class="leave-arrow">›</div>
+                <div class="leave-stage" id="ls3">
+                  <span class="leave-stage-icon">👩💼</span>
+                  <span class="leave-stage-label">Principal</span>
+                </div>
+                <div class="leave-arrow">›</div>
+                <div class="leave-stage" id="ls4">
+                  <span class="leave-stage-icon">✅</span>
+                  <span class="leave-stage-label">Approved</span>
+                </div>
+              </div>
+              <div class="leave-form" id="leaveForm">
+                <div class="lf-row"><span class="lf-label">Student</span><span class="lf-val">Aarav Mehta · Class 9B</span></div>
+                <div class="lf-row"><span class="lf-label">Date</span><span class="lf-val">24 Apr 2025 (1 day)</span></div>
+                <div class="lf-row"><span class="lf-label">Reason</span><span class="lf-val">Family function</span></div>
+                <div class="lf-row"><span class="lf-label">Status</span><span class="lf-val" id="leaveStatus" style="color:var(--rust)">Processing…</span></div>
+              </div>
+              <div class="leave-track" id="leaveTrack">
+                <div class="lt-row"><div class="lt-dot" style="background:rgba(46,140,79,.6)"></div><span>Parent submitted request</span><span class="lt-time">9:14 AM</span></div>
+                <div class="lt-row" id="lt2" style="opacity:.3"><div class="lt-dot" style="background:rgba(192,120,32,.5)"></div><span>Ms. Priya — reviewing…</span><span class="lt-time">9:15 AM</span></div>
+                <div class="lt-row" id="lt3" style="opacity:.15"><div class="lt-dot" style="background:rgba(60,90,140,.5)"></div><span>Principal — pending</span><span class="lt-time">—</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- USAGE CARDS -->
+    <section class="usage-sec" id="usage">
+      <div class="container">
+        <span class="eyebrow">Who uses it</span>
+        <h2 class="sh2" style="margin-top:.4rem">Three roles. Three workflows.<br><em>One connected system.</em></h2>
+        <div class="usage-grid">
+          <div class="uc" id="uc1">
+            <div class="uc-eyebrow"><span class="uc-emoji">👩💼</span>Principal &amp; Admin</div>
+            <h3>Visibility and control across the whole school</h3>
+            <p>Principal users have full visibility across the platform, while admin workflows support school-wide setup, policy flow, and operational oversight.</p>
+            <ul class="ml">
+              <li>Access to all modules and role activity</li>
+              <li>Central control over school-level communication</li>
+              <li>Visibility into attendance, leave, and class operations</li>
+              <li>Monitoring of teacher-parent communication health</li>
+            </ul>
+          </div>
+          <div class="uc" id="uc2">
+            <div class="uc-eyebrow"><span class="uc-emoji">👩🏫</span>Teacher workflow</div>
+            <h3>Class management without the admin overhead</h3>
+            <p>Teachers use the system for daily class management, student communication, and routine operational tasks — without jumping between tools.</p>
+            <ul class="ml">
+              <li>Mark attendance and update class status</li>
+              <li>Assign and track homework</li>
+              <li>Post class announcements and updates</li>
+              <li>Manage leave requests and messaging with parents</li>
+            </ul>
+          </div>
+          <div class="uc" id="uc3">
+            <div class="uc-eyebrow"><span class="uc-emoji">👨👧</span>Parent dashboard</div>
+            <h3>Your child's school life, organized in one place</h3>
+            <p>Parents can switch between children and track each child's school activity through one unified interface — no group chats, no paper circulars.</p>
+            <ul class="ml">
+              <li>Switch between children profiles</li>
+              <li>View homework and attendance by child</li>
+              <li>Read announcements, events, and birthday updates</li>
+              <li>Submit leave applications and chat with teachers</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES GRID -->
+    <section class="feat-grid-sec" id="features">
+      <div class="container">
+        <span class="eyebrow">What it does</span>
+        <h2 class="sh2" style="margin-top:.4rem">Six things that make school<br>operations <em>actually work</em></h2>
+        <div class="feat-grid">
+          <div class="fg" id="fg1"><div class="fg-n">01</div><h3>Role-based access architecture</h3><p>Different user roles see only what they need, while leadership roles maintain broader control over the full platform.</p></div>
+          <div class="fg" id="fg2"><div class="fg-n">02</div><h3>Daily classroom operations</h3><p>Attendance, homework, class notes, and announcements live in one consistent teacher workflow — no tab switching.</p></div>
+          <div class="fg" id="fg3"><div class="fg-n">03</div><h3>Parent-school communication</h3><p>Give families a clear, continuous window into student progress and class updates — organized, not chaotic.</p></div>
+          <div class="fg" id="fg4"><div class="fg-n">04</div><h3>Child-first parent experience</h3><p>Parents move between children without losing context across attendance, homework, and messages.</p></div>
+          <div class="fg" id="fg5"><div class="fg-n">05</div><h3>Operational transparency</h3><p>Create real-time visibility for principals and admins into how classes and communication are actually running.</p></div>
+          <div class="fg" id="fg6"><div class="fg-n">06</div><h3>Integrated leave and notice flows</h3><p>Handle leave requests and institutional notices inside the same platform instead of fragmented WhatsApp channels.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="how-sec" id="how">
+      <div class="container">
+        <span class="eyebrow">How it works</span>
+        <h2 class="sh2" style="margin-top:.4rem">From school setup to <em>daily operations</em></h2>
+        <div class="how-steps">
+          <div class="hs"><div class="hs-num">01</div><div class="hs-conn"></div><div class="hs-body"><h3>School setup &amp; onboarding</h3><p>Admin configures school structure — grades, classes, teachers, and students. Roles are assigned and access is ready.</p></div></div>
+          <div class="hs"><div class="hs-num">02</div><div class="hs-conn"></div><div class="hs-body"><h3>Teachers run daily ops</h3><p>Each morning, teachers mark attendance, post homework, and send updates. Parents see everything the same day.</p></div></div>
+          <div class="hs"><div class="hs-num">03</div><div class="hs-conn"></div><div class="hs-body"><h3>Parents engage meaningfully</h3><p>Parents check their children's attendance, read homework, respond to teacher messages, and submit leave without calling the school.</p></div></div>
+          <div class="hs"><div class="hs-num">04</div><div class="hs-body"><h3>Leadership monitors everything</h3><p>Principals and admins have live visibility into school-wide operations, communication health, and pending approvals.</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FIT FOR -->
+    <section class="fit-sec" id="fit">
+      <div class="container">
+        <span class="eyebrow">Who it is for</span>
+        <h2 class="sh2" style="margin-top:.4rem">Built for schools that want<br>operations to <em>actually work</em></h2>
+        <div class="fit-grid">
+          <div>
+            <p style="font-size:.97rem;font-weight:300;color:var(--ink);line-height:1.78;margin-bottom:1.4rem">If your school runs on WhatsApp groups, paper circulars, or disconnected systems — School ERP is the platform that replaces all of it.</p>
+            <ul class="fit-list">
+              <li class="fit-item"><span class="fit-check"><svg viewBox="0 0 14 14" fill="none"><path d="M2.5 7l3.5 3.5 5.5-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>K-12 schools and private institutions</li>
+              <li class="fit-item" style="animation-delay:.08s"><span class="fit-check"><svg viewBox="0 0 14 14" fill="none"><path d="M2.5 7l3.5 3.5 5.5-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Schools needing stronger parent communication</li>
+              <li class="fit-item" style="animation-delay:.16s"><span class="fit-check"><svg viewBox="0 0 14 14" fill="none"><path d="M2.5 7l3.5 3.5 5.5-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Teams replacing WhatsApp-first coordination</li>
+              <li class="fit-item" style="animation-delay:.24s"><span class="fit-check"><svg viewBox="0 0 14 14" fill="none"><path d="M2.5 7l3.5 3.5 5.5-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Institutions with multi-role approvals and updates</li>
+              <li class="fit-item" style="animation-delay:.32s"><span class="fit-check"><svg viewBox="0 0 14 14" fill="none"><path d="M2.5 7l3.5 3.5 5.5-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Schools modernizing classroom and admin operations</li>
+            </ul>
+          </div>
+          <div class="fit-stats">
+            <div class="fit-stat" id="fs1"><div class="fit-stat-n">4</div><div class="fit-stat-t"><strong>Roles in one platform.</strong> Principal, Admin, Teacher, and Parent each get the right interface without overlap or confusion.</div></div>
+            <div class="fit-stat" id="fs2" style="animation-delay:.12s"><div class="fit-stat-n">0</div><div class="fit-stat-t"><strong>WhatsApp groups needed.</strong> Every communication channel is inside the platform — organized, tracked, and archived.</div></div>
+            <div class="fit-stat" id="fs3" style="animation-delay:.24s"><div class="fit-stat-n">1</div><div class="fit-stat-t"><strong>Platform for every workflow.</strong> Attendance, homework, leave, notices, and parent chat — all connected, always in sync.</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-sec" id="cta">
+      <div class="narrow">
+        <div class="cta-c" id="ctaCard">
+          <div class="cta-glow"></div>
+          <span class="eyebrow">Get started</span>
+          <h2>Need a smoother communication and operations layer for your school?</h2>
+          <p class="cta-sub">We can help map your current process and deploy the right role-based setup for your institution.</p>
+          <div class="cta-row c" style="margin-top:1.8rem">
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <p>&copy; 2026 <strong>Nyx Solution</strong> · School ERP — Education Product</p>
+      </div>
+    </footer>
+  </div>
+
+  <script is:inline>
+    /* ── NAV ── */
+    const nav = document.getElementById('mainnav');
+    window.addEventListener('scroll', () => nav?.classList.toggle('scrolled', scrollY > 40), { passive: true });
+
+    /* ── HERO ROLE SWITCHER ── */
+    const childData = [
+      {att:'94% this month',hw:'2 pending',cls:'9B · Roll 14',teacher:'Ms. Priya S.'},
+      {att:'88% this month',hw:'0 pending',cls:'6A · Roll 07',teacher:'Mr. Arjun N.'}
+    ];
+    let activeChild = 0;
+
+    function switchRole(role) {
+      document.querySelectorAll('.role-tab').forEach(t => t.classList.toggle('active', t.dataset.role === role));
+      document.querySelectorAll('.role-view').forEach(v => v.classList.toggle('active', v.id === 'view-' + role));
+      if (role === 'teacher') initTeacherView();
+      if (role === 'parent') initParentView();
+    }
+
+    function switchChild(idx) {
+      activeChild = idx;
+      document.querySelectorAll('.parv-child-btn').forEach((b, i) => {
+        if (i === idx) b.classList.add('active');
+        else b.classList.remove('active');
+      });
+      const d = childData[idx];
+      const childAtt = document.getElementById('childAtt');
+      const childHw = document.getElementById('childHw');
+      const childClass = document.getElementById('childClass');
+      const childTeacher = document.getElementById('childTeacher');
+      if (childAtt) childAtt.textContent = d.att;
+      if (childHw) childHw.textContent = d.hw;
+      if (childClass) childClass.textContent = d.cls;
+      if (childTeacher) childTeacher.textContent = d.teacher;
+    }
+
+    // Attach events to role tabs
+    document.getElementById('tab-principal')?.addEventListener('click', () => switchRole('principal'));
+    document.getElementById('tab-teacher')?.addEventListener('click', () => switchRole('teacher'));
+    document.getElementById('tab-parent')?.addEventListener('click', () => switchRole('parent'));
+
+    // Attach events to child switchers in hero
+    document.getElementById('p-child-0')?.addEventListener('click', () => switchChild(0));
+    document.getElementById('p-child-1')?.addEventListener('click', () => switchChild(1));
+
+    // Auto-cycle role tabs in hero
+    let heroRoleIdx = 0;
+    const heroRoles = ['principal','teacher','parent'];
+    setInterval(() => {
+      heroRoleIdx = (heroRoleIdx + 1) % heroRoles.length;
+      switchRole(heroRoles[heroRoleIdx]);
+    }, 4200);
+
+    function initTeacherView() {
+      const grid = document.getElementById('tvGrid');
+      if (!grid || grid.dataset.built) return;
+      grid.dataset.built = 'true';
+      const states = Array(30).fill('p').concat(Array(4).fill('a')).sort(() => Math.random() - .5);
+      states.forEach((s, i) => {
+        const c = document.createElement('div');
+        c.className = 'tv-cell';
+        grid.appendChild(c);
+        setTimeout(() => { c.classList.add(s); c.textContent = s === 'p' ? '✓' : '✗'; }, i * 40);
+      });
+      ['hw1','hw2','hw3'].forEach((id, i) => {
+        setTimeout(() => { const el = document.getElementById(id); if (el) el.classList.add('show'); }, i * 180 + 400);
+      });
+    }
+
+    function initParentView() {}
+
+    // Set today's date
+    const d = new Date();
+    const dateStr = d.toLocaleDateString('en-IN',{weekday:'short',day:'numeric',month:'short',year:'numeric'});
+    const dateEl = document.getElementById('todayDate'); if (dateEl) dateEl.textContent = dateStr;
+
+    // Principal alerts
+    ['pa1','pa2','pa3','pa4'].forEach((id,i) => {
+      setTimeout(() => { const e = document.getElementById(id); if(e) e.classList.add('show'); }, i*220+200);
+    });
+
+    /* ── HERO STATS COUNT-UP ── */
+    document.querySelectorAll('[data-target]').forEach(el => {
+      const t = +el.dataset.target, t0 = performance.now();
+      const tick = now => {
+        const p = Math.min((now-t0)/1400,1), v = Math.round((1-Math.pow(1-p,3))*t);
+        el.textContent = v; if(p<1) requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+    });
+
+    /* ── INTERSECTION OBSERVER ── */
+    const seen = new Set();
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (!e.isIntersecting || seen.has(e.target)) return;
+        seen.add(e.target);
+        e.target.classList.add('iv');
+        const id = e.target.id;
+        if (id === 'archVis') initArch();
+        if (id === 'permPanel') initPerm();
+        if (id === 'classPanel') initClass();
+        if (id === 'chatPanel') initChat();
+        if (id === 'childPanel') initChild();
+        if (id === 'adminPanel') initAdmin();
+        if (id === 'leavePanel') initLeave();
+        if (id === 'uc1'||id==='uc2'||id==='uc3') e.target.classList.add('show');
+        if (id?.startsWith('fg')) e.target.classList.add('show');
+        if (id?.startsWith('fs')) e.target.classList.add('show');
+        if (id === 'ctaCard') e.target.classList.add('show');
+        io.unobserve(e.target);
+      });
+    }, {threshold:.12, rootMargin:'0px 0px -40px 0px'});
+
+    document.querySelectorAll(
+      '.hs,.fit-item,#archVis,#permPanel,#classPanel,#chatPanel,#childPanel,#adminPanel,#leavePanel,#uc1,#uc2,#uc3,#fg1,#fg2,#fg3,#fg4,#fg5,#fg6,#fs1,#fs2,#fs3,#ctaCard'
+    ).forEach(el => io.observe(el));
+
+    /* COUNT UP */
+    const cio = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        const el = e.target, tgt = +el.dataset.count;
+        let v=0; const step=Math.ceil(tgt/40);
+        const t = setInterval(() => { v=Math.min(v+step,tgt); el.textContent=v; if(v>=tgt) clearInterval(t); }, 35);
+        cio.unobserve(el);
+      });
+    },{threshold:.5});
+    document.querySelectorAll('[data-count]').forEach(el => cio.observe(el));
+
+    /* ── ARCH OVERVIEW ── */
+    function initArch() {
+      const hub = document.getElementById('archHub'); if(hub) setTimeout(()=>hub.classList.add('show'),100);
+      const line = document.getElementById('archLine'); if(line) setTimeout(()=>line.classList.add('show'),450);
+      ['ar1','ar2','ar3','ar4'].forEach((id,i) => {
+        const el = document.getElementById(id);
+        if(el) setTimeout(()=>el.classList.add('show'), 600+i*140);
+      });
+      ['ab1','ab2','ab3','ab4'].forEach((id,i) => {
+        const el = document.getElementById(id);
+        if(el) setTimeout(()=>{ el.style.width=el.dataset.w; }, 900+i*120);
+      });
+    }
+
+    /* ── PERMISSION MATRIX ── */
+    function initPerm() {
+      const modules = ['Attendance','Homework','Leave approval','Announcements','Parent chat','Reports'];
+      const perms = [
+        ['full','full','full','full'],
+        ['full','full','full','part'],
+        ['full','full','part','none'],
+        ['full','full','full','part'],
+        ['full','full','full','full'],
+        ['full','full','none','none'],
+      ];
+      const tbody = document.getElementById('permBody');
+      if (!tbody) return;
+      modules.forEach((mod, ri) => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `<td>${mod}</td>` + perms[ri].map(p =>
+          `<td><div class="perm-dot ${p}"></div></td>`
+        ).join('');
+        tbody.appendChild(tr);
+      });
+      setTimeout(() => {
+        document.querySelectorAll('.perm-dot').forEach((d,i) => {
+          setTimeout(() => d.classList.add('show'), i * 55);
+        });
+      }, 200);
+    }
+
+    /* ── CLASS PANEL ── */
+    function initClass() {
+      const g = document.getElementById('attGrid'); if(!g||g.dataset.b) return; g.dataset.b='1';
+      const s = Array(28).fill('p').concat(Array(3).fill('a')).concat(['a']).sort(()=>Math.random()-.5);
+      s.forEach((st,i)=>{
+        const c=document.createElement('div'); c.className='att-cell'; g.appendChild(c);
+        setTimeout(()=>{ c.classList.add(st); c.textContent=st==='p'?'✓':'✗'; },i*45+100);
+      });
+      ['chw1','chw2'].forEach((id,i)=>{ setTimeout(()=>{ const e=document.getElementById(id); if(e)e.classList.add('show'); },1200+i*200); });
+    }
+
+    /* ── CHAT PANEL ── */
+    function initChat() {
+      const thread = document.getElementById('chatThread');
+      if (!thread || thread.dataset.b) return; thread.dataset.b = '1';
+      const messages = [
+        {role:'t',text:"Good morning! Aarav submitted yesterday's science project. Well done 👍",time:"9:02 AM"},
+        {role:'par',text:"Thank you, Ms. Priya! He worked on it all weekend.",time:"9:18 AM"},
+        {role:'t',text:"There's a class test on Friday — Chapters 5 & 6. Please ensure he revises.",time:"9:20 AM"},
+        {role:'par',text:"Will do! Can I submit a leave for Thursday? Family function.",time:"10:05 AM"},
+      ];
+      messages.forEach((m, i) => {
+        setTimeout(() => {
+          const div = document.createElement('div');
+          div.className = `ct-bubble ${m.role==='t'?'t':'par'} show`;
+          if (m.role === 't') {
+            div.innerHTML = `<div class="ct-av" style="background:rgba(162,74,42,.1);color:var(--rust)">PS</div><div class="ct-text">${m.text}</div><div class="ct-time">${m.time}</div>`;
+          } else {
+            div.innerHTML = `<div class="ct-time">${m.time}</div><div class="ct-text">${m.text}</div><div class="ct-av" style="background:rgba(60,90,140,.12);color:var(--blue)">AM</div>`;
+          }
+          thread.appendChild(div);
+        }, i * 600 + 200);
+      });
+      setTimeout(() => {
+        const n = document.getElementById('chatNotif'); if(n) n.classList.add('show');
+      }, 3200);
+    }
+
+    /* ── CHILD PANEL ── */
+    const panelChildData = [
+      {att:'94%',hw:'2',msg:'1',h1:'Maths — Ch 8 Ex 2',h2:'Science — Lab report',h1tag:'tag-pending',h2tag:'tag-done',name:'Aarav'},
+      {att:'88%',hw:'0',msg:'3',h1:'English — Ch 4 summary',h2:'Maths — Fractions worksheet',h1tag:'tag-done',h2tag:'tag-pending',name:'Shreya'}
+    ];
+    let currentPanelChild = 0;
+
+    function switchChildPanel(idx) {
+      if (currentPanelChild === idx) return;
+      currentPanelChild = idx;
+      document.querySelectorAll('.child-tab').forEach((t,i)=>t.classList.toggle('active',i===idx));
+      const data = document.getElementById('childData');
+      if (data) data.classList.add('switching');
+      setTimeout(() => {
+        const d = panelChildData[idx];
+        const att = document.getElementById('cds-att'); if(att) att.textContent = d.att;
+        const hw = document.getElementById('cds-hw'); if(hw) hw.textContent = d.hw;
+        const msg = document.getElementById('cds-msg'); if(msg) msg.textContent = d.msg;
+        const h1 = document.getElementById('cdh1'); if(h1) h1.querySelector('span').textContent = d.h1;
+        const h2 = document.getElementById('cdh2'); if(h2) h2.querySelector('span').textContent = d.h2;
+        const tag1 = document.querySelector('#cdh1 .hw-tag'); if(tag1){ tag1.className='hw-tag '+d.h1tag; tag1.textContent=d.h1tag==='tag-done'?'Done ✓':'Pending'; }
+        const tag2 = document.querySelector('#cdh2 .hw-tag'); if(tag2){ tag2.className='hw-tag '+d.h2tag; tag2.textContent=d.h2tag==='tag-done'?'Done ✓':'Pending'; }
+        const name = document.getElementById('clf-name'); if(name) name.textContent = d.name;
+        if (data) data.classList.remove('switching');
+      }, 220);
+    }
+
+    function initChild() {
+      // Attach events to child tabs in features section
+      document.getElementById('ctab0')?.addEventListener('click', () => switchChildPanel(0));
+      document.getElementById('ctab1')?.addEventListener('click', () => switchChildPanel(1));
+
+      // auto-cycle children every 3s
+      setInterval(() => {
+        currentPanelChild = (currentPanelChild + 1) % 2;
+        switchChildPanel(currentPanelChild);
+      }, 3000);
+    }
+
+    /* ── ADMIN PANEL ── */
+    function initAdmin() {
+      let n1=0,n2=0;
+      const t1=setInterval(()=>{ n1=Math.min(n1+32,1240); const e=document.getElementById('apn1'); if(e)e.textContent=n1; if(n1>=1240)clearInterval(t1); },30);
+      const t2=setInterval(()=>{ n2=Math.min(n2+2,68); const e=document.getElementById('apn2'); if(e)e.textContent=n2; if(n2>=68)clearInterval(t2); },45);
+      setTimeout(()=>{
+        ['apb1','apb2','apb3'].forEach(id=>{ const el=document.getElementById(id); if(el) el.style.width=el.dataset.w; });
+      }, 400);
+      ['an1','an2','an3'].forEach((id,i)=>{
+        setTimeout(()=>{ const el=document.getElementById(id); if(el)el.classList.add('show'); }, 600+i*220);
+      });
+    }
+
+    /* ── LEAVE PANEL ── */
+    function initLeave() {
+      const form = document.getElementById('leaveForm');
+      const track = document.getElementById('leaveTrack');
+      if (form) setTimeout(()=>form.classList.add('show'), 200);
+      if (track) setTimeout(()=>track.classList.add('show'), 500);
+      // animate stages
+      const stages = ['ls1','ls2','ls3','ls4'];
+      const statusEl = document.getElementById('leaveStatus');
+      const lt2 = document.getElementById('lt2');
+      const lt3 = document.getElementById('lt3');
+      const statusTexts = ['Submitted','Teacher reviewing…','Principal approval…','Approved ✓'];
+      const statusColors = ['var(--rust)','var(--amber)','var(--blue)','var(--green)'];
+
+      let step = 0;
+      function advanceLeave() {
+        stages.forEach((id,i) => {
+          const el = document.getElementById(id);
+          if (!el) return;
+          if (i < step) {
+            el.classList.add('done');
+            el.classList.remove('active');
+          } else if (i === step) {
+            el.classList.remove('done');
+            el.classList.add('active');
+          } else {
+            el.classList.remove('done','active');
+          }
+        });
+        if (statusEl) { statusEl.textContent = statusTexts[step]; statusEl.style.color = statusColors[step]; }
+        if (lt2) lt2.style.opacity = step >= 1 ? '1' : '.3';
+        if (lt3) lt3.style.opacity = step >= 2 ? '1' : '.15';
+        step = (step + 1) % 4;
+        setTimeout(advanceLeave, 1800);
+      }
+      setTimeout(advanceLeave, 800);
+    }
+  </script>
+</MainLayout>

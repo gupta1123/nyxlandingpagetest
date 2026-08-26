@@ -1,0 +1,359 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import '../styles/pages/home.css';
+
+const clients = [
+  { name: 'Suryadev Alloys', sector: 'Steel', logo: '/assets/logos/clients/suryadev.png' },
+  { name: 'German Steel', sector: 'Steel', logo: '/assets/logos/clients/german-steel.png' },
+  { name: 'Metaroll', sector: 'Manufacturing', logo: '/assets/logos/clients/metaroll.svg' },
+  { name: 'Rrajuri', sector: 'Steel', logo: '/assets/logos/clients/rrajuri.png' },
+  { name: 'Bhuleshwar Seamless Private', sector: 'Seamless tubes', logo: '/assets/logos/clients/bhuleshwar.svg' },
+  { name: 'Shakti Engineering', sector: 'Engineering', logo: '/assets/logos/clients/shakti-engineering.png' },
+  { name: 'Meenakshi Group', sector: 'Industry', logo: '/assets/logos/clients/meenakshi-mobile.png' },
+  { name: 'Samrat Group Hyderabad', sector: 'Industry', logo: '/assets/logos/clients/samrat.png' },
+  { name: 'Anil Jindal World School', sector: 'Education', logo: '/assets/logos/clients/anil-jindal-school.png' },
+  { name: 'Jalna Municipal Corporation', sector: 'Public institution', logo: '/assets/logos/clients/jalna-municipal.png' },
+  { name: 'Giriraj Rerolls', sector: 'Re-rolling', initials: 'GR' },
+  { name: 'KKB Group', sector: 'Industry', initials: 'KKB' },
+  { name: 'Eco-R LLP', sector: 'Industry', initials: 'E·R' },
+  { name: 'Jalna First Citizen Forum', sector: 'Civic organisation', initials: 'JF' },
+  { name: 'Madhuban Hotel', sector: 'Hospitality', initials: 'MH' },
+];
+
+const shortClientName = (name: string) => name.replace(/ (Private|Pvt Ltd|Ltd|LLP)$/, '');
+
+const moreProducts = [
+  {
+    name: 'School ERP',
+    category: 'Education operations',
+    file: 'attendance · class 8-B',
+    href: '/school-erp',
+    mark: 'EDU',
+    copy: 'A role-based platform that keeps teaching workflows, leadership visibility, administration, and parent communication connected.',
+  },
+  {
+    name: 'Hotel Management',
+    category: 'Hospitality operations',
+    file: 'room rack · today',
+    href: '/hotel-management',
+    mark: 'HMS',
+    copy: 'An end-to-end system for reservations, room lifecycle management, housekeeping coordination, guest service, and billing.',
+  },
+  {
+    name: 'Restaurant Ordering',
+    category: 'Food and beverage',
+    file: 'kitchen display',
+    href: '/restaurant-ordering',
+    mark: 'POS',
+    copy: 'A live order flow connecting customers, waiters, and kitchen teams without paper handoffs or fragmented updates.',
+  },
+  {
+    name: 'Sales Tracking',
+    category: 'Field operations',
+    file: 'field day · 25 aug',
+    href: '/sales-tracking',
+    mark: 'SFA',
+    copy: 'Web and mobile visibility across field visits, attendance, movement, and expenses for stronger day-to-day execution.',
+  },
+  {
+    name: 'Carpooling App',
+    category: 'Mobility',
+    file: 'ride 8842',
+    href: '/carpooling-app',
+    mark: 'RIDE',
+    copy: 'A complete mobility stack for rider bookings, driver execution, and admin-level coordination across every trip.',
+  },
+];
+---
+
+<MainLayout
+  title="Nyx Solution — Agentic AI for WhatsApp, ERP, Tally & SAP"
+  description="Nyx Solution builds agentic AI systems for WhatsApp customer operations and document-heavy ERP, TallyPrime and SAP workflows with human oversight where it matters."
+>
+<canvas id="bg-canvas" aria-hidden="true"></canvas>
+<div class="page-shell">
+
+<header class="hero">
+  <nav class="site-nav" id="site-nav">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="/" class="brand">Nyx Solution</a>
+        <ul class="nav-links">
+          <li><a href="#what-we-do">Agentic AI</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/products">Products</a></li>
+          <li><a href="/careers">Careers</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="container">
+    <div class="hero-inner">
+      <div>
+        <div class="h-ey"><span class="h-ey-line"></span>Agentic AI for Business Operations</div>
+        <h1 class="h1"><span class="blk">AI agents that move</span><em>operational work</em><span class="blk">forward.</span></h1>
+        <p class="h-body">Nyx builds AI agents that connect WhatsApp, ERP, TallyPrime, and SAP—handling documents, approvals, and verified operational actions.</p>
+        <div class="h-cta">
+          <a class="btn-dark" href="/contact">Discuss an agentic workflow</a>
+          <a class="btn-ghost" href="#products">See systems in action</a>
+        </div>
+        <div class="trust-strip">
+          <span class="tp">WhatsApp · ERP · Tally · SAP</span>
+          <span class="tp">Human-approved</span>
+          <span class="tp">Fully traceable</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="ticker-wrap" aria-hidden="true">
+  <div class="ticker-inner" id="ticker"></div>
+</div>
+
+<section class="cl2">
+  <div class="container">
+    <div class="cl2-head">
+      <div class="cl2-ey"><i></i>Organisations we have worked with<i></i></div>
+      <h2 class="cl2-title">Built alongside teams doing <em>real operational work</em></h2>
+    </div>
+  </div>
+
+  <div class="cl2-lane" id="client-lane" aria-label="Organisations Nyx Solution has worked with">
+    <div class="cl2-track">
+      {[false, true].map((duplicate) => (
+        <div class="cl2-set" aria-hidden={duplicate ? 'true' : undefined}>
+          {clients.map((client) => (
+            <button
+              class="cl2-item"
+              type="button"
+              tabindex={duplicate ? '-1' : undefined}
+              data-name={shortClientName(client.name)}
+              data-sector={client.sector}
+              aria-label={`${shortClientName(client.name)}, ${client.sector}`}
+            >
+              {client.logo ? (
+                <img src={client.logo} alt={shortClientName(client.name)} loading="lazy" decoding="async" />
+              ) : (
+                <span class="cl2-word">{shortClientName(client.name)}</span>
+              )}
+            </button>
+          ))}
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="cl2-cap" id="client-caption" aria-live="polite">
+      <span><b>{clients.length} organisations</b><em class="sep">·</em><em>steel, manufacturing, education, hospitality and public institutions</em></span>
+    </div>
+  </div>
+</section>
+
+<main>
+  <section class="section" id="what-we-do">
+    <div class="container">
+      <div class="sh">
+        <span class="stag">What we build</span>
+        <h2 class="stitle rv">AI agents that operate inside real business workflows</h2>
+        <p class="ssub rv" style="--d:80ms">Not generic chatbots. We build production systems that understand context, coordinate multiple steps, work with existing software, and escalate the right decisions to people.</p>
+      </div>
+      <div class="three-grid">
+
+        <article class="svc-card rv" style="--d:0ms">
+          <div class="svc-art">
+            <svg viewBox="0 0 220 96" fill="none" aria-hidden="true">
+              <rect class="dr" style="--len:120" x="14" y="36" width="30" height="24" rx="4" stroke="#8a7060" stroke-width="1.4"/>
+              <path class="dr" style="--len:52;--dd:180ms" d="M44 48h44" stroke="#c0a086" stroke-width="1.4"/>
+              <path class="dr" style="--len:120;--dd:320ms" d="M104 34l16 14-16 14-16-14z" stroke="#a24a2a" stroke-width="1.5"/>
+              <path class="dr" style="--len:64;--dd:520ms" d="M120 44c14-10 20-14 34-14" stroke="#c0a086" stroke-width="1.4"/>
+              <path class="dr" style="--len:64;--dd:600ms" d="M120 52c14 10 20 14 34 14" stroke="#c0a086" stroke-width="1.4"/>
+              <rect class="pop" style="--dd:760ms" x="156" y="20" width="46" height="20" rx="4" fill="#a24a2a" fill-opacity=".1" stroke="#a24a2a" stroke-opacity=".45"/>
+              <rect class="pop" style="--dd:860ms" x="156" y="56" width="46" height="20" rx="4" fill="#4a7a46" fill-opacity=".1" stroke="#4a7a46" stroke-opacity=".45"/>
+              <circle class="tok tok-a" r="3" fill="#a24a2a"/>
+            </svg>
+          </div>
+          <h3>Agentic workflow systems</h3>
+          <p>Goal-driven systems that read business inputs, decide what should happen next, coordinate tools, and move work forward inside defined guardrails.</p>
+        </article>
+
+        <article class="svc-card rv" style="--d:80ms">
+          <div class="svc-art">
+            <svg viewBox="0 0 220 96" fill="none" aria-hidden="true">
+              <path class="dr" style="--len:130" d="M34 34l16-9 16 9v18l-16 9-16-9z" stroke="#a24a2a" stroke-width="1.5"/>
+              <path class="dr" style="--len:96;--dd:240ms" d="M66 40h30v-16h34" stroke="#c0a086" stroke-width="1.4"/>
+              <path class="dr" style="--len:44;--dd:340ms" d="M66 46h64" stroke="#c0a086" stroke-width="1.4"/>
+              <path class="dr" style="--len:96;--dd:440ms" d="M66 52h30v20h34" stroke="#c0a086" stroke-width="1.4"/>
+              <rect class="pop" style="--dd:600ms" x="132" y="14" width="62" height="20" rx="3" fill="#3c5a8c" fill-opacity=".09" stroke="#3c5a8c" stroke-opacity=".4"/>
+              <rect class="pop" style="--dd:680ms" x="132" y="36" width="62" height="20" rx="3" fill="#a24a2a" fill-opacity=".09" stroke="#a24a2a" stroke-opacity=".4"/>
+              <rect class="pop" style="--dd:760ms" x="132" y="62" width="62" height="20" rx="3" fill="#4a7a46" fill-opacity=".09" stroke="#4a7a46" stroke-opacity=".4"/>
+              <circle class="tok tok-b" r="3" fill="#a24a2a"/>
+            </svg>
+          </div>
+          <h3>ERP, Tally &amp; SAP automation</h3>
+          <p>Agents that work with the systems you already run — pulling live context, preparing transactions, routing approvals, completing verified actions.</p>
+        </article>
+
+        <article class="svc-card rv" style="--d:160ms">
+          <div class="svc-art">
+            <svg viewBox="0 0 220 96" fill="none" aria-hidden="true">
+              <rect class="dr" style="--len:300" x="20" y="16" width="132" height="64" rx="6" stroke="#8a7060" stroke-width="1.4"/>
+              <path class="dr" style="--len:132;--dd:200ms" d="M20 32h132" stroke="#c0a086" stroke-width="1.2"/>
+              <path class="dr" style="--len:60;--dd:340ms" d="M32 44h56" stroke="#c0a086" stroke-width="1.4"/>
+              <path class="dr" style="--len:60;--dd:420ms" d="M32 68h72" stroke="#c0a086" stroke-width="1.4"/>
+              <rect class="pop" style="--dd:560ms" x="98" y="46" width="94" height="22" rx="5" fill="#fff6e8" stroke="#a8791a" stroke-opacity=".55"/>
+              <circle class="pop" style="--dd:680ms" cx="110" cy="57" r="3.4" fill="#a8791a"/>
+              <path class="pop" style="--dd:780ms" d="M170 57l4 4 8-9" stroke="#4a7a46" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle class="tok tok-c" r="3" fill="#a8791a"/>
+            </svg>
+          </div>
+          <h3>AI product engineering</h3>
+          <p>Complete products: role-based screens, exception queues, human review, secure connectors, monitoring, and audit-ready action histories.</p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="section prod-section" id="products">
+    <div class="container">
+      <div class="sh">
+        <span class="stag">Agentic systems built for operations</span>
+        <div class="sh-row">
+          <div>
+            <h2 class="stitle rv">Proof in workflows that reach the system of record</h2>
+            <p class="ssub rv" style="--d:80ms">Three representative systems that reconcile, validate, request approval, and complete controlled actions across TallyPrime and SAP-connected workflows.</p>
+          </div>
+          <a class="btn-dark rv" style="--d:100ms" href="/products">View all</a>
+        </div>
+      </div>
+      <div class="prod-list">
+
+        <a href="/contact" class="prod-row rv" style="--d:0ms">
+          <div class="prod-top">
+            <span class="prod-num">01</span>
+            <div class="prod-info"><strong>Gajkesari</strong><span>An AI-assisted bank reconciliation workflow that extracts statements, recommends live Tally ledgers, allocates receipts against open bills, checks duplicates, and posts approved vouchers.</span></div>
+            <span class="prod-arr"><svg width="16" height="16" viewBox="0 0 17 17" fill="none"><path d="M3 8.5h11M10 5l3.5 3.5L10 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </div>
+          <div class="stages" aria-hidden="true">
+            <div class="stage"><div class="stage-bar"><i></i></div><em>Extract</em></div>
+            <div class="stage"><div class="stage-bar"><i></i></div><em>Match ledgers</em></div>
+            <div class="stage"><div class="stage-bar"><i></i></div><em>Allocate bills</em></div>
+            <div class="stage"><div class="stage-bar"><i></i></div><em>Approve</em></div>
+            <div class="stage"><div class="stage-bar"><i></i></div><em>Post to Tally</em></div>
+          </div>
+        </a>
+
+        <a href="/contact" class="prod-row rv" style="--d:70ms">
+          <div class="prod-top">
+            <span class="prod-num">02</span>
+            <div class="prod-info"><strong>AutoDealer Finance Workflow</strong><span>A Tally-connected finance operations platform for purchase-document verification, purchase voucher preparation, bank reconciliation, cash-discount recovery, and payment follow-ups.</span></div>
+            <span class="prod-arr"><svg width="16" height="16" viewBox="0 0 17 17" fill="none"><path d="M3 8.5h11M10 5l3.5 3.5L10 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </div>
+          <div class="stages" aria-hidden="true">
+            <div class="stage"><div class="stage-bar"><i></i></div><em>Verify documents</em></div>
+            <div class="stage"><div class="stage-bar"><i></i></div><em>Prepare voucher</em></div>
+            <div class="stage"><div class="stage-bar"><i></i></div><em>Check discount</em></div>
+            <div class="stage"><div class="stage-bar"><i></i></div><em>Approve payment</em></div>
+            <div class="stage"><div class="stage-bar"><i></i></div><em>Post &amp; follow up</em></div>
+          </div>
+        </a>
+
+        <a href="/contact" class="prod-row rv" style="--d:140ms">
+          <div class="prod-top">
+            <span class="prod-num">03</span>
+            <div class="prod-info"><strong>SAP Invoice Delivery Agent</strong><span>An SAP-connected agent that waits for a valid, eligible billing document, verifies the customer and recipient, then delivers the actual invoice PDF through WhatsApp, email, or both—with duplicate protection, delivery tracking, and structured help requests.</span></div>
+            <span class="prod-arr"><svg width="16" height="16" viewBox="0 0 17 17" fill="none"><path d="M3 8.5h11M10 5l3.5 3.5L10 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </div>
+          <div class="stages" aria-hidden="true">
+            <div class="stage"><div class="stage-bar"><i></i></div><em>Detect invoice</em></div>
+            <div class="stage"><div class="stage-bar"><i></i></div><em>Validate recipient</em></div>
+            <div class="stage"><div class="stage-bar"><i></i></div><em>Deliver PDF</em></div>
+            <div class="stage"><div class="stage-bar"><i></i></div><em>Track status</em></div>
+            <div class="stage"><div class="stage-bar"><i></i></div><em>Route help</em></div>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="section phi-section">
+    <div class="container">
+      <div class="phi-inner">
+        <div class="phi-left">
+          <span class="stag">How we build agents</span>
+          <h2 class="stitle rv">Autonomy with guardrails — not black-box automation</h2>
+          <p class="ssub rv" style="--d:80ms">Operational AI must know what it can decide, what it must verify, and when a person needs to approve the next action. We design all three deliberately.</p>
+          <a class="btn-light rv" style="--d:150ms;margin-top:1.4rem" href="/about">Learn our approach</a>
+        </div>
+        <div class="phi-right" id="phi-right">
+          <div class="phi-prog" id="phi-prog"></div>
+          <article class="phi-card"><div class="phi-n">01</div><h3>Understands the workflow</h3><p>The agent works from business rules, document context, roles, and the actual sequence of operational decisions.</p></article>
+          <article class="phi-card"><div class="phi-n">02</div><h3>Grounded in live system data</h3><p>Recommendations are checked against current ERP, Tally, SAP, or connected business data before any action.</p></article>
+          <article class="phi-card"><div class="phi-n">03</div><h3>Human approval at the right point</h3><p>Exceptions and high-impact actions reach the right person with the context needed to decide quickly.</p></article>
+          <article class="phi-card"><div class="phi-n">04</div><h3>Every action is traceable</h3><p>Inputs, recommendations, approvals, system commands, and outcomes stay visible for operational control.</p></article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section more-section" id="more-products">
+    <div class="container">
+      <div class="more-layout">
+        <div class="more-copy">
+          <span class="stag">Beyond Agentic AI</span>
+          <h2 class="stitle rv">When the problem needs a product — not an agent — <em>we build that too</em></h2>
+          <p class="ssub rv" style="--d:80ms">Agentic AI is our core focus. Alongside it, we design and engineer complete operational products shipped for daily use across education, hospitality, food service, field operations, and mobility.</p>
+          <a class="more-all rv" style="--d:140ms" href="/products">Explore the complete product portfolio <span aria-hidden="true">↗</span></a>
+        </div>
+
+        <div class="more-product-list rv" aria-label="Operational products">
+          {moreProducts.map((product, index) => (
+            <a class="more-product-row" href={product.href}>
+              <span class="more-product-num">{String(index + 1).padStart(2, '0')}</span>
+              <span class="more-product-copy"><b>{product.name}</b><em>{product.category}</em><p>{product.copy}</p></span>
+              <span class="more-product-arrow" aria-hidden="true">↗</span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section cta-section" id="contact">
+    <div class="container">
+      <div class="cta-inner rv">
+        <div class="cta-content">
+          <h2 class="cta-title">If your ERP still depends on manual handoffs, <em>we should talk</em></h2>
+          <a class="btn-dark lg cta-action" href="/contact">Discuss an agentic workflow</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-name">Nyx Solution</div>
+        <div class="foot-tag">Agentic AI for WhatsApp, ERP, Tally &amp; SAP</div>
+      </div>
+      <div class="foot-links">
+        <div class="foot-links-col"><span class="foot-links-lbl">Company</span><a href="/about">About us</a><a href="/about#how-we-work">Our process</a><a href="/careers">Careers</a><a href="/contact">Contact</a></div>
+        <div class="foot-links-col"><span class="foot-links-lbl">Agentic AI</span><a href="/products">View all</a><a href="#products">Gajkesari</a><a href="#products">Polaad</a><a href="#products">AutoDealer Finance</a><a href="#products">WhatsApp-to-SAP Ordering</a><a href="#products">SAP Invoice Delivery</a><a href="#products">SAP Payment Follow-up</a></div>
+        <div class="foot-links-col"><span class="foot-links-lbl">Solutions</span><a href="/contact">WhatsApp automation</a><a href="/contact">ERP automation</a><a href="/contact">TallyPrime automation</a><a href="/contact">SAP automation</a><a href="/contact">Custom AI agents</a></div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <div class="foot-copy">© 2026 Nyx Solution. All rights reserved.</div>
+      <div class="foot-copy">AI that understands, decides, and acts.</div>
+    </div>
+  </div>
+</footer>
+</div>
+  <script is:inline src="/home.js"></script>
+</MainLayout>

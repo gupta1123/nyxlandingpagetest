@@ -1,0 +1,811 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+---
+
+<MainLayout
+  title="WhatsApp Business Operations Agent | Nyx Solution"
+  description="A WhatsApp operations agent for verified ordering, SAP-connected status updates, invoice delivery, approvals, and automated payment follow-ups."
+>
+<style is:global>
+:root{
+  --rust-50:#fdf8ef;--rust-100:#f5ebda;--rust-200:#e9c9a8;
+  --rust-300:#da956a;--rust-400:#c56f45;--rust-500:#a24a2a;
+  --rust-600:#85361c;--rust-700:#6b2a14;
+  --sand-50:#fff8ed;--sand-100:#f5e8d4;--sand-200:#d8c8b3;
+  --ink:#1f1a16;--ink-soft:#5f5148;--ink-muted:#7a5c4c;
+  --surface:#fdf8ef;--line:rgba(216,200,179,.78);--line-mid:rgba(196,160,126,.45);
+  --green:#2e8c4f;--amber:#c07820;--blue:#3c5a8c;--dark-bg:#2e1f19;
+  --wa-out:#0b4f3f;--wa-in:#1e2b30;--wa-bg:#0b1418;
+  --ff-d:'Instrument Serif',Georgia,serif;--ff-b:'Sora',sans-serif;--ff-m:'DM Mono',monospace;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:radial-gradient(circle at 92% 4%,rgba(162,74,42,.13) 0,rgba(162,74,42,0) 40%),radial-gradient(circle at 6% 18%,rgba(255,226,171,.26) 0,rgba(255,226,171,0) 38%),var(--surface);color:var(--ink);font-family:var(--ff-b);font-size:16px;line-height:1.7;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+@keyframes fadeScale{from{opacity:0;transform:scale(.93)}to{opacity:1;transform:scale(1)}}
+@keyframes rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@keyframes pop{from{opacity:0;transform:translateY(9px) scale(.97)}to{opacity:1;transform:none}}
+@keyframes listIn{from{opacity:0;transform:translateX(16px)}to{opacity:1;transform:none}}
+@keyframes ping{0%{box-shadow:0 0 0 0 rgba(162,74,42,.55)}70%{box-shadow:0 0 0 10px rgba(162,74,42,0)}100%{box-shadow:0 0 0 0 rgba(162,74,42,0)}}
+@keyframes blip{0%,100%{box-shadow:0 0 0 0 rgba(46,140,79,.45)}50%{box-shadow:0 0 0 5px rgba(46,140,79,0)}}
+@keyframes hold{0%,100%{box-shadow:0 0 0 0 rgba(192,120,32,.45)}60%{box-shadow:0 0 0 7px rgba(192,120,32,0)}}
+@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes glowPulse{0%,100%{opacity:.5;transform:scale(1)}50%{opacity:.8;transform:scale(1.07)}}
+@keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+@keyframes dots{0%,60%,100%{opacity:.3;transform:translateY(0)}30%{opacity:1;transform:translateY(-3px)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+.reveal-up{animation:fadeUp .75s cubic-bezier(.22,.85,.44,1) both}
+.reveal-fade{animation:fadeScale .7s cubic-bezier(.22,.85,.44,1) both}
+
+/* ── NAV / TICKER / LAYOUT ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:.9rem 2.8rem;background:rgba(253,248,239,.93);backdrop-filter:blur(16px);border-bottom:1px solid var(--line);transition:padding .3s}
+nav.scrolled{padding-top:.6rem;padding-bottom:.6rem}
+.nav-left{display:flex;align-items:center;gap:.7rem}
+.nav-back{width:34px;height:34px;border-radius:8px;border:1px solid var(--line);background:rgba(255,252,244,.7);color:var(--rust-600);display:inline-flex;align-items:center;justify-content:center;transition:all .2s}
+.nav-back:hover{background:var(--rust-50);border-color:var(--rust-300);transform:translateY(-1px)}
+.nav-logo{font-family:var(--ff-d);font-size:1.3rem;font-style:italic;color:var(--rust-600)}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{font-size:.83rem;color:var(--ink-soft);transition:color .2s}
+.nav-links a:hover{color:var(--rust-500)}
+.nav-cta{font-size:.83rem;font-weight:600;padding:.46rem 1.15rem;border-radius:8px;background:var(--rust-500);color:#fff;transition:all .2s}
+.nav-cta:hover{background:var(--rust-600);transform:translateY(-1px)}
+.ticker-wrap{margin-top:63px;overflow:hidden;background:linear-gradient(90deg,#f3e6cf,#ecd8b8);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:.5rem 0}
+.ticker{display:flex;width:max-content;white-space:nowrap;animation:ticker 32s linear infinite}
+.ticker-item{font-size:.7rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--rust-600);padding:0 2.2rem;flex-shrink:0}
+.ticker-item::after{content:'·';margin-left:2.2rem;color:var(--rust-400)}
+.container{max-width:1160px;margin:0 auto;padding:0 2.4rem}
+.narrow{max-width:820px;margin:0 auto;padding:0 2.4rem}
+.eyebrow{font-size:.7rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--rust-500);display:block;margin-bottom:.55rem}
+.sh2{font-family:var(--ff-d);font-size:clamp(1.8rem,3.2vw,2.6rem);font-weight:400;line-height:1.18;letter-spacing:-.01em;color:var(--ink)}
+.sh2 em{font-style:italic;color:var(--rust-500)}
+.btn{display:inline-block;font-size:.88rem;font-weight:600;border-radius:8px;padding:.66rem 1.5rem;transition:all .2s}
+.btn.primary{background:var(--rust-500);color:#fff;box-shadow:0 4px 18px rgba(162,74,42,.28)}
+.btn.primary:hover{background:var(--rust-600);transform:translateY(-2px)}
+.btn.ghost{border:1.5px solid var(--line-mid);color:var(--rust-600)}
+.btn.ghost:hover{background:var(--rust-50);transform:translateY(-2px)}
+.cta-row{display:flex;gap:.85rem;flex-wrap:wrap}
+.cta-row.center{justify-content:center}
+
+/* ══ APP CHROME — every illustration is a real screen ══ */
+.app{border:1.5px solid var(--line-mid);border-radius:14px;background:#fffdf8;overflow:hidden;box-shadow:0 26px 66px rgba(75,42,21,.14),0 3px 12px rgba(75,42,21,.06);display:flex;flex-direction:column}
+.app-bar{display:flex;align-items:center;gap:.5rem;padding:.55rem .8rem;background:linear-gradient(180deg,#f7ecd8,#f2e4cd);border-bottom:1px solid var(--line)}
+.app-dots{display:flex;gap:4.5px;margin-right:.2rem}
+.app-dots i{width:9px;height:9px;border-radius:50%}
+.app-dots i:nth-child(1){background:#f06257}.app-dots i:nth-child(2){background:#f5a623}.app-dots i:nth-child(3){background:#57c257}
+.app-name{font-family:var(--ff-m);font-size:.66rem;font-weight:600;color:var(--ink)}
+.app-name span{color:var(--ink-muted);font-weight:400}
+.app-conn{margin-left:auto;display:flex;align-items:center;gap:.3rem;font-family:var(--ff-m);font-size:.55rem;letter-spacing:.07em;text-transform:uppercase;color:var(--green)}
+.app-conn i{width:5px;height:5px;border-radius:50%;background:var(--green);animation:blip 2s ease-in-out infinite}
+.app-conn.busy{color:var(--amber)}.app-conn.busy i{background:var(--amber);animation:hold 1.2s ease infinite}
+.app-tool{display:flex;align-items:center;gap:.45rem;padding:.4rem .7rem;border-bottom:1px solid var(--line);background:#fffdf8;font-family:var(--ff-m);font-size:.55rem;color:var(--ink-muted)}
+.app-tool .r{margin-left:auto;display:flex;align-items:center;gap:.5rem}
+.app-file{display:flex;align-items:center;gap:.32rem;padding:.14rem .42rem;border:1px solid var(--line);border-radius:5px;background:#fff;color:var(--ink)}
+.app-file svg{color:var(--rust-500);flex-shrink:0}
+.app-body{padding:.6rem .7rem;display:flex;flex-direction:column;gap:.5rem;flex:1;min-height:0}
+.app-foot{display:flex;align-items:center;gap:.5rem;padding:.4rem .75rem;border-top:1px solid var(--line);background:#fffaf0;font-family:var(--ff-m);font-size:.55rem;color:var(--ink-muted)}
+.app-foot .r{margin-left:auto}
+.duo{display:grid;grid-template-columns:1fr 1.06fr;gap:.6rem;flex:1;min-height:0}
+.sub-h{font-family:var(--ff-m);font-size:.5rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-muted);margin-bottom:.3rem;display:flex;justify-content:space-between;align-items:baseline}
+.sub-h em{font-style:normal;font-size:.46rem;color:var(--green)}
+
+/* ── the customer's side: a real thread ── */
+.th{border-radius:10px;background:var(--wa-bg);background-image:radial-gradient(rgba(255,225,190,.035) 1px,transparent 1px);background-size:15px 15px;border:1px solid rgba(255,215,170,.14);overflow:hidden;display:flex;flex-direction:column;min-height:0}
+.th-h{display:flex;align-items:center;gap:.45rem;padding:.4rem .55rem;background:#0f2a24;border-bottom:1px solid rgba(255,255,255,.05)}
+.th-av{width:22px;height:22px;border-radius:50%;flex-shrink:0;display:grid;place-items:center;background:linear-gradient(140deg,#c05f34,#7d3a1c);font-family:var(--ff-m);font-size:.46rem;font-weight:600;color:#ffeede}
+.th-who{flex:1;min-width:0}
+.th-who b{display:block;font-size:.6rem;font-weight:500;color:#eef4f2;line-height:1.2}
+.th-who span{font-size:.46rem;color:#7fa89c}
+.th-scroll{flex:1;overflow:hidden;position:relative;padding:.45rem .5rem}
+.th-in{position:absolute;left:0;right:0;bottom:0;padding:0 .5rem .45rem}
+.msg{max-width:86%;margin-bottom:.28rem;padding:.3rem .42rem .26rem;border-radius:7px;font-size:.6rem;line-height:1.45;color:#e7eeec;word-wrap:break-word;box-shadow:0 1px 1px rgba(0,0,0,.28);animation:pop .3s cubic-bezier(.22,1.2,.4,1) both}
+.msg.in{background:var(--wa-in);border-top-left-radius:2px;margin-right:auto}
+.msg.out{background:var(--wa-out);border-top-right-radius:2px;margin-left:auto}
+.msg .mt{display:flex;align-items:center;justify-content:flex-end;gap:3px;margin-top:1px;font-size:.44rem;color:rgba(230,240,236,.45)}
+.tick{width:12px;height:7px;flex-shrink:0}
+.tick path{stroke:rgba(230,240,236,.5);stroke-width:1.5;fill:none;stroke-linecap:round;stroke-linejoin:round;transition:stroke .45s}
+.msg.read .tick path{stroke:#53bdeb}
+.typing{display:inline-flex;gap:3px;padding:.4rem .48rem;border-radius:7px;background:var(--wa-in);border-top-left-radius:2px;margin-bottom:.28rem}
+.typing i{width:4.5px;height:4.5px;border-radius:50%;background:rgba(230,240,236,.45);animation:dots 1.3s infinite}
+.typing i:nth-child(2){animation-delay:.18s}.typing i:nth-child(3){animation-delay:.36s}
+.docmsg{display:flex;align-items:center;gap:.38rem;padding:.34rem .38rem;border-radius:6px;background:rgba(255,255,255,.06);margin-bottom:.26rem}
+.docmsg .ic{width:22px;height:26px;border-radius:3px;flex-shrink:0;background:#f5f1ea;display:grid;place-items:center;font-family:var(--ff-m);font-size:.36rem;font-weight:600;color:#b2352a;position:relative}
+.docmsg b{display:block;font-size:.55rem;font-weight:500;color:#eef4f2;line-height:1.25;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.docmsg span{font-size:.44rem;color:rgba(230,240,236,.45)}
+
+/* ── the business side: a control rail ── */
+.rail{display:flex;flex-direction:column;gap:.26rem}
+.step{display:grid;grid-template-columns:17px 1fr;gap:.45rem;align-items:start;padding:.36rem .45rem;border-radius:7px;border:1px solid transparent;transition:background .35s,border-color .35s}
+.step .dot{width:15px;height:15px;border-radius:50%;border:1.5px solid var(--line-mid);background:#fff;display:grid;place-items:center;font-family:var(--ff-m);font-size:.42rem;color:var(--ink-muted);margin-top:1px;transition:all .35s}
+.step b{display:block;font-size:.63rem;font-weight:500;color:var(--ink-muted);line-height:1.3;transition:color .35s}
+.step span{display:block;font-family:var(--ff-m);font-size:.5rem;color:var(--ink-muted);opacity:0;max-height:0;overflow:hidden;transition:opacity .4s,max-height .4s,color .35s}
+.step.on{background:rgba(162,74,42,.05);border-color:rgba(162,74,42,.18)}
+.step.on b{color:var(--ink)}
+.step.on span{opacity:1;max-height:32px}
+.step.on .dot{border-color:var(--rust-400);border-right-color:transparent;animation:spin .8s linear infinite}
+.step.done{background:rgba(46,140,79,.05);border-color:rgba(46,140,79,.2)}
+.step.done b{color:var(--ink)}
+.step.done span{opacity:1;max-height:32px;color:#3a7a4c}
+.step.done .dot{background:var(--green);border-color:var(--green);color:#fff}
+.step.hold{background:rgba(192,120,32,.07);border-color:rgba(192,120,32,.32)}
+.step.hold b{color:var(--ink)}
+.step.hold span{opacity:1;max-height:32px;color:var(--amber)}
+.step.hold .dot{background:var(--amber);border-color:var(--amber);color:#fff;animation:hold 1.3s ease infinite}
+
+/* approval card */
+.appr{margin-top:.3rem;border:1px solid rgba(192,120,32,.4);border-radius:8px;background:#fffaf0;padding:.45rem .5rem;opacity:0;transform:translateY(6px);transition:all .45s}
+.appr.show{opacity:1;transform:none}
+.appr.done{border-color:rgba(46,140,79,.4);background:rgba(46,140,79,.06)}
+.appr-h{font-family:var(--ff-m);font-size:.48rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);margin-bottom:.24rem;transition:color .4s}
+.appr.done .appr-h{color:#1c6535}
+.appr p{font-size:.6rem;line-height:1.5;color:var(--ink-soft)}
+.appr p b{color:var(--ink);font-weight:500}
+.appr-acts{display:flex;gap:.3rem;margin-top:.4rem}
+.abtn{padding:.26rem .5rem;border-radius:6px;font-family:var(--ff-m);font-size:.48rem;letter-spacing:.07em;text-transform:uppercase;border:1px solid var(--line);color:var(--ink-muted);background:#fff}
+.abtn.pri{flex:1;position:relative;overflow:hidden;text-align:center;background:var(--amber);color:#fff;border-color:transparent;transition:transform .2s cubic-bezier(.34,1.5,.64,1),box-shadow .2s,background .3s}
+.abtn.pri.hot{transform:translateY(-2px);box-shadow:0 6px 14px rgba(192,120,32,.3)}
+.abtn.pri.press{transform:translateY(1px) scale(.97)}
+.abtn.pri.ok{background:var(--green)}
+.rip{position:absolute;border-radius:50%;background:rgba(255,255,255,.6);transform:translate(-50%,-50%) scale(0);pointer-events:none}
+.rip.go{animation:rp .55s ease-out forwards}
+@keyframes rp{to{transform:translate(-50%,-50%) scale(14);opacity:0}}
+.cursor{position:absolute;width:17px;height:17px;z-index:40;opacity:0;pointer-events:none;filter:drop-shadow(0 4px 8px rgba(60,38,18,.4));transition:transform .95s cubic-bezier(.33,.9,.28,1),opacity .3s}
+.cursor.on{opacity:1}
+.cursor.tap{transform:var(--pos) scale(.85)!important;transition:transform .11s ease}
+
+/* data tables + fields */
+.tbl{width:100%;border-collapse:collapse;font-family:var(--ff-m)}
+.tbl th{text-align:left;font-size:.48rem;font-weight:500;letter-spacing:.11em;text-transform:uppercase;color:var(--ink-muted);padding:.26rem .38rem;border-bottom:1px solid var(--line);background:rgba(162,74,42,.03);white-space:nowrap}
+.tbl td{font-size:.57rem;color:var(--ink-soft);padding:.3rem .38rem;border-bottom:1px solid rgba(216,200,179,.5)}
+.tbl tr:last-child td{border-bottom:none}
+.tbl .num{text-align:right;white-space:nowrap;color:var(--ink)}
+.tbl .nm{color:var(--ink);font-weight:500}
+.tbl tr.row{opacity:0}
+.tbl tr.row.show{animation:rise .32s cubic-bezier(.22,.85,.44,1) forwards}
+.tbl tr.ok td{background:rgba(46,140,79,.05)}
+.tbl tr.ex td{background:rgba(192,120,32,.08)}
+.tbl tr.sel td{background:rgba(162,74,42,.08)}
+.fld{display:grid;grid-template-columns:62px 1fr;align-items:center;gap:.45rem;padding:.28rem .42rem;border-radius:6px;border:1px dashed rgba(196,160,126,.65);background:rgba(255,255,255,.45);margin-bottom:.22rem;transition:all .35s}
+.fld dt{font-family:var(--ff-m);font-size:.48rem;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-muted)}
+.fld dd{font-family:var(--ff-m);font-size:.6rem;color:var(--ink-muted);opacity:.35;font-weight:500;transition:all .3s}
+.fld.set{border-style:solid;border-color:var(--line);background:#fff}
+.fld.set dd{opacity:1;color:var(--ink)}
+.pill2{display:inline-flex;align-items:center;gap:.2rem;padding:.08rem .36rem;border-radius:999px;font-family:var(--ff-m);font-size:.46rem;font-weight:500;border:1px solid var(--line);color:var(--ink-muted);background:#fff;white-space:nowrap}
+.pill2.ok{border-color:rgba(46,140,79,.35);background:rgba(46,140,79,.09);color:#1c6535}
+.pill2.warn{border-color:rgba(192,120,32,.35);background:rgba(192,120,32,.1);color:var(--amber)}
+.pill2.info{border-color:rgba(60,90,140,.32);background:rgba(60,90,140,.08);color:var(--blue)}
+.term{border-radius:7px;background:#241811;padding:.42rem .5rem;font-family:var(--ff-m);font-size:.52rem;line-height:1.75;color:#d8c0a0;overflow:hidden}
+.term .k{color:#e8a060}.term .v{color:#f0e0ca}.term .c{color:rgba(200,168,136,.45)}
+.term .ln{opacity:0}
+.term .ln.show{animation:rise .26s ease forwards}
+
+/* ── HERO ── */
+.wa-hero{padding:5rem 0 4rem;position:relative;isolation:isolate;overflow:hidden}
+.wa-hero::before{content:'';position:absolute;inset:0;z-index:-2;pointer-events:none;background:radial-gradient(ellipse 70% 55% at 80% 10%,rgba(162,74,42,.11),transparent),radial-gradient(ellipse 45% 55% at 5% 90%,rgba(255,215,140,.18),transparent)}
+.wa-hero::after{content:'';position:absolute;inset:0;z-index:-1;pointer-events:none;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:48px 48px;mask-image:radial-gradient(ellipse 75% 75% at 68% 38%,black 0%,transparent 100%)}
+.wa-hero__grid{display:grid;grid-template-columns:1fr 1.16fr;gap:3.2rem;align-items:center;position:relative;z-index:1}
+.wa-hero__eyebrow{display:inline-flex;align-items:center;gap:.55rem;margin-bottom:.9rem}
+.eyebrow-dot{width:8px;height:8px;border-radius:50%;background:var(--rust-500);animation:ping 2.2s ease-in-out infinite}
+.eyebrow-text{font-size:.7rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--rust-600)}
+.wa-hero__h1{font-family:var(--ff-d);font-size:clamp(2.2rem,4.3vw,3.5rem);font-weight:400;line-height:1.08;letter-spacing:-.01em;margin-bottom:1.15rem}
+.wa-hero__h1 em{font-style:italic;color:var(--rust-500)}
+.wa-hero__lead{font-size:1rem;font-weight:300;color:var(--ink-soft);line-height:1.75;max-width:52ch;margin-bottom:1.8rem}
+.wa-hero__demo{position:relative}
+.demo-float{position:absolute;display:flex;align-items:center;gap:.4rem;font-size:.73rem;font-weight:600;color:#5a3d2e;background:rgba(255,248,232,.95);border:1.5px solid var(--line);border-radius:999px;padding:.42rem .82rem;box-shadow:0 6px 20px rgba(75,42,21,.12);white-space:nowrap;animation:floatY 3s ease-in-out infinite}
+.demo-float svg{width:13px;height:13px;flex-shrink:0}
+.demo-float-1{bottom:-1rem;left:-1.6rem}
+.demo-float-2{top:1rem;right:-1.6rem;animation-delay:1.4s}
+
+/* ── STATS / OVERVIEW ── */
+.stats-strip{background:var(--dark-bg);display:grid;grid-template-columns:repeat(4,1fr);gap:1px}
+.stat-item{text-align:center;padding:2rem 1rem;position:relative}
+.stat-item:not(:last-child)::after{content:'';position:absolute;right:0;top:25%;bottom:25%;width:1px;background:rgba(255,255,255,.07)}
+.stat-text{font-family:var(--ff-m);font-size:clamp(.95rem,1.7vw,1.3rem);font-weight:500;color:var(--rust-300);display:block;line-height:1.2;margin-bottom:.3rem}
+.stat-label{font-size:.7rem;color:rgba(255,255,255,.38);letter-spacing:.06em;text-transform:uppercase}
+.wa-problem{padding:4rem 0}
+.wa-problem__card{display:grid;grid-template-columns:auto 1fr;gap:2.2rem;align-items:start;border:1.5px solid var(--line);border-radius:24px;padding:2.6rem 2.2rem;background:linear-gradient(148deg,rgba(255,245,228,.98),rgba(250,232,198,.9));box-shadow:0 16px 48px rgba(75,42,21,.09);opacity:0}
+.wa-problem__card.in-view{animation:fadeUp .8s cubic-bezier(.22,.85,.44,1) forwards}
+.wa-problem-icon{color:var(--rust-500);flex-shrink:0}
+.wa-problem__text h2{font-family:var(--ff-d);font-size:clamp(1.55rem,2.7vw,2.2rem);font-weight:400;line-height:1.2;margin-bottom:.9rem}
+.wa-problem__text p{color:var(--ink-soft);line-height:1.72;max-width:66ch;font-weight:300}
+.wa-problem__text p+p{margin-top:.7rem}
+
+/* ── FEATURE ROWS ── */
+.feat-section{padding:3rem 0 2rem}
+.feat-row{display:grid;grid-template-columns:1fr 1.14fr;gap:4rem;align-items:center;padding:4.5rem 0;border-bottom:1px solid var(--line)}
+.feat-row:last-child{border-bottom:none}
+.feat-row.reverse .feat-copy{order:2}.feat-row.reverse .feat-illu{order:1}
+.feat-num{font-family:var(--ff-m);font-size:.6rem;letter-spacing:.14em;color:var(--rust-500);opacity:.5;display:block;margin-bottom:.4rem}
+.feat-copy .sh2{margin-bottom:1rem}
+.feat-copy p{font-size:.95rem;font-weight:300;color:var(--ink-soft);line-height:1.75;margin-bottom:.9rem}
+.bullet-list{list-style:none;display:grid;gap:.5rem;margin-top:1.1rem}
+.bullet-list li{position:relative;padding-left:1.1rem;font-size:.88rem;color:var(--ink-soft)}
+.bullet-list li::before{content:'';position:absolute;left:0;top:.62em;width:6px;height:6px;border-radius:50%;background:var(--rust-400)}
+.feat-illu .app{min-height:362px}
+
+/* ── CAPABILITIES / FIT / CTA ── */
+.wa-caps{padding:4.5rem 0;background:linear-gradient(180deg,transparent,rgba(250,240,224,.45) 40%,transparent)}
+.wa-caps__header{margin-bottom:2.2rem}
+.caps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.cap{background:#fffdf8;padding:1.5rem 1.4rem;position:relative;transition:background .3s}
+.cap:hover{background:#fff}
+.cap::after{content:'';position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--rust-400);transform:scaleX(0);transform-origin:left;transition:transform .4s}
+.cap:hover::after{transform:scaleX(1)}
+.cap-n{font-family:var(--ff-m);font-size:.55rem;letter-spacing:.14em;color:var(--rust-500);opacity:.5}
+.cap h3{font-size:.97rem;font-weight:600;margin:.5rem 0 .4rem}
+.cap p{font-size:.84rem;font-weight:300;color:var(--ink-soft);line-height:1.68}
+.cap-meta{display:block;margin-top:.75rem;padding-top:.6rem;border-top:1px dashed var(--line);font-family:var(--ff-m);font-size:.53rem;color:var(--ink-muted)}
+.wa-apply{padding:4.5rem 0}
+.wa-apply__grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
+.wa-apply__sub{font-size:.94rem;font-weight:300;color:var(--ink-soft);line-height:1.72;margin-top:.9rem}
+.wa-apply__list{display:grid;gap:.7rem;margin-top:1.2rem;list-style:none}
+.wa-apply__item{display:flex;align-items:center;gap:.85rem;font-size:.94rem;font-weight:500;opacity:0;animation:listIn .5s ease both;animation-play-state:paused}
+.wa-apply__item.in-view{animation-play-state:running}
+.wa-apply__check{width:28px;height:28px;border-radius:50%;background:rgba(162,74,42,.1);border:1.5px solid rgba(162,74,42,.22);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--rust-500)}
+.wa-apply__check svg{width:13px;height:13px}
+.wa-cta{padding:2rem 0 5rem}
+.wa-cta__card{position:relative;border:1.5px solid var(--line);border-radius:24px;padding:3.4rem 3rem;background:linear-gradient(148deg,rgba(255,246,230,.98),rgba(252,233,200,.9));box-shadow:0 24px 64px rgba(75,42,21,.1);text-align:center;overflow:hidden;opacity:0}
+.wa-cta__card.in-view{animation:fadeUp .8s cubic-bezier(.22,.85,.44,1) forwards}
+.wa-cta__glow{position:absolute;top:-60px;right:-60px;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(162,74,42,.13),transparent 70%);animation:glowPulse 4s ease-in-out infinite;pointer-events:none}
+.wa-cta__card h2{font-family:var(--ff-d);font-size:clamp(1.5rem,2.7vw,2.1rem);font-weight:400;line-height:1.22;max-width:52ch;margin:.6rem auto 0}
+.wa-cta__sub{margin-top:.9rem;color:var(--ink-soft);font-size:.98rem;font-weight:300;max-width:66ch;margin-inline:auto}
+.wa-note{margin-top:1.3rem;display:inline-flex;align-items:flex-start;gap:.5rem;text-align:left;max-width:60ch;padding:.6rem .8rem;border-radius:10px;border:1px solid rgba(192,120,32,.3);background:rgba(192,120,32,.06);font-family:var(--ff-m);font-size:.62rem;line-height:1.65;color:var(--ink-soft)}
+.wa-note i{width:6px;height:6px;border-radius:50%;background:var(--amber);flex-shrink:0;margin-top:.42rem}
+footer{background:var(--dark-bg);color:rgba(255,255,255,.35);text-align:center;padding:2rem 2.4rem;font-size:.82rem;font-weight:300}
+footer strong{color:var(--rust-300);font-weight:500}
+
+@media(max-width:1040px){
+  .nav-links,.nav-cta{display:none}
+  nav{padding:.85rem 1.4rem}
+  .wa-hero{padding:4rem 0 3rem}
+  .wa-hero__grid{grid-template-columns:1fr;gap:2.5rem}
+  .demo-float-1,.demo-float-2{display:none}
+  .feat-row{grid-template-columns:1fr;gap:2.6rem;padding:3.4rem 0}
+  .feat-row.reverse .feat-copy,.feat-row.reverse .feat-illu{order:unset}
+  .wa-problem__card{grid-template-columns:1fr;gap:1.5rem;padding:2rem 1.8rem}
+  .caps-grid{grid-template-columns:repeat(2,1fr)}
+  .wa-apply__grid{grid-template-columns:1fr;gap:2.4rem}
+  .stats-strip{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:620px){
+  .container,.narrow{padding:0 1.2rem}
+  nav{padding:.8rem 1rem}
+  .wa-hero__h1{font-size:clamp(2rem,8vw,2.6rem)}
+  .duo{grid-template-columns:1fr}
+  .th{min-height:186px}
+  .tbl .hide-s{display:none}
+  .caps-grid{grid-template-columns:1fr}
+  .stats-strip{grid-template-columns:1fr}
+  .stat-item:not(:last-child)::after{display:none}
+  .wa-cta__card{padding:2.4rem 1.4rem}
+}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.001ms!important;transition-duration:.001ms!important}}
+</style>
+
+<nav id="mainnav">
+  <div class="nav-left">
+    <a class="nav-back" href="/products" aria-label="Back to products">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+    </a>
+    <span class="nav-logo">Nyx Solution</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#order">Order capture</a></li>
+    <li><a href="#status">Order status</a></li>
+    <li><a href="#invoice">Invoices</a></li>
+    <li><a href="#followup">Follow-ups</a></li>
+  </ul>
+  <a class="nav-cta" href="/contact">Discuss a WhatsApp Workflow</a>
+</nav>
+
+<div class="ticker-wrap" aria-hidden="true"><div class="ticker" id="ticker"></div></div>
+
+<!-- ══ HERO ══ -->
+<section class="wa-hero">
+  <div class="container">
+    <div class="wa-hero__grid">
+      <div>
+        <div class="wa-hero__eyebrow reveal-up"><span class="eyebrow-dot"></span><span class="eyebrow-text">Agentic Customer Operations · WhatsApp and SAP connected</span></div>
+        <h1 class="wa-hero__h1 reveal-up" style="animation-delay:.1s">Turn a WhatsApp conversation into <em>a controlled business workflow.</em></h1>
+        <p class="wa-hero__lead reveal-up" style="animation-delay:.2s">Customers can place orders, check status, receive invoices, and respond to payment reminders in the channel they already use. Behind the conversation, the agent verifies identity, reads current SAP context, and routes every sensitive action through the right business controls.</p>
+        <div class="cta-row reveal-up" style="animation-delay:.3s">
+          <a class="btn primary" href="/contact">Discuss a WhatsApp Workflow</a>
+          <a class="btn ghost" href="/products#whatsapp-agent">Back to Products</a>
+        </div>
+      </div>
+
+      <div class="wa-hero__demo reveal-fade" style="animation-delay:.45s">
+        <div class="app" style="min-height:392px">
+          <div class="app-bar">
+            <span class="app-dots"><i></i><i></i><i></i></span>
+            <span class="app-name">Nyx Operations <span>· WhatsApp channel</span></span>
+            <span class="app-conn" id="hConn"><i></i>SAP</span>
+          </div>
+          <div class="app-body">
+            <div class="duo">
+              <div class="th">
+                <div class="th-h"><span class="th-av">SA</span><span class="th-who"><b>Rajesh · Suryadev Alloys</b><span id="hPres">online</span></span></div>
+                <div class="th-scroll"><div class="th-in" id="hThread"></div></div>
+              </div>
+              <div>
+                <div class="sub-h"><span>What the agent did</span><span id="hRun">req 8842</span></div>
+                <div class="rail">
+                  <div class="step" id="hs0"><span class="dot">1</span><span><b>Verified the customer</b><span id="hs0d">+91 98•• ••231 → SAP 100482</span></span></div>
+                  <div class="step" id="hs1"><span class="dot">2</span><span><b>Read current SAP context</b><span id="hs1d">order 45001229 · in transit</span></span></div>
+                  <div class="step" id="hs2"><span class="dot">3</span><span><b>Routed for approval</b><span id="hs2d">price exception · sales head</span></span></div>
+                  <div class="step" id="hs3"><span class="dot">4</span><span><b>Returned a verified result</b><span id="hs3d">to customer and admin team</span></span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="app-foot"><span id="hFoot">A message is a request — never permission to act</span></div>
+        </div>
+
+        <div class="demo-float demo-float-1 reveal-fade" style="animation-delay:.9s">
+          <svg viewBox="0 0 16 16" fill="none"><path d="M8 1l1.8 3.6L14 5.5l-3 2.9.7 4.1L8 10.4l-3.7 2.1.7-4.1L2 5.5l4.2-.9L8 1z" stroke="currentColor" stroke-width="1.2" fill="currentColor" fill-opacity=".15"/></svg>
+          Verified customers only
+        </div>
+        <div class="demo-float demo-float-2 reveal-fade" style="animation-delay:1.1s">
+          <svg viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.3"/><path d="M5.5 8l2 2 3-3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          SAP-grounded
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="stats-strip">
+  <div class="stat-item"><span class="stat-text">Verified access</span><span class="stat-label">mapped numbers only</span></div>
+  <div class="stat-item"><span class="stat-text">SAP-grounded</span><span class="stat-label">orders, invoices, receivables</span></div>
+  <div class="stat-item"><span class="stat-text">Approval gates</span><span class="stat-label">on price and creation</span></div>
+  <div class="stat-item"><span class="stat-text">Auditable</span><span class="stat-label">asked, checked, approved, sent</span></div>
+</div>
+
+<!-- ══ WHAT IT SOLVES ══ -->
+<section class="wa-problem">
+  <div class="narrow">
+    <div class="wa-problem__card" id="problemCard">
+      <div class="wa-problem-icon">
+        <svg width="52" height="52" viewBox="0 0 48 48" fill="none">
+          <path d="M8 38l2.6-7A15.5 15.5 0 1 1 17 37.4L8 38z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+          <path d="M16 20h9M16 25h13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" opacity=".55"/>
+          <circle cx="34" cy="33" r="7.5" fill="rgba(162,74,42,.08)" stroke="currentColor" stroke-width="1.8"/>
+          <path d="M31 33l2.2 2.2L37.5 31" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="wa-problem__text">
+        <h2>What the WhatsApp Business Operations Agent is built to solve</h2>
+        <p>A normal WhatsApp bot answers questions. This product is designed to complete operational work. It connects the customer conversation with pricing, stock, orders, invoices, receivables, approvals, and the internal systems that hold the source of truth.</p>
+        <p>The agent never needs to treat a message as permission to act blindly. It can verify the customer, check the latest ERP or SAP state, ask for missing information, obtain employee approval when required, and return a clear result to both the customer and the business team.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ HOW TEAMS USE IT ══ -->
+<section class="feat-section"><div class="container">
+
+  <!-- 1 · ORDER CAPTURE -->
+  <div class="feat-row" id="order">
+    <div class="feat-copy reveal-up">
+      <span class="feat-num">01 — How teams use it</span>
+      <h2 class="sh2">Product enquiry and <em>order capture</em></h2>
+      <p>A verified customer can request steel products, quantities, delivery details, or current pricing through a guided WhatsApp conversation.</p>
+      <ul class="bullet-list">
+        <li>Recognizes the customer and account context</li>
+        <li>Collects product, grade, size, quantity, and delivery requirements</li>
+        <li>Routes price or commercial exceptions for approval</li>
+      </ul>
+    </div>
+    <div class="feat-illu reveal-fade">
+      <div class="app" id="p1">
+        <div class="app-bar"><span class="app-dots"><i></i><i></i><i></i></span><span class="app-name">Order capture <span>· guided enquiry</span></span><span class="app-conn" id="p1conn"><i></i>Account context</span></div>
+        <div class="app-tool"><span class="app-file">Suryadev Alloys · SAP 100482</span><span>credit terms 45d · price list PL-02</span></div>
+        <div class="app-body">
+          <div class="duo">
+            <div class="th">
+              <div class="th-h"><span class="th-av">SA</span><span class="th-who"><b>Rajesh · Suryadev Alloys</b><span id="p1pres">online</span></span></div>
+              <div class="th-scroll"><div class="th-in" id="p1thread"></div></div>
+            </div>
+            <div>
+              <div class="sub-h"><span>Order draft</span><span id="p1id">DRAFT-8842</span></div>
+              <dl class="fld" id="f0"><dt>Product</dt><dd>TMT bar Fe-500D</dd></dl>
+              <dl class="fld" id="f1"><dt>Grade</dt><dd>Fe-500D · IS 1786</dd></dl>
+              <dl class="fld" id="f2"><dt>Size</dt><dd>12 mm</dd></dl>
+              <dl class="fld" id="f3"><dt>Quantity</dt><dd>25.000 MT</dd></dl>
+              <dl class="fld" id="f4"><dt>Delivery</dt><dd>Jalna works · 29 Aug</dd></dl>
+              <dl class="fld" id="f5"><dt>Price</dt><dd>₹54,200 / MT</dd></dl>
+              <div class="appr" id="p1appr">
+                <div class="appr-h" id="p1apprH">Commercial exception · approval required</div>
+                <p>Requested rate is <b>₹1,800/MT below</b> price list PL-02. Needs sales head sign-off before the order is confirmed.</p>
+                <div class="appr-acts"><span class="abtn">Decline</span><span class="abtn pri" id="p1btn">Approve rate</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="app-foot"><span id="p1foot">Guided questions only — no free-form guessing</span></div>
+        <svg class="cursor" id="p1cur" viewBox="0 0 20 20" fill="none"><path d="M3 2l12 7.2-5.4 1.3L7.4 16z" fill="#fff8ec" stroke="#2a1a10" stroke-width="1.1" stroke-linejoin="round"/></svg>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2 · SAP-VERIFIED STATUS -->
+  <div class="feat-row reverse" id="status">
+    <div class="feat-copy reveal-up">
+      <span class="feat-num">02 — How teams use it</span>
+      <h2 class="sh2">SAP-verified <em>order status</em></h2>
+      <p>Instead of returning a generic response, the agent checks the current order state in SAP and shares the latest available status in the conversation.</p>
+      <ul class="bullet-list">
+        <li>Checks the relevant customer and order</li>
+        <li>Returns verified status — not a cached guess</li>
+        <li>Escalates incomplete or conflicting records to the team</li>
+      </ul>
+    </div>
+    <div class="feat-illu reveal-fade">
+      <div class="app" id="p2">
+        <div class="app-bar"><span class="app-dots"><i></i><i></i><i></i></span><span class="app-name">Status lookup</span><span class="app-conn busy" id="p2conn"><i></i>Querying SAP</span></div>
+        <div class="app-body">
+          <div class="term" id="p2term">
+            <div class="ln"><span class="c"># scoped to the verified customer</span></div>
+            <div class="ln"><span class="k">GET</span> <span class="v">/sap/opu/odata/sap/SalesOrderSet</span></div>
+            <div class="ln"><span class="k">  filter</span> <span class="v">SoldToParty eq '100482'</span></div>
+            <div class="ln"><span class="k">  read</span> <span class="v">12:04:06 · live · no cache</span></div>
+          </div>
+          <table class="tbl">
+            <thead><tr><th>Order</th><th>Material</th><th class="hide-s num">Qty</th><th>Status</th><th class="hide-s">Delivery</th></tr></thead>
+            <tbody id="p2rows"></tbody>
+          </table>
+          <div class="th" style="min-height:96px">
+            <div class="th-scroll"><div class="th-in" id="p2thread"></div></div>
+          </div>
+        </div>
+        <div class="app-foot"><span id="p2foot">Answer built from the record, not from the last message</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3 · INVOICE DELIVERY -->
+  <div class="feat-row" id="invoice">
+    <div class="feat-copy reveal-up">
+      <span class="feat-num">03 — How teams use it</span>
+      <h2 class="sh2">Invoice delivery <em>on WhatsApp</em></h2>
+      <p>Once an invoice is generated in SAP, the correct PDF can be sent to the customer's verified WhatsApp number with the invoice reference and due date.</p>
+      <ul class="bullet-list">
+        <li>Links the document to the correct account</li>
+        <li>Makes invoices easier for customers to retrieve</li>
+        <li>Keeps delivery events traceable for the admin team</li>
+      </ul>
+    </div>
+    <div class="feat-illu reveal-fade">
+      <div class="app" id="p3">
+        <div class="app-bar"><span class="app-dots"><i></i><i></i><i></i></span><span class="app-name">Invoice delivery <span>· billing documents</span></span><span class="app-conn" id="p3conn"><i></i>SAP billing</span></div>
+        <div class="app-body">
+          <div class="duo">
+            <div>
+              <div class="sub-h"><span>Billing documents</span><span id="p3cnt">3 eligible</span></div>
+              <table class="tbl">
+                <thead><tr><th>Doc</th><th>Account</th><th class="num">Value</th></tr></thead>
+                <tbody id="p3rows"></tbody>
+              </table>
+              <div class="sub-h" style="margin-top:.5rem"><span>Recipient check</span></div>
+              <dl class="fld" id="r0"><dt>Number</dt><dd>+91 98•• ••231</dd></dl>
+              <dl class="fld" id="r1"><dt>Mapped to</dt><dd>Suryadev Alloys · 100482</dd></dl>
+              <dl class="fld" id="r2"><dt>Match</dt><dd>Doc account = mapped account</dd></dl>
+            </div>
+            <div class="th">
+              <div class="th-h"><span class="th-av">SA</span><span class="th-who"><b>Rajesh · Suryadev Alloys</b><span>verified recipient</span></span></div>
+              <div class="th-scroll"><div class="th-in" id="p3thread"></div></div>
+            </div>
+          </div>
+          <div>
+            <div class="sub-h"><span>Delivery log · admin</span><span id="p3state">queued</span></div>
+            <table class="tbl">
+              <thead><tr><th>Time</th><th>Event</th><th class="hide-s">Detail</th></tr></thead>
+              <tbody id="p3log"></tbody>
+            </table>
+          </div>
+        </div>
+        <div class="app-foot"><span id="p3foot">Nothing is sent until the number and the account agree</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4 · PAYMENT FOLLOW-UPS -->
+  <div class="feat-row reverse" id="followup">
+    <div class="feat-copy reveal-up">
+      <span class="feat-num">04 — How teams use it</span>
+      <h2 class="sh2">Automated <em>payment follow-ups</em></h2>
+      <p>The agent checks receivables against the due date and sends a polite reminder only when payment remains outstanding. Follow-up intervals can reflect the company's collection policy.</p>
+      <ul class="bullet-list">
+        <li>Stops reminders when SAP shows the balance is cleared</li>
+        <li>Supports configurable reminder intervals</li>
+        <li>Gives the admin team visibility into sent, pending, and resolved follow-ups</li>
+      </ul>
+    </div>
+    <div class="feat-illu reveal-fade">
+      <div class="app" id="p4">
+        <div class="app-bar"><span class="app-dots"><i></i><i></i><i></i></span><span class="app-name">Collection policy <span>· follow-up run</span></span><span class="app-conn" id="p4conn"><i></i>Receivables</span></div>
+        <div class="app-tool">
+          <span class="pill2">Due + 3d</span><span class="pill2">Due + 7d</span><span class="pill2">Due + 15d</span><span class="pill2 warn">Escalate + 30d</span>
+          <span class="r" id="p4pol">policy · standard B2B</span>
+        </div>
+        <div class="app-body">
+          <div class="duo">
+            <div>
+              <div class="sub-h"><span>Schedule · INV-9034412</span><span id="p4bal">₹4,80,000 open</span></div>
+              <table class="tbl">
+                <thead><tr><th>Step</th><th>Balance check</th><th>Action</th></tr></thead>
+                <tbody id="p4rows"></tbody>
+              </table>
+              <div class="sub-h" style="margin-top:.55rem"><span>Admin view</span></div>
+              <table class="tbl">
+                <tbody>
+                  <tr><td>Sent</td><td class="num" id="mSent">0</td><td>Pending</td><td class="num" id="mPend">1</td><td>Resolved</td><td class="num" id="mRes">0</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="th">
+              <div class="th-h"><span class="th-av">SA</span><span class="th-who"><b>Accounts · Suryadev Alloys</b><span id="p4pres">online</span></span></div>
+              <div class="th-scroll"><div class="th-in" id="p4thread"></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="app-foot"><span id="p4foot">Balance is re-read before every reminder</span></div>
+      </div>
+    </div>
+  </div>
+
+</div></section>
+
+<!-- ══ CORE CAPABILITIES ══ -->
+<section class="wa-caps">
+  <div class="container">
+    <div class="wa-caps__header reveal-up"><span class="eyebrow">Core capabilities</span><h2 class="sh2">What holds the conversation <em>to business rules</em></h2></div>
+    <div class="caps-grid">
+      <article class="cap"><span class="cap-n">01</span><h3>Verified customer access</h3><p>Restricts account-specific information and actions to approved customer identities and mapped WhatsApp numbers.</p><span class="cap-meta">number → account mapping</span></article>
+      <article class="cap"><span class="cap-n">02</span><h3>SAP-grounded responses</h3><p>Reads current order, invoice, and receivable information before answering operational questions.</p><span class="cap-meta">read at answer time · no cache</span></article>
+      <article class="cap"><span class="cap-n">03</span><h3>Human approval gates</h3><p>Routes price changes, exceptional terms, high-risk actions, or final order creation to an authorized employee when required.</p><span class="cap-meta">price · terms · order creation</span></article>
+      <article class="cap"><span class="cap-n">04</span><h3>Duplicate-action prevention</h3><p>Uses transaction and conversation context to reduce repeated order creation, invoice delivery, or reminder actions.</p><span class="cap-meta">order · invoice · reminder</span></article>
+      <article class="cap"><span class="cap-n">05</span><h3>Configurable follow-up rules</h3><p>Supports business-defined due-date checks, reminder intervals, customer groups, and escalation paths.</p><span class="cap-meta">intervals · groups · escalation</span></article>
+      <article class="cap"><span class="cap-n">06</span><h3>Admin visibility and auditability</h3><p>Shows what the customer requested, what the agent checked, which approvals occurred, and what was finally sent or executed.</p><span class="cap-meta">asked · checked · approved · sent</span></article>
+    </div>
+  </div>
+</section>
+
+<!-- ══ BEST FIT ══ -->
+<section class="wa-apply">
+  <div class="container">
+    <div class="wa-apply__grid">
+      <div class="reveal-up">
+        <span class="eyebrow">Best fit for</span>
+        <h2 class="sh2">Businesses whose customers already live <em>in the chat window</em></h2>
+        <p class="wa-apply__sub">The agent suits organisations taking repeat B2B orders and status requests through WhatsApp, while orders, invoices and receivables stay in SAP.</p>
+      </div>
+      <ul class="wa-apply__list">
+        <li class="wa-apply__item"><span class="wa-apply__check"><svg viewBox="0 0 14 14" fill="none"><path d="M2.5 7l3.5 3.5 5.5-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Steel manufacturers and distributors</li>
+        <li class="wa-apply__item" style="animation-delay:.08s"><span class="wa-apply__check"><svg viewBox="0 0 14 14" fill="none"><path d="M2.5 7l3.5 3.5 5.5-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>B2B companies receiving repeat orders</li>
+        <li class="wa-apply__item" style="animation-delay:.16s"><span class="wa-apply__check"><svg viewBox="0 0 14 14" fill="none"><path d="M2.5 7l3.5 3.5 5.5-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Teams using SAP for orders and invoicing</li>
+        <li class="wa-apply__item" style="animation-delay:.24s"><span class="wa-apply__check"><svg viewBox="0 0 14 14" fill="none"><path d="M2.5 7l3.5 3.5 5.5-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Finance teams managing payment follow-ups</li>
+        <li class="wa-apply__item" style="animation-delay:.32s"><span class="wa-apply__check"><svg viewBox="0 0 14 14" fill="none"><path d="M2.5 7l3.5 3.5 5.5-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Customer-service teams handling status requests</li>
+        <li class="wa-apply__item" style="animation-delay:.40s"><span class="wa-apply__check"><svg viewBox="0 0 14 14" fill="none"><path d="M2.5 7l3.5 3.5 5.5-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Businesses that need controlled WhatsApp automation</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CTA ══ -->
+<section class="wa-cta" id="cta">
+  <div class="narrow">
+    <div class="wa-cta__card" id="ctaCard">
+      <div class="wa-cta__glow" aria-hidden="true"></div>
+      <span class="eyebrow">Get in touch</span>
+      <h2>Bring customers closer to the system of record</h2>
+      <p class="wa-cta__sub">We configure the agent around your SAP access, approval matrix, product catalogue, customer verification rules, invoice workflow, and collection policy.</p>
+      <div class="wa-note"><i></i><span>SAP sales-order creation is enabled only where the required simulation, creation, and approval access is available.</span></div>
+      <div class="cta-row center" style="margin-top:1.8rem">
+        <a class="btn primary" href="/contact">Discuss a WhatsApp Workflow</a>
+        <a class="btn ghost" href="/products#whatsapp-agent">Back to Products</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer><p>&copy; 2026 <strong>Nyx Solution</strong> · WhatsApp Business Operations Agent — SAP connected</p></footer>
+
+<script is:inline>
+const $=s=>document.querySelector(s), sleep=ms=>new Promise(r=>setTimeout(r,ms));
+const REDUCED=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const TICK='<svg class="tick" viewBox="0 0 16 9"><path d="M1 5l2.6 2.6L8.4 2.4"/><path d="M6.4 5L9 7.6 14 2"/></svg>';
+addEventListener('scroll',()=>$('#mainnav').classList.toggle('scrolled',scrollY>40),{passive:true});
+(()=>{const w=['Verified customer access','SAP-grounded responses','Human approval gates','Duplicate-action prevention','Configurable follow-up rules','Admin visibility and auditability'];
+$('#ticker').innerHTML=Array.from({length:3},()=>w.map(x=>`<span class="ticker-item">${x}</span>`).join('')).join('')})();
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;e.target.classList.add('in-view');io.unobserve(e.target)}),{threshold:.15,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.wa-apply__item,#problemCard,#ctaCard').forEach(el=>io.observe(el));
+const when=(el,fn)=>{if(el)new IntersectionObserver((e,o)=>{if(e[0].isIntersecting){o.disconnect();fn()}},{threshold:.25}).observe(el)};
+
+/* thread helpers */
+const say=(host,kind,html,t='12:04')=>{const d=document.createElement('div');
+  d.className='msg '+kind;
+  d.innerHTML=html+`<span class="mt">${t}${kind==='out'?TICK:''}</span>`;
+  host.appendChild(d); if(host.children.length>7) host.firstChild.remove(); return d};
+const typing=async(host,pres,ms)=>{if(pres)pres.textContent='typing…';
+  const d=document.createElement('div');d.className='typing';d.innerHTML='<i></i><i></i><i></i>';
+  host.appendChild(d);await sleep(ms);d.remove();if(pres)pres.textContent='online'};
+
+/* ══ HERO · the four controls, in step with the conversation ══ */
+(async function hero(){
+  const th=$('#hThread'), steps=['#hs0','#hs1','#hs2','#hs3'];
+  const set=(i,cls)=>{$(steps[i]).className='step '+cls};
+  if(REDUCED){say(th,'in','Rate 54,200 par 25 MT confirm karein?');steps.forEach((s,i)=>set(i,'done'));return}
+  while(true){
+    th.innerHTML=''; steps.forEach((s,i)=>set(i,''));
+    $('#hFoot').textContent='A message is a request — never permission to act';
+    await sleep(700);
+    say(th,'in','Rajesh here — 25 MT Fe-500D 12mm chahiye, 29 Aug delivery');
+    set(0,'on'); await sleep(1100); set(0,'done');
+    await sleep(400);
+    set(1,'on'); $('#hFoot').textContent='Reading order, pricing and credit state from SAP';
+    await typing(th,$('#hPres'),1200);
+    set(1,'done');
+    say(th,'out','Noted. Your PL-02 rate is ₹54,200/MT. Credit terms 45 days.');
+    await sleep(1000);
+    say(th,'in','Rate 52,400 kar do, order abhi place karta hoon');
+    await sleep(800);
+    set(2,'hold'); $('#hFoot').textContent='Price below list — held for the sales head';
+    say(th,'out','That rate is below list. I have sent it to the sales head — I will not confirm it myself.');
+    await sleep(2400);
+    set(2,'done'); $('#hs2d').textContent='approved · S. Deshpande 12:06';
+    await sleep(600);
+    set(3,'on'); await sleep(900); set(3,'done');
+    say(th,'out','Approved ✅ 25 MT at ₹52,400/MT. Order 45001229 created, delivery 29 Aug.');
+    $('#hFoot').textContent='Result returned to the customer and the admin team';
+    await sleep(3600);
+    $('#hs2d').textContent='price exception · sales head';
+  }
+})();
+
+/* ══ 1 · GUIDED ORDER CAPTURE + COMMERCIAL EXCEPTION ══ */
+when($('#p1'),async()=>{
+  const th=$('#p1thread'), pres=$('#p1pres');
+  const SEQ=[
+    ['in','Fe-500D chahiye is hafte'],
+    ['out','Sure. Which size — 8, 10, 12 or 16 mm?','#f0'],
+    ['in','12 mm','#f1'],
+    ['out','Quantity and delivery date?','#f2'],
+    ['in','25 MT, 29 Aug Jalna works','#f3'],
+    ['out','Got it. PL-02 rate for you is ₹54,200/MT.','#f4']
+  ];
+  await sleep(400);
+  for(const [k,txt,fld] of SEQ){
+    if(k==='out') await typing(th,pres,700);
+    say(th,k,txt);
+    if(fld) $(fld).classList.add('set');
+    await sleep(760);
+  }
+  $('#f5').classList.add('set');
+  await sleep(500);
+  say(th,'in','52,400 kar sakte ho?');
+  await sleep(700);
+  $('#p1appr').classList.add('show');
+  $('#p1foot').textContent='Commercial exception — the agent will not price it alone';
+  await sleep(1000);
+  const btn=$('#p1btn'), cur=$('#p1cur'), host=$('#p1').getBoundingClientRect(), br=btn.getBoundingClientRect();
+  const start='translate(300px, 320px)', pos=`translate(${br.left-host.left+br.width*.5}px, ${br.top-host.top+br.height*.55}px)`;
+  cur.style.setProperty('--pos',start); cur.style.transform=start; cur.classList.add('on');
+  await sleep(130);
+  cur.style.setProperty('--pos',pos); cur.style.transform=pos;
+  await sleep(950);
+  btn.classList.add('hot'); await sleep(400);
+  cur.classList.add('tap'); btn.classList.add('press');
+  const rp=document.createElement('span'); rp.className='rip'; rp.style.cssText='left:50%;top:50%;width:12px;height:12px';
+  btn.appendChild(rp); requestAnimationFrame(()=>rp.classList.add('go'));
+  await sleep(190);
+  cur.classList.remove('tap','on'); btn.classList.remove('press','hot');
+  btn.classList.add('ok'); btn.textContent='Approved ✓';
+  $('#p1appr').classList.add('done');
+  $('#p1apprH').textContent='Approved · S. Deshpande · sales head';
+  await typing(th,pres,700);
+  say(th,'out','Approved ✅ 25 MT at ₹52,400/MT — confirming your order now.');
+  $('#p1foot').textContent='Draft DRAFT-8842 ready for order creation';
+});
+
+/* ══ 2 · SAP READ, VERIFIED ANSWER, CONFLICT ESCALATED ══ */
+when($('#p2'),async()=>{
+  const th=$('#p2thread');
+  say(th,'in','Order ka kya status hai?');
+  await sleep(500);
+  for(const ln of [...document.querySelectorAll('#p2term .ln')]){ ln.classList.add('show'); await sleep(280); }
+  await sleep(400);
+  $('#p2conn').classList.remove('busy'); $('#p2conn').innerHTML='<i></i>SAP · read 12:04:06';
+  const ROWS=[
+    ['45001229','TMT Fe-500D 12mm','25.000','In transit','29 Aug','ok'],
+    ['45001188','TMT Fe-500D 16mm','12.000','Delivered','21 Aug','ok'],
+    ['45001204','MS billet','8.000','Conflicting records','—','ex']
+  ];
+  const tb=$('#p2rows');
+  for(const [o,m,q,s,d,cls] of ROWS){
+    const tr=document.createElement('tr'); tr.className='row '+cls;
+    tr.innerHTML=`<td class="nm">${o}</td><td>${m}</td><td class="hide-s num">${q}</td>
+      <td><span class="pill2 ${cls==='ex'?'warn':'ok'}">${s}</span></td><td class="hide-s">${d}</td>`;
+    tb.appendChild(tr); requestAnimationFrame(()=>tr.classList.add('show'));
+    await sleep(340);
+  }
+  await sleep(500);
+  await typing(th,null,800);
+  say(th,'out','Order 45001229 — 25 MT, in transit, delivery 29 Aug.');
+  await sleep(900);
+  say(th,'out','One more order (45001204) shows conflicting records. I have passed it to our team rather than guess.');
+  $('#p2foot').textContent='Conflicting record escalated · not answered from cache';
+});
+
+/* ══ 3 · ELIGIBLE DOC → RECIPIENT CHECK → SEND → LOG ══ */
+when($('#p3'),async()=>{
+  const tb=$('#p3rows'), th=$('#p3thread'), log=$('#p3log');
+  const DOCS=[
+    ['9034412','Suryadev Alloys','₹4,80,000','sel'],
+    ['9034488','German Steel','₹11,20,000',''],
+    ['9034501','Metaroll','₹1,24,560','']
+  ];
+  for(const [d,a,v,cls] of DOCS){
+    const tr=document.createElement('tr'); tr.className='row '+cls;
+    tr.innerHTML=`<td class="nm">${d}</td><td>${a}</td><td class="num">${v}</td>`;
+    tb.appendChild(tr); requestAnimationFrame(()=>tr.classList.add('show'));
+    await sleep(280);
+  }
+  await sleep(500);
+  for(const id of ['#r0','#r1','#r2']){ $(id).classList.add('set'); await sleep(420); }
+  const addLog=(t,e,d)=>{const tr=document.createElement('tr');tr.className='row';
+    tr.innerHTML=`<td>${t}</td><td class="nm">${e}</td><td class="hide-s">${d}</td>`;
+    log.appendChild(tr);requestAnimationFrame(()=>tr.classList.add('show'))};
+  addLog('12:04:07','Matched','doc 9034412 → account 100482');
+  await sleep(500);
+  const doc=document.createElement('div');
+  doc.className='msg out';
+  doc.innerHTML=`<div class="docmsg"><span class="ic">PDF</span><span style="min-width:0"><b>INV-9034412.pdf</b><span>214 kB · 2 pages</span></span></div><span class="mt">12:04${TICK}</span>`;
+  th.appendChild(doc);
+  $('#p3state').textContent='sent';
+  addLog('12:04:08','Sent','to verified number ····231');
+  await sleep(700);
+  say(th,'out','Invoice <b>INV-9034412</b> · ₹4,80,000 · due <b>12 Sep 2026</b>');
+  await sleep(600);
+  $('#p3state').textContent='delivered';
+  addLog('12:04:09','Delivered','handset acknowledged');
+  await sleep(800);
+  [...th.querySelectorAll('.msg.out')].forEach(m=>m.classList.add('read'));
+  $('#p3state').textContent='read';
+  addLog('12:06:22','Read','customer opened the document');
+  $('#p3foot').textContent='Every delivery event is on record for the admin team';
+});
+
+/* ══ 4 · POLICY SCHEDULE, RE-CHECK, STOP WHEN CLEARED ══ */
+when($('#p4'),async()=>{
+  const tb=$('#p4rows'), th=$('#p4thread');
+  const add=(s,b,a,cls='')=>{const tr=document.createElement('tr');tr.className='row '+cls;
+    tr.innerHTML=`<td class="nm">${s}</td><td>${b}</td><td>${a}</td>`;
+    tb.appendChild(tr);requestAnimationFrame(()=>tr.classList.add('show'));return tr};
+  await sleep(400);
+  add('Due + 3d','₹4,80,000 open','Reminder sent');
+  $('#mSent').textContent='1';
+  await typing(th,$('#p4pres'),700);
+  say(th,'out','Gentle reminder — invoice INV-9034412 for ₹4,80,000 was due 12 Sep.','15 Sep');
+  await sleep(1100);
+  add('Due + 7d','₹4,80,000 open','Reminder sent');
+  $('#mSent').textContent='2';
+  await typing(th,$('#p4pres'),650);
+  say(th,'out','Following up on INV-9034412 — still showing open at our end.','19 Sep');
+  await sleep(1200);
+  say(th,'in','Payment ho gaya hai, UTR 4471','20 Sep');
+  await sleep(700);
+  $('#p4conn').classList.add('busy'); $('#p4conn').innerHTML='<i></i>Re-checking';
+  await sleep(1100);
+  $('#p4conn').classList.remove('busy'); $('#p4conn').innerHTML='<i></i>Receivables';
+  $('#p4bal').textContent='balance cleared';
+  const tr=add('Due + 15d','₹0 · cleared in SAP','Cancelled','ok');
+  $('#mSent').textContent='2'; $('#mPend').textContent='0'; $('#mRes').textContent='1';
+  await typing(th,$('#p4pres'),650);
+  say(th,'out','Received — SAP shows it cleared on 20 Sep. No further reminders will go out.','20 Sep');
+  $('#p4foot').textContent='Escalation at +30d cancelled · follow-up resolved';
+});
+</script>
+</MainLayout>

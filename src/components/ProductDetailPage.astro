@@ -1,0 +1,148 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import SiteHeader from './SiteHeader.astro';
+import SiteFooter from './SiteFooter.astro';
+
+interface FeatureItem {
+  title: string;
+  body: string;
+}
+
+interface UsageBlock {
+  title: string;
+  body: string;
+  bullets?: string[];
+}
+
+interface Props {
+  title: string;
+  description: string;
+  name: string;
+  category: string;
+  pageClass?: string;
+  headline: string;
+  intro: string;
+  overview: string[];
+  usageBlocks?: UsageBlock[];
+  features: FeatureItem[];
+  fitFor: string[];
+  ctaTitle?: string;
+  ctaBody?: string;
+  primaryCtaLabel?: string;
+  primaryCtaHref?: string;
+  secondaryCtaLabel?: string;
+  secondaryCtaHref?: string;
+}
+
+const {
+  title,
+  description,
+  name,
+  category,
+  pageClass = '',
+  headline,
+  intro,
+  overview,
+  usageBlocks = [],
+  features,
+  fitFor,
+  ctaTitle = 'Need this for your organization?',
+  ctaBody = 'We can help you scope the right rollout for your teams and workflows.',
+  primaryCtaLabel = 'Contact Us',
+  primaryCtaHref = '/contact',
+  secondaryCtaLabel = 'See All Products',
+  secondaryCtaHref = '/products'
+} = Astro.props;
+---
+
+<MainLayout title={title} description={description}>
+  <div class:list={['page-shell', pageClass]}>
+    <SiteHeader currentPath="/products" />
+
+    <main>
+      <section class="section inner-hero">
+        <div class="container narrow">
+          <p class="eyebrow">{category}</p>
+          <h1>{headline}</h1>
+          <p class="lead">{intro}</p>
+          <div class="cta-row">
+            <a class="btn primary" href={primaryCtaHref}>{primaryCtaLabel}</a>
+            <a class="btn ghost" href={secondaryCtaHref}>{secondaryCtaLabel}</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container narrow">
+          <h2>What {name} is built to solve</h2>
+          <div class="copy-stack">
+            {overview.map((item) => (
+              <p class="section-intro">{item}</p>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {usageBlocks.length > 0 && (
+        <section class="section philosophy">
+          <div class="container">
+            <h2>How teams use it</h2>
+            <div class="grid-2 usage-grid">
+              {usageBlocks.map((block) => (
+                <article class="panel soft usage-card">
+                  <h3>{block.title}</h3>
+                  <p>{block.body}</p>
+                  {block.bullets && block.bullets.length > 0 && (
+                    <ul class="mini-list">
+                      {block.bullets.map((item) => (
+                        <li>{item}</li>
+                      ))}
+                    </ul>
+                  )}
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      <section class="section philosophy">
+        <div class="container">
+          <h2>Core capabilities</h2>
+          <div class="grid-2">
+            {features.map((item) => (
+              <article class="panel soft feature-card">
+                <h3>{item.title}</h3>
+                <p>{item.body}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <h2>Best fit for</h2>
+          <ul class="chip-list">
+            {fitFor.map((item) => (
+              <li>{item}</li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <section class="section cta">
+        <div class="container narrow">
+          <h2>{ctaTitle}</h2>
+          <p class="section-intro compact">{ctaBody}</p>
+          <div class="cta-row center">
+            <a class="btn primary" href={primaryCtaHref}>{primaryCtaLabel}</a>
+            <a class="btn ghost" href={secondaryCtaHref}>{secondaryCtaLabel}</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <SiteFooter />
+  </div>
+</MainLayout>

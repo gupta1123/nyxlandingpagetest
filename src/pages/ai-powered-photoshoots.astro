@@ -1,0 +1,1219 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+---
+
+<MainLayout title="AI-Powered Photoshoots | Nyx Solution" description="Upload your garment, pick a model, write a prompt — and get campaign-ready visuals in minutes.">
+<nav id="mainnav">
+  <div class="nav-left">
+    <a class="nav-back" href="/products" aria-label="Back to products">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+    </a>
+    <span class="nav-logo">Nyx Solution</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#how">How it works</a></li>
+    <li><a href="#upload">Upload</a></li>
+    <li><a href="#model">Model</a></li>
+    <li><a href="#output">Output</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="/contact" class="nav-cta">Get Started</a>
+  </div>
+</nav>
+
+<div class="ticker-wrap" aria-hidden="true">
+  <div class="ticker">
+    <span class="ticker-item">Your garment · Our models</span>
+    <span class="ticker-item">Upload dress → pick model → write prompt → done</span>
+    <span class="ticker-item">Campaign quality. Zero studio.</span>
+    <span class="ticker-item">Instagram · Meta Ads · Catalog · Web</span>
+    <span class="ticker-item">Auto-detects garment type and style</span>
+    <span class="ticker-item">Any skin tone · Any setting · Any mood</span>
+    <span class="ticker-item">Your garment · Our models</span>
+    <span class="ticker-item">Upload dress → pick model → write prompt → done</span>
+    <span class="ticker-item">Campaign quality. Zero studio.</span>
+    <span class="ticker-item">Instagram · Meta Ads · Catalog · Web</span>
+    <span class="ticker-item">Auto-detects garment type and style</span>
+    <span class="ticker-item">Any skin tone · Any setting · Any mood</span>
+    <span class="ticker-item">Your garment · Our models</span>
+    <span class="ticker-item">Upload dress → pick model → write prompt → done</span>
+    <span class="ticker-item">Campaign quality. Zero studio.</span>
+    <span class="ticker-item">Instagram · Meta Ads · Catalog · Web</span>
+    <span class="ticker-item">Auto-detects garment type and style</span>
+    <span class="ticker-item">Any skin tone · Any setting · Any mood</span>
+    <span class="ticker-item">Your garment · Our models</span>
+    <span class="ticker-item">Upload dress → pick model → write prompt → done</span>
+    <span class="ticker-item">Campaign quality. Zero studio.</span>
+    <span class="ticker-item">Instagram · Meta Ads · Catalog · Web</span>
+    <span class="ticker-item">Auto-detects garment type and style</span>
+    <span class="ticker-item">Any skin tone · Any setting · Any mood</span>
+  </div>
+</div>
+
+<!-- ══ HERO ══ -->
+<section class="bd-hero">
+  <div class="container">
+    <div class="bd-hero__grid">
+      <div>
+        <div class="bd-hero__eyebrow reveal-up">
+          <span class="eyebrow-dot"></span>
+          <span class="eyebrow-text">Creative AI · Fashion Technology</span>
+        </div>
+        <h1 class="bd-hero__h1 reveal-up" style="animation-delay:.1s">
+          Your garment.<br/>
+          <em>Any model.</em><br/>
+          Campaign-ready.
+        </h1>
+        <p class="bd-hero__lead reveal-up" style="animation-delay:.2s">
+          Send us your garment image. Pick a model from our library. Write a prompt — setting, accessories, mood. We generate photoshoot-quality campaign visuals in minutes. No studio. No photographer. No waiting weeks.
+        </p>
+        <div class="hero-steps-strip reveal-up" style="animation-delay:.3s">
+          <div class="hs-pill">
+            <span class="hs-pill-num">01</span>
+            <span class="hs-pill-label">Upload garment</span>
+          </div>
+          <span class="hs-arrow">→</span>
+          <div class="hs-pill">
+            <span class="hs-pill-num">02</span>
+            <span class="hs-pill-label">Pick a model</span>
+          </div>
+          <span class="hs-arrow">→</span>
+          <div class="hs-pill">
+            <span class="hs-pill-num">03</span>
+            <span class="hs-pill-label">Write your prompt</span>
+          </div>
+          <span class="hs-arrow">→</span>
+          <div class="hs-pill done">
+            <span class="hs-pill-num">✓</span>
+            <span class="hs-pill-label">Get your shots</span>
+          </div>
+        </div>
+        <div class="cta-row reveal-up" style="animation-delay:.42s">
+          <a class="btn ghost" href="#how">See How It Works</a>
+        </div>
+      </div>
+
+      <!-- HERO DEMO WINDOW -->
+      <div class="bd-hero__demo reveal-fade" style="animation-delay:.45s">
+        <div class="demo-window">
+          <div class="demo-bar">
+            <span class="demo-dot demo-dot-r"></span>
+            <span class="demo-dot demo-dot-y"></span>
+            <span class="demo-dot demo-dot-g"></span>
+            <span class="demo-bar-title">Nyx AI Photoshoots · Studio</span>
+            <div class="demo-bar-live"><div class="demo-bar-live-dot"></div>Live</div>
+          </div>
+          <div class="demo-body">
+            <!-- step pills -->
+            <div class="demo-steps-row" id="heroStepsRow">
+              <div class="demo-step-pill active" id="hpill1" onclick="heroGo(0)">01 Upload</div>
+              <div class="demo-step-pill" id="hpill2" onclick="heroGo(1)">02 Model</div>
+              <div class="demo-step-pill" id="hpill3" onclick="heroGo(2)">03 Prompt</div>
+              <div class="demo-step-pill" id="hpill4" onclick="heroGo(3)">04 Results</div>
+            </div>
+
+            <!-- PANEL 1 -->
+            <div class="demo-panel active" id="hp1">
+              <div class="up-garment-row" id="heroUpRow">
+                <img src="/assets/images/Dress.webp" alt="Ivory square-neck top + taupe flare trousers" class="up-garment-img" loading="eager" decoding="async" fetchpriority="high">
+                <div class="up-garment-meta">
+                  <div class="up-garment-name">ivory_tank_taupe_trousers.jpg</div>
+                  <div class="up-garment-detail">Square-neck tank · Flared trousers · 2.4 MB</div>
+                </div>
+                <span class="up-status st-done" id="heroUpStatus">Analysed ✓</span>
+                <div class="up-scan-beam" id="heroBeam" style="display:none"></div>
+              </div>
+              <div class="attr-tags" id="heroAttrTags">
+                <span class="attr-tag show">Square neckline</span>
+                <span class="attr-tag show" style="animation-delay:.06s">Flared trousers</span>
+                <span class="attr-tag show" style="animation-delay:.12s">Ivory / taupe</span>
+                <span class="attr-tag show" style="animation-delay:.18s">Smart casual</span>
+                <span class="attr-tag show" style="animation-delay:.24s">Two-piece set</span>
+                <span class="attr-tag show" style="animation-delay:.3s">Office-ready</span>
+              </div>
+              <div class="acc-row">
+                <img src="/assets/images/Accessories1.webp" alt="Nude heels" class="acc-img" loading="eager" decoding="async">
+                <img src="/assets/images/Accesories2.webp" alt="Watch and bracelet" class="acc-img" loading="eager" decoding="async">
+                <span class="acc-label">Accessories added</span>
+                <span class="acc-tag">Heels · Watch · Bracelet</span>
+              </div>
+            </div>
+
+            <!-- PANEL 2 -->
+            <div class="demo-panel" id="hp2">
+              <div class="model-select-label">Selected model</div>
+              <div class="model-img-row">
+                <img src="/assets/images/Model.webp" alt="AI model" class="model-portrait" style="width:46px;height:60px;border-radius:8px;object-fit:cover;object-position:top;flex-shrink:0" loading="eager" decoding="async">
+                <div>
+                  <div class="model-meta-name">Priya · Indian skin tone</div>
+                  <div class="model-meta-detail">5'7" · Sizes S–M · 40+ campaigns</div>
+                  <div class="model-compat-badge">
+                    <svg viewBox="0 0 12 12" fill="none"><path d="M2 6l2.5 2.5L10 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    Compatible with this outfit
+                  </div>
+                </div>
+              </div>
+              <div class="model-other-hint">12 models available · Switch anytime during session</div>
+            </div>
+
+            <!-- PANEL 3 -->
+            <div class="demo-panel" id="hp3">
+              <div class="prompt-box active">
+                <span class="prompt-typed" id="heroTyped"></span><span class="prompt-cursor">|</span>
+              </div>
+              <div class="prompt-chips" id="heroChips">
+                <span class="prompt-chip show on">Golden hour</span>
+                <span class="prompt-chip show on" style="animation-delay:.06s">Rooftop</span>
+                <span class="prompt-chip show on" style="animation-delay:.12s">Gold hoops</span>
+                <span class="prompt-chip show" style="animation-delay:.18s">Candid</span>
+                <span class="prompt-chip show on" style="animation-delay:.24s">Nude heels</span>
+              </div>
+              <div class="prompt-gen-row">
+                <div class="prompt-gen-btn">✦ Generate</div>
+                <div class="gen-track"><div class="gen-fill" id="heroGenFill" style="width:68%"></div></div>
+                <span class="gen-pct">68%</span>
+              </div>
+            </div>
+
+            <!-- PANEL 4 -->
+            <div class="demo-panel" id="hp4">
+              <div class="result-header">
+                <span class="result-label">Generated — Ivory Tank × Priya</span>
+                <div class="result-live"><div class="result-live-dot"></div>3 shots ready</div>
+              </div>
+              <div class="result-grid">
+                <div class="result-frame main show">
+                  <img src="/assets/images/Final.webp" alt="Final campaign shot" loading="lazy" decoding="async">
+                  <div class="result-frame-overlay"></div>
+                  <div class="result-frame-label">Hero · Rooftop · Golden Hour</div>
+                  <div class="result-frame-badge">✓ Final</div>
+                </div>
+                <div class="result-frame show" style="animation-delay:.15s">
+                  <img src="/assets/images/Pose1.webp" alt="Pose 1" loading="lazy" decoding="async">
+                  <div class="result-frame-overlay"></div>
+                  <div class="result-frame-label">Front · Editorial</div>
+                </div>
+                <div class="result-frame show" style="animation-delay:.3s">
+                  <img src="/assets/images/Pose2.webp" alt="Pose 2" loading="lazy" decoding="async">
+                  <div class="result-frame-overlay"></div>
+                  <div class="result-frame-label">Catalog</div>
+                </div>
+              </div>
+              <div class="result-download show">
+                <span class="rd-label">Export for</span>
+                <div class="rd-channels">
+                  <span class="rd-ch">Instagram</span>
+                  <span class="rd-ch">Meta Ads</span>
+                  <span class="rd-ch">Catalog</span>
+                  <span class="rd-ch">Web</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- floating -->
+        <div class="demo-float demo-float-1 reveal-fade" style="animation-delay:.95s">
+          <svg viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="5.5" stroke="currentColor" stroke-width="1.3"/><path d="M4.5 7l2 2 3-3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          No studio needed
+        </div>
+        <div class="demo-float demo-float-2 reveal-fade" style="animation-delay:1.2s">
+          <svg viewBox="0 0 14 14" fill="none"><path d="M3 7h8M8 4l3 3-3 3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Ready in 4 minutes
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-strip">
+  <div class="stat-item"><span class="stat-num" data-count="10">0</span><span class="stat-label">× faster than a studio shoot</span></div>
+  <div class="stat-item"><span class="stat-num" data-count="12">0</span><span class="stat-label">AI models available</span></div>
+  <div class="stat-item"><span class="stat-num" data-count="80">0</span><span class="stat-label">% lower production cost</span></div>
+  <div class="stat-item"><span class="stat-num" data-count="6">0</span><span class="stat-label">channel formats per brief</span></div>
+</div>
+
+<!-- OVERVIEW DARK -->
+<section class="bd-overview">
+  <div class="container">
+    <div class="overview-inner">
+      <div class="ovl">
+        <span style="font-family:var(--ff-m);font-size:.63rem;font-weight:700;letter-spacing:.17em;text-transform:uppercase;color:#d4906a;background:rgba(162,74,42,.2);border:1px solid rgba(162,74,42,.3);border-radius:999px;padding:.28rem .76rem;display:inline-block">Three steps. One session.</span>
+        <h2 class="sh2" style="color:#f0e0ca;max-width:none;margin-top:.9rem">From garment image to<br><em style="color:#d4906a">campaign-ready</em> visuals.</h2>
+        <p>Upload the garment. Pick the model. Describe the shot — setting, lighting, accessories, mood — in plain language. We generate photoshoot-quality images for every channel you sell on.</p>
+        <p>No studio booking. No casting. No reshoots when the lighting was off. Just results, the same day.</p>
+      </div>
+      <div id="procDiagram" class="proc-flow">
+        <div class="proc-step" id="pd1">
+          <div class="proc-step-left">
+            <div class="proc-num">01</div>
+            <div class="proc-vline"></div>
+          </div>
+          <div class="proc-body">
+            <div class="proc-body-title">📤 Upload your garment</div>
+            <div class="proc-body-sub">Share an image of your outfit — flat lay, hanger shot, or reference photo. Our system reads cut, colour, fabric, and occasion style automatically.</div>
+            <div class="proc-body-tag">⚡ Auto-detected in seconds · No tagging required</div>
+          </div>
+        </div>
+        <div class="proc-step" id="pd2">
+          <div class="proc-step-left">
+            <div class="proc-num">02</div>
+            <div class="proc-vline"></div>
+          </div>
+          <div class="proc-body">
+            <div class="proc-body-title">🧑 Choose your model</div>
+            <div class="proc-body-sub">Pick from our library — different skin tones, heights, and body types. Only compatible models are shown for your garment style.</div>
+            <div class="proc-body-tag">12 models available · More added monthly</div>
+          </div>
+        </div>
+        <div class="proc-step" id="pd3">
+          <div class="proc-step-left">
+            <div class="proc-num">03</div>
+          </div>
+          <div class="proc-body">
+            <div class="proc-body-title">✦ Describe the scene, get the shots</div>
+            <div class="proc-body-sub">Write your prompt — location, lighting, accessories, and vibe. We generate multiple poses and channel-ready formats in one session.</div>
+            <div class="proc-body-tag">✓ Published same day · No waiting for edits</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURE ROWS -->
+<section class="feat-section">
+  <div class="container">
+
+    <!-- 1: UPLOAD + DETECT -->
+    <div class="feat-row" id="upload">
+      <div class="feat-copy reveal-up">
+        <span class="eyebrow">Upload your garment</span>
+        <h2 class="sh2">The outfit arrives.<br>The system <em>reads it instantly.</em></h2>
+        <p>Upload any garment photo — JPEG, PNG, flat lay, or hanger shot. Our system automatically detects garment type, colour, silhouette, neckline, and occasion compatibility. No tagging, no forms, no manual description required.</p>
+        <ul class="bullet-list">
+          <li>Accepts standard product photos or raw reference images</li>
+          <li>Auto-detects neckline, hem, sleeve, fabric, and occasion</li>
+          <li>Flags which models are compatible with the garment style</li>
+          <li>Supports dresses, trousers, co-ords, kurtas, sarees, and more</li>
+        </ul>
+      </div>
+      <div class="feat-illu reveal-fade" style="animation-delay:.1s">
+        <div class="illu-panel up-panel" id="uploadPanel">
+          <div class="up-panel-title">Garment analysis — live</div>
+          <div class="up-main-row" id="upMainRow">
+            <img src="/assets/images/Dress.webp" alt="Ivory tank + taupe trousers" class="up-main-img" loading="lazy" decoding="async">
+            <div class="up-main-meta">
+              <div class="up-main-name">ivory_tank_taupe_trousers.jpg</div>
+              <div class="up-main-sub">2.4 MB · Uploaded now</div>
+            </div>
+            <span class="up-status" id="upStatus" style="font-family:var(--ff-m);font-size:.62rem;font-weight:600;border-radius:999px;padding:.15rem .52rem">Analysing…</span>
+            <div class="up-beam"></div>
+          </div>
+          <div class="up-tags-section" id="upTagsSec" style="opacity:0">
+            <div class="up-tags-label">Auto-detected attributes</div>
+            <div class="up-tags" id="upTags"></div>
+          </div>
+          <div class="up-acc-row" id="upAcc1">
+            <img src="/assets/images/Accessories1.webp" alt="Nude heels" class="up-acc-img" loading="lazy" decoding="async">
+            <span class="up-acc-label">Nude Ankle-Strap Stilettos</span>
+            <span class="up-acc-badge">Added</span>
+          </div>
+          <div class="up-acc-row" id="upAcc2">
+            <img src="/assets/images/Accesories2.webp" alt="Watch and bracelet" class="up-acc-img" loading="lazy" decoding="async">
+            <span class="up-acc-label">Rose Gold Watch + Bar Bracelet</span>
+            <span class="up-acc-badge">Added</span>
+          </div>
+          <div class="up-compat" id="upCompat">
+            <svg viewBox="0 0 14 14" fill="none" width="14" height="14"><circle cx="7" cy="7" r="6" stroke="currentColor" stroke-width="1.3"/><path d="M4 7l2.5 2.5L10 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            9 of 12 models compatible with this garment style
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2: MODEL SELECTION -->
+    <div class="feat-row reverse" id="model">
+      <div class="feat-copy reveal-up">
+        <span class="eyebrow">Choose your model</span>
+        <h2 class="sh2">Your brand's look.<br><em>The right model</em> to carry it.</h2>
+        <p>Browse our library of AI models — different skin tones, heights, and body types. We surface only the models compatible with your garment. You're never trying to fit a formal gown on a model built for streetwear.</p>
+        <ul class="bullet-list">
+          <li>12 models available, more added monthly</li>
+          <li>Multiple skin tones, heights, and builds represented</li>
+          <li>Compatibility automatically checked against garment type</li>
+          <li>Preview available poses before generating the final shots</li>
+        </ul>
+      </div>
+      <div class="feat-illu reveal-fade" style="animation-delay:.1s">
+        <div class="illu-panel model-panel" id="modelPanel">
+          <div class="model-panel-header">
+            <span class="model-panel-title">Select a model</span>
+            <span class="model-panel-count" id="modelCount">9 compatible with your outfit</span>
+          </div>
+          <div class="model-selected-big" id="modelSelectedBig">
+            <img src="/assets/images/Model.webp" alt="AI model Priya" class="model-portrait-img" loading="lazy" decoding="async">
+            <div>
+              <div class="ms-name">Priya — Selected ✓</div>
+              <div class="ms-detail">Indian skin tone · 5'7" · Sizes S–M<br>40+ campaigns · Smart-casual specialist</div>
+              <div class="ms-compat">
+                <svg viewBox="0 0 12 12" fill="none" width="10" height="10"><path d="M2 6l2.5 2.5L10 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                Compatible with this outfit
+              </div>
+            </div>
+          </div>
+          <span class="model-poses-label">Available poses</span>
+          <div class="model-poses-row">
+            <div class="pose-thumb active" id="pose1">
+              <img src="/assets/images/Pose1.webp" alt="Pose 1 - front taupe" loading="lazy" decoding="async">
+            </div>
+            <div class="pose-thumb" id="pose2">
+              <img src="/assets/images/Pose2.webp" alt="Pose 2 - front black" loading="lazy" decoding="async">
+            </div>
+            <div class="pose-thumb" id="pose3">
+              <img src="/assets/images/Pose3.webp" alt="Pose 3 - side black" loading="lazy" decoding="async">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3: PROMPT + STYLING -->
+    <div class="feat-row">
+      <div class="feat-copy reveal-up">
+        <span class="eyebrow">Write the scene</span>
+        <h2 class="sh2">Describe the shot.<br><em>We make it happen.</em></h2>
+        <p>Tell us the setting, mood, lighting, and accessories in plain language. "Rooftop at golden hour, gold earrings, editorial feel" is all you need. No photography brief, no mood board, no technical jargon — just words.</p>
+        <ul class="bullet-list">
+          <li>Plain language prompts — no technical knowledge needed</li>
+          <li>Quick-add chips for lighting, location, accessories, mood</li>
+          <li>Multiple prompt variations to generate a range of shots</li>
+          <li>Reference previous campaign styles if you have one</li>
+        </ul>
+      </div>
+      <div class="feat-illu reveal-fade" style="animation-delay:.1s">
+        <div class="illu-panel prompt-panel" id="promptPanel">
+          <div class="pp-title">Write your shot description</div>
+          <div class="pp-context-bar">
+            <span class="pp-context-item"><strong>Outfit</strong> Ivory tank + Taupe trousers</span>
+            <span class="pp-context-sep">·</span>
+            <span class="pp-context-item"><strong>Model</strong> Priya</span>
+            <span class="pp-context-sep">·</span>
+            <span class="pp-context-item"><strong>Accessories</strong> Nude heels, watch</span>
+          </div>
+          <div class="pp-text-area active">
+            <span class="pp-typed" id="ppTyped"></span><span class="pp-cursor">|</span>
+          </div>
+          <div class="pp-chips-label">Quick add</div>
+          <div class="pp-chips" id="ppChips">
+            <span class="pp-chip show on">Golden hour</span>
+            <span class="pp-chip show on" style="animation-delay:.06s">Rooftop terrace</span>
+            <span class="pp-chip show on" style="animation-delay:.12s">Gold hoop earrings</span>
+            <span class="pp-chip show" style="animation-delay:.18s">White backdrop</span>
+            <span class="pp-chip show" style="animation-delay:.24s">Candid walk</span>
+            <span class="pp-chip show on" style="animation-delay:.3s">Soft warm tones</span>
+          </div>
+          <div class="pp-gen-row">
+            <div class="pp-gen-btn">✦ Generate</div>
+            <div class="pp-track"><div class="pp-fill" id="ppFill"></div></div>
+            <span class="pp-pct" id="ppPct">0%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4: OUTPUT -->
+    <div class="feat-row reverse" id="output">
+      <div class="feat-copy reveal-up">
+        <span class="eyebrow">Get channel-ready images</span>
+        <h2 class="sh2">One brief.<br><em>Every channel.</em><br>All formatted.</h2>
+        <p>Your generated images come pre-formatted for every sales and marketing channel — Instagram portrait, Meta Ad square, website banner, catalog full-bleed, WhatsApp story. No manual resizing, no graphic designer required.</p>
+        <ul class="bullet-list">
+          <li>Auto-formatted for Instagram, Meta Ads, catalog, stories, web</li>
+          <li>Multiple shots per session — hero, lifestyle, and detail views</li>
+          <li>Download individually or as a full campaign pack</li>
+          <li>Export at print resolution or web-optimised — your choice</li>
+        </ul>
+      </div>
+      <div class="feat-illu reveal-fade" style="animation-delay:.1s">
+        <div class="illu-panel output-panel" id="outputPanel">
+          <div class="op-header">
+            <span class="op-title">Campaign output — Ivory Tank × Priya</span>
+            <span class="op-count" id="opCount">0 images</span>
+          </div>
+          <div class="op-context">
+            Prompt: rooftop · golden hour · gold hoops · nude heels · soft warm tones
+          </div>
+          <div class="op-grid">
+            <div class="op-frame main" id="opf1">
+              <img src="/assets/images/Final.webp" alt="Hero campaign shot" loading="lazy" decoding="async">
+              <div class="op-frame-ov"></div>
+              <div class="op-frame-label">Hero · Full bleed · 2000×2667px</div>
+              <div class="op-frame-badge">✓ Final</div>
+            </div>
+            <div class="op-frame" id="opf2">
+              <img src="/assets/images/Pose1.webp" alt="Pose 1" loading="lazy" decoding="async">
+              <div class="op-frame-ov"></div>
+              <div class="op-frame-label">Instagram · 1080×1350px</div>
+            </div>
+            <div class="op-frame" id="opf3">
+              <img src="/assets/images/Pose2.webp" alt="Pose 2" loading="lazy" decoding="async">
+              <div class="op-frame-ov"></div>
+              <div class="op-frame-label">Catalog</div>
+            </div>
+            <div class="op-frame" id="opf4">
+              <img src="/assets/images/Pose3.webp" alt="Pose 3 side" loading="lazy" decoding="async">
+              <div class="op-frame-ov"></div>
+              <div class="op-frame-label">Stories · 1080×1920px</div>
+            </div>
+          </div>
+          <div class="op-dl" id="opDl">
+            <span class="op-dl-label">Download campaign pack</span>
+            <div class="op-dl-channels">
+              <span class="op-dl-ch">Instagram</span>
+              <span class="op-dl-ch">Meta Ads</span>
+              <span class="op-dl-ch">Catalog</span>
+              <span class="op-dl-ch">Web</span>
+              <span class="op-dl-ch">Stories</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="bd-how" id="how">
+  <div class="container">
+    <div class="bd-how__header">
+      <span class="eyebrow">The workflow</span>
+      <h2 class="sh2">From garment photo to <em>published campaign</em> — same day</h2>
+    </div>
+    <div class="bd-how__steps">
+      <div class="bd-step"><div class="bd-step__number">01</div><div class="bd-step__connector"></div><div class="bd-step__card"><h3>Upload your garment</h3><p>Send a photo of the dress, top, or outfit. JPEG or PNG, hanger shot or flat lay — we read it automatically.</p></div></div>
+      <div class="bd-step"><div class="bd-step__number">02</div><div class="bd-step__connector"></div><div class="bd-step__card"><h3>Pick your model</h3><p>Choose from compatible AI models. Different skin tones, heights, and proportions — you decide who wears it.</p></div></div>
+      <div class="bd-step"><div class="bd-step__number">03</div><div class="bd-step__connector"></div><div class="bd-step__card"><h3>Write the scene</h3><p>Describe the setting, accessories, and mood in plain language. Use quick chips or write a full creative direction.</p></div></div>
+      <div class="bd-step"><div class="bd-step__number">04</div><div class="bd-step__card"><h3>Download and publish</h3><p>Get campaign-ready images formatted for every channel. Download a full pack — ready to go live today.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES GRID -->
+<section class="feat-grid-sec">
+  <div class="container">
+    <span class="eyebrow">What it does</span>
+    <h2 class="sh2" style="margin-top:.4rem">Six things that change<br><em>how your team produces content</em></h2>
+    <div class="feat-grid">
+      <div class="fgc" id="fgc1"><div class="fgn">01</div><h3>Garment auto-detection</h3><p>Upload any photo. The system reads type, colour, cut, and occasion style automatically — no tagging or manual description required.</p></div>
+      <div class="fgc" id="fgc2"><div class="fgn">02</div><h3>Model selection library</h3><p>12 AI models with different skin tones, heights, and body types — with garment compatibility pre-checked for each style.</p></div>
+      <div class="fgc" id="fgc3"><div class="fgn">03</div><h3>Prompt-driven scene styling</h3><p>Describe the shot in plain language or use quick-add chips for location, lighting, accessories, and mood. No technical knowledge needed.</p></div>
+      <div class="fgc" id="fgc4"><div class="fgn">04</div><h3>Multi-format output</h3><p>Every session produces images pre-formatted for Instagram, Meta Ads, catalog, stories, and web — sized and composed per channel.</p></div>
+      <div class="fgc" id="fgc5"><div class="fgn">05</div><h3>Accessory inclusion</h3><p>Add heels, jewellery, bags, and accessories to your prompt. The output reflects the full styled look, not just the garment in isolation.</p></div>
+      <div class="fgc" id="fgc6"><div class="fgn">06</div><h3>Campaign-quality resolution</h3><p>Outputs are print-quality and web-optimised — ready for your site, ads, lookbooks, and offline catalogs without degradation.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FIT FOR -->
+<section class="bd-audience">
+  <div class="container">
+    <div class="bd-audience__grid">
+      <div>
+        <span class="eyebrow">Who it is for</span>
+        <h2 class="sh2">Built for fashion brands that want<br><em>to look professional</em> and move fast</h2>
+        <p class="bd-audience__sub">If your team is tired of waiting weeks for studio shots, spending budgets on reshoots, or publishing inconsistent imagery across SKUs — this is built for you.</p>
+        <ul class="bd-audience__list">
+          <li class="bd-audience__item"><span class="bd-audience__check"><svg viewBox="0 0 14 14" fill="none"><path d="M2.5 7l3.5 3.5 5.5-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>D2C fashion and apparel brands</li>
+          <li class="bd-audience__item" style="animation-delay:.08s"><span class="bd-audience__check"><svg viewBox="0 0 14 14" fill="none"><path d="M2.5 7l3.5 3.5 5.5-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Ecommerce sellers on Myntra, AJIO, Nykaa</li>
+          <li class="bd-audience__item" style="animation-delay:.16s"><span class="bd-audience__check"><svg viewBox="0 0 14 14" fill="none"><path d="M2.5 7l3.5 3.5 5.5-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Designers launching new collections frequently</li>
+          <li class="bd-audience__item" style="animation-delay:.24s"><span class="bd-audience__check"><svg viewBox="0 0 14 14" fill="none"><path d="M2.5 7l3.5 3.5 5.5-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Social-first brands with high content refresh rates</li>
+          <li class="bd-audience__item" style="animation-delay:.32s"><span class="bd-audience__check"><svg viewBox="0 0 14 14" fill="none"><path d="M2.5 7l3.5 3.5 5.5-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Teams frustrated by studio timelines and costs</li>
+        </ul>
+      </div>
+      <div class="fit-stats">
+        <div class="fit-stat-card" id="fsc1"><div class="fsc-n">10×</div><div class="fsc-t"><strong>Faster than a traditional shoot.</strong> What takes 3 weeks of booking, shooting, and editing — happens in one session.</div></div>
+        <div class="fit-stat-card" id="fsc2" style="animation-delay:.12s"><div class="fsc-n">80%</div><div class="fsc-t"><strong>Lower production cost.</strong> No studio fees, model fees, photographer fees, or post-production bills.</div></div>
+        <div class="fit-stat-card" id="fsc3" style="animation-delay:.24s"><div class="fsc-n">6+</div><div class="fsc-t"><strong>Channel formats per garment.</strong> Instagram, Meta, catalog, stories, web — all from a single session.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="bd-cta" id="cta">
+  <div class="narrow">
+    <div class="bd-cta__card" id="ctaCard">
+      <div class="bd-cta__glow"></div>
+      <span class="eyebrow">Get started</span>
+      <h2>Ready to shoot your next collection — without booking a studio?</h2>
+      <p class="bd-cta__sub">Upload a garment, pick a model, describe the scene. We'll show you the output live in your first session.</p>
+      <div class="cta-row center" style="margin-top:1.8rem">
+        <a class="btn ghost" href="/products">View All Products</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer><p>&copy; 2026 <strong>Nyx Solution</strong> · AI-Powered Photoshoots — Creative AI Product</p></footer>
+
+<script is:inline>
+/* ── NAV ── */
+window.addEventListener('scroll',()=>document.getElementById('mainnav')?.classList.toggle('scrolled',scrollY>40),{passive:true});
+
+/* ── HERO STEP SWITCHER ── */
+const hPills=[1,2,3,4].map(n=>document.getElementById('hpill'+n));
+const hPanels=[1,2,3,4].map(n=>document.getElementById('hp'+n));
+let hCur=0,hTimer=null;
+function heroGo(idx){
+  hPills.forEach((p,i)=>{p.classList.remove('active','done');if(i<idx)p.classList.add('done');if(i===idx)p.classList.add('active');});
+  hPanels.forEach((p,i)=>{p.classList.remove('active');if(i===idx)p.classList.add('active');});
+  hCur=idx;
+}
+function heroAdvance(){heroGo((hCur+1)%4);}
+hTimer=setInterval(heroAdvance,4000);
+
+/* hero prompt typewriter */
+(()=>{
+  const phrases=['Rooftop terrace · golden hour · gold hoop earrings · editorial feel','White minimal studio · soft light · catalog look','Outdoor garden · afternoon sun · candid walk · lifestyle'];
+  const el=document.getElementById('heroTyped');
+  let pi=0,ti=null;
+  function type(){
+    if(!el)return;
+    const p=phrases[pi++%phrases.length];
+    let i=0;el.textContent='';
+    clearInterval(ti);
+    ti=setInterval(()=>{el.textContent=p.slice(0,++i);if(i>=p.length)clearInterval(ti);},38);
+  }
+  type();setInterval(type,8500);
+})();
+
+/* ── INTERSECTION OBSERVER ── */
+const seen=new Set();
+const io=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(!e.isIntersecting||seen.has(e.target))return;
+    seen.add(e.target);
+    e.target.classList.add('in-view');
+    const id=e.target.id;
+    if(id==='procDiagram')initProc();
+    if(id==='uploadPanel')initUpload();
+    if(id==='modelPanel')initModel();
+    if(id==='promptPanel')initPrompt();
+    if(id==='outputPanel')initOutput();
+    if(id&&(id.startsWith('fgc')||id.startsWith('fsc')))e.target.classList.add('in-view');
+    if(id==='ctaCard')e.target.classList.add('in-view');
+    io.unobserve(e.target);
+  });
+},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+
+document.querySelectorAll(
+  '.bd-step,.bd-audience__item,.fit-stat-card,#procDiagram,#uploadPanel,#modelPanel,#promptPanel,#outputPanel,#fgc1,#fgc2,#fgc3,#fgc4,#fgc5,#fgc6,#fsc1,#fsc2,#fsc3,#ctaCard'
+).forEach(el=>io.observe(el));
+
+/* COUNT UP */
+const cio=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(!e.isIntersecting)return;
+    const el=e.target,tgt=+el.dataset.count,t0=performance.now();
+    const tick=now=>{const p=Math.min((now-t0)/1400,1);el.textContent=Math.round((1-Math.pow(1-p,3))*tgt);if(p<1)requestAnimationFrame(tick);};
+    requestAnimationFrame(tick);cio.unobserve(el);
+  });
+},{threshold:.5});
+document.querySelectorAll('[data-count]').forEach(el=>cio.observe(el));
+
+/* ── PROC DIAGRAM ── */
+function initProc(){
+  ['pd1','pd2','pd3'].forEach((id,i)=>{
+    const el=document.getElementById(id);
+    if(el)setTimeout(()=>el.classList.add('show'),i*280+100);
+  });
+}
+
+/* ── UPLOAD PANEL ── */
+function initUpload(){
+  const status=document.getElementById('upStatus');
+  const tagsSec=document.getElementById('upTagsSec');
+  const tags=document.getElementById('upTags');
+  const acc1=document.getElementById('upAcc1');
+  const acc2=document.getElementById('upAcc2');
+  const compat=document.getElementById('upCompat');
+  const tagList=['Square neckline','Structured tank','Flared trousers','Ivory / taupe','High-waist','Two-piece set','Smart casual','Office-ready'];
+
+  if(status){status.textContent='Analysing…';status.style.background='rgba(192,120,32,.1)';status.style.color='var(--amber)';status.style.border='1px solid rgba(192,120,32,.22)';}
+  setTimeout(()=>{
+    if(status){status.textContent='Analysed ✓';status.style.background='rgba(46,140,79,.1)';status.style.color='#1c6535';status.style.border='1px solid rgba(46,140,79,.22)';}
+    if(tagsSec){tagsSec.style.opacity='1';tagsSec.style.animation='cardFadeUp .4s ease both';}
+    tagList.forEach((t,i)=>{
+      setTimeout(()=>{
+        const span=document.createElement('span');
+        span.className='up-tag show';
+        span.textContent=t;
+        if(tags)tags.appendChild(span);
+      },i*100+100);
+    });
+  },1600);
+  setTimeout(()=>{acc1&&acc1.classList.add('show');},2800);
+  setTimeout(()=>{acc2&&acc2.classList.add('show');},3200);
+  setTimeout(()=>{compat&&compat.classList.add('show');},3800);
+}
+
+/* ── MODEL PANEL ── */
+function initModel(){
+  const sel=document.getElementById('modelSelectedBig');
+  const poses=['pose1','pose2','pose3'];
+  if(sel)setTimeout(()=>sel.classList.add('show'),200);
+  poses.forEach((id,i)=>{
+    const el=document.getElementById(id);
+    if(el)setTimeout(()=>el.classList.add('show'),i*180+500);
+  });
+  // cycle pose highlights
+  let activePose=0;
+  setInterval(()=>{
+    poses.forEach(id=>document.getElementById(id)?.classList.remove('active'));
+    activePose=(activePose+1)%3;
+    document.getElementById(poses[activePose])?.classList.add('active');
+  },2600);
+}
+
+/* ── PROMPT PANEL ── */
+function initPrompt(){
+  const el=document.getElementById('ppTyped');
+  const fill=document.getElementById('ppFill');
+  const pct=document.getElementById('ppPct');
+  const phrases=[
+    'Rooftop terrace · golden hour · gold hoop earrings · nude heels · soft warm tones',
+    'White minimal studio · clean diffused light · pearl stud earrings · catalog look',
+  ];
+  let pi=0,ti=null;
+  function type(){
+    if(!el)return;
+    const phrase=phrases[pi++%phrases.length];
+    let i=0;el.textContent='';
+    if(fill){fill.style.transition='none';fill.style.width='0';}
+    if(pct)pct.textContent='0%';
+    clearInterval(ti);
+    ti=setInterval(()=>{
+      el.textContent=phrase.slice(0,++i);
+      if(i>=phrase.length){
+        clearInterval(ti);
+        setTimeout(()=>{
+          if(fill){fill.style.transition='width 1.8s cubic-bezier(.22,.85,.44,1)';fill.style.width='100%';}
+          if(pct){let v=0;const t2=setInterval(()=>{v=Math.min(v+3,100);pct.textContent=v+'%';if(v>=100){clearInterval(t2);setTimeout(type,2200);}},55);}
+        },400);
+      }
+    },36);
+  }
+  type();
+  document.querySelectorAll('.pp-chip').forEach(c=>c.addEventListener('click',()=>c.classList.toggle('on')));
+}
+
+/* ── OUTPUT PANEL ── */
+function initOutput(){
+  const frames=['opf1','opf2','opf3','opf4'];
+  const count=document.getElementById('opCount');
+  const dl=document.getElementById('opDl');
+  frames.forEach((id,i)=>{
+    setTimeout(()=>{
+      const el=document.getElementById(id);
+      if(el)el.classList.add('show');
+      if(count)count.textContent=(i+1)+' image'+(i>0?'s':'');
+    },i*220+150);
+  });
+  if(dl)setTimeout(()=>dl.classList.add('show'),1400);
+}
+
+/* pose thumb click */
+document.querySelectorAll('.pose-thumb').forEach(t=>{
+  t.addEventListener('click',()=>{
+    document.querySelectorAll('.pose-thumb').forEach(p=>p.classList.remove('active'));
+    t.classList.add('active');
+  });
+});
+</script>
+
+<style>
+/* ── EXACT BRIEFLY DOCS TOKENS ── */
+:root{
+  --rust-50:#fdf8ef;--rust-100:#f5ebda;--rust-200:#e9c9a8;
+  --rust-300:#da956a;--rust-400:#c56f45;--rust-500:#a24a2a;
+  --rust-600:#85361c;--rust-700:#6b2a14;
+  --sand-50:#fff8ed;--sand-100:#f5e8d4;--sand-200:#d8c8b3;
+  --ink:#1f1a16;--ink-soft:#5f5148;--ink-muted:#7a5c4c;
+  --surface:#fdf8ef;--line:rgba(216,200,179,.78);--line-mid:rgba(196,160,126,.45);
+  --green:#2e8c4f;--amber:#c07820;--dark-bg:#2e1f19;
+  --ff-d:'Instrument Serif',Georgia,serif;
+  --ff-b:'Sora',sans-serif;--ff-m:'DM Mono',monospace;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:
+    radial-gradient(circle at 92% 4%,rgba(162,74,42,.13) 0,rgba(162,74,42,0) 40%),
+    radial-gradient(circle at 6% 18%,rgba(255,226,171,.26) 0,rgba(255,226,171,0) 38%),
+    var(--surface);
+  color:var(--ink);font-family:var(--ff-b);font-size:16px;line-height:1.7;overflow-x:hidden;
+}
+
+/* ── KEYFRAMES ── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+@keyframes fadeScale{from{opacity:0;transform:scale(.93)}to{opacity:1;transform:none}}
+@keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+@keyframes ping{0%{box-shadow:0 0 0 0 rgba(162,74,42,.55)}70%{box-shadow:0 0 0 10px rgba(162,74,42,0)}100%{box-shadow:0 0 0 0 rgba(162,74,42,0)}}
+@keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+@keyframes scanBeam{0%{top:0;opacity:.8}88%{top:calc(100% - 2px);opacity:.8}94%{opacity:0}100%{top:0;opacity:0}}
+@keyframes scanPulse{0%{box-shadow:0 0 0 0 rgba(162,74,42,.4)}70%{box-shadow:0 0 0 8px rgba(162,74,42,0)}100%{box-shadow:0 0 0 0 rgba(162,74,42,0)}}
+@keyframes resultSlide{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+@keyframes badgeIn{from{opacity:0;transform:scale(.8) translateY(6px)}to{opacity:1;transform:scale(1) translateY(0)}}
+@keyframes connGrow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes stepIn{from{opacity:0;transform:translateX(-20px)}to{opacity:1;transform:none}}
+@keyframes listIn{from{opacity:0;transform:translateX(16px)}to{opacity:1;transform:none}}
+@keyframes cardFadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+@keyframes glowPulse{0%,100%{opacity:.5;transform:scale(1)}50%{opacity:.8;transform:scale(1.07)}}
+@keyframes imgReveal{from{opacity:0;transform:scale(.92) translateY(12px)}to{opacity:1;transform:none}}
+@keyframes shimmer{0%{transform:translateX(-100%)}100%{transform:translateX(100%)}}
+@keyframes progressFill{from{width:0}to{width:100%}}
+@keyframes tagPop{from{opacity:0;transform:scale(.7) translateY(4px)}to{opacity:1;transform:none}}
+@keyframes checkDraw{from{stroke-dashoffset:20}to{stroke-dashoffset:0}}
+@keyframes poseSlideIn{from{opacity:0;transform:translateX(18px) scale(.96)}to{opacity:1;transform:none}}
+@keyframes accessoryPop{from{opacity:0;transform:scale(.6) rotate(-6deg)}to{opacity:1;transform:scale(1) rotate(0)}}
+
+.reveal-up{animation:fadeUp .75s cubic-bezier(.22,.85,.44,1) both}
+.reveal-fade{animation:fadeScale .7s cubic-bezier(.22,.85,.44,1) both}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:.9rem 2.8rem;background:rgba(253,248,239,.93);backdrop-filter:blur(16px);border-bottom:1px solid var(--line);transition:padding .3s}
+nav.scrolled{padding-top:.6rem;padding-bottom:.6rem}
+.nav-left{display:flex;align-items:center;gap:.7rem;min-width:0;flex:1}
+.nav-back{width:34px;height:34px;border-radius:8px;border:1px solid var(--line);background:rgba(255,252,244,.7);color:var(--rust-600);text-decoration:none;display:inline-flex;align-items:center;justify-content:center;transition:background .2s,border-color .2s,transform .15s;flex-shrink:0}
+.nav-back:hover{background:var(--rust-50);border-color:var(--rust-300);transform:translateY(-1px)}
+.nav-back svg{width:14px;height:14px}
+.nav-logo{font-family:var(--ff-d);font-size:1.3rem;font-style:italic;color:var(--rust-600);white-space:nowrap}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{font-size:.83rem;font-weight:400;color:var(--ink-soft);text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--rust-500)}
+.nav-cta{font-size:.83rem;font-weight:600;padding:.46rem 1.15rem;border-radius:8px;background:var(--rust-500);color:#fff;text-decoration:none;transition:background .2s,transform .15s}
+.nav-cta:hover{background:var(--rust-600);transform:translateY(-1px)}
+
+/* ── TICKER ── */
+.ticker-wrap{margin-top:63px;overflow:hidden;background:linear-gradient(90deg,#f3e6cf,#ecd8b8);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:.5rem 0;position:relative}
+.ticker-wrap::before,.ticker-wrap::after{content:'';position:absolute;top:0;bottom:0;width:60px;z-index:2;pointer-events:none}
+.ticker-wrap::before{left:0;background:linear-gradient(to right,#f3e6cf,transparent)}
+.ticker-wrap::after{right:0;background:linear-gradient(to left,#ecd8b8,transparent)}
+.ticker{display:flex;white-space:nowrap;width:max-content;animation:ticker 40s linear infinite;will-change:transform}
+.ticker:hover{animation-play-state:paused}
+.ticker-item{font-size:.7rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--rust-600);padding:0 2.2rem;flex-shrink:0}
+.ticker-item::after{content:'·';margin-left:2.2rem;color:var(--rust-400)}
+
+/* ── LAYOUT ── */
+.container{max-width:1160px;margin:0 auto;padding:0 2.4rem}
+.narrow{max-width:820px;margin:0 auto;padding:0 2.4rem}
+.eyebrow{font-size:.7rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--rust-500);display:block;margin-bottom:.55rem}
+.sh2{font-family:var(--ff-d);font-size:clamp(1.8rem,3.2vw,2.6rem);font-weight:400;line-height:1.18;letter-spacing:-.01em;color:var(--ink)}
+.sh2 em{font-style:italic;color:var(--rust-500)}
+.btn{display:inline-block;font-size:.88rem;font-weight:600;border-radius:8px;text-decoration:none;padding:.66rem 1.5rem;transition:background .2s,transform .15s,box-shadow .2s}
+.btn.primary{background:var(--rust-500);color:#fff;box-shadow:0 4px 18px rgba(162,74,42,.28)}
+.btn.primary:hover{background:var(--rust-600);transform:translateY(-2px)}
+.btn.ghost{border:1.5px solid var(--line-mid);color:var(--rust-600)}
+.btn.ghost:hover{background:var(--rust-50);transform:translateY(-2px)}
+.cta-row{display:flex;gap:.85rem;flex-wrap:wrap}
+.cta-row.center{justify-content:center}
+
+/* ══ HERO ══ */
+.bd-hero{padding:5.5rem 0 4.5rem;position:relative;overflow:hidden;isolation:isolate}
+.bd-hero::before{content:'';position:absolute;inset:0;z-index:0;background:radial-gradient(ellipse 70% 55% at 80% 10%,rgba(162,74,42,.11),transparent),radial-gradient(ellipse 45% 55% at 5% 90%,rgba(255,215,140,.18),transparent);pointer-events:none}
+.bd-hero::after{content:'';position:absolute;inset:0;z-index:0;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:48px 48px;mask-image:radial-gradient(ellipse 75% 75% at 68% 38%,black 0%,transparent 100%);pointer-events:none}
+.bd-hero .container{position:relative;z-index:1}
+.bd-hero__grid{display:grid;grid-template-columns:1fr 1.1fr;gap:3.5rem;align-items:center;position:relative;z-index:1}
+.bd-hero__eyebrow{display:inline-flex;align-items:center;gap:.55rem;margin-bottom:.9rem}
+.eyebrow-dot{width:8px;height:8px;border-radius:50%;background:var(--rust-500);animation:ping 2.2s ease-in-out infinite}
+.eyebrow-text{font-size:.7rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--rust-600)}
+.bd-hero__h1{font-family:var(--ff-d);font-size:clamp(2.4rem,4.8vw,4rem);line-height:1.1;letter-spacing:-.01em;color:var(--ink);margin-bottom:.85rem}
+.bd-hero__h1 em{font-style:italic;color:var(--rust-500);position:relative}
+.bd-hero__h1 em::after{content:'';position:absolute;left:0;right:0;bottom:-3px;height:2px;border-radius:2px;background:var(--rust-400);opacity:.4}
+.bd-hero__lead{font-size:1.04rem;font-weight:300;color:var(--ink-soft);line-height:1.75;max-width:50ch;margin-bottom:1.2rem}
+
+/* hero step flow */
+.hero-steps-strip{display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;margin-bottom:1.8rem;padding:.85rem 1rem;background:rgba(255,248,230,.8);border:1px solid var(--line-mid);border-radius:12px}
+.hs-pill{display:flex;flex-direction:column;align-items:center;gap:.15rem;padding:.2rem .3rem}
+.hs-pill-num{font-family:var(--ff-m);font-size:.58rem;font-weight:700;color:var(--rust-500)}
+.hs-pill-label{font-size:.72rem;font-weight:600;color:var(--ink);white-space:nowrap}
+.hs-pill.done .hs-pill-num{color:#2e6e43}.hs-pill.done .hs-pill-label{color:#2e6e43}
+.hs-arrow{color:var(--rust-400);font-size:.9rem;flex-shrink:0}
+
+/* ── HERO DEMO WINDOW ── */
+.bd-hero__demo{position:relative;z-index:2}
+.demo-window{border:1.5px solid var(--line-mid);border-radius:20px;background:rgba(255,252,242,.97);box-shadow:0 28px 72px rgba(75,42,21,.13),0 4px 18px rgba(75,42,21,.06);overflow:hidden}
+.demo-bar{display:flex;align-items:center;gap:.45rem;padding:.7rem 1rem;background:rgba(245,235,218,.7);border-bottom:1px solid var(--line)}
+.demo-dot{width:10px;height:10px;border-radius:50%}
+.demo-dot-r{background:#f06257}.demo-dot-y{background:#f5a623}.demo-dot-g{background:#57c257}
+.demo-bar-title{margin-left:.4rem;font-size:.78rem;font-weight:600;color:var(--ink-soft);letter-spacing:.04em;font-family:var(--ff-m);flex:1}
+.demo-bar-live{display:flex;align-items:center;gap:.3rem;font-family:var(--ff-m);font-size:.62rem;color:#5a8a50;font-weight:700}
+.demo-bar-live-dot{width:6px;height:6px;border-radius:50%;background:#7db87b;animation:ping 2s ease-in-out infinite}
+.demo-body{padding:1rem;display:flex;flex-direction:column;gap:.65rem}
+
+/* step pills in demo */
+.demo-steps-row{display:flex;border-bottom:1px solid var(--line);margin:-1rem -1rem .8rem;background:rgba(245,235,218,.35)}
+.demo-step-pill{flex:1;padding:.42rem .3rem;text-align:center;font-family:var(--ff-m);font-size:.6rem;font-weight:600;color:var(--ink-muted);border-right:1px solid var(--line);cursor:pointer;transition:background .3s,color .3s;user-select:none}
+.demo-step-pill:last-child{border-right:none}
+.demo-step-pill.active{background:var(--rust-500);color:#fff8ee}
+.demo-step-pill.done{background:rgba(46,140,79,.1);color:#2e6e43}
+
+/* ── STEP PANELS ── */
+.demo-panel{display:none;flex-direction:column;gap:.6rem;min-height:260px}
+.demo-panel.active{display:flex}
+
+/* STEP 1: upload */
+.up-garment-row{display:flex;align-items:center;gap:.75rem;background:#fff;border:1px solid var(--line);border-radius:10px;padding:.65rem .85rem;position:relative;overflow:hidden}
+.up-garment-img{width:48px;height:62px;border-radius:7px;object-fit:cover;flex-shrink:0}
+.up-garment-meta{flex:1}
+.up-garment-name{font-family:var(--ff-m);font-size:.76rem;font-weight:600;color:var(--ink)}
+.up-garment-detail{font-family:var(--ff-m);font-size:.62rem;color:var(--ink-muted);margin-top:.12rem}
+.up-scan-beam{position:absolute;left:0;right:0;top:0;height:2px;background:linear-gradient(90deg,transparent,rgba(162,74,42,.7),transparent);animation:scanBeam 2.4s ease-in-out infinite;box-shadow:0 0 8px rgba(162,74,42,.4)}
+.up-status{font-family:var(--ff-m);font-size:.62rem;font-weight:600;border-radius:999px;padding:.15rem .52rem;flex-shrink:0}
+.st-scanning{background:rgba(192,120,32,.1);color:var(--amber);border:1px solid rgba(192,120,32,.22);animation:scanPulse 1.4s ease infinite}
+.st-done{background:rgba(46,140,79,.1);color:#1c6535;border:1px solid rgba(46,140,79,.22)}
+.attr-tags{display:flex;flex-wrap:wrap;gap:.3rem}
+.attr-tag{font-family:var(--ff-m);font-size:.62rem;font-weight:600;background:rgba(162,74,42,.07);color:var(--rust-600);border:1px solid rgba(162,74,42,.16);border-radius:999px;padding:.15rem .5rem;opacity:0}
+.attr-tag.show{animation:tagPop .35s cubic-bezier(.34,1.2,.64,1) both}
+.acc-row{display:flex;gap:.5rem;align-items:center;background:rgba(162,74,42,.03);border:1px solid var(--line);border-radius:9px;padding:.55rem .75rem}
+.acc-img{width:36px;height:36px;border-radius:6px;object-fit:cover;flex-shrink:0;border:1px solid var(--line)}
+.acc-label{font-family:var(--ff-m);font-size:.68rem;font-weight:500;color:var(--ink);flex:1}
+.acc-tag{font-family:var(--ff-m);font-size:.6rem;background:rgba(46,140,79,.1);color:#1c6535;border:1px solid rgba(46,140,79,.2);border-radius:999px;padding:.12rem .45rem}
+
+/* STEP 2: model */
+.model-select-label{font-family:var(--ff-m);font-size:.65rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-muted)}
+.model-img-row{display:flex;align-items:center;gap:.65rem;background:#fff;border:1.5px solid var(--rust-400);border-radius:10px;padding:.65rem .85rem;box-shadow:0 0 0 3px rgba(162,74,42,.1)}
+.model-portrait{width:46px;height:60px;border-radius:8px;object-fit:cover;flex-shrink:0;object-position:top}
+.model-meta-name{font-size:.85rem;font-weight:600;color:var(--ink)}
+.model-meta-detail{font-family:var(--ff-m);font-size:.62rem;color:var(--ink-muted);margin-top:.12rem;line-height:1.45}
+.model-compat-badge{display:inline-flex;align-items:center;gap:.3rem;font-family:var(--ff-m);font-size:.62rem;font-weight:600;background:rgba(46,140,79,.1);color:#1c6535;border:1px solid rgba(46,140,79,.22);border-radius:999px;padding:.2rem .55rem;margin-top:.3rem}
+.model-compat-badge svg{width:10px;height:10px;flex-shrink:0}
+.model-compat-badge svg path{stroke-dasharray:20;stroke-dashoffset:20;animation:checkDraw .4s ease .2s both}
+.model-other-hint{font-family:var(--ff-m);font-size:.62rem;color:var(--ink-muted);text-align:center;padding:.35rem}
+
+/* STEP 3: prompt */
+.prompt-box{background:#fffaef;border:1.5px solid #d4b994;border-radius:10px;padding:.65rem .85rem;min-height:52px;display:flex;align-items:flex-start;flex-wrap:wrap}
+.prompt-box.active{border-color:var(--rust-400);box-shadow:0 0 0 3px rgba(162,74,42,.08)}
+.prompt-typed{font-family:var(--ff-m);font-size:.75rem;color:var(--ink);line-height:1.55;display:inline}
+.prompt-cursor{font-family:var(--ff-m);font-size:.75rem;color:var(--rust-500);animation:blink 1.1s step-end infinite}
+.prompt-chips{display:flex;flex-wrap:wrap;gap:.28rem}
+.prompt-chip{font-family:var(--ff-m);font-size:.62rem;font-weight:600;background:rgba(162,74,42,.07);color:var(--rust-600);border:1px solid rgba(162,74,42,.16);border-radius:999px;padding:.15rem .5rem;opacity:0}
+.prompt-chip.on{background:rgba(162,74,42,.12);border-color:rgba(162,74,42,.3)}
+.prompt-chip.show{animation:tagPop .3s ease both}
+.prompt-gen-row{display:flex;align-items:center;gap:.55rem}
+.prompt-gen-btn{font-family:var(--ff-m);font-size:.7rem;font-weight:600;background:var(--rust-500);color:#fff8ee;border-radius:8px;padding:.55rem 1rem;flex-shrink:0;cursor:pointer;transition:background .2s;letter-spacing:.06em}
+.prompt-gen-btn:hover{background:var(--rust-600)}
+.gen-track{flex:1;height:4px;background:rgba(162,74,42,.1);border-radius:999px;overflow:hidden}
+.gen-fill{height:100%;background:linear-gradient(90deg,var(--rust-400),var(--rust-500));border-radius:999px;width:0;transition:width 1.8s cubic-bezier(.22,.85,.44,1)}
+.gen-pct{font-family:var(--ff-m);font-size:.62rem;color:var(--rust-500);flex-shrink:0;font-weight:600}
+
+/* STEP 4: results */
+.result-header{display:flex;align-items:center;justify-content:space-between}
+.result-label{font-family:var(--ff-m);font-size:.7rem;font-weight:600;color:var(--ink)}
+.result-live{display:flex;align-items:center;gap:.3rem;font-family:var(--ff-m);font-size:.62rem;color:#5a8a50}
+.result-live-dot{width:5px;height:5px;border-radius:50%;background:#7db87b;animation:ping 2s ease-in-out infinite}
+.result-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:.42rem}
+.result-frame{border-radius:9px;overflow:hidden;position:relative;opacity:0}
+.result-frame.main{grid-row:span 2}
+.result-frame.show{animation:imgReveal .55s cubic-bezier(.34,1.2,.64,1) both}
+.result-frame img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+.result-frame-label{position:absolute;bottom:.4rem;left:.4rem;right:.4rem;font-family:var(--ff-m);font-size:.52rem;font-weight:600;color:rgba(255,245,228,.9);letter-spacing:.06em}
+.result-frame-badge{position:absolute;top:.4rem;right:.4rem;font-family:var(--ff-m);font-size:.52rem;font-weight:700;background:rgba(46,140,79,.85);color:#fff;border-radius:4px;padding:.1rem .35rem}
+.result-frame-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(20,8,2,.55),transparent 55%)}
+.result-download{display:flex;gap:.4rem;align-items:center;background:rgba(162,74,42,.04);border:1px solid rgba(162,74,42,.12);border-radius:8px;padding:.5rem .75rem;opacity:0}
+.result-download.show{animation:cardFadeUp .4s ease .8s both}
+.rd-label{font-family:var(--ff-m);font-size:.62rem;color:var(--ink-muted);flex:1}
+.rd-channels{display:flex;gap:.3rem;flex-wrap:wrap}
+.rd-ch{font-family:var(--ff-m);font-size:.6rem;font-weight:700;color:var(--rust-600);background:rgba(162,74,42,.08);border:1px solid rgba(162,74,42,.18);border-radius:999px;padding:.12rem .45rem}
+
+/* floating badges */
+.demo-float{position:absolute;display:flex;align-items:center;gap:.4rem;font-size:.74rem;font-weight:600;color:#5a3d2e;background:rgba(255,248,232,.95);border:1.5px solid var(--line);border-radius:999px;padding:.42rem .82rem;box-shadow:0 6px 20px rgba(75,42,21,.12);white-space:nowrap;animation:floatY 3s ease-in-out infinite}
+.demo-float svg{width:13px;height:13px;flex-shrink:0;color:var(--rust-500)}
+.demo-float-1{bottom:-1.2rem;left:-1.5rem;animation-delay:0s}
+.demo-float-2{top:.8rem;right:-1.8rem;animation-delay:1.5s}
+
+/* ── STATS ── */
+.stats-strip{background:var(--dark-bg);display:grid;grid-template-columns:repeat(4,1fr);gap:1px;overflow:hidden}
+.stat-item{text-align:center;padding:2.2rem 1rem;position:relative}
+.stat-item:not(:last-child)::after{content:'';position:absolute;right:0;top:25%;bottom:25%;width:1px;background:rgba(255,255,255,.07)}
+.stat-num{font-family:var(--ff-d);font-size:2.6rem;font-style:italic;color:var(--rust-300);display:block;line-height:1;margin-bottom:.35rem}
+.stat-label{font-size:.72rem;font-weight:400;color:rgba(255,255,255,.38);letter-spacing:.06em;text-transform:uppercase}
+
+/* ══ OVERVIEW DARK ══ */
+.bd-overview{background:#1c1108;color:#f0e0ca;position:relative;overflow:hidden;padding:5.5rem 0}
+.bd-overview::before{content:'';position:absolute;top:-20%;right:-8%;width:500px;height:500px;background:radial-gradient(circle,rgba(162,74,42,.12),transparent 65%);pointer-events:none}
+.overview-inner{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+.ovl .sh2{color:#f0e0ca;max-width:none}
+.ovl .sh2 em{color:#d4906a}
+.ovl p{color:#c8a88a;font-weight:300;line-height:1.85;margin-top:.75rem}
+.ovl p+p{margin-top:.65rem}
+/* process flow on right */
+.proc-flow{display:flex;flex-direction:column;gap:0}
+.proc-step{display:flex;gap:1rem;align-items:flex-start;opacity:0}
+.proc-step.show{animation:cardFadeUp .5s cubic-bezier(.22,.85,.44,1) both}
+.proc-step-left{display:flex;flex-direction:column;align-items:center;flex-shrink:0}
+.proc-num{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--rust-600),var(--rust-500));color:#fde8d0;font-family:var(--ff-m);font-size:.7rem;font-weight:700;display:flex;align-items:center;justify-content:center;box-shadow:0 0 20px rgba(162,74,42,.3);flex-shrink:0}
+.proc-vline{width:1px;flex:1;min-height:36px;background:linear-gradient(to bottom,rgba(162,74,42,.4),rgba(162,74,42,.08));margin:4px 0}
+.proc-body{background:rgba(255,255,255,.06);border:1px solid rgba(255,240,210,.1);border-radius:12px;padding:.8rem 1rem;flex:1;margin-bottom:.65rem}
+.proc-body-title{font-size:.95rem;font-weight:600;color:#f0e0ca;margin-bottom:.25rem}
+.proc-body-sub{font-size:.8rem;color:#c8a88a;font-weight:300;line-height:1.6}
+.proc-body-tag{font-family:var(--ff-m);font-size:.6rem;color:rgba(218,149,106,.7);display:inline-block;margin-top:.45rem}
+
+/* ══ FEATURE ROWS ══ — exact Briefly Docs pattern */
+.feat-section{padding:4rem 0 2rem}
+.feat-row{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;padding:5rem 0;border-bottom:1px solid var(--line)}
+.feat-row:last-child{border-bottom:none}
+.feat-row.reverse .feat-copy{order:2}
+.feat-row.reverse .feat-illu{order:1}
+.feat-copy .sh2{margin-bottom:1rem}
+.feat-copy p{font-size:.97rem;font-weight:300;color:var(--ink-soft);line-height:1.75;margin-bottom:1rem}
+.bullet-list{list-style:none;display:grid;gap:.55rem}
+.bullet-list li{position:relative;padding-left:1.1rem;font-size:.9rem;color:var(--ink-soft)}
+.bullet-list li::before{content:'';position:absolute;left:0;top:.6em;width:6px;height:6px;border-radius:50%;background:var(--rust-400)}
+.illu-panel{border:1.5px solid var(--line-mid);border-radius:18px;overflow:hidden;position:relative;background:var(--sand-50)}
+
+/* ─ PANEL 1: Upload + auto-detect ─ */
+.up-panel{padding:1.4rem;min-height:340px;display:flex;flex-direction:column;gap:.65rem}
+.up-panel-title{font-family:var(--ff-m);font-size:.7rem;font-weight:600;color:var(--ink)}
+.up-main-row{display:flex;align-items:center;gap:.85rem;background:#fff;border:1px solid var(--line);border-radius:11px;padding:.75rem .95rem;position:relative;overflow:hidden}
+.up-main-img{width:56px;height:72px;border-radius:8px;object-fit:cover;flex-shrink:0}
+.up-main-meta{flex:1}
+.up-main-name{font-size:.85rem;font-weight:600;color:var(--ink)}
+.up-main-sub{font-family:var(--ff-m);font-size:.62rem;color:var(--ink-muted);margin-top:.12rem}
+.up-beam{position:absolute;left:0;right:0;top:0;height:2px;background:linear-gradient(90deg,transparent,rgba(162,74,42,.7),transparent);animation:scanBeam 2.6s ease-in-out infinite;box-shadow:0 0 8px rgba(162,74,42,.4)}
+.up-tags-section{background:rgba(162,74,42,.03);border:1px solid rgba(162,74,42,.1);border-radius:9px;padding:.65rem}
+.up-tags-label{font-family:var(--ff-m);font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-muted);margin-bottom:.4rem}
+.up-tags{display:flex;flex-wrap:wrap;gap:.28rem}
+.up-tag{font-family:var(--ff-m);font-size:.62rem;font-weight:600;background:rgba(162,74,42,.07);color:var(--rust-600);border:1px solid rgba(162,74,42,.16);border-radius:999px;padding:.16rem .5rem;opacity:0}
+.up-tag.show{animation:tagPop .35s cubic-bezier(.34,1.2,.64,1) both}
+.up-acc-row{display:flex;gap:.5rem;align-items:center;background:#fff;border:1px solid var(--line);border-radius:9px;padding:.55rem .75rem;opacity:0}
+.up-acc-row.show{animation:cardFadeUp .4s ease both}
+.up-acc-img{width:38px;height:38px;border-radius:7px;object-fit:cover;flex-shrink:0;border:1px solid var(--line)}
+.up-acc-label{font-family:var(--ff-m);font-size:.7rem;font-weight:500;color:var(--ink);flex:1}
+.up-acc-badge{font-family:var(--ff-m);font-size:.6rem;font-weight:600;background:rgba(46,140,79,.1);color:#1c6535;border:1px solid rgba(46,140,79,.2);border-radius:999px;padding:.12rem .45rem}
+.up-compat{display:flex;align-items:center;gap:.45rem;font-family:var(--ff-m);font-size:.72rem;font-weight:600;color:#1c6535;background:rgba(46,140,79,.06);border:1px solid rgba(46,140,79,.15);border-radius:8px;padding:.5rem .75rem;opacity:0}
+.up-compat.show{animation:cardFadeUp .4s ease both}
+
+/* ─ PANEL 2: Model selection ─ */
+.model-panel{padding:1.4rem;min-height:340px;display:flex;flex-direction:column;gap:.65rem}
+.model-panel-header{display:flex;align-items:center;justify-content:space-between}
+.model-panel-title{font-family:var(--ff-m);font-size:.7rem;font-weight:600;color:var(--ink)}
+.model-panel-count{font-family:var(--ff-m);font-size:.62rem;color:var(--ink-muted)}
+.model-selected-big{display:flex;align-items:center;gap:.85rem;background:#fff;border:1.5px solid var(--rust-400);border-radius:11px;padding:.7rem .95rem;box-shadow:0 0 0 3px rgba(162,74,42,.1);opacity:0}
+.model-selected-big.show{animation:cardFadeUp .45s ease both}
+.model-portrait-img{width:52px;height:68px;border-radius:9px;object-fit:cover;object-position:top;flex-shrink:0}
+.ms-name{font-size:.88rem;font-weight:700;color:var(--ink)}
+.ms-detail{font-family:var(--ff-m);font-size:.63rem;color:var(--ink-muted);margin-top:.12rem;line-height:1.5}
+.ms-compat{display:inline-flex;align-items:center;gap:.3rem;font-family:var(--ff-m);font-size:.6rem;font-weight:600;background:rgba(46,140,79,.1);color:#1c6535;border:1px solid rgba(46,140,79,.2);border-radius:999px;padding:.15rem .5rem;margin-top:.35rem}
+.ms-compat svg{width:10px;height:10px}
+.ms-compat svg path{stroke-dasharray:20;stroke-dashoffset:20;animation:checkDraw .4s ease .2s both}
+.model-poses-label{font-family:var(--ff-m);font-size:.65rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-muted)}
+.model-poses-row{display:grid;grid-template-columns:repeat(3,1fr);gap:.4rem}
+.pose-thumb{border-radius:8px;overflow:hidden;aspect-ratio:2/3;border:1.5px solid var(--line);cursor:pointer;transition:border-color .2s,transform .2s;opacity:0}
+.pose-thumb.show{animation:imgReveal .5s cubic-bezier(.34,1.2,.64,1) both}
+.pose-thumb.active{border-color:var(--rust-500);box-shadow:0 0 0 2.5px rgba(162,74,42,.15);transform:translateY(-2px)}
+.pose-thumb img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+
+/* ─ PANEL 3: Prompt + styling ─ */
+.prompt-panel{padding:1.4rem;min-height:340px;display:flex;flex-direction:column;gap:.65rem}
+.pp-title{font-family:var(--ff-m);font-size:.7rem;font-weight:600;color:var(--ink)}
+.pp-context-bar{display:flex;align-items:center;gap:.5rem;background:rgba(162,74,42,.04);border:1px solid rgba(162,74,42,.1);border-radius:8px;padding:.48rem .72rem;flex-wrap:wrap}
+.pp-context-item{font-family:var(--ff-m);font-size:.64rem;color:var(--ink-muted)}
+.pp-context-item strong{color:var(--ink);font-weight:600}
+.pp-context-sep{color:rgba(162,74,42,.3);font-size:.65rem}
+.pp-text-area{background:#fffaef;border:1.5px solid #d4b994;border-radius:10px;padding:.65rem .85rem;min-height:62px}
+.pp-text-area.active{border-color:var(--rust-400);box-shadow:0 0 0 3px rgba(162,74,42,.08)}
+.pp-typed{font-family:var(--ff-m);font-size:.76rem;color:var(--ink);line-height:1.55;display:inline}
+.pp-cursor{font-family:var(--ff-m);font-size:.76rem;color:var(--rust-500);animation:blink 1.1s step-end infinite}
+.pp-chips-label{font-family:var(--ff-m);font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-muted)}
+.pp-chips{display:flex;flex-wrap:wrap;gap:.28rem}
+.pp-chip{font-family:var(--ff-m);font-size:.62rem;font-weight:600;background:rgba(162,74,42,.07);color:var(--rust-600);border:1px solid rgba(162,74,42,.16);border-radius:999px;padding:.16rem .5rem;opacity:0;cursor:pointer;transition:background .2s,border-color .2s}
+.pp-chip.on{background:rgba(162,74,42,.14);border-color:rgba(162,74,42,.35);color:var(--rust-500)}
+.pp-chip.show{animation:tagPop .3s ease both}
+.pp-gen-row{display:flex;align-items:center;gap:.55rem}
+.pp-gen-btn{font-family:var(--ff-m);font-size:.7rem;font-weight:600;background:var(--rust-500);color:#fff8ee;border-radius:8px;padding:.58rem 1rem;flex-shrink:0;cursor:pointer;transition:background .2s;letter-spacing:.06em}
+.pp-gen-btn:hover{background:var(--rust-600)}
+.pp-track{flex:1;height:4px;background:rgba(162,74,42,.1);border-radius:999px;overflow:hidden}
+.pp-fill{height:100%;background:linear-gradient(90deg,var(--rust-400),var(--rust-500));border-radius:999px;width:0;transition:width 1.8s cubic-bezier(.22,.85,.44,1)}
+.pp-pct{font-family:var(--ff-m);font-size:.62rem;color:var(--rust-500);flex-shrink:0;font-weight:600}
+
+/* ─ PANEL 4: Output grid ─ */
+.output-panel{padding:1.4rem;min-height:340px;display:flex;flex-direction:column;gap:.65rem}
+.op-header{display:flex;align-items:center;justify-content:space-between}
+.op-title{font-family:var(--ff-m);font-size:.7rem;font-weight:600;color:var(--ink)}
+.op-count{font-family:var(--ff-m);font-size:.62rem;color:var(--rust-500)}
+.op-context{display:flex;align-items:center;gap:.4rem;background:rgba(162,74,42,.04);border:1px solid rgba(162,74,42,.1);border-radius:7px;padding:.42rem .65rem;font-family:var(--ff-m);font-size:.62rem;color:var(--ink-muted)}
+.op-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr;grid-template-rows:1fr 1fr;gap:.42rem;flex:1;min-height:190px}
+.op-frame{border-radius:9px;overflow:hidden;position:relative;opacity:0}
+.op-frame.main{grid-row:span 2}
+.op-frame.show{animation:imgReveal .5s cubic-bezier(.34,1.2,.64,1) both}
+.op-frame img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+.op-frame-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(20,8,2,.55),transparent 50%)}
+.op-frame-label{position:absolute;bottom:.42rem;left:.45rem;right:.45rem;font-family:var(--ff-m);font-size:.52rem;font-weight:600;color:rgba(255,245,228,.9);letter-spacing:.06em}
+.op-frame-badge{position:absolute;top:.42rem;right:.42rem;font-family:var(--ff-m);font-size:.52rem;font-weight:700;background:rgba(46,140,79,.85);color:#fff;border-radius:4px;padding:.1rem .35rem}
+.op-dl{display:flex;gap:.4rem;align-items:center;background:rgba(162,74,42,.04);border:1px solid rgba(162,74,42,.12);border-radius:8px;padding:.48rem .72rem;opacity:0}
+.op-dl.show{animation:cardFadeUp .4s ease .9s both}
+.op-dl-label{font-family:var(--ff-m);font-size:.62rem;color:var(--ink-muted);flex:1}
+.op-dl-channels{display:flex;gap:.28rem;flex-wrap:wrap}
+.op-dl-ch{font-family:var(--ff-m);font-size:.6rem;font-weight:700;color:var(--rust-600);background:rgba(162,74,42,.08);border:1px solid rgba(162,74,42,.18);border-radius:999px;padding:.1rem .42rem}
+
+/* ── HOW IT WORKS ── */
+.bd-how{padding:5rem 0;background:linear-gradient(180deg,transparent,rgba(250,240,224,.45) 40%,transparent)}
+.bd-how__header{margin-bottom:2.5rem}
+.bd-how__steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative}
+.bd-step{position:relative;opacity:0;animation:stepIn .6s cubic-bezier(.22,.85,.44,1) both;animation-play-state:paused}
+.bd-step.in-view{animation-play-state:running}
+.bd-step:nth-child(1){animation-delay:0s}.bd-step:nth-child(2){animation-delay:.13s}.bd-step:nth-child(3){animation-delay:.26s}.bd-step:nth-child(4){animation-delay:.39s}
+.bd-step__number{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,var(--rust-500),var(--rust-700));color:#fff8ee;font-size:.74rem;font-weight:700;letter-spacing:.05em;display:flex;align-items:center;justify-content:center;margin-bottom:1rem;position:relative;z-index:2;box-shadow:0 4px 16px rgba(162,74,42,.3)}
+.bd-step__connector{position:absolute;top:21px;left:calc(42px + 1rem);right:-1rem;height:1.5px;background:var(--line);transform-origin:left;animation:connGrow .55s ease both;animation-play-state:paused}
+.bd-step.in-view .bd-step__connector{animation-play-state:running}
+.bd-step:last-child .bd-step__connector{display:none}
+.bd-step__card{padding-right:1.4rem}
+.bd-step__card h3{font-size:.97rem;font-weight:600;color:var(--ink);margin-bottom:.42rem}
+.bd-step__card p{font-size:.86rem;font-weight:300;color:var(--ink-soft);line-height:1.68}
+
+/* ── FIT FOR ── */
+.bd-audience{padding:5rem 0;background:linear-gradient(to bottom,rgba(250,240,225,.4),transparent)}
+.bd-audience__grid{display:grid;grid-template-columns:1fr 1fr;gap:4.5rem;align-items:start}
+.bd-audience__list{display:grid;gap:.7rem;margin-top:1.2rem}
+.bd-audience__item{display:flex;align-items:center;gap:.85rem;font-size:.96rem;font-weight:500;color:var(--ink);opacity:0;animation:listIn .5s ease both;animation-play-state:paused}
+.bd-audience__item.in-view{animation-play-state:running}
+.bd-audience__check{width:28px;height:28px;border-radius:50%;background:rgba(162,74,42,.1);border:1.5px solid rgba(162,74,42,.22);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--rust-500)}
+.bd-audience__check svg{width:13px;height:13px}
+.bd-audience__sub{font-size:.95rem;font-weight:300;color:var(--ink-soft);line-height:1.72;margin-top:.9rem}
+.fit-stats{display:flex;flex-direction:column;gap:.85rem}
+.fit-stat-card{border:1.5px solid var(--line);border-radius:16px;padding:1.5rem 1.6rem;background:rgba(255,252,244,.9);display:flex;align-items:center;gap:1.3rem;opacity:0}
+.fit-stat-card.in-view{animation:cardFadeUp .5s cubic-bezier(.22,.85,.44,1) both}
+.fsc-n{font-family:var(--ff-d);font-size:2.6rem;font-style:italic;color:var(--rust-500);line-height:1;flex-shrink:0;width:80px}
+.fsc-t{font-size:.87rem;color:var(--ink-soft);line-height:1.6}
+.fsc-t strong{color:var(--ink);font-weight:600}
+
+/* ── FEATURES GRID ── */
+.feat-grid-sec{padding:5rem 0;border-top:1px solid var(--line)}
+.feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);margin-top:2rem;border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.fgc{background:var(--rust-50);padding:1.9rem 1.7rem;position:relative;overflow:hidden;transition:background .3s;opacity:0}
+.fgc.in-view{animation:fadeUp .5s cubic-bezier(.22,.85,.44,1) both}
+.fgc:hover{background:var(--rust-100)}
+.fgc::before{content:'';position:absolute;top:0;left:0;right:0;height:2.5px;background:linear-gradient(90deg,var(--rust-400),var(--rust-300));transform:scaleX(0);transform-origin:left;transition:transform .4s ease}
+.fgc:hover::before{transform:scaleX(1)}
+.fgn{font-family:var(--ff-m);font-size:.6rem;font-weight:600;letter-spacing:.1em;color:var(--rust-400);opacity:.6;margin-bottom:.6rem}
+.fgc h3{font-family:var(--ff-d);font-size:1.1rem;font-weight:400;color:var(--ink);margin-bottom:.42rem;line-height:1.2}
+.fgc p{font-size:.86rem;font-weight:300;color:var(--ink-soft);line-height:1.75}
+
+/* ── CTA ── */
+.bd-cta{padding:3rem 0 5.5rem}
+.bd-cta__card{position:relative;border:1.5px solid var(--line);border-radius:26px;padding:3.8rem 3.2rem;background:linear-gradient(148deg,rgba(255,246,230,.98),rgba(252,233,200,.9));box-shadow:0 24px 64px rgba(75,42,21,.1);text-align:center;overflow:hidden;opacity:0}
+.bd-cta__card.in-view{animation:fadeUp .8s cubic-bezier(.22,.85,.44,1) forwards}
+.bd-cta__glow{position:absolute;top:-60px;right:-60px;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(162,74,42,.13),transparent 70%);animation:glowPulse 4s ease-in-out infinite;pointer-events:none}
+.bd-cta__card h2{font-family:var(--ff-d);font-size:clamp(1.5rem,2.8vw,2.2rem);letter-spacing:-.02em;line-height:1.22;color:var(--ink);max-width:56ch;margin:.6rem auto 0}
+.bd-cta__sub{margin-top:.9rem;color:var(--ink-soft);font-size:1rem;font-weight:300}
+
+footer{background:var(--dark-bg);color:rgba(255,255,255,.35);text-align:center;padding:2rem 2.4rem;font-size:.82rem;font-weight:300}
+footer strong{color:var(--rust-300);font-weight:500}
+
+@media(max-width:980px){
+  nav{padding:.8rem 1.4rem}
+  .nav-links,.nav-cta{display:none!important}
+
+  .bd-hero__grid,.overview-inner,.feat-row,.bd-audience__grid{grid-template-columns:1fr;gap:2.5rem}
+  .feat-row.reverse .feat-copy,.feat-row.reverse .feat-illu{order:unset}
+  
+  .bd-how__steps{grid-template-columns:1fr 1fr;gap:1.4rem}.bd-step__connector{display:none}
+  .stats-strip{grid-template-columns:repeat(2,1fr)}
+  .demo-float{display:none}
+  .feat-grid{grid-template-columns:1fr 1fr}
+  .ticker-wrap{margin-top:58px}
+}
+
+@media(max-width:640px){
+  nav{padding:.8rem 1rem}
+  .nav-logo{font-size:1.15rem}
+
+  .container,.narrow{padding:0 1.2rem;width:100%}
+
+  .bd-hero{padding:3.5rem 0 2rem}
+  .bd-hero__grid{gap:2.2rem}
+  .bd-hero__h1{font-size:clamp(2.2rem,8vw,2.8rem)}
+  .bd-hero__lead{font-size:.95rem;line-height:1.72;margin-bottom:1.55rem}
+
+  /* Hide the extra hero process strip on mobile so this page matches the cleaner Briefly Docs mobile hero. */
+  .hero-steps-strip{display:none}
+
+  .demo-window{border-radius:22px}
+  .demo-bar{padding:.62rem .8rem}
+  .demo-bar-title{font-size:.65rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .demo-bar-live{font-size:.58rem;flex-shrink:0}
+  .demo-body{padding:.8rem;gap:.6rem}
+  .demo-steps-row{margin:-.8rem -.8rem .65rem}
+  .demo-step-pill{font-size:.55rem;padding:.46rem .12rem;line-height:1.2}
+
+  /* Main fix: do not force empty height in the active demo step on mobile. */
+  .demo-panel{min-height:auto;gap:.55rem}
+
+  .up-garment-row,
+  .acc-row,
+  .prompt-box,
+  .pp-text-area,
+  .op-dl{border-radius:11px}
+
+  .up-garment-row{padding:.62rem .7rem;gap:.6rem}
+  .up-garment-img{width:42px;height:54px}
+  .up-garment-name{font-size:.68rem}
+  .up-garment-detail,.up-status,.attr-tag,.acc-label,.acc-tag{font-size:.56rem}
+
+  .model-img-row{padding:.65rem;gap:.65rem;border-radius:12px}
+  .model-portrait{width:46px;height:58px;border-radius:8px}
+  .model-meta-name{font-size:.82rem;line-height:1.25}
+  .model-meta-detail{font-size:.58rem;line-height:1.45}
+  .model-compat-badge{font-size:.56rem;padding:.16rem .45rem;white-space:normal;line-height:1.35}
+  .model-other-hint{font-size:.58rem;padding:.2rem 0 0}
+
+  .prompt-box{padding:.62rem .72rem;min-height:auto}
+  .prompt-typed,.prompt-cursor{font-size:.67rem;line-height:1.55}
+
+  .model-panel,
+  .prompt-panel,
+  .output-panel,
+  .up-panel{padding:1rem;min-height:auto}
+
+  .model-selected-big{padding:.65rem;gap:.65rem;border-radius:12px}
+  .model-portrait-img{width:46px;height:58px;border-radius:8px}
+  .ms-name{font-size:.82rem;line-height:1.25}
+  .ms-detail{font-size:.58rem;line-height:1.45}
+  .ms-compat{font-size:.56rem;padding:.16rem .45rem;white-space:normal;line-height:1.35}
+  .model-poses-row{gap:.35rem}
+
+  .op-grid{min-height:150px}
+  .op-context,.op-dl{font-size:.58rem}
+  .op-frame-label,.op-frame-badge,.op-dl-label,.op-dl-ch{font-size:.52rem}
+
+  .feat-row{padding:2.5rem 0;gap:2rem}
+  .sh2{font-size:clamp(1.6rem,6vw,2.2rem)}
+
+  .bd-how__steps{grid-template-columns:1fr}
+  .stats-strip{grid-template-columns:1fr}
+  .stat-item:not(:last-child)::after{display:none}
+
+  .feat-grid{grid-template-columns:1fr}
+  .bd-cta__card{padding:2.5rem 1.5rem;border-radius:20px}
+  .bd-cta__card h2{font-size:1.5rem}
+
+  footer{padding:1.5rem 1.2rem}
+}
+
+@media(max-width:420px){
+  .container,.narrow{padding:0 1rem}
+  .bd-hero__h1{font-size:2.1rem;line-height:1.08}
+  .eyebrow-text{font-size:.66rem;line-height:1.35}
+  .demo-bar-live{display:none}
+  .model-poses-row{grid-template-columns:repeat(2,1fr)}
+  .op-grid{grid-template-columns:1fr 1fr}
+  .op-frame.main{grid-row:unset}
+  .result-grid{grid-template-columns:1fr 1fr}
+  .result-frame.main{grid-row:unset}
+}
+</style>
+</MainLayout>

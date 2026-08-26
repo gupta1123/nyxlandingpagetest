@@ -1,0 +1,1213 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+---
+
+<MainLayout
+  title="Carpooling App | Nyx Solution"
+  description="A full mobility stack for rider bookings, driver execution, and admin-level coordination. Carpooling software built for simplicity and operational control."
+>
+
+<!-- ═════════════ NAV ═════════════ -->
+<nav id="mainnav">
+  <div class="nav-left">
+    <a class="nav-back" href="/products" aria-label="Back to products">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+    </a>
+    <span class="nav-logo">Nyx Solution</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#rider">Rider App</a></li>
+    <li><a href="#driver">Driver App</a></li>
+    <li><a href="#admin">Admin Console</a></li>
+    <li><a href="#lifecycle">Trip Lifecycle</a></li>
+  </ul>
+  <div class="nav-right">
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle Menu">
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+  </div>
+  <a class="nav-cta" href="/contact">Contact Us</a>
+</nav>
+
+<!-- ═════════════ TICKER ═════════════ -->
+<div class="ticker-wrap" aria-hidden="true">
+  <div class="ticker">
+    <span class="ticker-item">Rider booking</span>
+    <span class="ticker-item">Driver dispatch</span>
+    <span class="ticker-item">Live trip tracking</span>
+    <span class="ticker-item">Route management</span>
+    <span class="ticker-item">Fleet visibility</span>
+    <span class="ticker-item">Admin operations</span>
+    <span class="ticker-item">Boarding control</span>
+    <span class="ticker-item">Service metrics</span>
+    <span class="ticker-item">Multi-role platform</span>
+    <span class="ticker-item">Rider booking</span>
+    <span class="ticker-item">Driver dispatch</span>
+    <span class="ticker-item">Live trip tracking</span>
+    <span class="ticker-item">Route management</span>
+    <span class="ticker-item">Fleet visibility</span>
+    <span class="ticker-item">Admin operations</span>
+    <span class="ticker-item">Boarding control</span>
+    <span class="ticker-item">Service metrics</span>
+    <span class="ticker-item">Multi-role platform</span>
+  </div>
+</div>
+
+<!-- ═════════════ HERO ═════════════ -->
+<section class="cp-hero">
+  <div class="container">
+    <div class="cp-hero__grid">
+
+      <div>
+        <div class="cp-hero__eyebrow reveal-up">
+          <span class="eyebrow-dot"></span>
+          <span class="eyebrow-text">Mobility Product</span>
+        </div>
+        <h1 class="cp-hero__h1 reveal-up" style="animation-delay:.1s">
+          Carpooling software with <em>rider simplicity</em> and operational control.
+        </h1>
+        <p class="cp-hero__lead reveal-up" style="animation-delay:.2s">
+          A full mobility stack for rider bookings, driver execution, and admin-level coordination — built so every role has exactly what they need, without the chaos of disconnected tools.
+        </p>
+        <div class="cta-row reveal-up" style="animation-delay:.3s">
+          <a class="btn primary" href="/contact">Contact Us</a>
+          <a class="btn ghost" href="#rider">See Platform</a>
+        </div>
+      </div>
+
+      <!-- HERO DEMO WINDOW -->
+      <div class="cp-hero__demo reveal-fade" style="animation-delay:.45s">
+        <div class="demo-window">
+          <div class="demo-bar">
+            <span class="demo-dot demo-dot-r"></span>
+            <span class="demo-dot demo-dot-y"></span>
+            <span class="demo-dot demo-dot-g"></span>
+            <span class="demo-bar-title">Carpooling — Operations View</span>
+            <span class="demo-bar-sub" id="heroLiveTime">Live</span>
+          </div>
+          <div class="demo-body">
+            <!-- mini map -->
+            <div class="demo-map" id="heroMap">
+              <div class="demo-map-grid"></div>
+              <div class="demo-road demo-road-h1"></div>
+              <div class="demo-road demo-road-h2"></div>
+              <div class="demo-road demo-road-v1"></div>
+              <div class="demo-road demo-road-v2"></div>
+              <svg class="demo-route" id="heroRouteSvg" viewBox="0 0 380 148" preserveAspectRatio="none">
+                <path id="heroRoutePath" d="M 75 108 Q 100 108 106 62 Q 112 18 145 18 Q 200 18 200 62 Q 200 108 260 108" fill="none" stroke="var(--rust-300)" stroke-width="2.5" stroke-dasharray="5 3" opacity=".6"/>
+              </svg>
+              <div class="demo-pin pin-pickup show" style="animation-delay:.8s">
+                <div class="pin-dot" style="background:var(--rust-500)"></div>
+                <div class="pin-leg" style="background:var(--rust-400);width:2px;height:8px;border-radius:1px"></div>
+                <div class="pin-label" style="color:var(--rust-600)">Pickup</div>
+              </div>
+              <div class="demo-pin pin-drop show" style="animation-delay:1s">
+                <div class="pin-dot" style="background:var(--green)"></div>
+                <div class="pin-leg" style="background:var(--green);width:2px;height:8px;border-radius:1px;opacity:.6"></div>
+                <div class="pin-label" style="color:var(--green)">Drop-off</div>
+              </div>
+              <div class="demo-car-dot" id="heroCarDot" style="top:36%;left:18%">🚗</div>
+            </div>
+            <!-- status rows -->
+            <div class="demo-status-row">
+              <span class="demo-status-role">Rider</span>
+              <span class="demo-status-val" id="heroRiderStatus">Priya — waiting for pickup</span>
+              <span class="demo-status-badge badge-waiting" id="heroRiderBadge">Waiting</span>
+            </div>
+            <div class="demo-status-row">
+              <span class="demo-status-role">Driver</span>
+              <span class="demo-status-val" id="heroDriverStatus">Rahul — 3 min away</span>
+              <span class="demo-status-badge badge-moving" id="heroDriverBadge">En route</span>
+            </div>
+            <div class="demo-status-row">
+              <span class="demo-status-role">Admin</span>
+              <span class="demo-status-val" id="heroAdminStatus">Route 7 — 4 of 4 pickups confirmed</span>
+              <span class="demo-status-badge badge-done" id="heroAdminBadge">On track</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="demo-float demo-float-1 reveal-fade" style="animation-delay:.9s">
+          <svg viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.3"/><path d="M5 8l2.5 2.5L11 5.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Multi-role platform
+        </div>
+        <div class="demo-float demo-float-2 reveal-fade" style="animation-delay:1.1s">
+          <svg viewBox="0 0 16 16" fill="none"><path d="M8 2l1.4 2.9L13 5.5l-2.5 2.4.6 3.4L8 9.7l-3.1 1.6.6-3.4L3 5.5l3.6-.6L8 2z" stroke="currentColor" stroke-width="1.2" fill="currentColor" fill-opacity=".12"/></svg>
+          Ops-first design
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═════════════ STATS ═════════════ -->
+<div class="stats-strip">
+  <div class="stat-item"><span class="stat-num" data-count="3">0</span><span class="stat-label">connected roles in one system</span></div>
+  <div class="stat-item"><span class="stat-num" data-count="100">0</span><span class="stat-label">% trip lifecycle visibility</span></div>
+  <div class="stat-item"><span class="stat-num" data-count="6">0</span><span class="stat-label">core modules out of the box</span></div>
+  <div class="stat-item"><span class="stat-num" data-count="40">0</span><span class="stat-label">% reduction in coordinator overhead</span></div>
+</div>
+
+<!-- ═════════════ PROBLEM ═════════════ -->
+<section class="cp-problem">
+  <div class="narrow">
+    <div class="cp-problem__card" id="problemCard">
+      <div class="cp-problem-icon">
+        <svg width="52" height="52" viewBox="0 0 48 48" fill="none">
+          <circle cx="24" cy="24" r="18" stroke="currentColor" stroke-width="1.8" stroke-dasharray="5 3"/>
+          <path d="M12 24h6l4-8 4 14 4-10 3 4h3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="36" cy="36" r="7" fill="var(--rust-50)" stroke="currentColor" stroke-width="1.8"/>
+          <path d="M36 33v3h2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="cp-problem__text">
+        <h2>Most carpooling operations fail not because of bad drivers — but because the three roles never had a single system to work from.</h2>
+        <p>Riders chase updates over WhatsApp. Drivers work off printed sheets. Admins rely on phone calls to know if a route is running. The product and the operation are disconnected.</p>
+        <p>Carpooling App is built to close that gap — one platform where riders book, drivers execute, and operations teams see everything.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════════ FEATURE ROWS ═════════════ -->
+<section class="feat-section">
+  <div class="container">
+
+    <!-- ── ROW 1: RIDER APP ── -->
+    <div class="feat-row" id="rider">
+      <div class="feat-copy reveal-up">
+        <span class="eyebrow">Rider app experience</span>
+        <h2 class="sh2">Search, book, track — <em>no friction between request and ride</em></h2>
+        <p>Riders can discover available rides, request seats, track their driver in real time, and manage their bookings without calling anyone or checking a spreadsheet.</p>
+        <ul class="bullet-list">
+          <li>Search and request available rides by route or time</li>
+          <li>Track pickup and trip status in real time on a live map</li>
+          <li>Manage bookings, cancellations, and travel history</li>
+          <li>Receive route updates, delay alerts, and driver ETA</li>
+        </ul>
+      </div>
+      <div class="feat-illu reveal-fade" style="animation-delay:.1s">
+        <div class="illu-panel rider-panel" id="riderPanel">
+          <div class="rp-header">
+            <div class="rp-title">Rider App — Priya S.</div>
+            <div class="rp-live"><div class="rp-live-dot"></div>Trip active</div>
+          </div>
+          <!-- map -->
+          <div class="rp-map" id="riderMap">
+            <div class="rp-map-grid"></div>
+            <div class="rp-road-h" style="top:38%;height:5px;left:0;right:0"></div>
+            <div class="rp-road-h" style="top:68%;height:4px;left:0;right:0"></div>
+            <div class="rp-road-v" style="left:25%;width:4px;top:0;bottom:0"></div>
+            <div class="rp-road-v" style="left:65%;width:4px;top:0;bottom:0"></div>
+            <svg style="position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none" viewBox="0 0 300 130" preserveAspectRatio="none">
+              <path d="M 60 105 Q 75 105 75 55 Q 75 20 120 20 Q 180 20 195 55 Q 195 105 250 105" fill="none" stroke="var(--rust-300)" stroke-width="2.5" stroke-dasharray="5 3" opacity=".65" id="riderRoutePathSvg"/>
+            </svg>
+            <!-- pickup pin -->
+            <div class="rp-pin rp-pin-a" style="bottom:8px;left:14%">
+              <div class="rp-pin-dot"></div>
+            </div>
+            <!-- drop pin -->
+            <div class="rp-pin rp-pin-b" style="bottom:8px;left:72%">
+              <div class="rp-pin-dot"></div>
+            </div>
+            <!-- driver car -->
+            <div class="rp-car" id="riderCar" style="top:42%;left:22%;opacity:1">🚗</div>
+          </div>
+          <!-- ride card -->
+          <div class="rp-ride-card" id="riderCard">
+            <div class="rp-ride-avatar">R</div>
+            <div class="rp-ride-info">
+              <div class="rp-ride-name">Rahul M. — Toyota Innova · KA05</div>
+              <div class="rp-ride-route">Koramangala → Whitefield · Route 7</div>
+            </div>
+            <span class="rp-ride-eta" id="riderEta">3 min</span>
+          </div>
+          <!-- notification -->
+          <div class="rp-notif" id="riderNotif">
+            <div class="rp-notif-icon">
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.3"/><path d="M5 8l2.5 2.5L11 5.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <span class="rp-notif-text">Driver arrived — please proceed to pickup point</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── ROW 2: DRIVER APP ── -->
+    <div class="feat-row reverse" id="driver">
+      <div class="feat-copy reveal-up">
+        <span class="eyebrow">Driver app experience</span>
+        <h2 class="sh2">Trips, riders, and route — <em>all in one driver view</em></h2>
+        <p>Drivers get a clean view of their assigned trips, the riders on each run, boarding confirmations, and route progress. No calls to dispatch. No paper sheets.</p>
+        <ul class="bullet-list">
+          <li>Accept and manage assigned trips from dispatch</li>
+          <li>See all riders on the run with stop and status details</li>
+          <li>Confirm boarding and drop-off for each rider</li>
+          <li>Stay aligned with operations through live status updates</li>
+        </ul>
+      </div>
+      <div class="feat-illu reveal-fade" style="animation-delay:.1s">
+        <div class="illu-panel driver-panel" id="driverPanel">
+          <div class="dp-header">
+            <div class="dp-title">Driver App — Rahul M.</div>
+            <div class="dp-shift"><div class="dp-shift-dot"></div>On shift</div>
+          </div>
+          <!-- trip card -->
+          <div class="dp-trip-card" id="driverTripCard">
+            <div class="dp-trip-head">
+              <span class="dp-trip-id">Trip #T-0047 · Route 7</span>
+              <span class="dp-trip-badge badge-moving">Active</span>
+            </div>
+            <div class="dp-route-line">
+              <div class="dp-route-dots">
+                <div class="dp-rdot dp-rdot-a"></div>
+                <div class="dp-route-vline"></div>
+                <div class="dp-rdot dp-rdot-b"></div>
+              </div>
+              <div class="dp-route-text">
+                <div class="dp-route-pt">Koramangala 5th Block <span>07:14 AM</span></div>
+                <div class="dp-route-pt">Whitefield Tech Park <span>08:05 AM</span></div>
+              </div>
+            </div>
+          </div>
+          <!-- riders list -->
+          <div class="dp-riders" id="driverRiders">
+            <div class="dp-rider-row" id="drr1">
+              <div class="dp-rider-av">P</div>
+              <span class="dp-rider-name">Priya S.</span>
+              <span class="dp-rider-stop">Stop 2</span>
+              <span class="dp-rider-st st-boarded">Boarded</span>
+            </div>
+            <div class="dp-rider-row" id="drr2">
+              <div class="dp-rider-av">A</div>
+              <span class="dp-rider-name">Arjun K.</span>
+              <span class="dp-rider-stop">Stop 2</span>
+              <span class="dp-rider-st st-boarded">Boarded</span>
+            </div>
+            <div class="dp-rider-row" id="drr3">
+              <div class="dp-rider-av">M</div>
+              <span class="dp-rider-name">Meera R.</span>
+              <span class="dp-rider-stop">Stop 3</span>
+              <span class="dp-rider-st st-waiting" id="drrMeeraSt">Waiting</span>
+            </div>
+            <div class="dp-rider-row" id="drr4">
+              <div class="dp-rider-av">S</div>
+              <span class="dp-rider-name">Suresh P.</span>
+              <span class="dp-rider-stop">Stop 3</span>
+              <span class="dp-rider-st st-pending">Pending</span>
+            </div>
+          </div>
+          <!-- action buttons -->
+          <div class="dp-action" id="driverAction">
+            <div class="dp-btn dp-btn-primary">Confirm Boarding</div>
+            <div class="dp-btn dp-btn-ghost">Update Status</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── ROW 3: ADMIN CONSOLE ── -->
+    <div class="feat-row" id="admin">
+      <div class="feat-copy reveal-up">
+        <span class="eyebrow">Admin operations console</span>
+        <h2 class="sh2">Full fleet visibility — <em>without calling a single driver</em></h2>
+        <p>Operations teams get a live web dashboard showing active trips, route performance, fleet positions, and service alerts. Manage issues before they become complaints.</p>
+        <ul class="bullet-list">
+          <li>Monitor all active trips and fleet positions in real time</li>
+          <li>Manage users, drivers, vehicles, and route configurations</li>
+          <li>Handle escalations, exceptions, and support tickets</li>
+          <li>Review service KPIs, utilization, and operational metrics</li>
+        </ul>
+      </div>
+      <div class="feat-illu reveal-fade" style="animation-delay:.1s">
+        <div class="illu-panel admin-panel" id="adminPanel">
+          <div class="adm-header">
+            <div class="adm-title">Admin Console — Operations</div>
+            <div class="adm-time" id="admTime">07:22 AM · Monday</div>
+          </div>
+          <!-- metrics -->
+          <div class="adm-metrics">
+            <div class="adm-metric" id="admM1">
+              <span class="adm-metric-num" id="admN1">0</span>
+              <span class="adm-metric-label">Active Trips</span>
+            </div>
+            <div class="adm-metric" id="admM2">
+              <span class="adm-metric-num" id="admN2">0</span>
+              <span class="adm-metric-label">Riders Today</span>
+            </div>
+            <div class="adm-metric" id="admM3">
+              <span class="adm-metric-num" id="admN3">0</span>
+              <span class="adm-metric-label">On-Time %</span>
+            </div>
+          </div>
+          <!-- mini map -->
+          <div class="adm-map" id="adminMap">
+            <div class="adm-map-grid"></div>
+            <div class="adm-road-h" style="top:40%;height:4px;left:0;right:0"></div>
+            <div class="adm-road-h" style="top:68%;height:3px;left:0;right:0"></div>
+            <div class="adm-road-v" style="left:30%;width:3px;top:0;bottom:0"></div>
+            <div class="adm-road-v" style="left:65%;width:3px;top:0;bottom:0"></div>
+            <!-- route dots -->
+            <div class="adm-route-dot" style="top:28%;left:10%;background:var(--rust-400)"></div>
+            <div class="adm-route-dot" style="top:28%;left:38%;background:var(--rust-300)"></div>
+            <div class="adm-route-dot" style="top:28%;left:62%;background:var(--rust-300)"></div>
+            <div class="adm-route-dot" style="top:28%;left:80%;background:var(--green)"></div>
+            <!-- cars -->
+            <div class="adm-car" id="admCar1" style="top:38%;left:15%;background:var(--rust-500);opacity:1">🚗</div>
+            <div class="adm-car" id="admCar2" style="top:64%;left:42%;background:var(--amber);opacity:1">🚗</div>
+            <div class="adm-car" id="admCar3" style="top:38%;left:58%;background:var(--green);opacity:1">🚗</div>
+          </div>
+          <!-- live alerts -->
+          <div class="adm-alerts">
+            <div class="adm-alert alert-ok" id="admAlert1">
+              <div class="adm-alert-dot"></div>
+              <span class="adm-alert-text">Route 7 — all pickups confirmed, ETA on track</span>
+              <span class="adm-alert-time">07:18</span>
+            </div>
+            <div class="adm-alert alert-warn" id="admAlert2">
+              <div class="adm-alert-dot"></div>
+              <span class="adm-alert-text">Route 3 — driver reporting 8-min delay at Stop 2</span>
+              <span class="adm-alert-time">07:20</span>
+            </div>
+            <div class="adm-alert alert-info" id="admAlert3">
+              <div class="adm-alert-dot"></div>
+              <span class="adm-alert-text">Route 12 — 3 new seat requests pending approval</span>
+              <span class="adm-alert-time">07:22</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── ROW 4: TRIP LIFECYCLE ── -->
+    <div class="feat-row reverse" id="lifecycle">
+      <div class="feat-copy reveal-up">
+        <span class="eyebrow">Trip lifecycle management</span>
+        <h2 class="sh2">Every trip tracked — from <em>booking to completion</em></h2>
+        <p>Each trip moves through a defined lifecycle with clear status transitions. Operations teams always know where every trip stands — without chasing updates.</p>
+        <ul class="bullet-list">
+          <li>Booking confirmed, assigned, and dispatched automatically</li>
+          <li>Live status updates at each lifecycle stage</li>
+          <li>Driver arrival, boarding, in-transit, and drop-off tracked</li>
+          <li>Completion logged with time, rider, and route on record</li>
+        </ul>
+      </div>
+      <div class="feat-illu reveal-fade" style="animation-delay:.1s">
+        <div class="illu-panel lifecycle-panel" id="lifecyclePanel">
+          <div class="lc-header">Trip #T-0047 · Route 7 · Lifecycle</div>
+          <div class="lc-step complete lc-step-idle" id="lc1" style="opacity:0">
+            <div class="lc-step-icon">✅</div>
+            <div class="lc-step-text">
+              <div class="lc-step-name">Booking confirmed</div>
+              <div class="lc-step-detail">Priya S. · 3 riders · Route 7</div>
+            </div>
+            <span class="lc-step-time">06:45</span>
+          </div>
+          <div class="lc-conn"><div class="lc-conn-line"></div></div>
+          <div class="lc-step complete lc-step-idle" id="lc2" style="opacity:0">
+            <div class="lc-step-icon">🔧</div>
+            <div class="lc-step-text">
+              <div class="lc-step-name">Driver assigned &amp; dispatched</div>
+              <div class="lc-step-detail">Rahul M. · Toyota Innova KA05</div>
+            </div>
+            <span class="lc-step-time">07:00</span>
+          </div>
+          <div class="lc-conn"><div class="lc-conn-line"></div></div>
+          <div class="lc-step active lc-step-idle" id="lc3" style="opacity:0">
+            <div class="lc-step-icon">📍</div>
+            <div class="lc-step-text">
+              <div class="lc-step-name">Pickup in progress</div>
+              <div class="lc-step-detail">Stop 2 · 2 of 4 riders boarded</div>
+            </div>
+            <span class="lc-step-time">07:22</span>
+          </div>
+          <div class="lc-conn"><div class="lc-conn-line"></div></div>
+          <div class="lc-step lc-step-idle" id="lc4" style="opacity:0">
+            <div class="lc-step-icon" style="font-size:.8rem">🚗</div>
+            <div class="lc-step-text">
+              <div class="lc-step-name">In transit</div>
+              <div class="lc-step-detail">All riders aboard · en route</div>
+            </div>
+            <span class="lc-step-time lc-step-idle" style="color:var(--ink-muted)">Pending</span>
+          </div>
+          <div class="lc-conn"><div class="lc-conn-line"></div></div>
+          <div class="lc-step lc-step-idle" id="lc5" style="opacity:0">
+            <div class="lc-step-icon">🏁</div>
+            <div class="lc-step-text">
+              <div class="lc-step-name">Trip completed</div>
+              <div class="lc-step-detail">Drop-off confirmed · record closed</div>
+            </div>
+            <span class="lc-step-time" style="color:var(--ink-muted)">—</span>
+          </div>
+          <div class="lc-summary" id="lcSummary">
+            <div class="lc-summary-label">Ops note</div>
+            <div class="lc-summary-text">Admin confirmed all stops on schedule. <span class="hl" id="lcHl1">4 of 4 riders accounted for.</span> ETA to destination: <span class="hl" id="lcHl2">08:05 AM</span>, on track.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═════════════ HOW IT WORKS ═════════════ -->
+<section class="cp-how">
+  <div class="container">
+    <div class="cp-how__header">
+      <span class="eyebrow">How it works</span>
+      <h2 class="sh2">From rider request to <em>completed trip</em> — coordinated at every step</h2>
+    </div>
+    <div class="cp-how__steps">
+      <div class="cp-step">
+        <div class="cp-step__number">01</div>
+        <div class="cp-step__connector"></div>
+        <div class="cp-step__card">
+          <h3>Rider books a seat</h3>
+          <p>Rider opens the app, finds an available route or time slot, and confirms their booking. No calls, no waiting for a coordinator response.</p>
+        </div>
+      </div>
+      <div class="cp-step">
+        <div class="cp-step__number">02</div>
+        <div class="cp-step__connector"></div>
+        <div class="cp-step__card">
+          <h3>Trip assigned to driver</h3>
+          <p>Operations dispatch assigns the trip to an available driver. The driver sees the full rider list, stops, and route in their app.</p>
+        </div>
+      </div>
+      <div class="cp-step">
+        <div class="cp-step__number">03</div>
+        <div class="cp-step__connector"></div>
+        <div class="cp-step__card">
+          <h3>Rider tracks live</h3>
+          <p>The rider sees the driver's real-time position, ETA, and route progress. Alerts are sent for arrivals and any schedule changes.</p>
+        </div>
+      </div>
+      <div class="cp-step">
+        <div class="cp-step__number">04</div>
+        <div class="cp-step__card">
+          <h3>Admin closes the loop</h3>
+          <p>Operations monitor every trip in the dashboard, handle exceptions as they happen, and review metrics when the service day ends.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════════ AUDIENCE ═════════════ -->
+<section class="cp-audience">
+  <div class="container">
+    <div class="cp-audience__grid">
+      <div>
+        <span class="eyebrow">Who it is for</span>
+        <h2 class="sh2">Built for operators managing <em>real mobility services</em></h2>
+        <p class="cp-audience__sub">If your organisation is running or launching a coordinated transportation service — this platform is designed for your operational reality.</p>
+      </div>
+      <ul class="cp-audience__list">
+        <li class="cp-audience__item" style="animation-delay:0s">
+          <span class="cp-audience__check"><svg viewBox="0 0 14 14" fill="none"><path d="M2.5 7l3.5 3.5 5.5-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          Corporate or institutional transport programs
+        </li>
+        <li class="cp-audience__item" style="animation-delay:.08s">
+          <span class="cp-audience__check"><svg viewBox="0 0 14 14" fill="none"><path d="M2.5 7l3.5 3.5 5.5-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          Community and campus mobility networks
+        </li>
+        <li class="cp-audience__item" style="animation-delay:.16s">
+          <span class="cp-audience__check"><svg viewBox="0 0 14 14" fill="none"><path d="M2.5 7l3.5 3.5 5.5-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          City-level pooled ride initiatives
+        </li>
+        <li class="cp-audience__item" style="animation-delay:.24s">
+          <span class="cp-audience__check"><svg viewBox="0 0 14 14" fill="none"><path d="M2.5 7l3.5 3.5 5.5-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          Businesses launching managed carpool services
+        </li>
+        <li class="cp-audience__item" style="animation-delay:.32s">
+          <span class="cp-audience__check"><svg viewBox="0 0 14 14" fill="none"><path d="M2.5 7l3.5 3.5 5.5-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          Operators needing both app UX and a control center
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════════ CTA ═════════════ -->
+<section class="cp-cta" id="cta">
+  <div class="narrow">
+    <div class="cp-cta__card" id="ctaCard">
+      <div class="cp-cta__glow" aria-hidden="true"></div>
+      <span class="eyebrow">Get started</span>
+      <h2>Planning to launch or upgrade a carpooling platform?</h2>
+      <p class="cp-cta__sub">We'll show you how the rider, driver, and admin architecture fits your operation.</p>
+      <div class="cta-row center" style="margin-top:1.8rem">
+        <a class="btn primary" href="/contact">Contact Us</a>
+        <a class="btn ghost" href="/products">Back to Products</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>&copy; 2026 <strong>Nyx Solution</strong> · Carpooling App — Mobility Product</p>
+</footer>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Sora:wght@300;400;500;600;700&family=DM+Mono:wght@300;400;500&display=swap');
+
+/* ══════════════════════════════════════════
+   TOKENS  — identical to briefly-docs
+══════════════════════════════════════════ */
+:root {
+  --rust-50:#fdf8ef; --rust-100:#f5ebda; --rust-200:#e9c9a8;
+  --rust-300:#da956a; --rust-400:#c56f45; --rust-500:#a24a2a;
+  --rust-600:#85361c; --rust-700:#6b2a14;
+  --sand-50:#fff8ed; --sand-100:#f5e8d4; --sand-200:#d8c8b3;
+  --ink:#1f1a16; --ink-soft:#5f5148; --ink-muted:#7a5c4c;
+  --surface:#fdf8ef; --line:rgba(216,200,179,.78); --line-mid:rgba(196,160,126,.45);
+  --green:#2e8c4f; --amber:#c07820; --blue:#2c5fa8; --dark-bg:#2e1f19;
+  --ff-d:'Instrument Serif',Georgia,serif;
+  --ff-b:'Sora',sans-serif;
+  --ff-m:'DM Mono',monospace;
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:
+    radial-gradient(circle at 92% 4%,rgba(162,74,42,.13) 0,rgba(162,74,42,0) 40%),
+    radial-gradient(circle at 6% 18%,rgba(255,226,171,.26) 0,rgba(255,226,171,0) 38%),
+    var(--surface);
+  color:var(--ink);font-family:var(--ff-b);font-size:16px;line-height:1.7;overflow-x:hidden;
+}
+
+/* ═══ KEYFRAMES ═══ */
+@keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+@keyframes fadeScale{from{opacity:0;transform:scale(.93)}to{opacity:1;transform:scale(1)}}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+@keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+@keyframes ping{0%{box-shadow:0 0 0 0 rgba(162,74,42,.55)}70%{box-shadow:0 0 0 10px rgba(162,74,42,0)}100%{box-shadow:0 0 0 0 rgba(162,74,42,0)}}
+@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes glowPulse{0%,100%{opacity:.5;transform:scale(1)}50%{opacity:.8;transform:scale(1.07)}}
+@keyframes resultSlide{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+@keyframes badgeIn{from{opacity:0;transform:scale(.8) translateY(6px)}to{opacity:1;transform:scale(1) translateY(0)}}
+@keyframes connGrow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes stepIn{from{opacity:0;transform:translateX(-20px)}to{opacity:1;transform:none}}
+@keyframes listIn{from{opacity:0;transform:translateX(16px)}to{opacity:1;transform:none}}
+@keyframes cardFadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+@keyframes scanPulse{0%{box-shadow:0 0 0 0 rgba(162,74,42,.35)}70%{box-shadow:0 0 0 8px rgba(162,74,42,0)}100%{box-shadow:0 0 0 0 rgba(162,74,42,0)}}
+@keyframes barRise{from{height:0}to{height:var(--bh)}}
+@keyframes countUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@keyframes highlightGrow{from{background-size:0% 85%}to{background-size:100% 85%}}
+@keyframes pinBounce{0%,100%{transform:translateY(0) scale(1)}40%{transform:translateY(-8px) scale(1.15)}60%{transform:translateY(-4px) scale(1.05)}}
+@keyframes notifSlide{from{opacity:0;transform:translateX(14px)}to{opacity:1;transform:none}}
+
+.reveal-up{animation:fadeUp .75s cubic-bezier(.22,.85,.44,1) both}
+.reveal-fade{animation:fadeScale .7s cubic-bezier(.22,.85,.44,1) both}
+
+/* ═══ NAV ═══ */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:.9rem 2.8rem;background:rgba(253,248,239,.93);backdrop-filter:blur(16px);border-bottom:1px solid var(--line);transition:padding .3s}
+nav.scrolled{padding-top:.6rem;padding-bottom:.6rem}
+.nav-left{display:flex;align-items:center;gap:.7rem}
+.nav-back{width:34px;height:34px;border-radius:8px;border:1px solid var(--line);background:rgba(255,252,244,.7);color:var(--rust-600);text-decoration:none;display:inline-flex;align-items:center;justify-content:center;transition:background .2s,border-color .2s,transform .15s}
+.nav-back:hover{background:var(--rust-50);border-color:var(--rust-300);transform:translateY(-1px)}
+.nav-back svg{width:14px;height:14px}
+.nav-logo{font-family:var(--ff-d);font-size:1.3rem;font-style:italic;color:var(--rust-600)}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{font-size:.83rem;font-weight:400;color:var(--ink-soft);text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--rust-500)}
+.nav-cta{font-size:.83rem;font-weight:600;padding:.46rem 1.15rem;border-radius:8px;background:var(--rust-500);color:#fff;text-decoration:none;transition:background .2s,transform .15s}
+.nav-cta:hover{background:var(--rust-600);transform:translateY(-1px)}
+
+/* ═══ TICKER ═══ */
+.ticker-wrap{margin-top:63px;overflow:hidden;background:linear-gradient(90deg,#f3e6cf,#ecd8b8);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:.5rem 0}
+.ticker{display:flex;white-space:nowrap;animation:ticker 30s linear infinite}
+.ticker-item{font-size:.7rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--rust-600);padding:0 2.2rem;flex-shrink:0}
+.ticker-item::after{content:'·';margin-left:2.2rem;color:var(--rust-400)}
+
+/* ═══ LAYOUT ═══ */
+.container{max-width:1160px;margin:0 auto;padding:0 2.4rem}
+.narrow{max-width:820px;margin:0 auto;padding:0 2.4rem}
+.eyebrow{font-size:.7rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--rust-500);display:block;margin-bottom:.55rem}
+.sh2{font-family:var(--ff-d);font-size:clamp(1.8rem,3.2vw,2.6rem);font-weight:400;line-height:1.18;letter-spacing:-.01em;color:var(--ink)}
+.sh2 em{font-style:italic;color:var(--rust-500)}
+.btn{display:inline-block;font-size:.88rem;font-weight:600;border-radius:8px;text-decoration:none;padding:.66rem 1.5rem;transition:background .2s,transform .15s,box-shadow .2s}
+.btn.primary{background:var(--rust-500);color:#fff;box-shadow:0 4px 18px rgba(162,74,42,.28)}
+.btn.primary:hover{background:var(--rust-600);transform:translateY(-2px)}
+.btn.ghost{border:1.5px solid var(--line-mid);color:var(--rust-600)}
+.btn.ghost:hover{background:var(--rust-50);transform:translateY(-2px)}
+.cta-row{display:flex;gap:.85rem;flex-wrap:wrap}
+.cta-row.center{justify-content:center}
+
+/* ═══ HERO ═══ */
+.cp-hero{padding:5.5rem 0 4.5rem;position:relative;overflow:hidden}
+.cp-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 55% at 80% 10%,rgba(162,74,42,.11),transparent),radial-gradient(ellipse 45% 55% at 5% 90%,rgba(255,215,140,.18),transparent);pointer-events:none}
+.cp-hero::after{content:'';position:absolute;inset:0;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:48px 48px;mask-image:radial-gradient(ellipse 75% 75% at 68% 38%,black 0%,transparent 100%);pointer-events:none}
+
+.cp-hero__grid{display:grid;grid-template-columns:1fr 1.1fr;gap:3.5rem;align-items:center}
+.cp-hero__eyebrow{display:inline-flex;align-items:center;gap:.55rem;margin-bottom:.9rem}
+.eyebrow-dot{width:8px;height:8px;border-radius:50%;background:var(--rust-500);animation:ping 2.2s ease-in-out infinite}
+.eyebrow-text{font-size:.7rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--rust-600)}
+.cp-hero__h1{font-family:var(--ff-d);font-size:clamp(2.4rem,4.8vw,4rem);line-height:1.1;letter-spacing:-.01em;color:var(--ink);margin-bottom:1.2rem}
+.cp-hero__h1 em{font-style:italic;color:var(--rust-500);position:relative}
+.cp-hero__h1 em::after{content:'';position:absolute;left:0;right:0;bottom:-3px;height:2px;border-radius:2px;background:var(--rust-400);opacity:.4}
+.cp-hero__lead{font-size:1.04rem;font-weight:300;color:var(--ink-soft);line-height:1.75;max-width:50ch;margin-bottom:1.9rem}
+
+/* ─ HERO DEMO WINDOW ─ */
+.cp-hero__demo{position:relative}
+.demo-window{border:1.5px solid var(--line-mid);border-radius:20px;background:rgba(255,252,242,.97);box-shadow:0 28px 72px rgba(75,42,21,.13),0 4px 18px rgba(75,42,21,.06);overflow:hidden}
+.demo-bar{display:flex;align-items:center;gap:.45rem;padding:.7rem 1rem;background:rgba(245,235,218,.7);border-bottom:1px solid var(--line)}
+.demo-dot{width:10px;height:10px;border-radius:50%}
+.demo-dot-r{background:#f06257}.demo-dot-y{background:#f5a623}.demo-dot-g{background:#57c257}
+.demo-bar-title{margin-left:.4rem;font-size:.78rem;font-weight:600;color:var(--ink-soft);letter-spacing:.04em;font-family:var(--ff-m)}
+.demo-bar-sub{margin-left:auto;font-size:.65rem;color:var(--ink-muted);font-family:var(--ff-m)}
+
+.demo-body{padding:1.1rem;display:flex;flex-direction:column;gap:.85rem}
+
+/* hero map view */
+.demo-map{border-radius:12px;overflow:hidden;position:relative;height:148px;background:linear-gradient(145deg,#f0e8d8,#e8dcc8)}
+.demo-map-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(162,74,42,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(162,74,42,.07) 1px,transparent 1px);background-size:20px 20px}
+/* roads */
+.demo-road{position:absolute;border-radius:3px;background:rgba(255,252,248,.85)}
+.demo-road-h1{left:0;right:0;top:42%;height:6px}
+.demo-road-h2{left:0;right:0;top:72%;height:4px}
+.demo-road-v1{top:0;bottom:0;left:28%;width:5px}
+.demo-road-v2{top:0;bottom:0;left:68%;width:4px}
+/* route line */
+.demo-route{position:absolute;top:0;left:0;width:100%;height:100%;overflow:visible;pointer-events:none}
+/* pins */
+.demo-pin{position:absolute;display:flex;flex-direction:column;align-items:center;opacity:0}
+.demo-pin.show{animation:pinBounce .7s cubic-bezier(.22,.85,.44,1) forwards}
+.pin-dot{width:14px;height:14px;border-radius:50%;border:2.5px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+.pin-leg{width:2px;height:8px;border-radius:1px}
+.pin-label{font-family:var(--ff-m);font-size:.58rem;font-weight:600;margin-top:2px;white-space:nowrap;background:rgba(255,252,248,.92);padding:1px 5px;border-radius:4px;border:1px solid var(--line)}
+.pin-pickup{bottom:38%;left:20%}
+.pin-drop{bottom:20%;left:60%}
+.pin-pickup .pin-dot{background:var(--rust-500)}
+.pin-drop   .pin-dot{background:var(--green)}
+.pin-pickup .pin-leg,.pin-pickup .pin-label{color:var(--rust-600)}
+.pin-drop   .pin-leg,.pin-drop   .pin-label{color:var(--green)}
+
+/* moving car marker */
+.demo-car-dot{position:absolute;width:16px;height:16px;border-radius:50%;background:var(--rust-400);border:2.5px solid #fff;box-shadow:0 2px 10px rgba(162,74,42,.55);display:flex;align-items:center;justify-content:center;font-size:.6rem;opacity:0;transition:none}
+
+/* status rows */
+.demo-status-row{display:flex;align-items:center;gap:.6rem;padding:.45rem .65rem;border-radius:8px;background:#fffaef;border:1px solid rgba(162,74,42,.1)}
+.demo-status-role{font-family:var(--ff-m);font-size:.64rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--rust-600);min-width:42px}
+.demo-status-val{font-size:.82rem;font-weight:500;color:var(--ink);flex:1}
+.demo-status-badge{font-family:var(--ff-m);font-size:.62rem;font-weight:600;border-radius:999px;padding:.14rem .5rem;flex-shrink:0}
+.badge-moving{background:rgba(44,95,168,.1);color:#1a4080;border:1px solid rgba(44,95,168,.2)}
+.badge-waiting{background:rgba(192,120,32,.12);color:var(--amber);border:1px solid rgba(192,120,32,.2)}
+.badge-done{background:rgba(46,140,79,.1);color:#1c6535;border:1px solid rgba(46,140,79,.2)}
+
+/* float badges */
+.demo-float{position:absolute;display:flex;align-items:center;gap:.4rem;font-size:.74rem;font-weight:600;color:#5a3d2e;background:rgba(255,248,232,.95);border:1.5px solid var(--line);border-radius:999px;padding:.42rem .82rem;box-shadow:0 6px 20px rgba(75,42,21,.12);white-space:nowrap;animation:floatY 3s ease-in-out infinite}
+.demo-float svg{width:13px;height:13px;flex-shrink:0}
+.demo-float-1{bottom:-1rem;left:-1.8rem;animation-delay:0s}
+.demo-float-2{top:1.2rem;right:-1.8rem;animation-delay:1.4s}
+
+/* ═══ STATS ═══ */
+.stats-strip{background:var(--dark-bg);display:grid;grid-template-columns:repeat(4,1fr);gap:1px;overflow:hidden}
+.stat-item{text-align:center;padding:2.2rem 1rem;position:relative}
+.stat-item:not(:last-child)::after{content:'';position:absolute;right:0;top:25%;bottom:25%;width:1px;background:rgba(255,255,255,.07)}
+.stat-num{font-family:var(--ff-d);font-size:2.6rem;font-style:italic;color:var(--rust-300);display:block;line-height:1;margin-bottom:.35rem}
+.stat-label{font-size:.72rem;font-weight:400;color:rgba(255,255,255,.38);letter-spacing:.06em;text-transform:uppercase}
+
+/* ═══ PROBLEM ═══ */
+.cp-problem{padding:4rem 0}
+.cp-problem__card{display:grid;grid-template-columns:auto 1fr;gap:2.4rem;align-items:start;border:1.5px solid var(--line);border-radius:26px;padding:2.8rem 2.4rem;background:linear-gradient(148deg,rgba(255,245,228,.98),rgba(250,232,198,.9));box-shadow:0 16px 48px rgba(75,42,21,.09);opacity:0}
+.cp-problem__card.in-view{animation:fadeUp .8s cubic-bezier(.22,.85,.44,1) forwards}
+.cp-problem-icon{color:var(--rust-500);flex-shrink:0}
+.cp-problem__text h2{font-family:var(--ff-d);font-size:clamp(1.6rem,2.8vw,2.3rem);letter-spacing:-.02em;line-height:1.2;color:var(--ink);margin-bottom:1rem}
+.cp-problem__text p{color:var(--ink-soft);line-height:1.72;max-width:66ch}
+.cp-problem__text p+p{margin-top:.7rem}
+
+/* ═══ FEATURE ROWS ═══ */
+.feat-section{padding:4rem 0 2rem}
+.feat-row{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;padding:5rem 0;border-bottom:1px solid var(--line)}
+.feat-row:last-child{border-bottom:none}
+.feat-row.reverse .feat-copy{order:2}
+.feat-row.reverse .feat-illu{order:1}
+.feat-copy .sh2{margin-bottom:1rem}
+.feat-copy p{font-size:.97rem;font-weight:300;color:var(--ink-soft);line-height:1.75;margin-bottom:1rem}
+.feat-copy .bullet-list{list-style:none;display:grid;gap:.55rem}
+.feat-copy .bullet-list li{position:relative;padding-left:1.1rem;font-size:.9rem;color:var(--ink-soft)}
+.feat-copy .bullet-list li::before{content:'';position:absolute;left:0;top:.6em;width:6px;height:6px;border-radius:50%;background:var(--rust-400)}
+
+/* ═══ ILLUSTRATION PANELS ═══ */
+.illu-panel{border:1.5px solid var(--line-mid);border-radius:18px;background:var(--sand-50);overflow:hidden;position:relative}
+
+/* ─ PANEL 1: Rider App ─ */
+.rider-panel{padding:1.4rem;display:flex;flex-direction:column;gap:.75rem;min-height:340px}
+.rp-header{display:flex;justify-content:space-between;align-items:center}
+.rp-title{font-family:var(--ff-m);font-size:.72rem;font-weight:600;color:var(--ink)}
+.rp-live{display:flex;align-items:center;gap:.35rem;font-family:var(--ff-m);font-size:.65rem;color:var(--green)}
+.rp-live-dot{width:5px;height:5px;border-radius:50%;background:var(--green);animation:ping 2s ease-in-out infinite}
+
+.rp-map{border-radius:12px;overflow:hidden;position:relative;height:130px;background:linear-gradient(145deg,#f2ece0,#ebe0cc);flex-shrink:0}
+.rp-map-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(162,74,42,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(162,74,42,.06) 1px,transparent 1px);background-size:18px 18px}
+.rp-road-h{position:absolute;left:0;right:0;background:rgba(255,252,248,.8);border-radius:3px}
+.rp-road-v{position:absolute;top:0;bottom:0;background:rgba(255,252,248,.8);border-radius:3px}
+.rp-pin{position:absolute;display:flex;flex-direction:column;align-items:center}
+.rp-pin-dot{width:12px;height:12px;border-radius:50%;border:2px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,.2)}
+.rp-pin-a .rp-pin-dot{background:var(--rust-500)}
+.rp-pin-b .rp-pin-dot{background:var(--green)}
+.rp-car{position:absolute;width:14px;height:14px;border-radius:50%;background:var(--rust-400);border:2.5px solid #fff;box-shadow:0 2px 8px rgba(162,74,42,.5);opacity:0;transition:left .8s cubic-bezier(.4,0,.2,1),top .8s cubic-bezier(.4,0,.2,1)}
+
+.rp-ride-card{display:flex;align-items:center;gap:.7rem;padding:.6rem .8rem;border-radius:10px;background:#fff;border:1px solid var(--line);opacity:0}
+.rp-ride-card.show{animation:cardFadeUp .4s cubic-bezier(.22,.85,.44,1) forwards}
+.rp-ride-avatar{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,var(--rust-200),var(--rust-300));display:flex;align-items:center;justify-content:center;font-size:.75rem;color:var(--rust-700);font-weight:700;flex-shrink:0}
+.rp-ride-info{flex:1}
+.rp-ride-name{font-size:.82rem;font-weight:600;color:var(--ink)}
+.rp-ride-route{font-family:var(--ff-m);font-size:.65rem;color:var(--ink-muted);margin-top:.1rem}
+.rp-ride-eta{font-family:var(--ff-m);font-size:.72rem;font-weight:600;color:var(--green)}
+.rp-ride-btn{font-size:.72rem;font-weight:700;padding:.32rem .75rem;border-radius:6px;background:var(--rust-500);color:#fff;cursor:default}
+
+.rp-notif{display:flex;align-items:center;gap:.5rem;padding:.5rem .75rem;border-radius:9px;background:rgba(46,140,79,.07);border:1px solid rgba(46,140,79,.2);opacity:0}
+.rp-notif.show{animation:notifSlide .4s cubic-bezier(.22,.85,.44,1) forwards}
+.rp-notif-icon{flex-shrink:0;color:var(--green)}
+.rp-notif-text{font-family:var(--ff-m);font-size:.72rem;font-weight:500;color:#1c6535}
+
+/* ─ PANEL 2: DRIVER APP ─ */
+.driver-panel{padding:1.4rem;display:flex;flex-direction:column;gap:.7rem;min-height:340px}
+.dp-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:.2rem}
+.dp-title{font-family:var(--ff-m);font-size:.72rem;font-weight:600;color:var(--ink)}
+.dp-shift{display:flex;align-items:center;gap:.35rem;font-family:var(--ff-m);font-size:.65rem;color:var(--green);font-weight:500}
+.dp-shift-dot{width:5px;height:5px;border-radius:50%;background:var(--green);animation:ping 2s ease-in-out infinite}
+
+.dp-trip-card{border-radius:12px;padding:1rem;background:#fff;border:1px solid var(--line);box-shadow:0 2px 10px rgba(75,42,21,.06);opacity:0}
+.dp-trip-card.show{animation:cardFadeUp .4s cubic-bezier(.22,.85,.44,1) forwards}
+.dp-trip-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:.7rem}
+.dp-trip-id{font-family:var(--ff-m);font-size:.68rem;font-weight:600;color:var(--ink-muted)}
+.dp-trip-badge{font-family:var(--ff-m);font-size:.62rem;font-weight:600;padding:.14rem .5rem;border-radius:999px}
+.dp-route-line{display:flex;align-items:stretch;gap:.65rem;margin-bottom:.7rem}
+.dp-route-dots{display:flex;flex-direction:column;align-items:center;gap:0;padding-top:3px}
+.dp-rdot{width:9px;height:9px;border-radius:50%;flex-shrink:0}
+.dp-rdot-a{background:var(--rust-500);border:2px solid var(--rust-100)}
+.dp-rdot-b{background:var(--green);border:2px solid rgba(46,140,79,.2);margin-top:auto}
+.dp-route-vline{width:1px;background:var(--line);flex:1;margin:4px 0}
+.dp-route-text{flex:1;display:flex;flex-direction:column;justify-content:space-between;gap:.3rem}
+.dp-route-pt{font-size:.78rem;font-weight:500;color:var(--ink)}
+.dp-route-pt span{font-family:var(--ff-m);font-size:.62rem;color:var(--ink-muted);font-weight:400;margin-left:.3rem}
+
+.dp-riders{display:grid;gap:.4rem}
+.dp-rider-row{display:flex;align-items:center;gap:.5rem;padding:.4rem .6rem;border-radius:8px;background:rgba(162,74,42,.03);border:1px solid transparent;transition:background .25s,border-color .25s;opacity:0}
+.dp-rider-row.show{animation:cardFadeUp .35s cubic-bezier(.22,.85,.44,1) forwards}
+.dp-rider-row:hover{background:rgba(162,74,42,.06);border-color:var(--line)}
+.dp-rider-av{width:22px;height:22px;border-radius:50%;background:linear-gradient(135deg,var(--rust-100),var(--rust-200));font-size:.65rem;font-weight:700;color:var(--rust-700);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.dp-rider-name{font-size:.78rem;font-weight:500;color:var(--ink);flex:1}
+.dp-rider-stop{font-family:var(--ff-m);font-size:.62rem;color:var(--ink-muted)}
+.dp-rider-st{font-family:var(--ff-m);font-size:.62rem;font-weight:600;border-radius:999px;padding:.1rem .4rem}
+.st-boarded{background:rgba(46,140,79,.1);color:#1c6535;border:1px solid rgba(46,140,79,.2)}
+.st-waiting{background:rgba(192,120,32,.1);color:var(--amber);border:1px solid rgba(192,120,32,.2)}
+.st-pending{background:rgba(162,74,42,.08);color:var(--rust-600);border:1px solid rgba(162,74,42,.15)}
+
+.dp-action{display:flex;gap:.5rem;margin-top:.2rem;opacity:0}
+.dp-action.show{animation:cardFadeUp .4s cubic-bezier(.22,.85,.44,1) .6s forwards}
+.dp-btn{flex:1;padding:.5rem;border-radius:8px;font-family:var(--ff-m);font-size:.7rem;font-weight:600;text-align:center;cursor:default}
+.dp-btn-primary{background:var(--rust-500);color:#fff}
+.dp-btn-ghost{background:rgba(162,74,42,.07);color:var(--rust-600);border:1px solid rgba(162,74,42,.15)}
+
+/* ─ PANEL 3: Admin Dashboard ─ */
+.admin-panel{padding:1.4rem;display:flex;flex-direction:column;gap:.7rem;min-height:340px}
+.adm-header{display:flex;justify-content:space-between;align-items:center}
+.adm-title{font-family:var(--ff-m);font-size:.72rem;font-weight:600;color:var(--ink)}
+.adm-time{font-family:var(--ff-m);font-size:.65rem;color:var(--ink-muted)}
+
+.adm-metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:.5rem}
+.adm-metric{background:#fff;border:1px solid var(--line);border-radius:10px;padding:.65rem .75rem;text-align:center;opacity:0}
+.adm-metric.show{animation:countUp .45s cubic-bezier(.22,.85,.44,1) forwards}
+.adm-metric-num{font-family:var(--ff-d);font-size:1.6rem;font-style:italic;color:var(--rust-500);line-height:1;display:block}
+.adm-metric-label{font-family:var(--ff-m);font-size:.6rem;color:var(--ink-muted);margin-top:.15rem;letter-spacing:.04em}
+
+.adm-map{border-radius:10px;overflow:hidden;position:relative;height:120px;background:linear-gradient(145deg,#f0e8d8,#e8dcc8);flex-shrink:0}
+.adm-map-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(162,74,42,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(162,74,42,.06) 1px,transparent 1px);background-size:16px 16px}
+.adm-road-h{position:absolute;left:0;right:0;background:rgba(255,252,248,.8);border-radius:2px}
+.adm-road-v{position:absolute;top:0;bottom:0;background:rgba(255,252,248,.8);border-radius:2px}
+.adm-route-dot{position:absolute;width:8px;height:8px;border-radius:50%;border:1.5px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.2)}
+.adm-car{position:absolute;width:10px;height:10px;border-radius:50%;border:1.5px solid #fff;box-shadow:0 1px 6px rgba(162,74,42,.4);opacity:0;transition:left .9s cubic-bezier(.4,0,.2,1),top .9s cubic-bezier(.4,0,.2,1)}
+
+.adm-alerts{display:flex;flex-direction:column;gap:.38rem;flex:1}
+.adm-alert{display:flex;align-items:center;gap:.5rem;padding:.42rem .6rem;border-radius:8px;opacity:0}
+.adm-alert.show{animation:notifSlide .35s cubic-bezier(.22,.85,.44,1) forwards}
+.adm-alert-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0}
+.adm-alert-text{font-family:var(--ff-m);font-size:.7rem;color:var(--ink-soft);flex:1}
+.adm-alert-time{font-family:var(--ff-m);font-size:.6rem;color:var(--ink-muted)}
+.alert-ok{background:rgba(46,140,79,.06);border:1px solid rgba(46,140,79,.15)}
+.alert-ok .adm-alert-dot{background:var(--green)}
+.alert-warn{background:rgba(192,120,32,.08);border:1px solid rgba(192,120,32,.18)}
+.alert-warn .adm-alert-dot{background:var(--amber)}
+.alert-info{background:rgba(44,95,168,.06);border:1px solid rgba(44,95,168,.15)}
+.alert-info .adm-alert-dot{background:var(--blue)}
+
+/* ─ PANEL 4: Trip Lifecycle ─ */
+.lifecycle-panel{padding:1.4rem;display:flex;flex-direction:column;gap:.6rem;min-height:340px}
+.lc-header{font-family:var(--ff-m);font-size:.72rem;font-weight:600;color:var(--ink);margin-bottom:.2rem}
+
+.lc-step{display:flex;align-items:center;gap:.75rem;padding:.6rem .8rem;border-radius:10px;background:#fff;border:1px solid var(--line);opacity:0;position:relative;overflow:hidden}
+.lc-step.show{animation:cardFadeUp .4s cubic-bezier(.22,.85,.44,1) forwards}
+.lc-step.active{border-color:rgba(162,74,42,.35);background:rgba(162,74,42,.04)}
+.lc-step.active::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--rust-500);border-radius:2px 0 0 2px}
+.lc-step.complete{border-color:rgba(46,140,79,.25);background:rgba(46,140,79,.04)}
+.lc-step.complete::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--green);border-radius:2px 0 0 2px}
+.lc-step-icon{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:.8rem}
+.lc-step.complete .lc-step-icon{background:rgba(46,140,79,.12)}
+.lc-step.active  .lc-step-icon{background:rgba(162,74,42,.12);animation:scanPulse 1.4s ease infinite}
+.lc-step-idle    .lc-step-icon{background:rgba(162,74,42,.06)}
+.lc-step-text{flex:1}
+.lc-step-name{font-size:.82rem;font-weight:600;color:var(--ink)}
+.lc-step-detail{font-family:var(--ff-m);font-size:.64rem;color:var(--ink-muted);margin-top:.08rem}
+.lc-step-time{font-family:var(--ff-m);font-size:.65rem;font-weight:600}
+.lc-step.complete .lc-step-time{color:var(--green)}
+.lc-step.active   .lc-step-time{color:var(--rust-500)}
+.lc-step-idle     .lc-step-time{color:var(--ink-muted)}
+
+.lc-conn{height:16px;display:flex;align-items:center;padding-left:1.5rem}
+.lc-conn-line{width:1px;height:100%;background:var(--line)}
+
+.lc-summary{border-radius:12px;background:linear-gradient(145deg,rgba(240,255,245,.9),rgba(228,248,235,.8));border:1.5px solid #c8e6d0;padding:.85rem;opacity:0}
+.lc-summary.show{animation:resultSlide .5s cubic-bezier(.22,.85,.44,1) forwards}
+.lc-summary-label{font-family:var(--ff-m);font-size:.65rem;font-weight:600;color:#3a5c42;text-transform:uppercase;letter-spacing:.08em;margin-bottom:.3rem}
+.lc-summary-text{font-size:.84rem;color:var(--ink);line-height:1.62}
+
+/* ─ HL spans ─ */
+.hl{background-image:linear-gradient(120deg,rgba(255,190,80,.55) 0%,rgba(255,190,80,.55) 100%);background-repeat:no-repeat;background-size:0% 85%;background-position:0 55%;border-radius:2px;padding:0 1px;transition:background-size .6s ease}
+.hl.lit{background-size:100% 85%}
+
+/* ═══ HOW IT WORKS ═══ */
+.cp-how{padding:5rem 0;background:linear-gradient(180deg,transparent,rgba(250,240,224,.45) 40%,transparent)}
+.cp-how__header{margin-bottom:2.5rem}
+.cp-how__steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative}
+.cp-step{position:relative;opacity:0;animation:stepIn .6s cubic-bezier(.22,.85,.44,1) both;animation-play-state:paused}
+.cp-step.in-view{animation-play-state:running}
+.cp-step:nth-child(1){animation-delay:0s}
+.cp-step:nth-child(2){animation-delay:.13s}
+.cp-step:nth-child(3){animation-delay:.26s}
+.cp-step:nth-child(4){animation-delay:.39s}
+.cp-step__number{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,var(--rust-500),var(--rust-700));color:#fff8ee;font-size:.74rem;font-weight:700;letter-spacing:.05em;display:flex;align-items:center;justify-content:center;margin-bottom:1rem;position:relative;z-index:2;box-shadow:0 4px 16px rgba(162,74,42,.3)}
+.cp-step__connector{position:absolute;top:21px;left:calc(42px + 1rem);right:-1rem;height:1.5px;background:var(--line);transform-origin:left;animation:connGrow .55s ease both;animation-play-state:paused}
+.cp-step.in-view .cp-step__connector{animation-play-state:running}
+.cp-step:last-child .cp-step__connector{display:none}
+.cp-step__card{padding-right:1.4rem}
+.cp-step__card h3{font-size:.97rem;font-weight:600;color:var(--ink);margin-bottom:.42rem}
+.cp-step__card p{font-size:.86rem;font-weight:300;color:var(--ink-soft);line-height:1.68}
+
+/* ═══ AUDIENCE ═══ */
+.cp-audience{padding:5rem 0;background:linear-gradient(to bottom,rgba(250,240,225,.4),transparent)}
+.cp-audience__grid{display:grid;grid-template-columns:1fr 1fr;gap:4.5rem;align-items:start}
+.cp-audience__list{display:grid;gap:.7rem;margin-top:1.2rem;list-style:none}
+.cp-audience__item{display:flex;align-items:center;gap:.85rem;font-size:.96rem;font-weight:500;color:var(--ink);opacity:0;animation:listIn .5s ease both;animation-play-state:paused}
+.cp-audience__item.in-view{animation-play-state:running}
+.cp-audience__check{width:28px;height:28px;border-radius:50%;background:rgba(162,74,42,.1);border:1.5px solid rgba(162,74,42,.22);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--rust-500)}
+.cp-audience__check svg{width:13px;height:13px}
+.cp-audience__sub{font-size:.95rem;font-weight:300;color:var(--ink-soft);line-height:1.72;margin-top:.9rem}
+
+/* ═══ CTA ═══ */
+.cp-cta{padding:3rem 0 5.5rem}
+.cp-cta__card{position:relative;border:1.5px solid var(--line);border-radius:26px;padding:3.8rem 3.2rem;background:linear-gradient(148deg,rgba(255,246,230,.98),rgba(252,233,200,.9));box-shadow:0 24px 64px rgba(75,42,21,.1);text-align:center;overflow:hidden;opacity:0}
+.cp-cta__card.in-view{animation:fadeUp .8s cubic-bezier(.22,.85,.44,1) forwards}
+.cp-cta__glow{position:absolute;top:-60px;right:-60px;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(162,74,42,.13),transparent 70%);animation:glowPulse 4s ease-in-out infinite;pointer-events:none}
+.cp-cta__card h2{font-family:var(--ff-d);font-size:clamp(1.5rem,2.8vw,2.2rem);letter-spacing:-.02em;line-height:1.22;color:var(--ink);max-width:56ch;margin:.6rem auto 0}
+.cp-cta__sub{margin-top:.9rem;color:var(--ink-soft);font-size:1rem;font-weight:300}
+
+footer{background:var(--dark-bg);color:rgba(255,255,255,.35);text-align:center;padding:2rem 2.4rem;font-size:.82rem;font-weight:300}
+footer strong{color:var(--rust-300);font-weight:500}
+
+/* ═══ RESPONSIVE ═══ */
+/* Ticker fix */
+.ticker{width:max-content;will-change:transform}
+.ticker-item{white-space:nowrap}
+
+@media(max-width:980px){
+  /* No hamburger on mobile — nav bar (logo + back) stays */
+  .nav-toggle{display:none!important}
+  .nav-links{display:none!important}
+  .nav-cta{display:none}
+  nav{padding:.85rem 1.4rem}
+
+  /* Hero single column */
+  .cp-hero{padding:4.5rem 0 3rem}
+  .cp-hero__grid{grid-template-columns:1fr;gap:2.5rem}
+  .demo-float-1,.demo-float-2{display:none}
+
+  /* Features */
+  .feat-row{grid-template-columns:1fr;gap:3rem;padding:3.5rem 0}
+  .feat-row.reverse .feat-copy,.feat-row.reverse .feat-illu{order:unset}
+
+  /* Problem card */
+  .cp-problem__card{grid-template-columns:1fr;gap:1.5rem;padding:2rem 1.8rem}
+
+  /* How it works 2-col */
+  .cp-how__steps{grid-template-columns:1fr 1fr;gap:1.4rem}
+  .cp-step__connector{display:none}
+
+  /* Audience */
+  .cp-audience__grid{grid-template-columns:1fr;gap:2.5rem}
+
+  /* Stats 2-col */
+  .stats-strip{grid-template-columns:repeat(2,1fr)}
+
+  /* Admin metrics */
+  .adm-metrics{grid-template-columns:repeat(3,1fr)}
+}
+
+@media(max-width:600px){
+  nav{padding:.8rem 1rem}
+  .cp-hero{padding:3.5rem 0 2rem}
+  .cp-hero__h1{font-size:clamp(2rem,8vw,2.6rem)}
+  .cp-hero__lead{font-size:.92rem}
+
+  .feat-row{padding:2.5rem 0;gap:2rem}
+  .cp-how__steps{grid-template-columns:1fr}
+  .stats-strip{grid-template-columns:1fr}
+  .stat-item:not(:last-child)::after{display:none}
+  .adm-metrics{grid-template-columns:repeat(2,1fr)}
+
+  .cp-cta__card{padding:2rem 1.2rem;border-radius:18px}
+  .cp-cta__card h2{font-size:1.4rem}
+
+  .container{padding:0 1rem}
+  .narrow{padding:0 1rem}
+  footer{padding:1.5rem 1rem}
+}
+
+</style>
+
+<!-- ═════════════ SCRIPTS ═════════════ -->
+<script is:inline>
+/* ── NAV ── */
+const nav = document.getElementById('mainnav');
+window.addEventListener('scroll', () => nav?.classList.toggle('scrolled', scrollY > 40), { passive: true });
+
+// Mobile Nav
+const toggle = document.getElementById('nav-toggle');
+if (toggle && nav) {
+  toggle.addEventListener('click', () => nav.classList.toggle('nav-open'));
+  nav.querySelectorAll('.nav-links a').forEach(l => l.addEventListener('click', () => nav.classList.remove('nav-open')));
+}
+
+/* ── INTERSECTION OBSERVER ── */
+const seen = new Set();
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (!e.isIntersecting || seen.has(e.target)) return;
+    seen.add(e.target);
+    e.target.classList.add('in-view');
+    const id = e.target.id;
+    if (id === 'riderPanel')     triggerRiderPanel();
+    if (id === 'driverPanel')    triggerDriverPanel();
+    if (id === 'adminPanel')     triggerAdminPanel();
+    if (id === 'lifecyclePanel') triggerLifecyclePanel();
+    if (id === 'problemCard')    e.target.classList.add('in-view');
+    if (id === 'ctaCard')        e.target.classList.add('in-view');
+    io.unobserve(e.target);
+  });
+}, { threshold: .15, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll(
+  '.reveal-up, .reveal-fade, .cp-step, .cp-audience__item, #riderPanel, #driverPanel, #adminPanel, #lifecyclePanel, #problemCard, #ctaCard'
+).forEach(el => io.observe(el));
+
+/* ── COUNT-UP ── */
+const cio = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    const el = e.target;
+    const target = +el.dataset.count;
+    let v = 0;
+    const step = Math.ceil(target / 40);
+    const t = setInterval(() => {
+      v = Math.min(v + step, target);
+      el.textContent = v;
+      if (v >= target) clearInterval(t);
+    }, 35);
+    cio.unobserve(el);
+  });
+}, { threshold: .5 });
+document.querySelectorAll('[data-count]').forEach(el => cio.observe(el));
+
+/* ── HERO ANIMATION ── */
+(function heroAnim() {
+  const car = document.getElementById('heroCarDot');
+  if (!car) return;
+  const positions = [
+    { l: '18%', t: '36%' },
+    { l: '30%', t: '36%' },
+    { l: '42%', t: '36%' },
+    { l: '55%', t: '36%' },
+    { l: '66%', t: '36%' }
+  ];
+  let idx = 0;
+  car.style.opacity = '1';
+  car.style.transition = 'left .9s cubic-bezier(.4,0,.2,1), top .9s cubic-bezier(.4,0,.2,1)';
+
+  const riderStatus  = document.getElementById('heroRiderStatus');
+  const riderBadge   = document.getElementById('heroRiderBadge');
+  const driverStatus = document.getElementById('heroDriverStatus');
+  const driverBadge  = document.getElementById('heroDriverBadge');
+  const adminStatus  = document.getElementById('heroAdminStatus');
+
+  setInterval(() => {
+    idx = (idx + 1) % positions.length;
+    car.style.left = positions[idx].l;
+    car.style.top  = positions[idx].t;
+
+    if (idx === 2 && riderStatus) {
+      riderStatus.textContent = 'Priya — driver arriving';
+      if (riderBadge) { riderBadge.textContent = 'Arriving'; riderBadge.className = 'demo-status-badge badge-moving'; }
+      if (driverStatus) driverStatus.textContent = 'Rahul — at pickup point';
+      if (driverBadge)  { driverBadge.textContent = 'Arrived'; driverBadge.className = 'demo-status-badge badge-done'; }
+    }
+    if (idx === 4 && riderStatus) {
+      riderStatus.textContent = 'Priya — in transit';
+      if (riderBadge)  { riderBadge.textContent = 'In trip'; riderBadge.className = 'demo-status-badge badge-done'; }
+      if (driverStatus) driverStatus.textContent = 'Rahul — en route to Whitefield';
+      if (driverBadge)  { driverBadge.textContent = 'En route'; driverBadge.className = 'demo-status-badge badge-moving'; }
+      if (adminStatus)  adminStatus.textContent = 'Route 7 — all riders aboard, ETA 08:05';
+    }
+    if (idx === 0 && riderStatus) {
+      riderStatus.textContent = 'Priya — waiting for pickup';
+      if (riderBadge)  { riderBadge.textContent = 'Waiting'; riderBadge.className = 'demo-status-badge badge-waiting'; }
+      if (driverStatus) driverStatus.textContent = 'Rahul — 3 min away';
+      if (driverBadge)  { driverBadge.textContent = 'En route'; driverBadge.className = 'demo-status-badge badge-moving'; }
+      if (adminStatus)  adminStatus.textContent = 'Route 7 — 4 of 4 pickups confirmed';
+    }
+  }, 1800);
+})();
+
+/* ── PANEL 1: RIDER ── */
+function triggerRiderPanel() {
+  const car    = document.getElementById('riderCar');
+  const card   = document.getElementById('riderCard');
+  const notif  = document.getElementById('riderNotif');
+  const eta    = document.getElementById('riderEta');
+
+  if (card) setTimeout(() => card.classList.add('show'), 200);
+
+  if (car) {
+    car.style.transition = 'left 1.1s cubic-bezier(.4,0,.2,1), top 1.1s cubic-bezier(.4,0,.2,1)';
+    car.style.opacity    = '1';
+    const stops = [
+      { l:'22%', t:'42%' }, { l:'30%', t:'42%' }, { l:'38%', t:'18%' },
+      { l:'52%', t:'18%' }, { l:'62%', t:'42%' }, { l:'72%', t:'42%' }
+    ];
+    let si = 0;
+    const etaVals = ['3 min', '2 min', '1 min', 'Arriving', '0 min', '🏁'];
+    const iv = setInterval(() => {
+      si++;
+      if (si >= stops.length) { clearInterval(iv); return; }
+      car.style.left = stops[si].l;
+      car.style.top  = stops[si].t;
+      if (eta && etaVals[si]) eta.textContent = etaVals[si];
+    }, 1200);
+  }
+
+  if (notif) setTimeout(() => notif.classList.add('show'), 6500);
+}
+
+/* ── PANEL 2: DRIVER ── */
+function triggerDriverPanel() {
+  const tripCard   = document.getElementById('driverTripCard');
+  const drrs       = ['drr1','drr2','drr3','drr4'];
+  const action     = document.getElementById('driverAction');
+  const meeraSt    = document.getElementById('drrMeeraSt');
+
+  if (tripCard) setTimeout(() => tripCard.classList.add('show'), 100);
+
+  drrs.forEach((id, i) => {
+    const el = document.getElementById(id);
+    if (el) setTimeout(() => el.classList.add('show'), 350 + i * 150);
+  });
+
+  if (action) setTimeout(() => action.classList.add('show'), 1200);
+
+  // animate Meera status → boarded
+  if (meeraSt) {
+    setTimeout(() => {
+      meeraSt.textContent = 'Boarded';
+      meeraSt.className   = 'dp-rider-st st-boarded';
+    }, 3500);
+  }
+}
+
+/* ── PANEL 3: ADMIN ── */
+function triggerAdminPanel() {
+  const metrics = ['admM1','admM2','admM3'];
+  const nums    = ['admN1','admN2','admN3'];
+  const targets = [12, 47, 94];
+  const alerts  = ['admAlert1','admAlert2','admAlert3'];
+
+  // show metrics with count-up
+  metrics.forEach((id, i) => {
+    const mEl = document.getElementById(id);
+    const nEl = document.getElementById(nums[i]);
+    if (!mEl || !nEl) return;
+    setTimeout(() => {
+      mEl.classList.add('show');
+      let v = 0;
+      const step = Math.ceil(targets[i] / 30);
+      const t = setInterval(() => {
+        v = Math.min(v + step, targets[i]);
+        nEl.textContent = v;
+        if (v >= targets[i]) clearInterval(t);
+      }, 40);
+    }, i * 120);
+  });
+
+  // animate car positions on mini map
+  const carMoves = [
+    { id:'admCar1', positions:[{ l:'15%',t:'38%' },{ l:'25%',t:'38%' },{ l:'35%',t:'38%' },{ l:'42%',t:'38%' }] },
+    { id:'admCar2', positions:[{ l:'42%',t:'64%' },{ l:'52%',t:'64%' },{ l:'60%',t:'38%' }] },
+    { id:'admCar3', positions:[{ l:'58%',t:'38%' },{ l:'66%',t:'38%' },{ l:'76%',t:'38%' }] },
+  ];
+
+  carMoves.forEach(({ id, positions }) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.style.transition = 'left .9s cubic-bezier(.4,0,.2,1), top .9s cubic-bezier(.4,0,.2,1)';
+    positions.forEach((pos, i) => {
+      setTimeout(() => { el.style.left = pos.l; el.style.top = pos.t; }, 800 + i * 1200);
+    });
+  });
+
+  // slide in alerts
+  alerts.forEach((id, i) => {
+    const el = document.getElementById(id);
+    if (el) setTimeout(() => el.classList.add('show'), 400 + i * 250);
+  });
+}
+
+/* ── PANEL 4: LIFECYCLE ── */
+function triggerLifecyclePanel() {
+  const steps   = ['lc1','lc2','lc3','lc4','lc5'];
+  const summary = document.getElementById('lcSummary');
+  const hl1     = document.getElementById('lcHl1');
+  const hl2     = document.getElementById('lcHl2');
+
+  steps.forEach((id, i) => {
+    const el = document.getElementById(id);
+    if (el) setTimeout(() => el.classList.add('show'), 150 + i * 200);
+  });
+
+  if (summary) setTimeout(() => {
+    summary.classList.add('show');
+    setTimeout(() => { hl1?.classList.add('lit'); }, 400);
+    setTimeout(() => { hl2?.classList.add('lit'); }, 700);
+  }, 1500);
+}
+
+/* ── LIVE CLOCK ── */
+(function liveClock() {
+  const el = document.getElementById('admTime');
+  if (!el) return;
+  const days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+  function update() {
+    const now = new Date();
+    const h = String(now.getHours()).padStart(2,'0');
+    const m = String(now.getMinutes()).padStart(2,'0');
+    el.textContent = `${h}:${m} · ${days[now.getDay()]}`;
+  }
+  update();
+  setInterval(update, 30000);
+})();
+</script>
+
+</MainLayout>

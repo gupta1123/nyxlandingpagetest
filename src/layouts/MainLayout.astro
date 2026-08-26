@@ -1,0 +1,47 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'Nyx Solution | AI products and software systems that make organizations work better',
+  description = 'Nyx Solution builds AI-powered products and custom software systems that improve workflows, operations, and execution.'
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Sora:wght@300;400;500;600;700;800&family=DM+Mono:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <script is:inline>
+      function initApollo() {
+        var n = Math.random().toString(36).substring(7);
+        var o = document.createElement('script');
+        o.src = 'https://assets.apollo.io/micro/website-tracker/tracker.iife.js?nocache=' + n;
+        o.async = true;
+        o.defer = true;
+        o.onload = function () {
+          window.trackingFunctions.onLoad({ appId: '69f4564f99f4470021af4091' });
+        };
+        document.head.appendChild(o);
+      }
+      initApollo();
+    </script>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

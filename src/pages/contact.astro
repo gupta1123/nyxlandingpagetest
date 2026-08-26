@@ -1,0 +1,523 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+---
+
+<MainLayout title="Contact Nyx Solution — Discuss an Agentic AI Workflow" description="Talk to Nyx Solution about agentic AI for ERP, TallyPrime, SAP, document-heavy processes, and custom business workflows.">
+<style is:global>
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Sora:wght@300;400;500;600;700;800&family=DM+Mono:wght@300;400;500&display=swap');
+
+:root {
+  --ink:        #191614;
+  --ink-2:      #5c4f47;
+  --ink-3:      #9c8880;
+  --rust:       #a24a2a;
+  --rust-d:     #85361c;
+  --cream:      #fdf8ef;
+  --line:       rgba(185,165,150,.3);
+  --ff-d:       'Instrument Serif', Georgia, serif;
+  --ff-b:       'Sora', sans-serif;
+  --ff-m:       'DM Mono', monospace;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+
+body {
+  font-family: var(--ff-b);
+  background: 
+    radial-gradient(circle at 92% 4%, rgba(162,74,42,0.08) 0%, transparent 40%),
+    radial-gradient(circle at 6% 18%, rgba(255,226,171,0.15) 0%, transparent 38%),
+    var(--cream);
+  color: var(--ink);
+  line-height: 1.65;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: '';
+  position: fixed; inset: 0; z-index: 9999;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes lineGrow {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+@keyframes checkDraw {
+  from { stroke-dashoffset: 24; }
+  to   { stroke-dashoffset: 0; }
+}
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+nav {
+  position: sticky; top: 0; z-index: 200;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 3rem;
+  height: 60px;
+  background: rgba(253,248,239,.94);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--line);
+}
+
+.nav-logo {
+  font-family: var(--ff-d);
+  font-size: 1.05rem;
+  font-style: italic;
+  color: var(--ink);
+  text-decoration: none;
+  letter-spacing: -.01em;
+  flex-shrink: 0;
+}
+
+.nav-center {
+  display: flex; gap: 2.2rem; list-style: none;
+}
+.nav-center a {
+  font-size: .8rem; font-weight: 400; letter-spacing: .02em;
+  color: var(--ink-2); text-decoration: none;
+  transition: color .15s;
+}
+.nav-center a:hover { color: var(--rust); }
+
+.nav-back {
+  display: inline-flex; align-items: center; gap: .4rem;
+  font-family: var(--ff-m);
+  font-size: .65rem; letter-spacing: .08em; text-transform: uppercase;
+  color: var(--ink-3); text-decoration: none;
+  transition: color .15s;
+  flex-shrink: 0;
+}
+.nav-back:hover { color: var(--rust); }
+.nav-back svg { width: 13px; height: 13px; flex-shrink: 0; }
+
+.page {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 5.5rem 3rem 7rem;
+  display: grid;
+  grid-template-columns: 420px 1fr;
+  min-height: calc(100vh - 60px);
+}
+
+.left {
+  padding-right: 5rem;
+  border-right: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  animation: fadeUp .75s cubic-bezier(.22,.85,.44,1) .05s both;
+}
+
+.tag {
+  display: flex; align-items: center; gap: .55rem;
+  margin-bottom: 2.8rem;
+}
+.tag-bar {
+  display: block; width: 26px; height: 1px;
+  background: var(--rust);
+  transform-origin: left center;
+  animation: lineGrow .5s cubic-bezier(.22,.85,.44,1) .5s both;
+}
+.tag-txt {
+  font-family: var(--ff-m);
+  font-size: .62rem; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--rust);
+}
+
+h1 {
+  font-family: var(--ff-d);
+  font-size: clamp(2.2rem, 3.4vw, 3rem);
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: -.025em;
+  color: var(--ink);
+  margin-bottom: 1.4rem;
+}
+h1 em { font-style: italic; color: var(--rust); }
+
+.lead {
+  font-size: .93rem;
+  font-weight: 300;
+  color: var(--ink-2);
+  line-height: 1.82;
+  max-width: 38ch;
+  margin-bottom: 3.5rem;
+}
+
+.contacts { border-top: 1px solid var(--line); }
+
+.ct {
+  display: flex; align-items: flex-start; gap: 1.2rem;
+  padding: 1.05rem 0;
+  border-bottom: 1px solid var(--line);
+  text-decoration: none; color: inherit;
+  transition: padding-left .2s ease;
+}
+a.ct:hover { padding-left: .5rem; }
+
+.ct-num {
+  font-family: var(--ff-m);
+  font-size: .55rem; letter-spacing: .08em;
+  color: var(--ink-3);
+  padding-top: .2rem;
+  flex-shrink: 0;
+  width: 1.4rem;
+}
+.ct-info { flex: 1; }
+.ct-lbl {
+  display: block;
+  font-family: var(--ff-m);
+  font-size: .58rem; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--ink-3);
+  margin-bottom: .2rem;
+}
+.ct-val {
+  display: block;
+  font-size: .92rem; font-weight: 400; color: var(--ink);
+  transition: color .15s;
+}
+a.ct:hover .ct-val { color: var(--rust); }
+
+.right {
+  padding-left: 5rem;
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  animation: fadeUp .75s cubic-bezier(.22,.85,.44,1) .18s both;
+}
+
+.form-heading {
+  font-family: var(--ff-m);
+  font-size: .62rem; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--ink-3);
+  margin-bottom: 2.8rem;
+}
+
+form {
+  display: flex; flex-direction: column; gap: 2rem;
+  flex: 1;
+}
+
+.row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+
+.fg {
+  display: flex; flex-direction: column; gap: .45rem;
+}
+
+.fg label {
+  font-family: var(--ff-m);
+  font-size: .59rem; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--ink-3);
+  transition: color .18s;
+}
+.fg:focus-within label { color: var(--rust); }
+
+form input,
+form select,
+form textarea {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: .8rem 1rem;
+  font-family: var(--ff-b);
+  font-size: .92rem; font-weight: 400;
+  color: var(--ink);
+  outline: none;
+  transition: all .2s ease;
+  -webkit-appearance: none; appearance: none;
+}
+form input::placeholder,
+form textarea::placeholder {
+  color: var(--ink-3);
+  font-size: .86rem;
+}
+form input:focus,
+form select:focus,
+form textarea:focus {
+  border-color: var(--rust);
+  background: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 0 0 4px rgba(162, 74, 42, 0.05);
+}
+
+.sw { position: relative; }
+.sw select { padding-right: 2.5rem; cursor: pointer; }
+.sw::after {
+  content: '';
+  position: absolute; right: 1.2rem; top: 50%;
+  transform: translateY(-50%);
+  width: 10px; height: 6px;
+  background-image: url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L5 5L9 1' stroke='%239c8880' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  pointer-events: none;
+  transition: transform .2s ease;
+}
+.sw:focus-within::after { transform: translateY(-50%) rotate(180deg); }
+
+form textarea {
+  resize: none;
+  min-height: 100px;
+  line-height: 1.65;
+}
+
+.form-foot {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 1rem;
+  padding-top: 1.5rem;
+  margin-top: .2rem;
+  border-top: 1px solid var(--line);
+}
+.form-note {
+  font-size: .74rem; font-weight: 300;
+  color: var(--ink-3);
+  line-height: 1.55;
+  max-width: 26ch;
+}
+
+.btn {
+  display: inline-flex; align-items: center; gap: .6rem;
+  padding: .9rem 2rem;
+  border: none;
+  border-radius: 8px;
+  background: var(--rust);
+  color: #fff;
+  font-family: var(--ff-b);
+  font-size: .88rem; font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all .2s ease;
+  box-shadow: 0 4px 12px rgba(162, 74, 42, 0.2);
+}
+.btn:hover { background: var(--rust-d); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(162, 74, 42, 0.3); }
+.btn:active { transform: scale(.98); }
+.btn svg { width: 12px; height: 12px; flex-shrink: 0; transition: transform .2s; }
+.btn:hover svg { transform: translateX(3px); }
+
+.success {
+  display: none;
+  flex-direction: column; align-items: flex-start; justify-content: center;
+  gap: 1.2rem;
+  flex: 1;
+  padding: 2rem 0;
+}
+.success.show {
+  display: flex;
+  animation: fadeIn .4s ease both;
+}
+.success-ring {
+  width: 50px; height: 50px; border-radius: 50%;
+  border: 1.5px solid var(--rust);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--rust);
+}
+.check-path {
+  stroke-dasharray: 24;
+  stroke-dashoffset: 24;
+  animation: checkDraw .4s cubic-bezier(.22,.85,.44,1) .15s both;
+}
+.success h2 {
+  font-family: var(--ff-d);
+  font-size: 1.7rem; font-weight: 400;
+  color: var(--ink);
+}
+.success p {
+  font-size: .88rem; font-weight: 300;
+  color: var(--ink-2); line-height: 1.75;
+  max-width: 30ch;
+}
+
+footer {
+  border-top: 1px solid var(--line);
+  padding: 1.3rem 3rem;
+  display: flex; align-items: center; justify-content: space-between;
+  font-family: var(--ff-m);
+  font-size: .65rem; letter-spacing: .04em;
+  color: var(--ink-3);
+}
+footer strong { color: var(--ink-2); font-weight: 500; }
+
+@media (max-width: 860px) {
+  .page {
+    grid-template-columns: 1fr;
+    padding: 4rem 2.5rem 6rem;
+  }
+  .left {
+    padding-right: 0;
+    border-right: none;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 3rem;
+    margin-bottom: 3.5rem;
+  }
+  .right { padding-left: 0; }
+  .lead { max-width: none; }
+}
+@media (max-width: 600px) {
+  h1 { font-size: 2.2rem; line-height: 1.15; }
+  .tag { margin-bottom: 1.8rem; }
+  .lead { font-size: .88rem; margin-bottom: 2.5rem; }
+  .page { padding: 3rem 1.4rem 5rem; }
+  .nav-logo { font-size: 1rem; }
+  .nav-back { font-size: .6rem; }
+}
+@media (max-width: 580px) {
+  nav { padding: 0 1.2rem; height: 56px; }
+  .nav-center { display: none; }
+  .row-2 { grid-template-columns: 1fr; gap: 2rem; }
+  .form-foot { flex-direction: column-reverse; align-items: stretch; gap: 1.8rem; }
+  .btn { width: 100%; justify-content: center; padding: 1rem; }
+  .form-note { max-width: none; text-align: center; font-size: .7rem; }
+  footer { flex-direction: column; gap: .5rem; text-align: center; padding: 1.5rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+</style>
+
+<nav>
+  <a href="/" class="nav-logo">Nyx Solution</a>
+  <ul class="nav-center">
+    <li><a href="/products">Products</a></li>
+    <li><a href="/about">About</a></li>
+    <li><a href="/careers">Careers</a></li>
+  </ul>
+  <a href="/" class="nav-back">
+    <svg viewBox="0 0 20 20" fill="none"><path d="M12 5l-5 5 5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    Back
+  </a>
+</nav>
+
+<div class="page">
+  <aside class="left">
+    <div class="tag">
+      <span class="tag-bar"></span>
+      <span class="tag-txt">Contact</span>
+    </div>
+
+    <h1>Let's talk<br>about <em>your agentic<br>workflow.</em></h1>
+    <p class="lead">Tell us where work slows down between documents, people, and business systems. We will help identify what an agent can understand, decide, and act on—and where human approval should remain.</p>
+
+    <div class="contacts">
+      <a href="mailto:team@nyxsolution.in" class="ct">
+        <div class="ct-info">
+          <span class="ct-lbl">Email</span>
+          <span class="ct-val">team@nyxsolution.in</span>
+        </div>
+      </a>
+    </div>
+  </aside>
+
+  <section class="right">
+    <p class="form-heading">Discuss an agentic AI workflow</p>
+
+    <div class="success" id="successOverlay">
+      <div class="success-ring">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+          <path class="check-path" d="M5 13l4 4L19 7"/>
+        </svg>
+      </div>
+      <h2>Message sent.</h2>
+      <p>We'll review your workflow and be in touch.</p>
+    </div>
+
+    <form
+      name="agentic-workflow-inquiry"
+      method="POST"
+      data-netlify="true"
+      netlify-honeypot="bot-field"
+      id="contactForm"
+    >
+      <input type="hidden" name="form-name" value="agentic-workflow-inquiry"/>
+      <input type="hidden" name="subject" value="New inquiry from %{formName} (%{submissionId})"/>
+      <p style="display:none"><label>Don't fill this: <input name="bot-field"/></label></p>
+
+      <div class="row-2">
+        <div class="fg">
+          <label for="f-name">Name *</label>
+          <input id="f-name" type="text" name="name" placeholder="Your full name" required/>
+        </div>
+        <div class="fg">
+          <label for="f-email">Email *</label>
+          <input id="f-email" type="email" name="email" placeholder="name@company.com" required/>
+        </div>
+      </div>
+
+      <div class="row-2">
+        <div class="fg">
+          <label for="f-phone">Phone *</label>
+          <input id="f-phone" type="tel" name="phone" placeholder="+91 98765 43210" required/>
+        </div>
+        <div class="fg">
+          <label for="f-product">Area of interest *</label>
+          <div class="sw">
+            <select id="f-product" name="product" required>
+              <option value="">Select…</option>
+              <optgroup label="Agentic AI">
+                <option value="Agentic Workflow Automation">Agentic Workflow Automation</option>
+                <option value="ERP Automation">ERP Automation</option>
+                <option value="TallyPrime Automation">TallyPrime Automation</option>
+                <option value="SAP Automation">SAP Automation</option>
+                <option value="Document Intelligence">Document Intelligence</option>
+              </optgroup>
+              <optgroup label="Other">
+                <option value="Custom AI Agent">Custom AI Agent</option>
+                <option value="General Enquiry">General Enquiry</option>
+              </optgroup>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="fg">
+        <label for="f-company">Company</label>
+        <input id="f-company" type="text" name="company" placeholder="Organisation name"/>
+      </div>
+
+      <div class="fg">
+        <label for="f-msg">Message *</label>
+        <textarea id="f-msg" name="message" rows="5" placeholder="Describe the current workflow, the systems involved, where manual work happens, and the outcome you want." required></textarea>
+      </div>
+
+      <div class="form-foot">
+        <p class="form-note">We review every workflow inquiry personally.</p>
+        <button type="submit" class="btn">
+          Send inquiry
+          <svg viewBox="0 0 20 20" fill="none"><path d="M4 10h12M11 5l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+    </form>
+  </section>
+</div>
+
+<footer>
+  <span>&copy; 2026 <strong>Nyx Solution</strong></span>
+  <span>Agentic AI for ERP, TallyPrime &amp; SAP · Bengaluru</span>
+</footer>
+
+<script is:inline>
+  const form = document.getElementById('contactForm');
+  const overlay = document.getElementById('successOverlay');
+
+  if (form) {
+    form.addEventListener('submit', async e => {
+      e.preventDefault();
+      const data = new FormData(form);
+      try {
+        await fetch('/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: new URLSearchParams(data).toString()
+        });
+      } catch (_) {}
+      form.style.display = 'none';
+      overlay.classList.add('show');
+    });
+  }
+</script>
+</MainLayout>
