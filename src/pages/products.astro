@@ -13,7 +13,7 @@ import '../styles/pages/products.css';
       <div class="container">
         <div class="nav-inner">
           <div style="display: flex; align-items: center; gap: 0.8rem;">
-            <a href="/" class="back-link" title="Back to Home" style="display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 50%; background: rgba(162, 74, 42, 0.08); color: var(--rust); transition: all 0.2s ease;">
+            <a href="/" class="back-link" title="Go back" aria-label="Go back" data-smart-back style="display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 50%; background: rgba(74,58,209, 0.08); color: var(--rust); transition: all 0.2s ease;">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
             </a>
             <a href="/" class="brand">Nyx Solution</a>
@@ -29,28 +29,6 @@ import '../styles/pages/products.css';
         </div>
       </div>
     </nav>
-
-    <!-- TICKER -->
-    <div class="ticker-wrap">
-      <div class="ticker-inner">
-        <span class="ti">AI Finance Operations</span>
-        <span class="ti">WhatsApp-to-SAP Agent</span>
-        <span class="ti">Document Intelligence</span>
-        <span class="ti">Social Publishing</span>
-        <span class="ti">AI Photoshoots</span>
-        <span class="ti">School ERP</span>
-        <span class="ti">Carpooling Platform</span>
-        <span class="ti">Field Sales Tracking</span>
-        <span class="ti">Restaurant Ordering</span>
-        <span class="ti">Hotel Management</span>
-        <span class="ti">AI Finance Operations</span>
-        <span class="ti">WhatsApp-to-SAP Agent</span>
-        <span class="ti">Document Intelligence</span>
-        <span class="ti">School ERP</span>
-        <span class="ti">Field Sales Tracking</span>
-        <span class="ti">Hospitality Operations</span>
-      </div>
-    </div>
 
     <!-- HERO -->
     <section class="hero">
@@ -198,7 +176,7 @@ import '../styles/pages/products.css';
           </div>
           <div class="body">
             <div class="prod-header">
-              <div class="prod-icon"><svg viewBox="0 0 32 32" fill="none"><rect x="4" y="3" width="18" height="23" rx="2.5" stroke="currentColor" stroke-width="1.6"/><path d="M8 9h10M8 13h10M8 17h6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="24" cy="24" r="5" fill="rgba(253,248,239,.9)" stroke="currentColor" stroke-width="1.6"/><path d="M22.5 24h3M24 22.5v3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+              <div class="prod-icon"><svg viewBox="0 0 32 32" fill="none"><rect x="4" y="3" width="18" height="23" rx="2.5" stroke="currentColor" stroke-width="1.6"/><path d="M8 9h10M8 13h10M8 17h6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="24" cy="24" r="5" fill="rgba(255,255,255,.9)" stroke="currentColor" stroke-width="1.6"/><path d="M22.5 24h3M24 22.5v3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
               <span class="prod-tag">Document Intelligence</span>
             </div>
             <h2 class="prod-name">Briefly Docs</h2>
@@ -213,13 +191,13 @@ import '../styles/pages/products.css';
             <div class="vis-card">
               <div class="vis-briefly" id="briefly-anim">
                 <div class="vb-bar">
-                  <div class="vb-dot" style="background:#f06257"></div>
-                  <div class="vb-dot" style="background:#f5a623"></div>
-                  <div class="vb-dot" style="background:#57c257"></div>
+                  <div class="vb-dot" style="background:#b3261e"></div>
+                  <div class="vb-dot" style="background:#b26a00"></div>
+                  <div class="vb-dot" style="background:#1f7a45"></div>
                   <span class="vb-title">Briefly Docs</span>
                 </div>
                 <div class="vb-search">
-                  <svg width="12" height="12" viewBox="0 0 20 20" fill="none"><circle cx="9" cy="9" r="5.5" stroke="#a24a2a" stroke-width="1.5"/><path d="M13 13l3.5 3.5" stroke="#a24a2a" stroke-width="1.7" stroke-linecap="round"/></svg>
+                  <svg width="12" height="12" viewBox="0 0 20 20" fill="none"><circle cx="9" cy="9" r="5.5" stroke="#4a3ad1" stroke-width="1.5"/><path d="M13 13l3.5 3.5" stroke="#4a3ad1" stroke-width="1.7" stroke-linecap="round"/></svg>
                   <span class="vb-search-text" id="briefly-typed"></span>
                   <span class="vb-cursor">|</span>
                 </div>
@@ -328,20 +306,20 @@ import '../styles/pages/products.css';
             <div class="vis-card" style="overflow:hidden;padding:0">
               <div id="photo-anim" style="width:100%;height:100%;display:flex;flex-direction:column">
 
-                <div style="display:flex;border-bottom:1px solid rgba(216,200,179,.4);background:rgba(245,235,218,.6)">
-                  <div class="pa-pill active" id="pa-pill-1" style="flex:1;padding:.35rem .3rem;text-align:center;font-family:'DM Mono',monospace;font-size:.55rem;font-weight:700;color:#a24a2a;background:rgba(162,74,42,.08)">01 Upload</div>
-                  <div class="pa-pill" id="pa-pill-2" style="flex:1;padding:.35rem .3rem;text-align:center;font-family:'DM Mono',monospace;font-size:.55rem;font-weight:700;color:#8a7060;border-left:1px solid rgba(216,200,179,.4)">02 Model</div>
-                  <div class="pa-pill" id="pa-pill-3" style="flex:1;padding:.35rem .3rem;text-align:center;font-family:'DM Mono',monospace;font-size:.55rem;font-weight:700;color:#8a7060;border-left:1px solid rgba(216,200,179,.4)">03 Result</div>
+                <div style="display:flex;border-bottom:1px solid rgba(229,229,238,.4);background:rgba(246,246,250,.6)">
+                  <div class="pa-pill active" id="pa-pill-1" style="flex:1;padding:.35rem .3rem;text-align:center;font-family:'DM Mono',monospace;font-size:.55rem;font-weight:700;color:#4a3ad1;background:rgba(74,58,209,.08)">01 Upload</div>
+                  <div class="pa-pill" id="pa-pill-2" style="flex:1;padding:.35rem .3rem;text-align:center;font-family:'DM Mono',monospace;font-size:.55rem;font-weight:700;color:#7c7b8c;border-left:1px solid rgba(229,229,238,.4)">02 Model</div>
+                  <div class="pa-pill" id="pa-pill-3" style="flex:1;padding:.35rem .3rem;text-align:center;font-family:'DM Mono',monospace;font-size:.55rem;font-weight:700;color:#7c7b8c;border-left:1px solid rgba(229,229,238,.4)">03 Result</div>
                 </div>
 
                 <div class="pa-panel" id="pa-p1" style="flex:1;padding:.75rem;display:flex;flex-direction:column;gap:.45rem">
-                  <div style="display:flex;align-items:center;gap:.55rem;background:#fff;border:1px solid rgba(216,200,179,.78);border-radius:8px;padding:.5rem .65rem;position:relative;overflow:hidden">
+                  <div style="display:flex;align-items:center;gap:.55rem;background:#fff;border:1px solid rgba(229,229,238,.78);border-radius:8px;padding:.5rem .65rem;position:relative;overflow:hidden">
                     <img src="/assets/images/Dress.webp" loading="lazy" decoding="async" alt="Outfit" style="width:36px;height:46px;border-radius:5px;object-fit:cover;flex-shrink:0">
                     <div>
-                      <div style="font-family:'DM Mono',monospace;font-size:.65rem;font-weight:600;color:#1f1a16">ivory_tank_trousers.jpg</div>
-                      <div style="font-family:'DM Mono',monospace;font-size:.56rem;color:#8a7060;margin-top:.1rem">Analysed ✓</div>
+                      <div style="font-family:'DM Mono',monospace;font-size:.65rem;font-weight:600;color:#17161f">ivory_tank_trousers.jpg</div>
+                      <div style="font-family:'DM Mono',monospace;font-size:.56rem;color:#7c7b8c;margin-top:.1rem">Analysed ✓</div>
                     </div>
-                    <div id="pa-scan-beam" style="position:absolute;left:0;right:0;top:0;height:2px;background:linear-gradient(90deg,transparent,rgba(162,74,42,.7),transparent);box-shadow:0 0 8px rgba(162,74,42,.4);animation:scanLine 2.8s ease-in-out infinite"></div>
+                    <div id="pa-scan-beam" style="position:absolute;left:0;right:0;top:0;height:2px;background:linear-gradient(90deg,transparent,rgba(74,58,209,.7),transparent);box-shadow:0 0 8px rgba(74,58,209,.4);animation:scanLine 2.8s ease-in-out infinite"></div>
                   </div>
                   <div style="display:flex;flex-wrap:wrap;gap:.25rem" id="pa-tags">
                     <span class="pa-tag">Square neckline</span>
@@ -349,59 +327,59 @@ import '../styles/pages/products.css';
                     <span class="pa-tag">Ivory / taupe</span>
                     <span class="pa-tag">Smart casual</span>
                   </div>
-                  <div style="display:flex;gap:.3rem;align-items:center;background:rgba(255,255,255,.5);border:1px solid rgba(216,200,179,.78);border-radius:7px;padding:.4rem .6rem">
+                  <div style="display:flex;gap:.3rem;align-items:center;background:rgba(255,255,255,.5);border:1px solid rgba(229,229,238,.78);border-radius:7px;padding:.4rem .6rem">
                     <img src="/assets/images/Accessories1.webp" loading="lazy" decoding="async" alt="Heels" style="width:28px;height:28px;border-radius:4px;object-fit:cover;flex-shrink:0">
                     <img src="/assets/images/Accesories2.webp" loading="lazy" decoding="async" alt="Watch" style="width:28px;height:28px;border-radius:4px;object-fit:cover;flex-shrink:0">
-                    <span style="font-family:'DM Mono',monospace;font-size:.6rem;color:#5f5148;flex:1">2 accessories added</span>
-                    <span style="font-family:'DM Mono',monospace;font-size:.58rem;font-weight:600;background:rgba(46,140,79,.1);color:#1c6535;border:1px solid rgba(46,140,79,.2);border-radius:999px;padding:.1rem .4rem">Ready</span>
+                    <span style="font-family:'DM Mono',monospace;font-size:.6rem;color:#4b4a5a;flex:1">2 accessories added</span>
+                    <span style="font-family:'DM Mono',monospace;font-size:.58rem;font-weight:600;background:rgba(31,122,69,.1);color:#1f7a45;border:1px solid rgba(31,122,69,.2);border-radius:999px;padding:.1rem .4rem">Ready</span>
                   </div>
                 </div>
 
                 <div class="pa-panel" id="pa-p2" style="flex:1;padding:.75rem;display:none;flex-direction:column;gap:.45rem">
-                  <div style="font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.08em;text-transform:uppercase;color:#8a7060;margin-bottom:.1rem">Selected model</div>
-                  <div style="display:flex;align-items:center;gap:.6rem;background:#fff;border:1.5px solid #a24a2a;border-radius:8px;padding:.55rem .7rem;box-shadow:0 0 0 3px rgba(162,74,42,.08)">
+                  <div style="font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.08em;text-transform:uppercase;color:#7c7b8c;margin-bottom:.1rem">Selected model</div>
+                  <div style="display:flex;align-items:center;gap:.6rem;background:#fff;border:1.5px solid #4a3ad1;border-radius:8px;padding:.55rem .7rem;box-shadow:0 0 0 3px rgba(74,58,209,.08)">
                     <img src="/assets/images/Model.webp" loading="lazy" decoding="async" alt="Model" style="width:40px;height:52px;border-radius:7px;object-fit:cover;object-position:top;flex-shrink:0">
                     <div>
-                      <div style="font-size:.78rem;font-weight:700;color:#1f1a16">Priya · Selected ✓</div>
-                      <div style="font-family:'DM Mono',monospace;font-size:.58rem;color:#8a7060;margin-top:.1rem;line-height:1.45">Indian skin tone · 5'7"<br>Compatible with outfit</div>
+                      <div style="font-size:.78rem;font-weight:700;color:#17161f">Priya · Selected ✓</div>
+                      <div style="font-family:'DM Mono',monospace;font-size:.58rem;color:#7c7b8c;margin-top:.1rem;line-height:1.45">Indian skin tone · 5'7"<br>Compatible with outfit</div>
                     </div>
                   </div>
-                  <div style="font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.08em;text-transform:uppercase;color:#8a7060">Available poses</div>
+                  <div style="font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.08em;text-transform:uppercase;color:#7c7b8c">Available poses</div>
                   <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:.32rem;flex:1">
-                    <div style="border-radius:7px;overflow:hidden;border:1.5px solid #a24a2a;box-shadow:0 0 0 2px rgba(162,74,42,.12)"><img src="/assets/images/Pose1.webp" loading="lazy" decoding="async" alt="Pose 1" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block"></div>
-                    <div style="border-radius:7px;overflow:hidden;border:1px solid rgba(216,200,179,.78)"><img src="/assets/images/Pose2.webp" loading="lazy" decoding="async" alt="Pose 2" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block"></div>
-                    <div style="border-radius:7px;overflow:hidden;border:1px solid rgba(216,200,179,.78)"><img src="/assets/images/Pose3.webp" loading="lazy" decoding="async" alt="Pose 3" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block"></div>
+                    <div style="border-radius:7px;overflow:hidden;border:1.5px solid #4a3ad1;box-shadow:0 0 0 2px rgba(74,58,209,.12)"><img src="/assets/images/Pose1.webp" loading="lazy" decoding="async" alt="Pose 1" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block"></div>
+                    <div style="border-radius:7px;overflow:hidden;border:1px solid rgba(229,229,238,.78)"><img src="/assets/images/Pose2.webp" loading="lazy" decoding="async" alt="Pose 2" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block"></div>
+                    <div style="border-radius:7px;overflow:hidden;border:1px solid rgba(229,229,238,.78)"><img src="/assets/images/Pose3.webp" loading="lazy" decoding="async" alt="Pose 3" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block"></div>
                   </div>
                 </div>
 
                 <div class="pa-panel" id="pa-p3" style="flex:1;padding:.75rem;display:none;flex-direction:column;gap:.45rem">
                   <div style="display:flex;align-items:center;justify-content:space-between">
-                    <span style="font-family:'DM Mono',monospace;font-size:.65rem;font-weight:600;color:#1f1a16">Campaign output</span>
-                    <span id="pa-result-count" style="font-family:'DM Mono',monospace;font-size:.58rem;color:#a24a2a">0 images</span>
+                    <span style="font-family:'DM Mono',monospace;font-size:.65rem;font-weight:600;color:#17161f">Campaign output</span>
+                    <span id="pa-result-count" style="font-family:'DM Mono',monospace;font-size:.58rem;color:#4a3ad1">0 images</span>
                   </div>
                   <div style="display:grid;grid-template-columns:1.4fr 1fr;grid-template-rows:1fr 1fr;gap:.32rem;flex:1;min-height:140px">
                     <div class="pa-frame" id="paf1" style="grid-row:span 2;border-radius:7px;overflow:hidden;opacity:0;position:relative">
                       <img src="/assets/images/Final.webp" loading="lazy" decoding="async" alt="Hero shot" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block">
-                      <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(20,8,2,.55),transparent 50%)"></div>
-                      <div style="position:absolute;bottom:.38rem;left:.4rem;font-family:'DM Mono',monospace;font-size:.48rem;font-weight:600;color:rgba(255,245,228,.9)">Hero · Final</div>
-                      <div style="position:absolute;top:.38rem;right:.38rem;font-family:'DM Mono',monospace;font-size:.48rem;font-weight:700;background:rgba(46,140,79,.85);color:#fff;border-radius:3px;padding:.08rem .32rem">✓</div>
+                      <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(18,11,43,.55),transparent 50%)"></div>
+                      <div style="position:absolute;bottom:.38rem;left:.4rem;font-family:'DM Mono',monospace;font-size:.48rem;font-weight:600;color:rgba(246,246,250,.9)">Hero · Final</div>
+                      <div style="position:absolute;top:.38rem;right:.38rem;font-family:'DM Mono',monospace;font-size:.48rem;font-weight:700;background:rgba(31,122,69,.85);color:#fff;border-radius:3px;padding:.08rem .32rem">✓</div>
                     </div>
                     <div class="pa-frame" id="paf2" style="border-radius:7px;overflow:hidden;opacity:0;position:relative">
                       <img src="/assets/images/Pose1.webp" loading="lazy" decoding="async" alt="Pose 1" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block">
-                      <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(20,8,2,.5),transparent 50%)"></div>
-                      <div style="position:absolute;bottom:.3rem;left:.38rem;font-family:'DM Mono',monospace;font-size:.46rem;font-weight:600;color:rgba(255,245,228,.85)">Instagram</div>
+                      <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(18,11,43,.5),transparent 50%)"></div>
+                      <div style="position:absolute;bottom:.3rem;left:.38rem;font-family:'DM Mono',monospace;font-size:.46rem;font-weight:600;color:rgba(246,246,250,.85)">Instagram</div>
                     </div>
                     <div class="pa-frame" id="paf3" style="border-radius:7px;overflow:hidden;opacity:0;position:relative">
                       <img src="/assets/images/Pose2.webp" loading="lazy" decoding="async" alt="Pose 2" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block">
-                      <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(20,8,2,.5),transparent 50%)"></div>
-                      <div style="position:absolute;bottom:.3rem;left:.38rem;font-family:'DM Mono',monospace;font-size:.46rem;font-weight:600;color:rgba(255,245,228,.85)">Catalog</div>
+                      <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(18,11,43,.5),transparent 50%)"></div>
+                      <div style="position:absolute;bottom:.3rem;left:.38rem;font-family:'DM Mono',monospace;font-size:.46rem;font-weight:600;color:rgba(246,246,250,.85)">Catalog</div>
                     </div>
                   </div>
-                  <div id="pa-dl-row" style="display:flex;align-items:center;gap:.35rem;background:rgba(162,74,42,.04);border:1px solid rgba(162,74,42,.12);border-radius:7px;padding:.4rem .6rem;opacity:0">
-                    <span style="font-family:'DM Mono',monospace;font-size:.58rem;color:#8a7060;flex:1">Export for</span>
-                    <span style="font-family:'DM Mono',monospace;font-size:.56rem;font-weight:700;color:#85361c;background:rgba(162,74,42,.08);border:1px solid rgba(162,74,42,.18);border-radius:999px;padding:.08rem .38rem">Instagram</span>
-                    <span style="font-family:'DM Mono',monospace;font-size:.56rem;font-weight:700;color:#85361c;background:rgba(162,74,42,.08);border:1px solid rgba(162,74,42,.18);border-radius:999px;padding:.08rem .38rem">Meta</span>
-                    <span style="font-family:'DM Mono',monospace;font-size:.56rem;font-weight:700;color:#85361c;background:rgba(162,74,42,.08);border:1px solid rgba(162,74,42,.18);border-radius:999px;padding:.08rem .38rem">Catalog</span>
+                  <div id="pa-dl-row" style="display:flex;align-items:center;gap:.35rem;background:rgba(74,58,209,.04);border:1px solid rgba(74,58,209,.12);border-radius:7px;padding:.4rem .6rem;opacity:0">
+                    <span style="font-family:'DM Mono',monospace;font-size:.58rem;color:#7c7b8c;flex:1">Export for</span>
+                    <span style="font-family:'DM Mono',monospace;font-size:.56rem;font-weight:700;color:#35279c;background:rgba(74,58,209,.08);border:1px solid rgba(74,58,209,.18);border-radius:999px;padding:.08rem .38rem">Instagram</span>
+                    <span style="font-family:'DM Mono',monospace;font-size:.56rem;font-weight:700;color:#35279c;background:rgba(74,58,209,.08);border:1px solid rgba(74,58,209,.18);border-radius:999px;padding:.08rem .38rem">Meta</span>
+                    <span style="font-family:'DM Mono',monospace;font-size:.56rem;font-weight:700;color:#35279c;background:rgba(74,58,209,.08);border:1px solid rgba(74,58,209,.18);border-radius:999px;padding:.08rem .38rem">Catalog</span>
                   </div>
                 </div>
 
@@ -469,62 +447,62 @@ import '../styles/pages/products.css';
           <div class="vis">
             <div class="vis-card vis-carpool" id="carpool-anim">
               <svg viewBox="0 0 360 270" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
-                <rect width="360" height="270" fill="#f6f0e5"/>
+                <rect width="360" height="270" fill="#f6f6fa"/>
                 <!-- road -->
-                <rect x="0" y="118" width="360" height="34" fill="#e2d5c4"/>
-                <line x1="0" y1="135" x2="360" y2="135" stroke="#d4c4b0" stroke-width="1.5" stroke-dasharray="18 12"/>
+                <rect x="0" y="118" width="360" height="34" fill="#e5e5ee"/>
+                <line x1="0" y1="135" x2="360" y2="135" stroke="#d0d0de" stroke-width="1.5" stroke-dasharray="18 12"/>
                 <!-- buildings left -->
-                <rect x="12" y="60" width="35" height="58" rx="2" fill="#ede6d8" opacity=".8"/>
-                <rect x="22" y="72" width="8" height="8" rx="1" fill="#d4c0a8" opacity=".6"/>
-                <rect x="34" y="72" width="8" height="8" rx="1" fill="#d4c0a8" opacity=".6"/>
-                <rect x="22" y="86" width="8" height="8" rx="1" fill="#d4c0a8" opacity=".6"/>
-                <rect x="34" y="86" width="8" height="8" rx="1" fill="#d4c0a8" opacity=".6"/>
-                <rect x="55" y="80" width="52" height="38" rx="2" fill="#ede6d8" opacity=".7"/>
-                <rect x="65" y="90" width="8" height="8" rx="1" fill="#d4c0a8" opacity=".5"/>
-                <rect x="80" y="90" width="8" height="8" rx="1" fill="#d4c0a8" opacity=".5"/>
+                <rect x="12" y="60" width="35" height="58" rx="2" fill="#eeeef5" opacity=".8"/>
+                <rect x="22" y="72" width="8" height="8" rx="1" fill="#d0d0de" opacity=".6"/>
+                <rect x="34" y="72" width="8" height="8" rx="1" fill="#d0d0de" opacity=".6"/>
+                <rect x="22" y="86" width="8" height="8" rx="1" fill="#d0d0de" opacity=".6"/>
+                <rect x="34" y="86" width="8" height="8" rx="1" fill="#d0d0de" opacity=".6"/>
+                <rect x="55" y="80" width="52" height="38" rx="2" fill="#eeeef5" opacity=".7"/>
+                <rect x="65" y="90" width="8" height="8" rx="1" fill="#d0d0de" opacity=".5"/>
+                <rect x="80" y="90" width="8" height="8" rx="1" fill="#d0d0de" opacity=".5"/>
                 <!-- buildings right -->
-                <rect x="270" y="65" width="40" height="53" rx="2" fill="#ede6d8" opacity=".8"/>
-                <rect x="280" y="75" width="8" height="8" rx="1" fill="#d4c0a8" opacity=".6"/>
-                <rect x="292" y="75" width="8" height="8" rx="1" fill="#d4c0a8" opacity=".6"/>
-                <rect x="280" y="89" width="8" height="8" rx="1" fill="#d4c0a8" opacity=".6"/>
-                <rect x="315" y="78" width="36" height="40" rx="2" fill="#ede6d8" opacity=".7"/>
+                <rect x="270" y="65" width="40" height="53" rx="2" fill="#eeeef5" opacity=".8"/>
+                <rect x="280" y="75" width="8" height="8" rx="1" fill="#d0d0de" opacity=".6"/>
+                <rect x="292" y="75" width="8" height="8" rx="1" fill="#d0d0de" opacity=".6"/>
+                <rect x="280" y="89" width="8" height="8" rx="1" fill="#d0d0de" opacity=".6"/>
+                <rect x="315" y="78" width="36" height="40" rx="2" fill="#eeeef5" opacity=".7"/>
                 <!-- pickup pin (center) -->
                 <g id="pickup-pin">
-                  <circle cx="180" cy="115" r="8" fill="#c0521f" opacity=".15"/>
-                  <circle cx="180" cy="115" r="4" fill="#c0521f"/>
-                  <path d="M180 109v-22" stroke="#c0521f" stroke-width="1.5" stroke-dasharray="3 3" opacity=".5"/>
-                  <rect x="162" y="78" width="36" height="14" rx="7" fill="rgba(192,82,31,.9)"/>
+                  <circle cx="180" cy="115" r="8" fill="#6a5af0" opacity=".15"/>
+                  <circle cx="180" cy="115" r="4" fill="#6a5af0"/>
+                  <path d="M180 109v-22" stroke="#6a5af0" stroke-width="1.5" stroke-dasharray="3 3" opacity=".5"/>
+                  <rect x="162" y="78" width="36" height="14" rx="7" fill="rgba(106,90,240,.9)"/>
                   <text x="180" y="88" text-anchor="middle" font-size="7.5" font-family="Sora,sans-serif" fill="#fff" font-weight="600">Pickup</text>
                 </g>
                 <!-- Car 1 (from left) -->
                 <g id="car1">
                   <!-- car body -->
-                  <rect x="30" y="122" width="38" height="18" rx="4" fill="#a24a2a"/>
-                  <rect x="34" y="118" width="26" height="10" rx="3" fill="#c56f45"/>
-                  <circle cx="37" cy="142" r="4" fill="#3a2a20"/><circle cx="37" cy="142" r="2" fill="#888"/>
-                  <circle cx="63" cy="142" r="4" fill="#3a2a20"/><circle cx="63" cy="142" r="2" fill="#888"/>
-                  <rect x="35" y="121" width="8" height="6" rx="1.5" fill="rgba(255,240,200,.6)"/>
-                  <rect x="46" y="121" width="8" height="6" rx="1.5" fill="rgba(255,240,200,.6)"/>
+                  <rect x="30" y="122" width="38" height="18" rx="4" fill="#4a3ad1"/>
+                  <rect x="34" y="118" width="26" height="10" rx="3" fill="#6a5af0"/>
+                  <circle cx="37" cy="142" r="4" fill="#2e1c6b"/><circle cx="37" cy="142" r="2" fill="#7c7b8c"/>
+                  <circle cx="63" cy="142" r="4" fill="#2e1c6b"/><circle cx="63" cy="142" r="2" fill="#7c7b8c"/>
+                  <rect x="35" y="121" width="8" height="6" rx="1.5" fill="rgba(246,246,250,.6)"/>
+                  <rect x="46" y="121" width="8" height="6" rx="1.5" fill="rgba(246,246,250,.6)"/>
                   <!-- headlight -->
-                  <rect x="68" y="125" width="6" height="4" rx="1" fill="rgba(255,230,150,.8)"/>
+                  <rect x="68" y="125" width="6" height="4" rx="1" fill="rgba(169,156,255,.8)"/>
                 </g>
                 <!-- Car 2 (from right, slightly different) -->
                 <g id="car2">
-                  <rect x="292" y="122" width="38" height="18" rx="4" fill="#6b2a14"/>
-                  <rect x="300" y="118" width="26" height="10" rx="3" fill="#8f3e1d"/>
-                  <circle cx="297" cy="142" r="4" fill="#3a2a20"/><circle cx="297" cy="142" r="2" fill="#888"/>
-                  <circle cx="323" cy="142" r="4" fill="#3a2a20"/><circle cx="323" cy="142" r="2" fill="#888"/>
-                  <rect x="307" y="121" width="8" height="6" rx="1.5" fill="rgba(255,240,200,.6)"/>
-                  <rect x="318" y="121" width="8" height="6" rx="1.5" fill="rgba(255,240,200,.6)"/>
+                  <rect x="292" y="122" width="38" height="18" rx="4" fill="#35279c"/>
+                  <rect x="300" y="118" width="26" height="10" rx="3" fill="#35279c"/>
+                  <circle cx="297" cy="142" r="4" fill="#2e1c6b"/><circle cx="297" cy="142" r="2" fill="#7c7b8c"/>
+                  <circle cx="323" cy="142" r="4" fill="#2e1c6b"/><circle cx="323" cy="142" r="2" fill="#7c7b8c"/>
+                  <rect x="307" y="121" width="8" height="6" rx="1.5" fill="rgba(246,246,250,.6)"/>
+                  <rect x="318" y="121" width="8" height="6" rx="1.5" fill="rgba(246,246,250,.6)"/>
                   <!-- tail light -->
-                  <rect x="286" y="125" width="6" height="4" rx="1" fill="rgba(255,100,80,.7)"/>
+                  <rect x="286" y="125" width="6" height="4" rx="1" fill="rgba(179,38,30,.7)"/>
                 </g>
                 <!-- status chips -->
                 <g opacity="0" id="cstatus">
-                  <rect x="12" y="155" width="90" height="14" rx="7" fill="rgba(162,74,42,.12)" stroke="rgba(162,74,42,.3)" stroke-width=".8"/>
-                  <text x="57" y="165" text-anchor="middle" font-size="7" font-family="Sora,sans-serif" fill="#732e0c" font-weight="600">2 riders · 4 min ETA</text>
-                  <rect x="258" y="155" width="90" height="14" rx="7" fill="rgba(46,140,79,.1)" stroke="rgba(46,140,79,.25)" stroke-width=".8"/>
-                  <text x="303" y="165" text-anchor="middle" font-size="7" font-family="Sora,sans-serif" fill="#1c6535" font-weight="600">96% on-time today</text>
+                  <rect x="12" y="155" width="90" height="14" rx="7" fill="rgba(74,58,209,.12)" stroke="rgba(74,58,209,.3)" stroke-width=".8"/>
+                  <text x="57" y="165" text-anchor="middle" font-size="7" font-family="Sora,sans-serif" fill="#35279c" font-weight="600">2 riders · 4 min ETA</text>
+                  <rect x="258" y="155" width="90" height="14" rx="7" fill="rgba(31,122,69,.1)" stroke="rgba(31,122,69,.25)" stroke-width=".8"/>
+                  <text x="303" y="165" text-anchor="middle" font-size="7" font-family="Sora,sans-serif" fill="#1f7a45" font-weight="600">96% on-time today</text>
                 </g>
               </svg>
             </div>
@@ -553,43 +531,43 @@ import '../styles/pages/products.css';
           <div class="vis">
             <div class="vis-card vis-sales" id="sales-anim">
               <svg viewBox="0 0 360 270" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
-                <rect width="360" height="270" fill="#f6f0e5"/>
+                <rect width="360" height="270" fill="#f6f6fa"/>
                 <!-- road grid -->
-                <line x1="0" y1="70" x2="360" y2="70" stroke="#e2d5c4" stroke-width="7"/>
-                <line x1="0" y1="140" x2="360" y2="140" stroke="#e2d5c4" stroke-width="7"/>
-                <line x1="0" y1="210" x2="360" y2="210" stroke="#e2d5c4" stroke-width="7"/>
-                <line x1="80" y1="0" x2="80" y2="270" stroke="#e2d5c4" stroke-width="7"/>
-                <line x1="200" y1="0" x2="200" y2="270" stroke="#e2d5c4" stroke-width="7"/>
-                <line x1="300" y1="0" x2="300" y2="270" stroke="#e2d5c4" stroke-width="7"/>
+                <line x1="0" y1="70" x2="360" y2="70" stroke="#e5e5ee" stroke-width="7"/>
+                <line x1="0" y1="140" x2="360" y2="140" stroke="#e5e5ee" stroke-width="7"/>
+                <line x1="0" y1="210" x2="360" y2="210" stroke="#e5e5ee" stroke-width="7"/>
+                <line x1="80" y1="0" x2="80" y2="270" stroke="#e5e5ee" stroke-width="7"/>
+                <line x1="200" y1="0" x2="200" y2="270" stroke="#e5e5ee" stroke-width="7"/>
+                <line x1="300" y1="0" x2="300" y2="270" stroke="#e5e5ee" stroke-width="7"/>
                 <!-- blocks -->
-                <rect x="8" y="8" width="60" height="50" rx="3" fill="#ede6d8" opacity=".7"/>
-                <rect x="90" y="8" width="98" height="50" rx="3" fill="#ede6d8" opacity=".6"/>
-                <rect x="208" y="8" width="80" height="50" rx="3" fill="#ede6d8" opacity=".7"/>
-                <rect x="8" y="78" width="60" height="50" rx="3" fill="#ede6d8" opacity=".5"/>
-                <rect x="90" y="78" width="98" height="50" rx="3" fill="#ede6d8" opacity=".7"/>
-                <rect x="208" y="78" width="80" height="50" rx="3" fill="#ede6d8" opacity=".6"/>
-                <rect x="8" y="148" width="60" height="50" rx="3" fill="#ede6d8" opacity=".7"/>
-                <rect x="90" y="148" width="98" height="50" rx="3" fill="#ede6d8" opacity=".5"/>
-                <rect x="208" y="148" width="80" height="50" rx="3" fill="#ede6d8" opacity=".7"/>
+                <rect x="8" y="8" width="60" height="50" rx="3" fill="#eeeef5" opacity=".7"/>
+                <rect x="90" y="8" width="98" height="50" rx="3" fill="#eeeef5" opacity=".6"/>
+                <rect x="208" y="8" width="80" height="50" rx="3" fill="#eeeef5" opacity=".7"/>
+                <rect x="8" y="78" width="60" height="50" rx="3" fill="#eeeef5" opacity=".5"/>
+                <rect x="90" y="78" width="98" height="50" rx="3" fill="#eeeef5" opacity=".7"/>
+                <rect x="208" y="78" width="80" height="50" rx="3" fill="#eeeef5" opacity=".6"/>
+                <rect x="8" y="148" width="60" height="50" rx="3" fill="#eeeef5" opacity=".7"/>
+                <rect x="90" y="148" width="98" height="50" rx="3" fill="#eeeef5" opacity=".5"/>
+                <rect x="208" y="148" width="80" height="50" rx="3" fill="#eeeef5" opacity=".7"/>
                 <!-- route trail -->
-                <polyline id="sales-trail" points="40,104 40,70 140,70 140,34 250,34 250,70 330,70 330,104 330,140 250,140 250,175 140,175 140,210 250,210" fill="none" stroke="#c0521f" stroke-width="2.5" stroke-dasharray="500" stroke-dashoffset="500" stroke-linecap="round" stroke-linejoin="round"/>
+                <polyline id="sales-trail" points="40,104 40,70 140,70 140,34 250,34 250,70 330,70 330,104 330,140 250,140 250,175 140,175 140,210 250,210" fill="none" stroke="#6a5af0" stroke-width="2.5" stroke-dasharray="500" stroke-dashoffset="500" stroke-linecap="round" stroke-linejoin="round"/>
                 <!-- ripple rings -->
-                <circle cx="40" cy="104" r="9" fill="none" stroke="#c0521f" stroke-width="1.5" opacity="0" id="sr1"/>
-                <circle cx="140" cy="34" r="9" fill="none" stroke="#c0521f" stroke-width="1.5" opacity="0" id="sr2"/>
-                <circle cx="250" cy="70" r="9" fill="none" stroke="#2e8c4f" stroke-width="1.5" opacity="0" id="sr3"/>
-                <circle cx="330" cy="140" r="9" fill="none" stroke="#c0521f" stroke-width="1.5" opacity="0" id="sr4"/>
-                <circle cx="250" cy="210" r="9" fill="none" stroke="#c07820" stroke-width="1.5" opacity="0" id="sr5"/>
+                <circle cx="40" cy="104" r="9" fill="none" stroke="#6a5af0" stroke-width="1.5" opacity="0" id="sr1"/>
+                <circle cx="140" cy="34" r="9" fill="none" stroke="#6a5af0" stroke-width="1.5" opacity="0" id="sr2"/>
+                <circle cx="250" cy="70" r="9" fill="none" stroke="#1f7a45" stroke-width="1.5" opacity="0" id="sr3"/>
+                <circle cx="330" cy="140" r="9" fill="none" stroke="#6a5af0" stroke-width="1.5" opacity="0" id="sr4"/>
+                <circle cx="250" cy="210" r="9" fill="none" stroke="#b26a00" stroke-width="1.5" opacity="0" id="sr5"/>
                 <!-- pins -->
-                <g opacity="0" id="sp1"><circle cx="40" cy="104" r="7" fill="#c0521f"/><circle cx="40" cy="104" r="3" fill="#fff"/></g>
-                <g opacity="0" id="sp2"><circle cx="140" cy="34" r="7" fill="#c0521f"/><circle cx="140" cy="34" r="3" fill="#fff"/></g>
-                <g opacity="0" id="sp3"><circle cx="250" cy="70" r="7" fill="#2e8c4f"/><circle cx="250" cy="70" r="3" fill="#fff"/></g>
-                <g opacity="0" id="sp4"><circle cx="330" cy="140" r="7" fill="#c0521f"/><circle cx="330" cy="140" r="3" fill="#fff"/></g>
-                <g opacity="0" id="sp5"><circle cx="250" cy="210" r="9" fill="#c07820"/><circle cx="250" cy="210" r="3.5" fill="#fff"/></g>
+                <g opacity="0" id="sp1"><circle cx="40" cy="104" r="7" fill="#6a5af0"/><circle cx="40" cy="104" r="3" fill="#fff"/></g>
+                <g opacity="0" id="sp2"><circle cx="140" cy="34" r="7" fill="#6a5af0"/><circle cx="140" cy="34" r="3" fill="#fff"/></g>
+                <g opacity="0" id="sp3"><circle cx="250" cy="70" r="7" fill="#1f7a45"/><circle cx="250" cy="70" r="3" fill="#fff"/></g>
+                <g opacity="0" id="sp4"><circle cx="330" cy="140" r="7" fill="#6a5af0"/><circle cx="330" cy="140" r="3" fill="#fff"/></g>
+                <g opacity="0" id="sp5"><circle cx="250" cy="210" r="9" fill="#b26a00"/><circle cx="250" cy="210" r="3.5" fill="#fff"/></g>
                 <!-- labels -->
-                <g opacity="0" id="sl1"><rect x="257" y="61" width="48" height="13" rx="6.5" fill="rgba(46,140,79,.9)"/><text x="281" y="71" text-anchor="middle" font-size="7" font-family="Sora,sans-serif" fill="#fff" font-weight="600">Visited ✓</text></g>
-                <g opacity="0" id="sl2"><rect x="257" y="200" width="54" height="13" rx="6.5" fill="rgba(192,120,32,.92)"/><text x="284" y="210" text-anchor="middle" font-size="7" font-family="Sora,sans-serif" fill="#fff" font-weight="600">En route…</text></g>
+                <g opacity="0" id="sl1"><rect x="257" y="61" width="48" height="13" rx="6.5" fill="rgba(31,122,69,.9)"/><text x="281" y="71" text-anchor="middle" font-size="7" font-family="Sora,sans-serif" fill="#fff" font-weight="600">Visited ✓</text></g>
+                <g opacity="0" id="sl2"><rect x="257" y="200" width="54" height="13" rx="6.5" fill="rgba(178,106,0,.92)"/><text x="284" y="210" text-anchor="middle" font-size="7" font-family="Sora,sans-serif" fill="#fff" font-weight="600">En route…</text></g>
                 <!-- team count -->
-                <g opacity="0" id="sl3"><rect x="6" y="240" width="120" height="14" rx="7" fill="rgba(162,74,42,.12)" stroke="rgba(162,74,42,.3)" stroke-width=".8"/><text x="66" y="250" text-anchor="middle" font-size="7" font-family="Sora,sans-serif" fill="#732e0c" font-weight="600">4 of 5 stops completed</text></g>
+                <g opacity="0" id="sl3"><rect x="6" y="240" width="120" height="14" rx="7" fill="rgba(74,58,209,.12)" stroke="rgba(74,58,209,.3)" stroke-width=".8"/><text x="66" y="250" text-anchor="middle" font-size="7" font-family="Sora,sans-serif" fill="#35279c" font-weight="600">4 of 5 stops completed</text></g>
               </svg>
             </div>
           </div>
@@ -694,9 +672,9 @@ import '../styles/pages/products.css';
                   <div class="vh-rooms" id="floor2"><!-- JS --></div>
                 </div>
                 <div class="vh-legend">
-                  <div class="vh-leg-item"><div class="vh-leg-dot" style="background:rgba(162,74,42,.16)"></div>Occupied</div>
-                  <div class="vh-leg-item"><div class="vh-leg-dot" style="background:rgba(46,140,79,.12)"></div>Available</div>
-                  <div class="vh-leg-item"><div class="vh-leg-dot" style="background:rgba(192,120,32,.1)"></div>Cleaning</div>
+                  <div class="vh-leg-item"><div class="vh-leg-dot" style="background:rgba(74,58,209,.16)"></div>Occupied</div>
+                  <div class="vh-leg-item"><div class="vh-leg-dot" style="background:rgba(31,122,69,.12)"></div>Available</div>
+                  <div class="vh-leg-item"><div class="vh-leg-dot" style="background:rgba(178,106,0,.1)"></div>Cleaning</div>
                 </div>
                 <div class="vh-stats">
                   <div class="vh-stat"><div class="vh-stat-n" id="vh-occ">0</div><div class="vh-stat-l">Occupied</div></div>
@@ -716,7 +694,7 @@ import '../styles/pages/products.css';
       <div class="narrow">
         <div class="cta-card" id="ctaCard">
           <div class="cta-glow"></div>
-          <span style="font-family:var(--ff-m);font-size:.65rem;font-weight:700;letter-spacing:.17em;text-transform:uppercase;color:var(--rust);background:rgba(162,74,42,.07);border:1px solid rgba(162,74,42,.2);border-radius:999px;padding:.27rem .76rem;display:inline-block">Agentic AI</span>
+          <span style="font-family:var(--ff-m);font-size:.65rem;font-weight:700;letter-spacing:.17em;text-transform:uppercase;color:var(--rust);background:rgba(74,58,209,.07);border:1px solid rgba(74,58,209,.2);border-radius:999px;padding:.27rem .76rem;display:inline-block">Agentic AI</span>
           <h2>Have a workflow that should move from business data to an approved system action?</h2>
           <p class="cta-sub">Tell us where work slows down across documents, people, ERP, TallyPrime, or SAP. We will help identify the right agentic workflow.</p>
           <div class="cta-btns">
@@ -726,12 +704,6 @@ import '../styles/pages/products.css';
       </div>
     </section>
 
-    <footer>
-      <div class="container">
-        <p>&copy; 2026 <strong>Nyx Solution</strong> — Software shaped around real operational work</p>
-      </div>
-    </footer>
-    
   </div>
 </MainLayout>
 
@@ -1018,8 +990,8 @@ function initPhoto() {
       p.classList.remove('active','done');
       if (i < idx) p.classList.add('done');
       if (i === idx) p.classList.add('active');
-      p.style.color = i === idx ? '#a24a2a' : i < idx ? '#1c6535' : '#8a7060';
-      p.style.background = i === idx ? 'rgba(162,74,42,.08)' : i < idx ? 'rgba(46,140,79,.08)' : 'transparent';
+      p.style.color = i === idx ? '#4a3ad1' : i < idx ? '#1f7a45' : '#7c7b8c';
+      p.style.background = i === idx ? 'rgba(74,58,209,.08)' : i < idx ? 'rgba(31,122,69,.08)' : 'transparent';
     });
   }
 

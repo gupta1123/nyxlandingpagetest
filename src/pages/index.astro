@@ -5,6 +5,8 @@ import '../styles/pages/home.css';
 const clients = [
   { name: 'Suryadev Alloys', sector: 'Steel', logo: '/assets/logos/clients/suryadev.png' },
   { name: 'German Steel', sector: 'Steel', logo: '/assets/logos/clients/german-steel.png' },
+  { name: 'Eco-R LLP', sector: 'Mobility', logo: '/assets/logos/clients/eco-r.svg' },
+  { name: 'Madhuban Hotel', sector: 'Hospitality', logo: '/assets/logos/clients/madhuban-hotel.svg' },
   { name: 'Metaroll', sector: 'Manufacturing', logo: '/assets/logos/clients/metaroll.svg' },
   { name: 'Rrajuri', sector: 'Steel', logo: '/assets/logos/clients/rrajuri.png' },
   { name: 'Bhuleshwar Seamless Private', sector: 'Seamless tubes', logo: '/assets/logos/clients/bhuleshwar.svg' },
@@ -12,12 +14,9 @@ const clients = [
   { name: 'Meenakshi Group', sector: 'Industry', logo: '/assets/logos/clients/meenakshi-mobile.png' },
   { name: 'Samrat Group Hyderabad', sector: 'Industry', logo: '/assets/logos/clients/samrat.png' },
   { name: 'Anil Jindal World School', sector: 'Education', logo: '/assets/logos/clients/anil-jindal-school.png' },
-  { name: 'Jalna Municipal Corporation', sector: 'Public institution', logo: '/assets/logos/clients/jalna-municipal.png' },
-  { name: 'Giriraj Rerolls', sector: 'Re-rolling', initials: 'GR' },
-  { name: 'KKB Group', sector: 'Industry', initials: 'KKB' },
-  { name: 'Eco-R LLP', sector: 'Industry', initials: 'E·R' },
-  { name: 'Jalna First Citizen Forum', sector: 'Civic organisation', initials: 'JF' },
-  { name: 'Madhuban Hotel', sector: 'Hospitality', initials: 'MH' },
+  { name: 'Giriraj Rerolls', sector: 'Re-rolling', logo: '/assets/logos/clients/giriraj-rerolls.jpeg' },
+  { name: 'KKB Group', sector: 'Industry', logo: '/assets/logos/clients/kkb-group.png' },
+  { name: 'Jalna First Citizen Forum', sector: 'Civic organisation', logo: '/assets/logos/clients/jalna-first.png' },
 ];
 
 const shortClientName = (name: string) => name.replace(/ (Private|Pvt Ltd|Ltd|LLP)$/, '');
@@ -88,15 +87,18 @@ const moreProducts = [
       </div>
     </div>
   </nav>
+  <img class="hero-art" src="/assets/hero/home-no-text.png" alt="Industrial operations facility" fetchpriority="high" />
   <div class="container">
     <div class="hero-inner">
       <div>
         <div class="h-ey"><span class="h-ey-line"></span>Agentic AI for Business Operations</div>
-        <h1 class="h1"><span class="blk">AI agents that move</span><em>operational work</em><span class="blk">forward.</span></h1>
-        <p class="h-body">Nyx builds AI agents that connect WhatsApp, ERP, TallyPrime, and SAP—handling documents, approvals, and verified operational actions.</p>
+        <h1 class="h1">
+          <span class="hero-title-line">AI agents that move</span>
+          <span class="hero-title-line"><em>operational work</em> forward.</span>
+        </h1>
         <div class="h-cta">
-          <a class="btn-dark" href="/contact">Discuss an agentic workflow</a>
-          <a class="btn-ghost" href="#products">See systems in action</a>
+          <a class="btn-dark" href="/contact">Book a demo</a>
+          <a class="btn-ghost" href="#what-we-do">See how it works</a>
         </div>
         <div class="trust-strip">
           <span class="tp">WhatsApp · ERP · Tally · SAP</span>
@@ -108,9 +110,44 @@ const moreProducts = [
   </div>
 </header>
 
-<div class="ticker-wrap" aria-hidden="true">
-  <div class="ticker-inner" id="ticker"></div>
-</div>
+<section class="integrations" id="integrations" aria-labelledby="integrations-title">
+  <div class="container">
+    <div class="integrations-head">
+      <div>
+        <span class="integrations-kicker">Connected apps</span>
+        <h2 id="integrations-title">Works inside the tools you already run on</h2>
+      </div>
+      <p>Agents move work across your finance, communication, and business systems—no rip-and-replace.</p>
+    </div>
+
+    <div class="integrations-grid">
+      <div class="integration-item">
+        <img class="integration-logo tally-logo" src="/assets/logos/integrations/tally.png" alt="Tally Prime" loading="eager" />
+        <span>Tally Prime</span>
+      </div>
+      <div class="integration-item">
+        <img class="integration-logo" src="/assets/logos/integrations/erp.svg" alt="" aria-hidden="true" loading="eager" />
+        <span>ERP systems</span>
+      </div>
+      <div class="integration-item">
+        <img class="integration-logo sap-logo" src="/assets/logos/integrations/sap.svg" alt="SAP" loading="eager" />
+        <span>SAP</span>
+      </div>
+      <div class="integration-item">
+        <img class="integration-logo" src="/assets/logos/integrations/whatsapp.svg" alt="WhatsApp" loading="eager" />
+        <span>WhatsApp</span>
+      </div>
+      <div class="integration-item">
+        <img class="integration-logo" src="/assets/logos/integrations/email.svg" alt="Email" loading="eager" />
+        <span>Email</span>
+      </div>
+      <div class="integration-item">
+        <img class="integration-logo workspace-logo" src="/assets/logos/integrations/google-workspace.svg" alt="Google Workspace" loading="eager" />
+        <span>Google Workspace</span>
+      </div>
+    </div>
+  </div>
+</section>
 
 <section class="cl2">
   <div class="container">
@@ -156,63 +193,63 @@ const moreProducts = [
   <section class="section" id="what-we-do">
     <div class="container">
       <div class="sh">
-        <span class="stag">What we build</span>
-        <h2 class="stitle rv">AI agents that operate inside real business workflows</h2>
-        <p class="ssub rv" style="--d:80ms">Not generic chatbots. We build production systems that understand context, coordinate multiple steps, work with existing software, and escalate the right decisions to people.</p>
+        <span class="stag">How Nyx works</span>
+        <h2 class="stitle rv">One intelligent layer across your business systems</h2>
+        <p class="ssub rv" style="--d:80ms">Nyx brings agentic AI, the software you already use, human oversight, and responsible data controls into one coordinated operating layer.</p>
       </div>
-      <div class="three-grid">
-
-        <article class="svc-card rv" style="--d:0ms">
-          <div class="svc-art">
-            <svg viewBox="0 0 220 96" fill="none" aria-hidden="true">
-              <rect class="dr" style="--len:120" x="14" y="36" width="30" height="24" rx="4" stroke="#8a7060" stroke-width="1.4"/>
-              <path class="dr" style="--len:52;--dd:180ms" d="M44 48h44" stroke="#c0a086" stroke-width="1.4"/>
-              <path class="dr" style="--len:120;--dd:320ms" d="M104 34l16 14-16 14-16-14z" stroke="#a24a2a" stroke-width="1.5"/>
-              <path class="dr" style="--len:64;--dd:520ms" d="M120 44c14-10 20-14 34-14" stroke="#c0a086" stroke-width="1.4"/>
-              <path class="dr" style="--len:64;--dd:600ms" d="M120 52c14 10 20 14 34 14" stroke="#c0a086" stroke-width="1.4"/>
-              <rect class="pop" style="--dd:760ms" x="156" y="20" width="46" height="20" rx="4" fill="#a24a2a" fill-opacity=".1" stroke="#a24a2a" stroke-opacity=".45"/>
-              <rect class="pop" style="--dd:860ms" x="156" y="56" width="46" height="20" rx="4" fill="#4a7a46" fill-opacity=".1" stroke="#4a7a46" stroke-opacity=".45"/>
-              <circle class="tok tok-a" r="3" fill="#a24a2a"/>
-            </svg>
-          </div>
-          <h3>Agentic workflow systems</h3>
-          <p>Goal-driven systems that read business inputs, decide what should happen next, coordinate tools, and move work forward inside defined guardrails.</p>
+      <div class="pillars">
+        <article class="pillar pillar--dark rv" style="--d:0ms">
+          <span class="pillar-label">01 · Intelligence</span>
+          <h3>Agents that do the work</h3>
+          <p>They read documents, apply your rules, decide the next step, and carry the job through to a finished outcome.</p>
+          <svg class="pillar-diagram" viewBox="0 0 340 148" fill="none" role="img" aria-label="Invoices, WhatsApp messages and bank lines feed into a Nyx agent, which posts most entries to Tally and holds the rest for a person.">
+            <path class="wire" pathLength="1" style="--dd:.15s" d="M96 19C112 19 112 77 128 77"/><path class="wire" pathLength="1" style="--dd:.25s" d="M96 77H128"/><path class="wire" pathLength="1" style="--dd:.35s" d="M96 135C112 135 112 77 128 77"/><path class="wire" pathLength="1" style="--dd:.6s" d="M212 77C226 77 226 50 238 50"/><path class="wire" pathLength="1" style="--dd:.7s" d="M212 77C226 77 226 104 238 104"/>
+            <g class="fade" style="--dd:.1s"><rect class="box" x="2" y="6" width="94" height="26" rx="8"/><text x="49" y="23">Invoice PDF</text><rect class="box" x="2" y="64" width="94" height="26" rx="8"/><text x="49" y="81">WhatsApp</text><rect class="box" x="2" y="122" width="94" height="26" rx="8"/><text x="49" y="139">Bank line</text></g>
+            <g class="fade" style="--dd:.45s"><rect class="box box--core" x="128" y="51" width="84" height="52" rx="13"/><text x="170" y="81">Nyx agent</text></g>
+            <g class="fade" style="--dd:.8s"><rect class="box box--posted" x="238" y="35" width="100" height="30" rx="9"/><text class="text-small text-posted" x="288" y="54">Posted to Tally</text><rect class="box box--held" x="238" y="89" width="100" height="30" rx="9"/><text class="text-small text-held" x="288" y="108">Held for you</text></g>
+          </svg>
         </article>
 
-        <article class="svc-card rv" style="--d:80ms">
-          <div class="svc-art">
-            <svg viewBox="0 0 220 96" fill="none" aria-hidden="true">
-              <path class="dr" style="--len:130" d="M34 34l16-9 16 9v18l-16 9-16-9z" stroke="#a24a2a" stroke-width="1.5"/>
-              <path class="dr" style="--len:96;--dd:240ms" d="M66 40h30v-16h34" stroke="#c0a086" stroke-width="1.4"/>
-              <path class="dr" style="--len:44;--dd:340ms" d="M66 46h64" stroke="#c0a086" stroke-width="1.4"/>
-              <path class="dr" style="--len:96;--dd:440ms" d="M66 52h30v20h34" stroke="#c0a086" stroke-width="1.4"/>
-              <rect class="pop" style="--dd:600ms" x="132" y="14" width="62" height="20" rx="3" fill="#3c5a8c" fill-opacity=".09" stroke="#3c5a8c" stroke-opacity=".4"/>
-              <rect class="pop" style="--dd:680ms" x="132" y="36" width="62" height="20" rx="3" fill="#a24a2a" fill-opacity=".09" stroke="#a24a2a" stroke-opacity=".4"/>
-              <rect class="pop" style="--dd:760ms" x="132" y="62" width="62" height="20" rx="3" fill="#4a7a46" fill-opacity=".09" stroke="#4a7a46" stroke-opacity=".4"/>
-              <circle class="tok tok-b" r="3" fill="#a24a2a"/>
-            </svg>
-          </div>
-          <h3>ERP, Tally &amp; SAP automation</h3>
-          <p>Agents that work with the systems you already run — pulling live context, preparing transactions, routing approvals, completing verified actions.</p>
+        <article class="pillar rv" style="--d:60ms">
+          <span class="pillar-label">02 · Connected systems</span>
+          <h3>Tally, SAP and ERP, already connected</h3>
+          <p>Agents read live context from the systems you already use, then write verified results back.</p>
+          <svg class="pillar-diagram" viewBox="0 0 340 118" fill="none" role="img" aria-label="Live context flows from your systems to the Nyx agent, and verified results flow back.">
+            <g class="fade" style="--dd:.1s"><text class="text-label" x="60" y="10">Your systems</text><rect class="box" x="2" y="16" width="116" height="92" rx="12"/><text x="60" y="44">TallyPrime</text><text x="60" y="68">SAP</text><text x="60" y="92">ERP</text></g>
+            <g class="fade" style="--dd:.2s"><text class="text-label" x="280" y="10">Nyx layer</text><rect class="box box--core" x="222" y="16" width="116" height="92" rx="12"/><text x="280" y="54">Nyx agent</text><text class="text-label" x="280" y="76">runs the steps</text></g>
+            <g class="lane-read"><path class="wire" pathLength="1" style="--dd:.4s" d="M118 48H216"/><path class="wire" pathLength="1" style="--dd:.7s" d="M210 43.5 216 48l-6 4.5"/><text class="text-label" x="167" y="38">live context</text></g>
+            <g class="lane-posted"><path class="wire" pathLength="1" style="--dd:.55s" d="M222 80H124"/><path class="wire" pathLength="1" style="--dd:.85s" d="M130 75.5 124 80l6 4.5"/><text class="text-label" x="170" y="98">verified result</text></g>
+          </svg>
         </article>
 
-        <article class="svc-card rv" style="--d:160ms">
-          <div class="svc-art">
-            <svg viewBox="0 0 220 96" fill="none" aria-hidden="true">
-              <rect class="dr" style="--len:300" x="20" y="16" width="132" height="64" rx="6" stroke="#8a7060" stroke-width="1.4"/>
-              <path class="dr" style="--len:132;--dd:200ms" d="M20 32h132" stroke="#c0a086" stroke-width="1.2"/>
-              <path class="dr" style="--len:60;--dd:340ms" d="M32 44h56" stroke="#c0a086" stroke-width="1.4"/>
-              <path class="dr" style="--len:60;--dd:420ms" d="M32 68h72" stroke="#c0a086" stroke-width="1.4"/>
-              <rect class="pop" style="--dd:560ms" x="98" y="46" width="94" height="22" rx="5" fill="#fff6e8" stroke="#a8791a" stroke-opacity=".55"/>
-              <circle class="pop" style="--dd:680ms" cx="110" cy="57" r="3.4" fill="#a8791a"/>
-              <path class="pop" style="--dd:780ms" d="M170 57l4 4 8-9" stroke="#4a7a46" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
-              <circle class="tok tok-c" r="3" fill="#a8791a"/>
-            </svg>
-          </div>
-          <h3>AI product engineering</h3>
-          <p>Complete products: role-based screens, exception queues, human review, secure connectors, monitoring, and audit-ready action histories.</p>
+        <article class="pillar rv" style="--d:120ms">
+          <span class="pillar-label">03 · Oversight</span>
+          <h3>Your team keeps the final say</h3>
+          <p>You choose where a person approves, and exceptions route to whoever should see them.</p>
+          <svg class="pillar-diagram" viewBox="0 0 340 116" fill="none" role="img" aria-label="A run advances on its own until it reaches a checkpoint that needs your approval, then continues.">
+            <path class="wire" pathLength="1" style="--dd:.15s" d="M14 76H326"/><path class="branch fade" style="--dd:.6s" d="M180 70V44"/>
+            <g class="fade" style="--dd:.35s"><circle class="dot" cx="40" cy="76" r="5"/><circle class="dot" cx="110" cy="76" r="5"/><circle class="dot dot--held" cx="180" cy="76" r="5.5"/><circle class="dot" cx="250" cy="76" r="5"/><circle class="dot dot--done" cx="320" cy="76" r="5"/></g>
+            <g class="fade" style="--dd:.7s"><rect class="box box--held" x="118" y="10" width="124" height="30" rx="9"/><text class="text-small text-held" x="180" y="29">Needs approval</text></g>
+            <g class="fade" style="--dd:.5s"><text class="text-label" x="75" y="100">agent decides</text><text class="text-label" x="285" y="100">posts result</text></g>
+          </svg>
         </article>
 
+        <article class="pillar rv" style="--d:180ms">
+          <span class="pillar-label">04 · Trust</span>
+          <h3>Access is scoped to the task</h3>
+          <p>Role-based permissions mean an agent only touches what the job in front of it needs.</p>
+          <svg class="pillar-diagram" viewBox="0 0 340 118" fill="none" role="img" aria-label="A grid of your data with only a small block lit, showing the narrow scope one task can reach.">
+            <g class="fade" style="--dd:.15s">
+              {Array.from({ length: 24 }, (_, index) => {
+                const column = index % 8;
+                const row = Math.floor(index / 8);
+                const highlighted = (row === 1 || row === 2) && (column === 2 || column === 3);
+                return <rect class:list={["cell", { "cell--on": highlighted }]} x={12 + column * 40} y={14 + row * 28} width="34" height="22" rx="5" />;
+              })}
+            </g>
+            <rect class="scope fade" style="--dd:.6s" x="86" y="36" width="86" height="62" rx="10"/><text class="text-label fade" style="--dd:.9s" x="129" y="112">scope for this task</text>
+          </svg>
+        </article>
       </div>
     </div>
   </section>
@@ -223,10 +260,10 @@ const moreProducts = [
         <span class="stag">Agentic systems built for operations</span>
         <div class="sh-row">
           <div>
-            <h2 class="stitle rv">Proof in workflows that reach the system of record</h2>
-            <p class="ssub rv" style="--d:80ms">Three representative systems that reconcile, validate, request approval, and complete controlled actions across TallyPrime and SAP-connected workflows.</p>
+            <h2 class="stitle rv">Top workflows agents can take off your team’s plate</h2>
+            <p class="ssub rv" style="--d:80ms">Practical automations for document checks, customer follow-ups, invoice delivery, and day-to-day finance work across WhatsApp, TallyPrime, SAP, and connected ERP systems.</p>
           </div>
-          <a class="btn-dark rv" style="--d:100ms" href="/products">View all</a>
+          <a class="btn-dark rv" style="--d:100ms" href="/products">See all products</a>
         </div>
       </div>
       <div class="prod-list">
@@ -234,37 +271,37 @@ const moreProducts = [
         <a href="/contact" class="prod-row rv" style="--d:0ms">
           <div class="prod-top">
             <span class="prod-num">01</span>
-            <div class="prod-info"><strong>Gajkesari</strong><span>An AI-assisted bank reconciliation workflow that extracts statements, recommends live Tally ledgers, allocates receipts against open bills, checks duplicates, and posts approved vouchers.</span></div>
+            <div class="prod-info"><strong>Purchase verification</strong><span>Read purchase documents, match them with orders and receipts, validate taxes and totals, flag mismatches, and prepare a clean approval packet.</span></div>
             <span class="prod-arr"><svg width="16" height="16" viewBox="0 0 17 17" fill="none"><path d="M3 8.5h11M10 5l3.5 3.5L10 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
           </div>
           <div class="stages" aria-hidden="true">
-            <div class="stage"><div class="stage-bar"><i></i></div><em>Extract</em></div>
-            <div class="stage"><div class="stage-bar"><i></i></div><em>Match ledgers</em></div>
-            <div class="stage"><div class="stage-bar"><i></i></div><em>Allocate bills</em></div>
+            <div class="stage"><div class="stage-bar"><i></i></div><em>Read documents</em></div>
+            <div class="stage"><div class="stage-bar"><i></i></div><em>Match records</em></div>
+            <div class="stage"><div class="stage-bar"><i></i></div><em>Validate values</em></div>
+            <div class="stage"><div class="stage-bar"><i></i></div><em>Flag exceptions</em></div>
             <div class="stage"><div class="stage-bar"><i></i></div><em>Approve</em></div>
-            <div class="stage"><div class="stage-bar"><i></i></div><em>Post to Tally</em></div>
           </div>
         </a>
 
         <a href="/contact" class="prod-row rv" style="--d:70ms">
           <div class="prod-top">
             <span class="prod-num">02</span>
-            <div class="prod-info"><strong>AutoDealer Finance Workflow</strong><span>A Tally-connected finance operations platform for purchase-document verification, purchase voucher preparation, bank reconciliation, cash-discount recovery, and payment follow-ups.</span></div>
+            <div class="prod-info"><strong>Payment follow-ups</strong><span>Monitor open receivables and due dates, prepare clear customer reminders, send them through the right channel, and escalate overdue payments when needed.</span></div>
             <span class="prod-arr"><svg width="16" height="16" viewBox="0 0 17 17" fill="none"><path d="M3 8.5h11M10 5l3.5 3.5L10 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
           </div>
           <div class="stages" aria-hidden="true">
-            <div class="stage"><div class="stage-bar"><i></i></div><em>Verify documents</em></div>
-            <div class="stage"><div class="stage-bar"><i></i></div><em>Prepare voucher</em></div>
-            <div class="stage"><div class="stage-bar"><i></i></div><em>Check discount</em></div>
-            <div class="stage"><div class="stage-bar"><i></i></div><em>Approve payment</em></div>
-            <div class="stage"><div class="stage-bar"><i></i></div><em>Post &amp; follow up</em></div>
+            <div class="stage"><div class="stage-bar"><i></i></div><em>Find dues</em></div>
+            <div class="stage"><div class="stage-bar"><i></i></div><em>Prioritise</em></div>
+            <div class="stage"><div class="stage-bar"><i></i></div><em>Draft reminder</em></div>
+            <div class="stage"><div class="stage-bar"><i></i></div><em>Send follow-up</em></div>
+            <div class="stage"><div class="stage-bar"><i></i></div><em>Update status</em></div>
           </div>
         </a>
 
         <a href="/contact" class="prod-row rv" style="--d:140ms">
           <div class="prod-top">
             <span class="prod-num">03</span>
-            <div class="prod-info"><strong>SAP Invoice Delivery Agent</strong><span>An SAP-connected agent that waits for a valid, eligible billing document, verifies the customer and recipient, then delivers the actual invoice PDF through WhatsApp, email, or both—with duplicate protection, delivery tracking, and structured help requests.</span></div>
+            <div class="prod-info"><strong>WhatsApp invoice automation</strong><span>Detect an eligible invoice, verify the customer and recipient, deliver the correct PDF through WhatsApp or email, prevent duplicates, and track delivery.</span></div>
             <span class="prod-arr"><svg width="16" height="16" viewBox="0 0 17 17" fill="none"><path d="M3 8.5h11M10 5l3.5 3.5L10 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
           </div>
           <div class="stages" aria-hidden="true">
@@ -273,6 +310,21 @@ const moreProducts = [
             <div class="stage"><div class="stage-bar"><i></i></div><em>Deliver PDF</em></div>
             <div class="stage"><div class="stage-bar"><i></i></div><em>Track status</em></div>
             <div class="stage"><div class="stage-bar"><i></i></div><em>Route help</em></div>
+          </div>
+        </a>
+
+        <a href="/contact" class="prod-row rv" style="--d:210ms">
+          <div class="prod-top">
+            <span class="prod-num">04</span>
+            <div class="prod-info"><strong>Tally automation</strong><span>Reconcile bank statements, recommend live ledgers, allocate receipts against open bills, check duplicates, and post approved vouchers back to TallyPrime.</span></div>
+            <span class="prod-arr"><svg width="16" height="16" viewBox="0 0 17 17" fill="none"><path d="M3 8.5h11M10 5l3.5 3.5L10 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </div>
+          <div class="stages" aria-hidden="true">
+            <div class="stage"><div class="stage-bar"><i></i></div><em>Import statement</em></div>
+            <div class="stage"><div class="stage-bar"><i></i></div><em>Match ledgers</em></div>
+            <div class="stage"><div class="stage-bar"><i></i></div><em>Allocate bills</em></div>
+            <div class="stage"><div class="stage-bar"><i></i></div><em>Approve</em></div>
+            <div class="stage"><div class="stage-bar"><i></i></div><em>Post to Tally</em></div>
           </div>
         </a>
 
@@ -287,7 +339,7 @@ const moreProducts = [
           <span class="stag">How we build agents</span>
           <h2 class="stitle rv">Autonomy with guardrails — not black-box automation</h2>
           <p class="ssub rv" style="--d:80ms">Operational AI must know what it can decide, what it must verify, and when a person needs to approve the next action. We design all three deliberately.</p>
-          <a class="btn-light rv" style="--d:150ms;margin-top:1.4rem" href="/about">Learn our approach</a>
+          <a class="btn-light rv" style="--d:150ms;margin-top:1.4rem" href="/about">How we work</a>
         </div>
         <div class="phi-right" id="phi-right">
           <div class="phi-prog" id="phi-prog"></div>
@@ -307,7 +359,7 @@ const moreProducts = [
           <span class="stag">Beyond Agentic AI</span>
           <h2 class="stitle rv">When the problem needs a product — not an agent — <em>we build that too</em></h2>
           <p class="ssub rv" style="--d:80ms">Agentic AI is our core focus. Alongside it, we design and engineer complete operational products shipped for daily use across education, hospitality, food service, field operations, and mobility.</p>
-          <a class="more-all rv" style="--d:140ms" href="/products">Explore the complete product portfolio <span aria-hidden="true">↗</span></a>
+          <a class="more-all rv" style="--d:140ms" href="/products">See all products <span aria-hidden="true">↗</span></a>
         </div>
 
         <div class="more-product-list rv" aria-label="Operational products">
@@ -325,35 +377,21 @@ const moreProducts = [
 
   <section class="section cta-section" id="contact">
     <div class="container">
-      <div class="cta-inner rv">
-        <div class="cta-content">
-          <h2 class="cta-title">If your ERP still depends on manual handoffs, <em>we should talk</em></h2>
-          <a class="btn-dark lg cta-action" href="/contact">Discuss an agentic workflow</a>
-        </div>
-      </div>
+      <a
+        class="cta-inner rv"
+        href="/contact"
+        aria-label="Discuss an agentic workflow with Nyx Solution"
+      >
+        <img class="cta-image" src="/assets/images/bottom-no-text.png" alt="Operational workflows coordinated across messages and manufacturing systems" loading="lazy" decoding="async" />
+        <span class="cta-copy">
+          <span class="cta-title">If your ERP still depends on manual handoffs, <em>we should talk.</em></span>
+          <span class="cta-button">Discuss an agentic workflow</span>
+        </span>
+      </a>
     </div>
   </section>
 </main>
 
-<footer>
-  <div class="container">
-    <div class="foot-grid">
-      <div>
-        <div class="foot-name">Nyx Solution</div>
-        <div class="foot-tag">Agentic AI for WhatsApp, ERP, Tally &amp; SAP</div>
-      </div>
-      <div class="foot-links">
-        <div class="foot-links-col"><span class="foot-links-lbl">Company</span><a href="/about">About us</a><a href="/about#how-we-work">Our process</a><a href="/careers">Careers</a><a href="/contact">Contact</a></div>
-        <div class="foot-links-col"><span class="foot-links-lbl">Agentic AI</span><a href="/products">View all</a><a href="#products">Gajkesari</a><a href="#products">Polaad</a><a href="#products">AutoDealer Finance</a><a href="#products">WhatsApp-to-SAP Ordering</a><a href="#products">SAP Invoice Delivery</a><a href="#products">SAP Payment Follow-up</a></div>
-        <div class="foot-links-col"><span class="foot-links-lbl">Solutions</span><a href="/contact">WhatsApp automation</a><a href="/contact">ERP automation</a><a href="/contact">TallyPrime automation</a><a href="/contact">SAP automation</a><a href="/contact">Custom AI agents</a></div>
-      </div>
-    </div>
-    <div class="foot-bottom">
-      <div class="foot-copy">© 2026 Nyx Solution. All rights reserved.</div>
-      <div class="foot-copy">AI that understands, decides, and acts.</div>
-    </div>
-  </div>
-</footer>
 </div>
   <script is:inline src="/home.js"></script>
 </MainLayout>

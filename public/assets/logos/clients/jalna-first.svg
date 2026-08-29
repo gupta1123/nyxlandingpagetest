@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 58" role="img" aria-labelledby="title">
+  <title id="title">Jalna First Citizen Forum</title>
+  <g transform="translate(5 10)" fill="none" stroke="#4a3ad1" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M2 30h43M6 30V17m35 13V17M6 20c9-12 26-12 35 0"/>
+    <path d="M12 17v13m23-13v13M18 12l5 18m6-18-5 18" opacity=".55"/>
+  </g>
+  <text x="61" y="27" fill="#231551" font-family="Arial, sans-serif" font-size="17" font-weight="800" letter-spacing=".8">JALNA FIRST.</text>
+  <text x="62" y="43" fill="#7c7b8c" font-family="Arial, sans-serif" font-size="8" font-weight="700" letter-spacing="1.8">CITIZEN FORUM</text>
+</svg>

@@ -25,9 +25,9 @@ const sleep = ms => new Promise(r => setTimeout(r, ms));
 
   const rules = () => {
     ctx.lineWidth = 1;
-    ctx.strokeStyle = 'rgba(162,100,60,0.05)';
+    ctx.strokeStyle = 'rgba(74,58,209,0.045)';
     for (let y = ROW; y < H; y += ROW) { ctx.beginPath(); ctx.moveTo(0, y + .5); ctx.lineTo(W, y + .5); ctx.stroke(); }
-    ctx.strokeStyle = 'rgba(162,100,60,0.032)';
+    ctx.strokeStyle = 'rgba(74,58,209,0.028)';
     for (let x = COL; x < W; x += COL) { ctx.beginPath(); ctx.moveTo(x + .5, 0); ctx.lineTo(x + .5, H); ctx.stroke(); }
   };
 
@@ -48,8 +48,8 @@ const sleep = ms => new Promise(r => setTimeout(r, ms));
     gx += (mx - gx) * .06; gy += (my - gy) * .06;
     if (gx > -500) {
       const g = ctx.createRadialGradient(gx, gy, 0, gx, gy, 230);
-      g.addColorStop(0, 'rgba(200,135,75,0.055)');
-      g.addColorStop(1, 'rgba(200,135,75,0)');
+      g.addColorStop(0, 'rgba(106,90,240,0.05)');
+      g.addColorStop(1, 'rgba(106,90,240,0)');
       ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
     }
 
@@ -60,11 +60,11 @@ const sleep = ms => new Promise(r => setTimeout(r, ms));
       const arrived = t.dir === 1 ? t.x >= t.stop : t.x <= t.stop;
       const tail = 84;
       const g = ctx.createLinearGradient(t.x - t.dir * tail, t.y, t.x, t.y);
-      g.addColorStop(0, 'rgba(162,78,40,0)');
-      g.addColorStop(1, 'rgba(162,78,40,0.32)');
+      g.addColorStop(0, 'rgba(106,90,240,0)');
+      g.addColorStop(1, 'rgba(106,90,240,0.32)');
       ctx.strokeStyle = g; ctx.lineWidth = 1.2;
       ctx.beginPath(); ctx.moveTo(t.x - t.dir * tail, t.y); ctx.lineTo(t.x, t.y); ctx.stroke();
-      ctx.beginPath(); ctx.arc(t.x, t.y, 1.7, 0, 7); ctx.fillStyle = 'rgba(162,78,40,.5)'; ctx.fill();
+      ctx.beginPath(); ctx.arc(t.x, t.y, 1.7, 0, 7); ctx.fillStyle = 'rgba(106,90,240,.5)'; ctx.fill();
       if (arrived) { marks.push({ x: t.stop, y: t.y, a: .42 }); return false; }
       return t.x > -160 && t.x < W + 160;
     });
@@ -73,9 +73,9 @@ const sleep = ms => new Promise(r => setTimeout(r, ms));
       m.a -= .0022;
       if (m.a <= 0) return false;
       ctx.beginPath(); ctx.arc(m.x, m.y, 2.1, 0, 7);
-      ctx.fillStyle = `rgba(122,51,24,${m.a})`; ctx.fill();
+      ctx.fillStyle = `rgba(53,39,156,${m.a})`; ctx.fill();
       ctx.beginPath(); ctx.arc(m.x, m.y, 6.5, 0, 7);
-      ctx.strokeStyle = `rgba(122,51,24,${m.a * .28})`; ctx.lineWidth = 1; ctx.stroke();
+      ctx.strokeStyle = `rgba(53,39,156,${m.a * .28})`; ctx.lineWidth = 1; ctx.stroke();
       return true;
     });
 
@@ -108,6 +108,7 @@ const sleep = ms => new Promise(r => setTimeout(r, ms));
 (() => {
   const words = ['Agentic AI','WhatsApp-to-SAP workflows','ERP automation','TallyPrime workflows','SAP automation','Document intelligence','Human-in-the-loop approvals','Verified system actions'];
   const t = document.getElementById('ticker');
+  if (!t) return;
   t.innerHTML = Array.from({ length: 3 }, () => words.map(w => `<span class="ticker-item">${w}<span class="t-sep">◆</span></span>`).join('')).join('');
 })();
 
@@ -222,6 +223,7 @@ const sleep = ms => new Promise(r => setTimeout(r, ms));
   const items = [...lane.querySelectorAll('.cl2-item')];
   const defaultCaption = cap.firstElementChild?.cloneNode(true);
   let swapTimer;
+  let lockedName = '';
 
   const renderCaption = (name, sector) => {
     cap.replaceChildren();
@@ -265,12 +267,33 @@ const sleep = ms => new Promise(r => setTimeout(r, ms));
   };
 
   items.forEach(item => {
-    item.addEventListener('pointerenter', () => activate(item));
+    item.addEventListener('pointerenter', () => {
+      if (!lockedName) activate(item);
+    });
     item.addEventListener('focus', () => activate(item));
+    item.addEventListener('click', event => {
+      event.stopPropagation();
+      const name = item.dataset.name || '';
+      if (lockedName === name) {
+        lockedName = '';
+        restore();
+        item.blur();
+        return;
+      }
+      lockedName = name;
+      activate(item);
+    });
   });
-  lane.addEventListener('pointerleave', restore);
+  lane.addEventListener('pointerleave', () => {
+    if (!lockedName) restore();
+  });
   lane.addEventListener('focusout', event => {
-    if (!lane.contains(event.relatedTarget)) restore();
+    if (!lockedName && !lane.contains(event.relatedTarget)) restore();
+  });
+  document.addEventListener('click', event => {
+    if (!lockedName || lane.contains(event.target)) return;
+    lockedName = '';
+    restore();
   });
 
   lane.querySelectorAll('.cl2-item img').forEach(image => {

@@ -7,13 +7,13 @@ import MainLayout from '../layouts/MainLayout.astro';
 @import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Sora:wght@300;400;500;600;700;800&family=DM+Mono:wght@300;400;500&display=swap');
 
 :root {
-  --ink:        #191614;
-  --ink-2:      #5c4f47;
-  --ink-3:      #9c8880;
-  --rust:       #a24a2a;
-  --rust-d:     #85361c;
-  --cream:      #fdf8ef;
-  --line:       rgba(185,165,150,.3);
+  --ink:        #17161f;
+  --ink-2:      #4b4a5a;
+  --ink-3:      #7c7b8c;
+  --rust:       #4a3ad1;
+  --rust-d:     #35279c;
+  --cream:      #ffffff;
+  --line:       rgba(208,208,222,.3);
   --ff-d:       'Instrument Serif', Georgia, serif;
   --ff-b:       'Sora', sans-serif;
   --ff-m:       'DM Mono', monospace;
@@ -24,10 +24,7 @@ html { scroll-behavior: smooth; font-size: 16px; }
 
 body {
   font-family: var(--ff-b);
-  background: 
-    radial-gradient(circle at 92% 4%, rgba(162,74,42,0.08) 0%, transparent 40%),
-    radial-gradient(circle at 6% 18%, rgba(255,226,171,0.15) 0%, transparent 38%),
-    var(--cream);
+  background: var(--cream);
   color: var(--ink);
   line-height: 1.65;
   min-height: 100vh;
@@ -60,7 +57,7 @@ nav {
   display: flex; align-items: center; justify-content: space-between;
   padding: 0 3rem;
   height: 60px;
-  background: rgba(253,248,239,.94);
+  background: rgba(255,255,255,.94);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--line);
@@ -244,7 +241,7 @@ form select:focus,
 form textarea:focus {
   border-color: var(--rust);
   background: rgba(255, 255, 255, 0.4);
-  box-shadow: 0 0 0 4px rgba(162, 74, 42, 0.05);
+  box-shadow: 0 0 0 4px rgba(74,58,209, 0.05);
 }
 
 .sw { position: relative; }
@@ -293,9 +290,9 @@ form textarea {
   cursor: pointer;
   white-space: nowrap;
   transition: all .2s ease;
-  box-shadow: 0 4px 12px rgba(162, 74, 42, 0.2);
+  box-shadow: 0 4px 12px rgba(74,58,209, 0.2);
 }
-.btn:hover { background: var(--rust-d); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(162, 74, 42, 0.3); }
+.btn:hover { background: var(--rust-d); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(74,58,209, 0.3); }
 .btn:active { transform: scale(.98); }
 .btn svg { width: 12px; height: 12px; flex-shrink: 0; transition: transform .2s; }
 .btn:hover svg { transform: translateX(3px); }
@@ -387,7 +384,7 @@ footer strong { color: var(--ink-2); font-weight: 500; }
     <li><a href="/about">About</a></li>
     <li><a href="/careers">Careers</a></li>
   </ul>
-  <a href="/" class="nav-back">
+  <a href="/" class="nav-back" aria-label="Go back" data-smart-back>
     <svg viewBox="0 0 20 20" fill="none"><path d="M12 5l-5 5 5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
     Back
   </a>
@@ -494,11 +491,6 @@ footer strong { color: var(--ink-2); font-weight: 500; }
     </form>
   </section>
 </div>
-
-<footer>
-  <span>&copy; 2026 <strong>Nyx Solution</strong></span>
-  <span>Agentic AI for ERP, TallyPrime &amp; SAP · Bengaluru</span>
-</footer>
 
 <script is:inline>
   const form = document.getElementById('contactForm');

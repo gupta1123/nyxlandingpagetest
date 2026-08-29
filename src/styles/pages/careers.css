@@ -1,16 +1,16 @@
 .careers-page {
-  --career-ink: #1f1a16;
-  --career-soft: #66574e;
-  --career-muted: #9c8880;
-  --career-rust: #a24a2a;
-  --career-rust-dark: #85361c;
-  --career-ivory: #fdf8ef;
-  --career-cream: #fffdf8;
-  --career-line: rgba(185, 165, 150, .42);
+  --career-ink: #17161f;
+  --career-soft: #4b4a5a;
+  --career-muted: #7c7b8c;
+  --career-rust: #4a3ad1;
+  --career-rust-dark: #35279c;
+  --career-ivory: #ffffff;
+  --career-cream: #ffffff;
+  --career-line: rgba(208,208,222, .42);
   min-height: 100vh;
   overflow: hidden;
   color: var(--career-ink);
-  background: radial-gradient(circle at 92% 4%, rgba(162, 74, 42, .12), transparent 34%), var(--career-ivory);
+  background: var(--career-ivory);
 }
 
 .careers-page a { text-decoration: none }
@@ -20,7 +20,7 @@
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(253, 248, 239, .9);
+  background: rgba(255,255,255, .9);
   border-bottom: 1px solid var(--career-line);
   backdrop-filter: blur(18px);
 }
@@ -124,8 +124,8 @@
   padding: 1.2rem;
   border: 1px solid var(--career-line);
   border-radius: 18px;
-  background: rgba(255, 253, 248, .66);
-  box-shadow: 0 22px 60px rgba(81, 50, 33, .1);
+  background: rgba(255,255,255, .66);
+  box-shadow: 0 22px 60px rgba(35,21,81, .1);
 }
 
 .hiring-panel-head {
@@ -142,7 +142,7 @@
 }
 
 .hiring-live { display: inline-flex; align-items: center; gap: .45rem; color: var(--career-rust) }
-.hiring-live i { width: 7px; height: 7px; border-radius: 50%; background: var(--career-rust); box-shadow: 0 0 0 4px rgba(162, 74, 42, .1) }
+.hiring-live i { width: 7px; height: 7px; border-radius: 50%; background: var(--career-rust); box-shadow: 0 0 0 4px rgba(74,58,209, .1) }
 .hiring-count { margin-top: 1.4rem; font-family: 'Instrument Serif', Georgia, serif; font-size: 5.5rem; line-height: .9; color: var(--career-ink) }
 .hiring-panel > p { margin: .55rem 0 1.8rem; color: var(--career-soft) }
 
@@ -191,7 +191,7 @@
   padding: 2rem;
   border-right: 1px solid var(--career-line);
   border-bottom: 1px solid var(--career-line);
-  background: rgba(255, 253, 248, .28);
+  background: rgba(255,255,255, .28);
   transition: background .25s ease, transform .25s ease;
 }
 
@@ -200,36 +200,36 @@
 .benefit-card h3 { margin-top: 3rem; font-family: 'Instrument Serif', Georgia, serif; font-size: 1.65rem; font-weight: 400 }
 .benefit-card p { margin-top: .85rem; font-size: .83rem; font-weight: 300; line-height: 1.7; color: var(--career-soft) }
 
-.roles-section { color: #f9eddb; background: #241b17 }
-.roles-section .career-kicker { color: #d98b6b }
-.roles-section .section-heading h2 { color: #fff7e8 }
+.roles-section { color: #f6f6fa; background: #231551 }
+.roles-section .career-kicker { color: #a99cff }
+.roles-section .section-heading h2 { color: #f6f6fa }
 .role-heading { margin-bottom: 3.5rem }
 .role-list { display: grid; gap: 1.2rem }
 
 .role-card {
   padding: clamp(1.6rem, 4vw, 3rem);
-  border: 1px solid rgba(255, 240, 210, .13);
+  border: 1px solid rgba(244,242,255, .13);
   border-radius: 14px;
   background: rgba(255, 255, 255, .025);
 }
 
 .role-topline, .role-title-row { display: flex; justify-content: space-between; gap: 2rem }
-.role-topline { padding-bottom: 1.25rem; border-bottom: 1px solid rgba(255, 240, 210, .12) }
-.role-status { font-family: 'DM Mono', monospace; font-size: .58rem; letter-spacing: .12em; text-transform: uppercase; color: #d98b6b }
+.role-topline { padding-bottom: 1.25rem; border-bottom: 1px solid rgba(244,242,255, .12) }
+.role-status { font-family: 'DM Mono', monospace; font-size: .58rem; letter-spacing: .12em; text-transform: uppercase; color: #a99cff }
 .role-title-row { align-items: flex-start; padding: 2rem 0 }
-.role-title-row h3 { font-family: 'Instrument Serif', Georgia, serif; font-size: clamp(2rem, 4vw, 3.3rem); font-weight: 400; color: #fff7e8 }
-.role-title-row p { margin-top: .5rem; font-size: .86rem; color: rgba(255, 240, 220, .58) }
+.role-title-row h3 { font-family: 'Instrument Serif', Georgia, serif; font-size: clamp(2rem, 4vw, 3.3rem); font-weight: 400; color: #f6f6fa }
+.role-title-row p { margin-top: .5rem; font-size: .86rem; color: rgba(244,242,255, .58) }
 
 .experience-pill {
   flex: 0 0 auto;
   padding: .55rem .75rem;
-  border: 1px solid rgba(217, 139, 107, .35);
+  border: 1px solid rgba(169,156,255, .35);
   border-radius: 999px;
   font-family: 'DM Mono', monospace;
   font-size: .59rem;
   letter-spacing: .05em;
   text-transform: uppercase;
-  color: #e9a98e;
+  color: #a99cff;
 }
 
 .role-detail-grid {
@@ -237,10 +237,10 @@
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
   padding: 1.8rem 0;
-  border-top: 1px solid rgba(255, 240, 210, .12);
+  border-top: 1px solid rgba(244,242,255, .12);
 }
 
-.role-detail-grid h4 { margin: 0 0 1rem; font-family: 'DM Mono', monospace; font-size: .61rem; font-weight: 400; letter-spacing: .12em; text-transform: uppercase; color: #d98b6b }
+.role-detail-grid h4 { margin: 0 0 1rem; font-family: 'DM Mono', monospace; font-size: .61rem; font-weight: 400; letter-spacing: .12em; text-transform: uppercase; color: #a99cff }
 .role-detail-grid ul { display: grid; gap: .72rem }
 
 .role-detail-grid li {
@@ -248,12 +248,12 @@
   padding-left: 1rem;
   font-size: .79rem;
   line-height: 1.65;
-  color: rgba(255, 240, 220, .65);
+  color: rgba(244,242,255, .65);
 }
 
-.role-detail-grid li::before { content: ''; position: absolute; top: .62em; left: 0; width: 4px; height: 4px; border-radius: 50%; background: #d98b6b }
-.role-apply { display: inline-flex; align-items: center; gap: .65rem; margin-top: .4rem; font-size: .8rem; font-weight: 600; color: #fff7e8 }
-.role-apply span { color: #d98b6b; transition: transform .2s ease }
+.role-detail-grid li::before { content: ''; position: absolute; top: .62em; left: 0; width: 4px; height: 4px; border-radius: 50%; background: #a99cff }
+.role-apply { display: inline-flex; align-items: center; gap: .65rem; margin-top: .4rem; font-size: .8rem; font-weight: 600; color: #f6f6fa }
+.role-apply span { color: #a99cff; transition: transform .2s ease }
 .role-apply:hover span { transform: translate(3px, -3px) }
 .application-section { padding: 5rem 0 }
 

@@ -1,14 +1,14 @@
 /* ── TOKENS ── */
 :root{
-  --ivory:#fdf8ef;--ivory-2:#f5eddc;--ivory-3:#ede1cc;
-  --rust:#a24a2a;--rust-lt:#c55e38;--rust-dk:#7a3318;
-  --char:#1f1a16;--ink:#5f5148;--ink-lt:#8a7060;
-  --line:rgba(216,200,179,.78);--line-lt:rgba(216,200,179,.42);
-  --dark:#18100c;--dark-2:#2e1f19;
-  --green:#2e8c4f;--amber:#c07820;--blue:#3c5a8c;--purple:#6b3c8c;
+  --ivory:#ffffff;--ivory-2:#f6f6fa;--ivory-3:#eeeef5;
+  --rust:#4a3ad1;--rust-lt:#6a5af0;--rust-dk:#35279c;
+  --char:#17161f;--ink:#4b4a5a;--ink-lt:#7c7b8c;
+  --line:#e5e5ee;--line-lt:rgba(229,229,238,.42);
+  --dark:#231551;--dark-2:#2e1c6b;
+  --green:#1f7a45;--amber:#b26a00;--blue:#0f6b7a;--purple:#4a3ad1;
   --ff-d:'Instrument Serif',Georgia,serif;
   --ff-b:'Sora',sans-serif;--ff-m:'DM Mono',monospace;
-  --sh:0 20px 50px rgba(75,42,21,.12);
+  --sh:0 20px 50px rgba(35,21,81,.12);
 }
 
 .school-erp-page {
@@ -36,8 +36,8 @@
 @keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
 @keyframes fadeScale{from{opacity:0;transform:scale(.93)}to{opacity:1;transform:scale(1)}}
 @keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
-@keyframes ping{0%{box-shadow:0 0 0 0 rgba(162,74,42,.5)}70%{box-shadow:0 0 0 9px rgba(162,74,42,0)}100%{box-shadow:0 0 0 0 rgba(162,74,42,0)}}
-@keyframes pingGreen{0%{box-shadow:0 0 0 0 rgba(46,140,79,.5)}70%{box-shadow:0 0 0 8px rgba(46,140,79,0)}100%{box-shadow:0 0 0 0 rgba(46,140,79,0)}}
+@keyframes ping{0%{box-shadow:0 0 0 0 rgba(74,58,209,.5)}70%{box-shadow:0 0 0 9px rgba(74,58,209,0)}100%{box-shadow:0 0 0 0 rgba(74,58,209,0)}}
+@keyframes pingGreen{0%{box-shadow:0 0 0 0 rgba(31,122,69,.5)}70%{box-shadow:0 0 0 8px rgba(31,122,69,0)}100%{box-shadow:0 0 0 0 rgba(31,122,69,0)}}
 @keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 @keyframes gp{0%,100%{opacity:.5;transform:scale(1)}50%{opacity:.8;transform:scale(1.06)}}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
@@ -59,14 +59,14 @@
 .school-erp-page .rf{animation:fadeScale .7s cubic-bezier(.22,.85,.44,1) both}
 
 /* ── NAV ── */
-.school-erp-page nav{position:sticky;top:0;z-index:500;background:rgba(253,248,239,.92);backdrop-filter:blur(18px);border-bottom:1px solid var(--line-lt)}
+.school-erp-page nav{position:sticky;top:0;z-index:500;background:rgba(255,255,255,.92);backdrop-filter:blur(18px);border-bottom:1px solid var(--line-lt)}
 .school-erp-page .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:.88rem 0}
 .school-erp-page .brand{font-family:var(--ff-d);font-size:1.42rem;font-weight:400;color:var(--char);letter-spacing:.01em;display:flex;align-items:baseline;gap:3px}
 .school-erp-page .brand-dot{width:5px;height:5px;border-radius:50%;background:var(--rust);margin-bottom:2px}
 .school-erp-page .nav-links{display:flex;gap:2rem;list-style:none}
 .school-erp-page .nav-links a{font-family:var(--ff-m);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);transition:color .2s}
 .school-erp-page .nav-links a:hover{color:var(--rust)}
-.school-erp-page .nav-cta{font-family:var(--ff-m);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;background:var(--char);color:var(--ivory);border:none;padding:.58rem 1.15rem;border-radius:3px;cursor:pointer;transition:background .2s}
+.school-erp-page .nav-cta{font-family:var(--ff-m);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;background:var(--rust);color:#fff;border:none;padding:.58rem 1.15rem;border-radius:3px;cursor:pointer;transition:background .2s}
 .school-erp-page .nav-cta:hover{background:var(--rust-dk)}
 
 /* ── TICKER FIX ── */
@@ -82,9 +82,9 @@
 .school-erp-page .eyebrow{font-size:.7rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--rust);display:block;margin-bottom:.55rem}
 .school-erp-page .sh2{font-family:var(--ff-d);font-size:clamp(1.85rem,3.2vw,2.65rem);font-weight:400;line-height:1.1;letter-spacing:-.018em;color:var(--char)}
 .school-erp-page .sh2 em{font-style:italic;color:var(--rust)}
-.school-erp-page .btn-p{display:inline-flex;align-items:center;gap:.45rem;background:var(--char);color:var(--ivory);font-family:var(--ff-m);font-weight:500;font-size:.76rem;letter-spacing:.09em;text-transform:uppercase;padding:.78rem 1.4rem;border-radius:3px;transition:transform .2s,box-shadow .2s,background .2s}
-.school-erp-page .btn-p:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(31,26,22,.2);background:var(--rust-dk)}
-.school-erp-page .btn-g{display:inline-flex;align-items:center;gap:.45rem;border:1.5px solid var(--line);color:var(--char);font-family:var(--ff-m);font-weight:500;font-size:.76rem;letter-spacing:.09em;text-transform:uppercase;padding:.75rem 1.4rem;border-radius:3px;background:rgba(255,250,242,.7);transition:border-color .2s,transform .2s}
+.school-erp-page .btn-p{display:inline-flex;align-items:center;gap:.45rem;background:var(--rust);color:#fff;font-family:var(--ff-m);font-weight:500;font-size:.76rem;letter-spacing:.09em;text-transform:uppercase;padding:.78rem 1.4rem;border-radius:3px;transition:transform .2s,box-shadow .2s,background .2s}
+.school-erp-page .btn-p:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(35,21,81,.2);background:var(--rust-dk)}
+.school-erp-page .btn-g{display:inline-flex;align-items:center;gap:.45rem;border:1.5px solid var(--line);color:var(--char);font-family:var(--ff-m);font-weight:500;font-size:.76rem;letter-spacing:.09em;text-transform:uppercase;padding:.75rem 1.4rem;border-radius:3px;background:var(--ivory-2);transition:border-color .2s,transform .2s}
 .school-erp-page .btn-g:hover{border-color:var(--rust);transform:translateY(-2px)}
 .school-erp-page .cta-row{display:flex;gap:.85rem;flex-wrap:wrap}
 .school-erp-page .cta-row.c{justify-content:center}
@@ -93,7 +93,7 @@
    HERO
 ══════════════════════════════ */
 .school-erp-page .hero{padding:5.5rem 0 4.5rem;position:relative;overflow:hidden;min-height:92vh;display:flex;flex-direction:column;justify-content:center}
-.school-erp-page .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 55% at 80% 15%,rgba(162,74,42,.1),transparent),radial-gradient(ellipse 50% 55% at 5% 85%,rgba(255,215,140,.16),transparent);pointer-events:none}
+.school-erp-page .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 55% at 80% 15%,rgba(74,58,209,.1),transparent),radial-gradient(ellipse 50% 55% at 5% 85%,rgba(169,156,255,.16),transparent);pointer-events:none}
 .school-erp-page .hero::after{content:'';position:absolute;inset:0;background-image:linear-gradient(var(--line-lt) 1px,transparent 1px),linear-gradient(90deg,var(--line-lt) 1px,transparent 1px);background-size:52px 52px;mask-image:radial-gradient(ellipse 80% 80% at 68% 40%,black 0%,transparent 100%);pointer-events:none}
 
 .school-erp-page .hero-grid{display:grid;grid-template-columns:1fr 1.08fr;gap:4rem;align-items:center}
@@ -105,17 +105,17 @@
 .school-erp-page .hero-lead{font-size:1.02rem;font-weight:300;color:var(--ink);line-height:1.82;max-width:48ch;margin-bottom:1.9rem}
 
 /* ── HERO RIGHT: ROLE SWITCHER WINDOW ── */
-.school-erp-page .role-window{border:1.5px solid var(--line);border-radius:20px;background:rgba(255,252,242,.97);box-shadow:var(--sh);overflow:hidden;position:relative}
-.school-erp-page .rw-bar{display:flex;align-items:center;gap:.5rem;padding:.65rem 1rem;background:rgba(245,235,218,.72);border-bottom:1px solid var(--line-lt)}
+.school-erp-page .role-window{border:1.5px solid var(--line);border-radius:20px;background:rgba(255,255,255,.97);box-shadow:var(--sh);overflow:hidden;position:relative}
+.school-erp-page .rw-bar{display:flex;align-items:center;gap:.5rem;padding:.65rem 1rem;background:rgba(246,246,250,.72);border-bottom:1px solid var(--line-lt)}
 .school-erp-page .rw-dot{width:9px;height:9px;border-radius:50%}
-.school-erp-page .rwd-r{background:#f06257}.school-erp-page .rwd-y{background:#f5a623}.school-erp-page .rwd-g{background:#57c257}
+.school-erp-page .rwd-r{background:#b3261e}.school-erp-page .rwd-y{background:#b26a00}.school-erp-page .rwd-g{background:#1f7a45}
 .school-erp-page .rw-title{font-family:var(--ff-m);font-size:.68rem;font-weight:600;color:var(--ink-lt);margin-left:.4rem;letter-spacing:.05em}
 
 /* Role tabs */
-.school-erp-page .role-tabs{display:flex;border-bottom:1px solid var(--line-lt);background:rgba(245,235,218,.4)}
+.school-erp-page .role-tabs{display:flex;border-bottom:1px solid var(--line-lt);background:rgba(246,246,250,.4)}
 .school-erp-page .role-tab{flex:1;font-family:var(--ff-m);font-size:.62rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:.55rem .4rem;text-align:center;cursor:pointer;color:var(--ink-lt);border-right:1px solid var(--line-lt);transition:background .2s,color .2s;user-select:none}
 .school-erp-page .role-tab:last-child{border-right:none}
-.school-erp-page .role-tab.active{color:var(--rust);background:rgba(162,74,42,.06)}
+.school-erp-page .role-tab.active{color:var(--rust);background:rgba(74,58,209,.06)}
 .school-erp-page .role-tab .role-emoji{display:block;font-size:.95rem;margin-bottom:.15rem}
 
 /* Role views */
@@ -136,38 +136,38 @@
 /* Teacher view */
 .school-erp-page .tv-header{font-family:var(--ff-m);font-size:.68rem;font-weight:600;color:var(--ink);margin-bottom:.6rem}
 .school-erp-page .tv-grid{display:grid;grid-template-columns:repeat(8,1fr);gap:.25rem;margin-bottom:.75rem}
-.school-erp-page .tv-cell{height:24px;border-radius:4px;background:rgba(162,74,42,.06);border:1px solid rgba(162,74,42,.08);display:flex;align-items:center;justify-content:center;font-family:var(--ff-m);font-size:.52rem;font-weight:600;color:transparent;transition:background .25s,color .25s}
-.school-erp-page .tv-cell.p{background:rgba(46,140,79,.14);border-color:rgba(46,140,79,.25);color:#1c6535}
-.school-erp-page .tv-cell.a{background:rgba(162,74,42,.12);border-color:rgba(162,74,42,.22);color:var(--rust)}
-.school-erp-page .tv-hw{background:rgba(162,74,42,.04);border:1px solid var(--line-lt);border-radius:9px;padding:.65rem;margin-bottom:.5rem}
+.school-erp-page .tv-cell{height:24px;border-radius:4px;background:rgba(74,58,209,.06);border:1px solid rgba(74,58,209,.08);display:flex;align-items:center;justify-content:center;font-family:var(--ff-m);font-size:.52rem;font-weight:600;color:transparent;transition:background .25s,color .25s}
+.school-erp-page .tv-cell.p{background:rgba(31,122,69,.14);border-color:rgba(31,122,69,.25);color:#1f7a45}
+.school-erp-page .tv-cell.a{background:rgba(74,58,209,.12);border-color:rgba(74,58,209,.22);color:var(--rust)}
+.school-erp-page .tv-hw{background:rgba(74,58,209,.04);border:1px solid var(--line-lt);border-radius:9px;padding:.65rem;margin-bottom:.5rem}
 .school-erp-page .tv-hw-label{font-family:var(--ff-m);font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-lt);margin-bottom:.4rem}
 .school-erp-page .tv-hw-item{display:flex;align-items:center;justify-content:space-between;font-size:.76rem;color:var(--char);margin-bottom:.28rem;opacity:0}
 .school-erp-page .tv-hw-item.show{animation:rowIn .35s ease both}
 .school-erp-page .tv-hw-tag{font-family:var(--ff-m);font-size:.6rem;border-radius:999px;padding:.1rem .42rem;font-weight:600}
-.school-erp-page .tag-done{background:rgba(46,140,79,.1);color:#1c6535;border:1px solid rgba(46,140,79,.2)}
-.school-erp-page .tag-pending{background:rgba(192,120,32,.1);color:var(--amber);border:1px solid rgba(192,120,32,.2)}
+.school-erp-page .tag-done{background:rgba(31,122,69,.1);color:#1f7a45;border:1px solid rgba(31,122,69,.2)}
+.school-erp-page .tag-pending{background:rgba(178,106,0,.1);color:var(--amber);border:1px solid rgba(178,106,0,.2)}
 
 /* Parent view */
 .school-erp-page .parv-switch{display:flex;gap:.35rem;margin-bottom:.75rem}
 .school-erp-page .parv-child-btn{flex:1;font-family:var(--ff-m);font-size:.62rem;font-weight:600;letter-spacing:.06em;padding:.42rem;text-align:center;border-radius:8px;border:1.5px solid var(--line-lt);color:var(--ink-lt);cursor:pointer;transition:all .2s}
-.school-erp-page .parv-child-btn.active{background:rgba(162,74,42,.08);border-color:rgba(162,74,42,.3);color:var(--rust)}
+.school-erp-page .parv-child-btn.active{background:rgba(74,58,209,.08);border-color:rgba(74,58,209,.3);color:var(--rust)}
 .school-erp-page .parv-info{display:grid;grid-template-columns:1fr 1fr;gap:.45rem;margin-bottom:.6rem}
 .school-erp-page .parv-card{background:rgba(255,255,255,.55);border:1px solid var(--line-lt);border-radius:9px;padding:.65rem}
 .school-erp-page .parv-card-label{font-family:var(--ff-m);font-size:.55rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-lt);margin-bottom:.3rem}
 .school-erp-page .parv-card-val{font-size:.8rem;font-weight:600;color:var(--char)}
-.school-erp-page .parv-chat{background:rgba(162,74,42,.03);border:1px solid var(--line-lt);border-radius:9px;padding:.65rem;display:flex;flex-direction:column;gap:.4rem}
+.school-erp-page .parv-chat{background:rgba(74,58,209,.03);border:1px solid var(--line-lt);border-radius:9px;padding:.65rem;display:flex;flex-direction:column;gap:.4rem}
 .school-erp-page .parv-chat-label{font-family:var(--ff-m);font-size:.55rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-lt);margin-bottom:.1rem}
 .school-erp-page .chat-bubble{display:flex;gap:.4rem;align-items:flex-end;opacity:0}
 .school-erp-page .chat-bubble.show{animation:bubbleIn .35s cubic-bezier(.22,.85,.44,1) both}
 .school-erp-page .chat-bubble.teacher{justify-content:flex-start}
 .school-erp-page .chat-bubble.parent{justify-content:flex-end}
 .school-erp-page .chat-text{font-size:.72rem;padding:.38rem .6rem;border-radius:8px;max-width:80%;line-height:1.45}
-.school-erp-page .teacher .chat-text{background:rgba(162,74,42,.08);color:var(--char);border-bottom-left-radius:2px}
-.school-erp-page .parent .chat-text{background:var(--rust);color:#fff8ee;border-bottom-right-radius:2px}
+.school-erp-page .teacher .chat-text{background:rgba(74,58,209,.08);color:var(--char);border-bottom-left-radius:2px}
+.school-erp-page .parent .chat-text{background:var(--rust);color:#f4f2ff;border-bottom-right-radius:2px}
 .school-erp-page .chat-time{font-family:var(--ff-m);font-size:.5rem;color:var(--ink-lt);flex-shrink:0}
 
 /* floating badge */
-.school-erp-page .hero-float{position:absolute;display:flex;align-items:center;gap:.4rem;font-size:.72rem;font-weight:600;color:#5a3d2e;background:rgba(255,248,232,.96);border:1.5px solid var(--line);border-radius:999px;padding:.42rem .82rem;box-shadow:0 6px 22px rgba(75,42,21,.13);white-space:nowrap;animation:floatY 3.2s ease-in-out infinite}
+.school-erp-page .hero-float{position:absolute;display:flex;align-items:center;gap:.4rem;font-size:.72rem;font-weight:600;color:#4b4a5a;background:rgba(246,246,250,.96);border:1.5px solid var(--line);border-radius:999px;padding:.42rem .82rem;box-shadow:0 6px 22px rgba(35,21,81,.13);white-space:nowrap;animation:floatY 3.2s ease-in-out infinite}
 .school-erp-page .hero-float svg{width:13px;height:13px;flex-shrink:0;color:var(--rust)}
 .school-erp-page .hf1{bottom:-1rem;left:-2rem;animation-delay:0s}
 .school-erp-page .hf2{top:1rem;right:-2rem;animation-delay:1.6s}
@@ -176,49 +176,49 @@
 .school-erp-page .stats-bar{background:var(--dark-2);display:grid;grid-template-columns:repeat(4,1fr);gap:1px;overflow:hidden}
 .school-erp-page .stat-cell{text-align:center;padding:2.2rem 1rem;position:relative}
 .school-erp-page .stat-cell:not(:last-child)::after{content:'';position:absolute;right:0;top:25%;bottom:25%;width:1px;background:rgba(255,255,255,.07)}
-.school-erp-page .stat-n{font-family:var(--ff-d);font-size:2.6rem;font-style:italic;color:rgba(218,149,106,.8);display:block;line-height:1;margin-bottom:.35rem}
+.school-erp-page .stat-n{font-family:var(--ff-d);font-size:2.6rem;font-style:italic;color:rgba(169,156,255,.8);display:block;line-height:1;margin-bottom:.35rem}
 .school-erp-page .stat-l{font-size:.72rem;color:rgba(255,255,255,.35);letter-spacing:.06em;text-transform:uppercase}
 
 /* ── OVERVIEW DARK ── */
-.school-erp-page .overview{background:var(--dark);color:#f0e0ca;position:relative;overflow:hidden;padding:5.5rem 0}
-.school-erp-page .overview::before{content:'';position:absolute;top:-20%;right:-8%;width:500px;height:500px;background:radial-gradient(circle,rgba(162,74,42,.11),transparent 65%);pointer-events:none}
+.school-erp-page .overview{background:var(--dark);color:#eeeef5;position:relative;overflow:hidden;padding:5.5rem 0}
+.school-erp-page .overview::before{content:'';position:absolute;top:-20%;right:-8%;width:500px;height:500px;background:radial-gradient(circle,rgba(74,58,209,.11),transparent 65%);pointer-events:none}
 .school-erp-page .overview-inner{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
-.school-erp-page .ov-left .sh2{color:#f0e0ca;max-width:none}
-.school-erp-page .ov-left .sh2 em{color:#d4906a}
-.school-erp-page .ov-left p{color:#c8a88a;font-weight:300;line-height:1.85;margin-top:.75rem}
+.school-erp-page .ov-left .sh2{color:#eeeef5;max-width:none}
+.school-erp-page .ov-left .sh2 em{color:#a99cff}
+.school-erp-page .ov-left p{color:#d0d0de;font-weight:300;line-height:1.85;margin-top:.75rem}
 .school-erp-page .ov-left p+p{margin-top:.65rem}
 
 /* OVERVIEW RIGHT: role architecture diagram */
 .school-erp-page .role-arch{position:relative;width:100%;display:flex;flex-direction:column;gap:.65rem}
-.school-erp-page .role-arch-title{font-family:var(--ff-m);font-size:.65rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(200,168,138,.5);margin-bottom:.3rem}
+.school-erp-page .role-arch-title{font-family:var(--ff-m);font-size:.65rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(207,203,222,.5);margin-bottom:.3rem}
 .school-erp-page .arch-hub{
   display:flex;align-items:center;justify-content:center;
   background:linear-gradient(135deg,var(--rust-dk),var(--rust));
   border-radius:12px;padding:.85rem;
   font-family:var(--ff-m);font-size:.72rem;font-weight:600;letter-spacing:.08em;
-  color:#fde8d0;text-align:center;
-  box-shadow:0 0 28px rgba(162,74,42,.3);
+  color:#eeeef5;text-align:center;
+  box-shadow:0 0 28px rgba(74,58,209,.3);
   opacity:0;
 }
 .school-erp-page .arch-hub.show{animation:fadeUp .5s ease both}
 .school-erp-page .arch-roles{display:grid;grid-template-columns:repeat(4,1fr);gap:.5rem}
 .school-erp-page .arch-role{
-  background:rgba(255,255,255,.06);border:1px solid rgba(255,240,210,.12);
+  background:rgba(255,255,255,.06);border:1px solid rgba(244,242,255,.12);
   border-radius:10px;padding:.75rem .5rem;text-align:center;
   opacity:0;
 }
 .school-erp-page .arch-role.show{animation:fadeUp .5s cubic-bezier(.22,.85,.44,1) both}
 .school-erp-page .arch-role-emoji{font-size:1.3rem;display:block;margin-bottom:.3rem}
-.school-erp-page .arch-role-name{font-family:var(--ff-m);font-size:.6rem;font-weight:600;letter-spacing:.08em;color:rgba(255,240,210,.7);text-transform:uppercase}
+.school-erp-page .arch-role-name{font-family:var(--ff-m);font-size:.6rem;font-weight:600;letter-spacing:.08em;color:rgba(244,242,255,.7);text-transform:uppercase}
 .school-erp-page .arch-connector{height:24px;display:flex;align-items:center;justify-content:center}
-.school-erp-page .arch-connector-line{width:1px;height:100%;background:linear-gradient(to bottom,rgba(162,74,42,.3),rgba(162,74,42,.1));transform:scaleY(0);transform-origin:top;transition:transform .5s ease}
+.school-erp-page .arch-connector-line{width:1px;height:100%;background:linear-gradient(to bottom,rgba(74,58,209,.3),rgba(74,58,209,.1));transform:scaleY(0);transform-origin:top;transition:transform .5s ease}
 .school-erp-page .arch-connector-line.show{transform:scaleY(1)}
 .school-erp-page .arch-perm-bars{display:grid;grid-template-columns:repeat(4,1fr);gap:.5rem;margin-top:.35rem}
-.school-erp-page .arch-perm{background:rgba(255,255,255,.04);border:1px solid rgba(255,240,210,.08);border-radius:8px;padding:.55rem .45rem;text-align:center}
-.school-erp-page .arch-perm-label{font-family:var(--ff-m);font-size:.52rem;color:rgba(200,168,138,.5);letter-spacing:.06em;text-transform:uppercase;margin-bottom:.35rem}
+.school-erp-page .arch-perm{background:rgba(255,255,255,.04);border:1px solid rgba(244,242,255,.08);border-radius:8px;padding:.55rem .45rem;text-align:center}
+.school-erp-page .arch-perm-label{font-family:var(--ff-m);font-size:.52rem;color:rgba(207,203,222,.5);letter-spacing:.06em;text-transform:uppercase;margin-bottom:.35rem}
 .school-erp-page .arch-perm-bar{height:4px;background:rgba(255,255,255,.06);border-radius:999px;overflow:hidden;margin-bottom:.25rem}
 .school-erp-page .arch-perm-fill{height:100%;border-radius:999px;width:0;transition:width 1.2s cubic-bezier(.22,.85,.44,1)}
-.school-erp-page .arch-perm-val{font-family:var(--ff-m);font-size:.55rem;color:rgba(200,168,138,.6)}
+.school-erp-page .arch-perm-val{font-family:var(--ff-m);font-size:.55rem;color:rgba(207,203,222,.6)}
 
 /* ══════════════════════════════
    FEATURE ROWS
@@ -231,8 +231,8 @@
 .school-erp-page .fcp p{font-size:.97rem;font-weight:300;color:var(--ink);line-height:1.78;margin-bottom:1rem}
 .school-erp-page .bl{list-style:none;display:grid;gap:.55rem}
 .school-erp-page .bl li{position:relative;padding-left:1.1rem;font-size:.9rem;color:var(--ink)}
-.school-erp-page .bl li::before{content:'';position:absolute;left:0;top:.62em;width:6px;height:6px;border-radius:50%;background:rgba(162,74,42,.5)}
-.school-erp-page .illu{border:1.5px solid var(--line);border-radius:18px;overflow:hidden;position:relative;background:rgba(255,252,244,.9);box-shadow:var(--sh)}
+.school-erp-page .bl li::before{content:'';position:absolute;left:0;top:.62em;width:6px;height:6px;border-radius:50%;background:rgba(74,58,209,.5)}
+.school-erp-page .illu{border:1.5px solid var(--line);border-radius:18px;overflow:hidden;position:relative;background:rgba(255,255,255,.9);box-shadow:var(--sh)}
 
 /* ─ PANEL 1: RBAC PERMISSION MATRIX ─ */
 .school-erp-page .perm-panel{padding:1.3rem;min-height:320px;display:flex;flex-direction:column;gap:.65rem}
@@ -240,13 +240,13 @@
 .school-erp-page .perm-table{width:100%;border-collapse:collapse}
 .school-erp-page .perm-table th{font-family:var(--ff-m);font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-lt);padding:.35rem .5rem;text-align:center;border-bottom:1px solid var(--line-lt)}
 .school-erp-page .perm-table th:first-child{text-align:left}
-.school-erp-page .perm-table td{padding:.38rem .5rem;text-align:center;border-bottom:1px solid rgba(216,200,179,.25);font-family:var(--ff-m);font-size:.62rem;color:var(--ink-lt)}
+.school-erp-page .perm-table td{padding:.38rem .5rem;text-align:center;border-bottom:1px solid rgba(229,229,238,.25);font-family:var(--ff-m);font-size:.62rem;color:var(--ink-lt)}
 .school-erp-page .perm-table td:first-child{text-align:left;font-size:.72rem;font-weight:500;color:var(--char)}
 .school-erp-page .perm-table tr:last-child td{border-bottom:none}
 .school-erp-page .perm-dot{display:inline-block;width:14px;height:14px;border-radius:50%;opacity:0;transition:opacity .3s}
-.school-erp-page .perm-dot.full{background:rgba(46,140,79,.2);border:2px solid rgba(46,140,79,.5)}
-.school-erp-page .perm-dot.part{background:rgba(192,120,32,.15);border:2px solid rgba(192,120,32,.45)}
-.school-erp-page .perm-dot.none{background:rgba(162,74,42,.08);border:2px solid rgba(162,74,42,.2)}
+.school-erp-page .perm-dot.full{background:rgba(31,122,69,.2);border:2px solid rgba(31,122,69,.5)}
+.school-erp-page .perm-dot.part{background:rgba(178,106,0,.15);border:2px solid rgba(178,106,0,.45)}
+.school-erp-page .perm-dot.none{background:rgba(74,58,209,.08);border:2px solid rgba(74,58,209,.2)}
 .school-erp-page .perm-dot.show{opacity:1}
 .school-erp-page .perm-legend{display:flex;gap:1rem;margin-top:.5rem}
 .school-erp-page .perm-leg{display:flex;align-items:center;gap:.35rem;font-family:var(--ff-m);font-size:.58rem;color:var(--ink-lt)}
@@ -258,16 +258,16 @@
 .school-erp-page .cp-title{font-family:var(--ff-m);font-size:.68rem;font-weight:600;color:var(--char)}
 .school-erp-page .cp-date{font-family:var(--ff-m);font-size:.6rem;color:var(--ink-lt)}
 .school-erp-page .att-grid{display:grid;grid-template-columns:repeat(9,1fr);gap:.22rem}
-.school-erp-page .att-cell{height:22px;border-radius:4px;background:rgba(162,74,42,.05);border:1px solid rgba(162,74,42,.08);display:flex;align-items:center;justify-content:center;font-family:var(--ff-m);font-size:.48rem;font-weight:700;color:transparent;transition:background .25s,color .25s}
-.school-erp-page .att-cell.p{background:rgba(46,140,79,.14);border-color:rgba(46,140,79,.25);color:#1c6535}
-.school-erp-page .att-cell.a{background:rgba(162,74,42,.12);border-color:rgba(162,74,42,.22);color:var(--rust)}
+.school-erp-page .att-cell{height:22px;border-radius:4px;background:rgba(74,58,209,.05);border:1px solid rgba(74,58,209,.08);display:flex;align-items:center;justify-content:center;font-family:var(--ff-m);font-size:.48rem;font-weight:700;color:transparent;transition:background .25s,color .25s}
+.school-erp-page .att-cell.p{background:rgba(31,122,69,.14);border-color:rgba(31,122,69,.25);color:#1f7a45}
+.school-erp-page .att-cell.a{background:rgba(74,58,209,.12);border-color:rgba(74,58,209,.22);color:var(--rust)}
 .school-erp-page .att-summary{display:flex;gap:.5rem}
 .school-erp-page .att-sum-card{flex:1;background:rgba(255,255,255,.5);border:1px solid var(--line-lt);border-radius:8px;padding:.5rem;text-align:center}
 .school-erp-page .att-sum-n{font-family:var(--ff-d);font-size:1.4rem;font-style:italic;color:var(--rust);line-height:1}
 .school-erp-page .att-sum-l{font-family:var(--ff-m);font-size:.52rem;color:var(--ink-lt);text-transform:uppercase;letter-spacing:.08em}
-.school-erp-page .hw-section{background:rgba(162,74,42,.04);border:1px solid var(--line-lt);border-radius:9px;padding:.65rem}
+.school-erp-page .hw-section{background:rgba(74,58,209,.04);border:1px solid var(--line-lt);border-radius:9px;padding:.65rem}
 .school-erp-page .hw-label{font-family:var(--ff-m);font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-lt);margin-bottom:.4rem}
-.school-erp-page .hw-item{display:flex;align-items:center;justify-content:space-between;font-size:.75rem;color:var(--char);padding:.28rem 0;border-bottom:1px solid rgba(216,200,179,.25);opacity:0}
+.school-erp-page .hw-item{display:flex;align-items:center;justify-content:space-between;font-size:.75rem;color:var(--char);padding:.28rem 0;border-bottom:1px solid rgba(229,229,238,.25);opacity:0}
 .school-erp-page .hw-item:last-child{border-bottom:none}
 .school-erp-page .hw-item.show{animation:rowIn .4s cubic-bezier(.22,.85,.44,1) both}
 .school-erp-page .hw-tag{font-family:var(--ff-m);font-size:.58rem;border-radius:999px;padding:.1rem .42rem;font-weight:600}
@@ -280,24 +280,24 @@
 .school-erp-page .cp-chat-role{font-family:var(--ff-m);font-size:.6rem;color:var(--ink-lt);text-transform:uppercase;letter-spacing:.07em}
 .school-erp-page .cp-chat-live{display:flex;align-items:center;gap:.3rem;margin-left:auto;font-family:var(--ff-m);font-size:.58rem;color:var(--green)}
 .school-erp-page .cp-chat-live-dot{width:5px;height:5px;border-radius:50%;background:var(--green);animation:pingGreen 2s ease-in-out infinite}
-.school-erp-page .chat-thread{flex:1;display:flex;flex-direction:column;gap:.45rem;background:rgba(162,74,42,.02);border:1px solid var(--line-lt);border-radius:10px;padding:.75rem;overflow:hidden}
+.school-erp-page .chat-thread{flex:1;display:flex;flex-direction:column;gap:.45rem;background:rgba(74,58,209,.02);border:1px solid var(--line-lt);border-radius:10px;padding:.75rem;overflow:hidden}
 .school-erp-page .ct-bubble{display:flex;gap:.35rem;align-items:flex-end;opacity:0}
 .school-erp-page .ct-bubble.show{animation:bubbleIn .4s cubic-bezier(.22,.85,.44,1) both}
 .school-erp-page .ct-bubble.t{justify-content:flex-start}
 .school-erp-page .ct-bubble.par{justify-content:flex-end}
 .school-erp-page .ct-av{width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.55rem;font-weight:700;flex-shrink:0}
 .school-erp-page .ct-text{font-size:.74rem;padding:.42rem .65rem;border-radius:9px;max-width:78%;line-height:1.45}
-.school-erp-page .ct-bubble.t .ct-text{background:rgba(162,74,42,.08);color:var(--char);border-bottom-left-radius:2px}
-.school-erp-page .ct-bubble.par .ct-text{background:var(--rust);color:#fff8ee;border-bottom-right-radius:2px}
+.school-erp-page .ct-bubble.t .ct-text{background:rgba(74,58,209,.08);color:var(--char);border-bottom-left-radius:2px}
+.school-erp-page .ct-bubble.par .ct-text{background:var(--rust);color:#f4f2ff;border-bottom-right-radius:2px}
 .school-erp-page .ct-time{font-family:var(--ff-m);font-size:.48rem;color:var(--ink-lt);flex-shrink:0}
-.school-erp-page .ct-notif{display:flex;align-items:center;gap:.45rem;background:rgba(46,140,79,.06);border:1px solid rgba(46,140,79,.15);border-radius:8px;padding:.45rem .65rem;font-size:.72rem;color:var(--char);font-weight:500;opacity:0}
+.school-erp-page .ct-notif{display:flex;align-items:center;gap:.45rem;background:rgba(31,122,69,.06);border:1px solid rgba(31,122,69,.15);border-radius:8px;padding:.45rem .65rem;font-size:.72rem;color:var(--char);font-weight:500;opacity:0}
 .school-erp-page .ct-notif.show{animation:notifIn .4s cubic-bezier(.22,.85,.44,1) both}
 
 /* ─ PANEL 4: CHILD SWITCHER ─ */
 .school-erp-page .child-panel{padding:1.3rem;min-height:320px;display:flex;flex-direction:column;gap:.65rem}
 .school-erp-page .child-tabs{display:flex;gap:.4rem}
 .school-erp-page .child-tab{flex:1;border-radius:9px;padding:.55rem;text-align:center;border:1.5px solid var(--line-lt);cursor:pointer;transition:all .25s}
-.school-erp-page .child-tab.active{border-color:rgba(162,74,42,.35);background:rgba(162,74,42,.06)}
+.school-erp-page .child-tab.active{border-color:rgba(74,58,209,.35);background:rgba(74,58,209,.06)}
 .school-erp-page .child-tab-emoji{font-size:1.1rem;display:block;margin-bottom:.15rem}
 .school-erp-page .child-tab-name{font-family:var(--ff-m);font-size:.6rem;font-weight:600;color:var(--ink-lt);text-transform:uppercase;letter-spacing:.06em}
 .school-erp-page .child-tab.active .child-tab-name{color:var(--rust)}
@@ -309,10 +309,10 @@
 .school-erp-page .child-stat-l{font-family:var(--ff-m);font-size:.52rem;color:var(--ink-lt);text-transform:uppercase;letter-spacing:.07em;margin-top:.15rem}
 .school-erp-page .child-hw-list{display:flex;flex-direction:column;gap:.32rem}
 .school-erp-page .child-hw-item{display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,.45);border:1px solid var(--line-lt);border-radius:7px;padding:.4rem .6rem;font-size:.74rem;color:var(--char)}
-.school-erp-page .child-leave-form{background:rgba(162,74,42,.04);border:1px solid var(--line-lt);border-radius:9px;padding:.65rem;display:flex;align-items:center;gap:.55rem}
+.school-erp-page .child-leave-form{background:rgba(74,58,209,.04);border:1px solid var(--line-lt);border-radius:9px;padding:.65rem;display:flex;align-items:center;gap:.55rem}
 .school-erp-page .clf-icon{font-size:1rem;flex-shrink:0}
 .school-erp-page .clf-text{font-size:.76rem;color:var(--ink);flex:1}
-.school-erp-page .clf-btn{font-family:var(--ff-m);font-size:.6rem;font-weight:600;padding:.3rem .65rem;border-radius:6px;background:var(--rust);color:#fff8ee;cursor:pointer}
+.school-erp-page .clf-btn{font-family:var(--ff-m);font-size:.6rem;font-weight:600;padding:.3rem .65rem;border-radius:6px;background:var(--rust);color:#f4f2ff;cursor:pointer}
 
 /* ─ PANEL 5: ADMIN DASHBOARD ─ */
 .school-erp-page .admin-panel{padding:1.3rem;min-height:320px;display:flex;flex-direction:column;gap:.65rem}
@@ -327,7 +327,7 @@
 .school-erp-page .ap-bar-row{display:flex;flex-direction:column;gap:.35rem}
 .school-erp-page .ap-bar-item{display:flex;align-items:center;gap:.6rem;font-family:var(--ff-m);font-size:.62rem;color:var(--ink-lt)}
 .school-erp-page .ap-bar-label{width:80px;flex-shrink:0}
-.school-erp-page .ap-bar-track{flex:1;height:5px;background:rgba(162,74,42,.08);border-radius:999px;overflow:hidden}
+.school-erp-page .ap-bar-track{flex:1;height:5px;background:rgba(74,58,209,.08);border-radius:999px;overflow:hidden}
 .school-erp-page .ap-bar-fill{height:100%;border-radius:999px;background:linear-gradient(90deg,var(--rust),var(--rust-lt));width:0;transition:width 1.4s cubic-bezier(.22,.85,.44,1)}
 .school-erp-page .ap-bar-pct{width:30px;text-align:right;flex-shrink:0;font-weight:500;color:var(--char)}
 .school-erp-page .ap-notif-row{display:flex;flex-direction:column;gap:.32rem}
@@ -340,8 +340,8 @@
 .school-erp-page .lp-title{font-family:var(--ff-m);font-size:.68rem;font-weight:600;color:var(--char);margin-bottom:.15rem}
 .school-erp-page .leave-stages{display:flex;align-items:center;gap:.3rem;margin-bottom:.5rem}
 .school-erp-page .leave-stage{flex:1;text-align:center;border-radius:8px;padding:.55rem .3rem;border:1.5px solid var(--line-lt);background:rgba(255,255,255,.4);transition:all .4s}
-.school-erp-page .leave-stage.done{border-color:rgba(46,140,79,.35);background:rgba(46,140,79,.07)}
-.school-erp-page .leave-stage.active{border-color:rgba(162,74,42,.4);background:rgba(162,74,42,.07);box-shadow:0 0 0 3px rgba(162,74,42,.08)}
+.school-erp-page .leave-stage.done{border-color:rgba(31,122,69,.35);background:rgba(31,122,69,.07)}
+.school-erp-page .leave-stage.active{border-color:rgba(74,58,209,.4);background:rgba(74,58,209,.07);box-shadow:0 0 0 3px rgba(74,58,209,.08)}
 .school-erp-page .leave-stage-icon{font-size:.95rem;display:block;margin-bottom:.2rem}
 .school-erp-page .leave-stage-label{font-family:var(--ff-m);font-size:.52rem;font-weight:600;color:var(--ink-lt);text-transform:uppercase;letter-spacing:.06em}
 .school-erp-page .leave-stage.done .leave-stage-label{color:var(--green)}
@@ -351,17 +351,17 @@
 .school-erp-page .leave-form.show{animation:fadeUp .5s ease both}
 .school-erp-page .lf-row{display:grid;grid-template-columns:auto 1fr;gap:.5rem;align-items:center}
 .school-erp-page .lf-label{font-family:var(--ff-m);font-size:.6rem;color:var(--ink-lt);text-transform:uppercase;letter-spacing:.07em}
-.school-erp-page .lf-val{font-size:.76rem;font-weight:500;color:var(--char);background:rgba(162,74,42,.04);border:1px solid var(--line-lt);border-radius:5px;padding:.28rem .55rem}
-.school-erp-page .leave-track{background:rgba(162,74,42,.04);border:1px solid var(--line-lt);border-radius:9px;padding:.65rem;display:flex;flex-direction:column;gap:.35rem;opacity:0}
+.school-erp-page .lf-val{font-size:.76rem;font-weight:500;color:var(--char);background:rgba(74,58,209,.04);border:1px solid var(--line-lt);border-radius:5px;padding:.28rem .55rem}
+.school-erp-page .leave-track{background:rgba(74,58,209,.04);border:1px solid var(--line-lt);border-radius:9px;padding:.65rem;display:flex;flex-direction:column;gap:.35rem;opacity:0}
 .school-erp-page .leave-track.show{animation:fadeUp .5s ease .3s both}
 .school-erp-page .lt-row{display:flex;align-items:center;gap:.5rem;font-size:.74rem;font-weight:500;color:var(--char)}
 .school-erp-page .lt-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
 .school-erp-page .lt-time{font-family:var(--ff-m);font-size:.6rem;color:var(--ink-lt);margin-left:auto}
 
 /* ── USAGE + FEATURES ── */
-.school-erp-page .usage-sec{padding:5rem 0;background:linear-gradient(180deg,transparent,rgba(249,239,222,.45) 40%,transparent)}
+.school-erp-page .usage-sec{padding:5rem 0;background:linear-gradient(180deg,transparent,rgba(238,238,245,.45) 40%,transparent)}
 .school-erp-page .usage-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem;margin-top:2rem}
-.school-erp-page .uc{border:1.5px solid var(--line);border-radius:18px;padding:1.9rem 1.7rem;background:rgba(255,252,244,.88);opacity:0}
+.school-erp-page .uc{border:1.5px solid var(--line);border-radius:18px;padding:1.9rem 1.7rem;background:rgba(255,255,255,.88);opacity:0}
 .school-erp-page .uc.show{animation:fadeUp .6s cubic-bezier(.22,.85,.44,1) both}
 .school-erp-page .uc:nth-child(2){animation-delay:.1s}.school-erp-page .uc:nth-child(3){animation-delay:.2s}
 .school-erp-page .uc-eyebrow{font-family:var(--ff-m);font-size:.62rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--rust);margin-bottom:.65rem;display:flex;align-items:center;gap:.5rem}
@@ -369,7 +369,7 @@
 .school-erp-page .uc h3{font-family:var(--ff-d);font-size:1.25rem;font-weight:400;color:var(--char);margin-bottom:.65rem;line-height:1.2}
 .school-erp-page .uc>p{font-size:.9rem;font-weight:300;color:var(--ink);line-height:1.78;margin-bottom:.9rem}
 .school-erp-page .ml{list-style:none;display:grid;gap:.45rem}
-.school-erp-page .ml li{position:relative;padding-left:1rem;font-size:.86rem;color:#4e3f37;font-weight:400}
+.school-erp-page .ml li{position:relative;padding-left:1rem;font-size:.86rem;color:#4b4a5a;font-weight:400}
 .school-erp-page .ml li::before{content:'';position:absolute;width:6px;height:6px;border-radius:50%;left:0;top:.55rem;background:var(--rust)}
 
 .school-erp-page .feat-grid-sec{padding:5rem 0;border-top:1px solid var(--line-lt)}
@@ -379,17 +379,17 @@
 .school-erp-page .fg:hover{background:var(--ivory-2)}
 .school-erp-page .fg::before{content:'';position:absolute;top:0;left:0;right:0;height:2.5px;background:linear-gradient(90deg,var(--rust),var(--rust-lt));transform:scaleX(0);transform-origin:left;transition:transform .4s ease}
 .school-erp-page .fg:hover::before{transform:scaleX(1)}
-.school-erp-page .fg-n{font-family:var(--ff-m);font-size:.6rem;font-weight:600;letter-spacing:.1em;color:rgba(162,74,42,.5);margin-bottom:.6rem}
+.school-erp-page .fg-n{font-family:var(--ff-m);font-size:.6rem;font-weight:600;letter-spacing:.1em;color:rgba(74,58,209,.5);margin-bottom:.6rem}
 .school-erp-page .fg h3{font-family:var(--ff-d);font-size:1.1rem;font-weight:400;color:var(--char);margin-bottom:.42rem;line-height:1.2}
 .school-erp-page .fg p{font-size:.86rem;font-weight:300;color:var(--ink);line-height:1.75}
 
 /* HOW IT WORKS */
-.school-erp-page .how-sec{padding:5rem 0;background:linear-gradient(180deg,transparent,rgba(250,240,224,.45) 40%,transparent)}
+.school-erp-page .how-sec{padding:5rem 0;background:linear-gradient(180deg,transparent,rgba(246,246,250,.45) 40%,transparent)}
 .school-erp-page .how-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative;margin-top:2.4rem}
 .school-erp-page .hs{position:relative;opacity:0;animation:stepIn .6s cubic-bezier(.22,.85,.44,1) both;animation-play-state:paused}
 .school-erp-page .hs.iv{animation-play-state:running}
 .school-erp-page .hs:nth-child(1){animation-delay:0s}.school-erp-page .hs:nth-child(2){animation-delay:.13s}.school-erp-page .hs:nth-child(3){animation-delay:.26s}.school-erp-page .hs:nth-child(4){animation-delay:.39s}
-.school-erp-page .hs-num{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,var(--rust),var(--rust-dk));color:#fff8ee;font-size:.74rem;font-weight:700;letter-spacing:.05em;display:flex;align-items:center;justify-content:center;margin-bottom:1rem;position:relative;z-index:2;box-shadow:0 4px 16px rgba(162,74,42,.3)}
+.school-erp-page .hs-num{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,var(--rust),var(--rust-dk));color:#f4f2ff;font-size:.74rem;font-weight:700;letter-spacing:.05em;display:flex;align-items:center;justify-content:center;margin-bottom:1rem;position:relative;z-index:2;box-shadow:0 4px 16px rgba(74,58,209,.3)}
 .school-erp-page .hs-conn{position:absolute;top:21px;left:calc(42px + 1rem);right:-1rem;height:1.5px;background:var(--line-lt);transform-origin:left;animation:connGrow .55s ease both;animation-play-state:paused}
 .school-erp-page .hs.iv .hs-conn{animation-play-state:running}
 .school-erp-page .hs:last-child .hs-conn{display:none}
@@ -398,15 +398,15 @@
 .school-erp-page .hs-body p{font-size:.86rem;font-weight:300;color:var(--ink);line-height:1.68}
 
 /* FIT FOR */
-.school-erp-page .fit-sec{padding:5rem 0;background:linear-gradient(to bottom,rgba(250,240,225,.4),transparent)}
+.school-erp-page .fit-sec{padding:5rem 0;background:linear-gradient(to bottom,rgba(246,246,250,.4),transparent)}
 .school-erp-page .fit-grid{display:grid;grid-template-columns:1fr 1fr;gap:4.5rem;align-items:start;margin-top:2rem}
 .school-erp-page .fit-list{display:grid;gap:.7rem}
 .school-erp-page .fit-item{display:flex;align-items:center;gap:.85rem;font-size:.96rem;font-weight:500;color:var(--char);opacity:0;animation:listIn .5s ease both;animation-play-state:paused}
 .school-erp-page .fit-item.iv{animation-play-state:running}
-.school-erp-page .fit-check{width:28px;height:28px;border-radius:50%;background:rgba(162,74,42,.1);border:1.5px solid rgba(162,74,42,.22);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--rust)}
+.school-erp-page .fit-check{width:28px;height:28px;border-radius:50%;background:rgba(74,58,209,.1);border:1.5px solid rgba(74,58,209,.22);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--rust)}
 .school-erp-page .fit-check svg{width:13px;height:13px}
 .school-erp-page .fit-stats{display:flex;flex-direction:column;gap:.9rem}
-.school-erp-page .fit-stat{border:1.5px solid var(--line);border-radius:14px;padding:1.5rem 1.7rem;background:rgba(255,252,244,.9);display:flex;align-items:center;gap:1.3rem;opacity:0}
+.school-erp-page .fit-stat{border:1.5px solid var(--line);border-radius:14px;padding:1.5rem 1.7rem;background:rgba(255,255,255,.9);display:flex;align-items:center;gap:1.3rem;opacity:0}
 .school-erp-page .fit-stat.show{animation:fadeUp .5s cubic-bezier(.22,.85,.44,1) both}
 .school-erp-page .fit-stat-n{font-family:var(--ff-d);font-size:2.8rem;font-style:italic;color:var(--rust);line-height:1;flex-shrink:0;min-width:80px}
 .school-erp-page .fit-stat-t{font-size:.88rem;color:var(--ink);line-height:1.6}
@@ -414,14 +414,14 @@
 
 /* CTA */
 .school-erp-page .cta-sec{padding:3rem 0 5.5rem}
-.school-erp-page .cta-c{position:relative;border:1.5px solid var(--line);border-radius:26px;padding:3.8rem 3.2rem;background:linear-gradient(148deg,rgba(255,246,230,.98),rgba(252,233,200,.9));box-shadow:var(--sh);text-align:center;overflow:hidden;opacity:0}
+.school-erp-page .cta-c{position:relative;border:1.5px solid var(--line);border-radius:26px;padding:3.8rem 3.2rem;background:linear-gradient(148deg,rgba(246,246,250,.98),rgba(238,238,245,.9));box-shadow:var(--sh);text-align:center;overflow:hidden;opacity:0}
 .school-erp-page .cta-c.show{animation:fadeUp .8s cubic-bezier(.22,.85,.44,1) forwards}
-.school-erp-page .cta-glow{position:absolute;top:-60px;right:-60px;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(162,74,42,.13),transparent 70%);animation:gp 4s ease-in-out infinite;pointer-events:none}
+.school-erp-page .cta-glow{position:absolute;top:-60px;right:-60px;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(74,58,209,.13),transparent 70%);animation:gp 4s ease-in-out infinite;pointer-events:none}
 .school-erp-page .cta-c h2{font-family:var(--ff-d);font-size:clamp(1.5rem,2.8vw,2.2rem);letter-spacing:-.02em;line-height:1.22;color:var(--char);max-width:52ch;margin:.6rem auto 0;font-weight:400}
 .school-erp-page .cta-sub{margin-top:.9rem;color:var(--ink);font-size:1rem;font-weight:300}
 
 .school-erp-page footer{background:var(--dark-2);color:rgba(255,255,255,.3);text-align:center;padding:2rem;font-size:.8rem}
-.school-erp-page footer strong{color:rgba(218,149,106,.65);font-weight:500}
+.school-erp-page footer strong{color:rgba(169,156,255,.65);font-weight:500}
 
 /* RESPONSIVE */
 @media(max-width:980px){

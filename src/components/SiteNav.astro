@@ -1,0 +1,60 @@
+---
+const path = Astro.url.pathname.replace(/\/$/, '') || '/';
+const items = [
+  { href: '/#what-we-do', label: 'Agentic AI', active: path === '/' },
+  { href: '/about', label: 'About', active: path === '/about' },
+  { href: '/products', label: 'Products', active: path === '/products' || path.startsWith('/ai-finance') || path.startsWith('/whatsapp-operations') || path.startsWith('/briefly-') || path.startsWith('/school-erp') || path.startsWith('/hotel-management') || path.startsWith('/restaurant-ordering') || path.startsWith('/sales-tracking') || path.startsWith('/carpooling-app') || path.startsWith('/ai-powered-photoshoots') },
+  { href: '/careers', label: 'Careers', active: path === '/careers' },
+  { href: '/contact', label: 'Contact', active: path === '/contact' },
+];
+---
+
+<nav class="nyx-site-nav" aria-label="Main navigation">
+  <div class="nyx-site-nav__inner">
+    <a class="nyx-site-nav__brand" href="/">Nyx Solution</a>
+    <ul class="nyx-site-nav__links">
+      {items.map((item) => (
+        <li><a href={item.href} aria-current={item.active ? 'page' : undefined}>{item.label}</a></li>
+      ))}
+    </ul>
+  </div>
+</nav>
+
+<style>
+  .nyx-site-nav{
+    position:absolute;top:0;left:0;right:0;z-index:1000;
+    display:block;width:100%;height:auto;margin:0;padding:0;
+    border:0;border-bottom:1px solid rgba(208,208,222,.42);
+    background:transparent;box-shadow:none;backdrop-filter:none;
+    font-family:'Sora',sans-serif;
+  }
+  .nyx-site-nav__inner{
+    width:min(1160px,calc(100vw - 3rem));min-height:68px;margin:0 auto;padding:0;
+    display:flex;align-items:center;justify-content:space-between;gap:1.5rem;
+  }
+  .nyx-site-nav__brand{
+    flex-shrink:0;color:#17161f;font-family:'Instrument Serif',Georgia,serif;
+    font-size:1.42rem;font-weight:400;line-height:1;text-decoration:none;
+    text-shadow:0 1px 12px rgba(255,255,255,.82);
+  }
+  .nyx-site-nav__links{
+    display:flex;align-items:center;gap:2rem;margin:0;padding:0;list-style:none;
+  }
+  .nyx-site-nav__links li{margin:0;padding:0;list-style:none}
+  .nyx-site-nav__links a{
+    display:block;padding:.35rem 0;color:#4b4a5a;font-family:'DM Mono',monospace;
+    font-size:.7rem;font-weight:400;line-height:1.2;letter-spacing:.1em;
+    text-decoration:none;text-transform:uppercase;white-space:nowrap;
+    text-shadow:0 1px 10px rgba(255,255,255,.9);transition:color .2s;
+  }
+  .nyx-site-nav__links a:hover,.nyx-site-nav__links a[aria-current='page']{color:#4a3ad1}
+  @media(max-width:680px){
+    .nyx-site-nav__inner{
+      width:min(100% - 2rem,1160px);min-height:82px;padding:1rem 0 .65rem;
+      align-items:flex-start;justify-content:flex-start;flex-direction:column;gap:.65rem;
+    }
+    .nyx-site-nav__brand{font-size:1.18rem}
+    .nyx-site-nav__links{width:100%;gap:.85rem;justify-content:space-between;flex-wrap:nowrap}
+    .nyx-site-nav__links a{font-size:.55rem;letter-spacing:.035em}
+  }
+</style>

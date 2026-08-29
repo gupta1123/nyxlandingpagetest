@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 58" role="img" aria-labelledby="title">
+  <title id="title">Madhuban Hotel</title>
+  <g transform="translate(6 7)" fill="none" stroke="#4a3ad1" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 42h42M8 42V20h34v22M4 20h42L25 4 4 20Z"/>
+    <path d="M15 27h6v6h-6zm14 0h6v6h-6zM22 42V31h7v11"/>
+  </g>
+  <text x="62" y="28" fill="#231551" font-family="Georgia, serif" font-size="19" font-weight="700" letter-spacing=".6">MADHUBAN</text>
+  <text x="63" y="43" fill="#7c7b8c" font-family="Arial, sans-serif" font-size="8" font-weight="700" letter-spacing="3.1">HOTEL</text>
+</svg>

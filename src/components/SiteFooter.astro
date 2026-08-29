@@ -1,16 +1,159 @@
-<footer class="site-footer">
-  <div class="container footer-grid">
-    <div>
-      <h3>Nyx Solution</h3>
-      <p>AI-powered products and software systems for better operations, workflows, and execution.</p>
-      <p class="small">We build practical software organizations can actually trust and use.</p>
+<footer class="nyx-footer">
+  <div class="nyx-footer__inner">
+    <div class="nyx-footer__top">
+      <div class="nyx-footer__brand">
+        <a href="/">Nyx Solution</a>
+        <p>Agentic AI for WhatsApp, ERP, Tally &amp; SAP</p>
+      </div>
+
+      <nav class="nyx-footer__links" aria-label="Footer navigation">
+        <div>
+          <span>Company</span>
+          <a href="/about">About us</a>
+          <a href="/careers">Careers</a>
+          <a href="/contact">Contact</a>
+        </div>
+        <div>
+          <span>Solutions</span>
+          <a href="/contact">ERP automation</a>
+          <a href="/contact">Tally Prime automation</a>
+          <a href="/contact">SAP automation</a>
+          <a href="/contact">Custom AI agents</a>
+          <a href="/whatsapp-operations-agent">WhatsApp-to-SAP Ordering</a>
+          <a href="/whatsapp-operations-agent">SAP Invoice Delivery</a>
+          <a href="/whatsapp-operations-agent">SAP Payment Follow-up</a>
+        </div>
+      </nav>
     </div>
-    <nav aria-label="Footer links">
-      <a href="/">Home</a>
-      <a href="/products">Products</a>
-      <a href="/briefly-docs">Briefly Docs</a>
-      <a href="/about">About</a>
-      <a href="/contact">Contact</a>
-    </nav>
+
+    <div class="nyx-footer__bottom">
+      <span>&copy; 2026 Nyx Solution. All rights reserved.</span>
+      <span>AI that understands, decides, and acts.</span>
+    </div>
   </div>
 </footer>
+
+<style>
+  .nyx-footer {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    margin: 0;
+    padding: 3.2rem 0 1.35rem;
+    border-top: 1px solid rgba(244, 242, 255, 0.08);
+    background: #231551;
+    color: #f4f2ff;
+    font-family: 'Sora', sans-serif;
+  }
+
+  .nyx-footer__inner {
+    width: min(1160px, calc(100vw - 3rem));
+    margin: 0 auto;
+  }
+
+  .nyx-footer__top {
+    display: grid;
+    grid-template-columns: minmax(220px, 1fr) auto;
+    gap: 4rem;
+    padding-bottom: 2.2rem;
+  }
+
+  .nyx-footer__brand > a {
+    display: inline-block;
+    color: #f4f2ff;
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-size: 1.55rem;
+    line-height: 1;
+    text-decoration: none;
+  }
+
+  .nyx-footer__brand p {
+    max-width: 36ch;
+    margin: 0.65rem 0 0;
+    color: rgba(244, 242, 255, 0.42);
+    font-family: 'DM Mono', monospace;
+    font-size: 0.58rem;
+    line-height: 1.65;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .nyx-footer__links {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(150px, 1fr));
+    gap: clamp(2rem, 5vw, 4.5rem);
+  }
+
+  .nyx-footer__links > div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+  }
+
+  .nyx-footer__links span {
+    margin-bottom: 0.18rem;
+    color: rgba(244, 242, 255, 0.34);
+    font-family: 'DM Mono', monospace;
+    font-size: 0.55rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .nyx-footer__links a {
+    color: rgba(244, 242, 255, 0.62);
+    font-family: 'DM Mono', monospace;
+    font-size: 0.61rem;
+    line-height: 1.45;
+    letter-spacing: 0.07em;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: color 0.2s ease;
+  }
+
+  .nyx-footer__links a:hover {
+    color: #fff;
+  }
+
+  .nyx-footer__bottom {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+    padding-top: 1.05rem;
+    border-top: 1px solid rgba(244, 242, 255, 0.1);
+    color: rgba(244, 242, 255, 0.38);
+    font-family: 'DM Mono', monospace;
+    font-size: 0.55rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  @media (max-width: 820px) {
+    .nyx-footer__top {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .nyx-footer__links {
+      gap: 1.5rem;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .nyx-footer {
+      padding-top: 2.5rem;
+    }
+
+    .nyx-footer__inner {
+      width: min(100% - 2.6rem, 1160px);
+    }
+
+    .nyx-footer__links {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .nyx-footer__bottom {
+      flex-direction: column;
+    }
+  }
+</style>

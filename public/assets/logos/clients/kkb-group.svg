@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 190 58" role="img" aria-labelledby="title">
+  <title id="title">KKB Group</title>
+  <g transform="translate(8 10)" fill="none" stroke="#4a3ad1" stroke-width="5" stroke-linecap="square" stroke-linejoin="miter">
+    <path d="M4 2v34M5 19 19 3M5 19l14 17"/>
+    <path d="M25 2v34M26 19 40 3M26 19l14 17"/>
+  </g>
+  <text x="58" y="31" fill="#231551" font-family="Arial, sans-serif" font-size="23" font-weight="800" letter-spacing="1">KKB</text>
+  <text x="109" y="31" fill="#7c7b8c" font-family="Arial, sans-serif" font-size="10" font-weight="700" letter-spacing="2.4">GROUP</text>
+</svg>
