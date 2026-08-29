@@ -346,6 +346,12 @@ ul {
   overflow: hidden;
 }
 
+/* Product detail pages previously placed a continuously scrolling feature strip
+   directly beneath the navigation. Keep the page opening clean and still. */
+.ticker-wrap {
+  display: none !important;
+}
+
 .ticker-track {
   display: flex;
   align-items: center;

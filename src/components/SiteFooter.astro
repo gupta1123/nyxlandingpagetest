@@ -2,7 +2,9 @@
   <div class="nyx-footer__inner">
     <div class="nyx-footer__top">
       <div class="nyx-footer__brand">
-        <a href="/">Nyx Solution</a>
+        <a href="/" aria-label="Nyx Solution home">
+          <img class="nyx-footer__mark" src="/Nyxlogo-transparent.png" alt="" aria-hidden="true" />
+        </a>
         <p>Agentic AI for WhatsApp, ERP, Tally &amp; SAP</p>
       </div>
 
@@ -59,12 +61,24 @@
   }
 
   .nyx-footer__brand > a {
-    display: inline-block;
+    display: inline-flex;
+    width: 92px;
+    height: 112px;
+    align-items: center;
+    justify-content: center;
     color: #f4f2ff;
     font-family: 'Instrument Serif', Georgia, serif;
     font-size: 1.55rem;
     line-height: 1;
     text-decoration: none;
+  }
+
+  .nyx-footer__mark {
+    display: block;
+    width: 90px;
+    height: auto;
+    max-width: 100%;
+    object-fit: contain;
   }
 
   .nyx-footer__brand p {
@@ -79,9 +93,19 @@
   }
 
   .nyx-footer__links {
+    position: static;
+    inset: auto;
+    z-index: auto;
     display: grid;
     grid-template-columns: repeat(2, minmax(150px, 1fr));
     gap: clamp(2rem, 5vw, 4.5rem);
+    width: auto;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+    backdrop-filter: none;
   }
 
   .nyx-footer__links > div {
