@@ -91,7 +91,9 @@ const sleep = ms => new Promise(r => setTimeout(r, ms));
 /* ── nav + reveals + smooth scroll ── */
 (() => {
   const nav = document.getElementById('site-nav');
-  addEventListener('scroll', () => nav.classList.toggle('stuck', scrollY > 50), { passive: true });
+  if (nav) {
+    addEventListener('scroll', () => nav.classList.toggle('stuck', scrollY > 50), { passive: true });
+  }
 
   const io = new IntersectionObserver(es => es.forEach(e => {
     if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); }

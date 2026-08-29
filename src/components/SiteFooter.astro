@@ -3,7 +3,34 @@
     <div class="nyx-footer__top">
       <div class="nyx-footer__brand">
         <a href="/" aria-label="Nyx Solution home">
-          <img class="nyx-footer__mark" src="/Nyxlogo-transparent.png" alt="" aria-hidden="true" />
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 585 675" class="nyx-footer__svg" role="img" aria-label="NYX Solution logo">
+            <defs>
+              <linearGradient id="nyx-footer-purple" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#8B5CF6"/>
+                <stop offset="1" stop-color="#6D28D9"/>
+              </linearGradient>
+            </defs>
+            <g fill="#ffffff">
+              <polygon points="119,33 119,389 208,317 209,182 373,345 375,234 173,33"/>
+              <polygon points="39,450 38,573 62,573 63,489 137,574 158,574 159,451 135,451 134,536 60,450"/>
+              <polygon points="230,450 282,525 282,574 305,574 305,524 357,451 330,450 293,503 257,450"/>
+              <polygon points="422,450 470,512 422,574 449,574 484,529 519,574 547,573 499,513 546,450 519,450 484,494 450,450"/>
+            </g>
+            <g fill="url(#nyx-footer-purple)">
+              <polygon points="471,31 375,108 375,199 471,300"/>
+              <polygon points="375,235 374,346 414,385 471,385 471,332"/>
+            </g>
+            <g fill="#A99CFF">
+              <path d="M640 -24C964 -24 1180 151 1180 410C1180 618 1044 746 754 818L585 860C369 914 286 981 286 1097C286 1245 423 1349 616 1349C818 1349 949 1236 960 1050H1138C1130 1336 932 1514 622 1514C311 1514 108 1345 108 1088C108 885 234 767 538 692L705 651C920 598 1000 526 1000 402C1000 242 857 140 640 140C401 140 262 267 262 480H78C78 170 296 -24 640 -24Z" transform="translate(38.000 650.000) scale(0.020996 -0.020996)"/>
+              <path d="M767 -24C1162 -24 1444 297 1444 744C1444 1193 1162 1514 767 1514C372 1514 90 1193 90 744C90 297 372 -24 767 -24ZM767 144C496 144 270 358 270 744C270 1132 496 1346 767 1346C1037 1346 1264 1132 1264 744C1264 358 1037 144 767 144Z" transform="translate(102.713 650.000) scale(0.020996 -0.020996)"/>
+              <path d="M148 0H1046V160H328V1490H148Z" transform="translate(173.221 650.000) scale(0.020996 -0.020996)"/>
+              <path d="M720 -24C1071 -24 1300 200 1300 506V1490H1120V520C1120 302 969 144 720 144C471 144 320 302 320 520V1490H140V506C140 200 369 -24 720 -24Z" transform="translate(234.533 650.000) scale(0.020996 -0.020996)"/>
+              <path d="M50 1330H536V0H716V1330H1200V1490H50Z" transform="translate(303.067 650.000) scale(0.020996 -0.020996)"/>
+              <path d="M328 1490H148V0H328Z" transform="translate(367.612 650.000) scale(0.020996 -0.020996)"/>
+              <path d="M767 -24C1162 -24 1444 297 1444 744C1444 1193 1162 1514 767 1514C372 1514 90 1193 90 744C90 297 372 -24 767 -24ZM767 144C496 144 270 358 270 744C270 1132 496 1346 767 1346C1037 1346 1264 1132 1264 744C1264 358 1037 144 767 144Z" transform="translate(415.906 650.000) scale(0.020996 -0.020996)"/>
+              <path d="M148 0H328V864C328 930 326 1058 319 1243C426 1064 510 926 551 862L1097 0H1306V1490H1126V528C1126 478 1129 349 1132 245C1072 351 1004 464 969 520L355 1490H148Z" transform="translate(486.414 650.000) scale(0.020996 -0.020996)"/>
+            </g>
+          </svg>
         </a>
         <p>Agentic AI for WhatsApp, ERP, Tally &amp; SAP</p>
       </div>
@@ -60,31 +87,35 @@
     padding-bottom: 2.2rem;
   }
 
-  .nyx-footer__brand > a {
-    display: inline-flex;
-    width: 92px;
-    height: 112px;
-    align-items: center;
-    justify-content: center;
-    color: #f4f2ff;
-    font-family: 'Instrument Serif', Georgia, serif;
-    font-size: 1.55rem;
-    line-height: 1;
-    text-decoration: none;
+  .nyx-footer__brand {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
   }
 
-  .nyx-footer__mark {
+  .nyx-footer__brand > a {
     display: block;
-    width: 90px;
-    height: auto;
-    max-width: 100%;
+    width: 80px;
+    height: 92px;
+    line-height: 0;
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+
+  .nyx-footer__svg {
+    display: block;
+    width: 80px;
+    height: 92px;
+    max-height: 92px;
+    aspect-ratio: 585 / 675;
     object-fit: contain;
   }
 
   .nyx-footer__brand p {
     max-width: 36ch;
-    margin: 0.65rem 0 0;
-    color: rgba(244, 242, 255, 0.42);
+    margin: 0;
+    color: rgba(244, 242, 255, 0.45);
     font-family: 'DM Mono', monospace;
     font-size: 0.58rem;
     line-height: 1.65;
@@ -153,19 +184,39 @@
   }
 
   @media (max-width: 820px) {
+    .nyx-footer {
+      padding: 2.2rem 0 1.25rem;
+    }
+
     .nyx-footer__top {
       grid-template-columns: 1fr;
-      gap: 2rem;
+      gap: 1.6rem;
+      padding-bottom: 1.5rem;
     }
 
     .nyx-footer__links {
       gap: 1.5rem;
     }
+
+    .nyx-footer__brand > a {
+      width: 68px;
+      height: 78px;
+    }
+
+    .nyx-footer__svg {
+      width: 68px;
+      height: 78px;
+      max-height: 78px;
+    }
+
+    .nyx-footer__brand p {
+      margin-top: 0.15rem;
+    }
   }
 
   @media (max-width: 560px) {
     .nyx-footer {
-      padding-top: 2.5rem;
+      padding: 2rem 0 1.2rem;
     }
 
     .nyx-footer__inner {
@@ -178,6 +229,7 @@
 
     .nyx-footer__bottom {
       flex-direction: column;
+      gap: 0.4rem;
     }
   }
 </style>
