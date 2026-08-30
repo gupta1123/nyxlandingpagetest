@@ -93,50 +93,231 @@ const moreProducts = [
   </div>
 </header>
 
-<section class="integrations" id="integrations" aria-labelledby="integrations-title">
+<section class="problem-gap" id="problem" aria-labelledby="problem-gap-title">
   <div class="container">
-    <div class="integrations-head">
-      <div>
-        <span class="integrations-kicker">Connected apps</span>
-        <h2 id="integrations-title">Works inside the tools you already run on</h2>
+    <div class="problem-gap-layout">
+      <div class="problem-gap-copy">
+        <span class="problem-gap-kicker">The operational gap</span>
+        <h2 id="problem-gap-title">Your ERP records the transaction. <em>It does not finish the workflow.</em></h2>
+        <p>Purchase documents still need to be checked together. Bank receipts still need to be matched against open bills. Discounts need validation, and customer requests need answers from TallyPrime, SAP, email, and WhatsApp.</p>
       </div>
-      <p>Agents move work across your finance, communication, and business systems—no rip-and-replace.</p>
+
+      <div class="problem-gap-list" aria-label="Where operational work still slows down">
+        <article>
+          <span>01</span>
+          <div>
+            <h3>Scattered inputs</h3>
+            <p>Invoices, purchase orders, e-way bills, bank statements, email, and WhatsApp arrive separately.</p>
+          </div>
+        </article>
+        <article>
+          <span>02</span>
+          <div>
+            <h3>Decisions outside the system</h3>
+            <p>Document mismatches, receipt allocations, discount eligibility, and exceptions still depend on manual checking.</p>
+          </div>
+        </article>
+        <article>
+          <span>03</span>
+          <div>
+            <h3>Actions waiting on people</h3>
+            <p>Tally vouchers, sales enquiries, invoice delivery, and payment follow-ups wait for someone to move them forward.</p>
+          </div>
+        </article>
+      </div>
     </div>
 
-    <div class="integrations-grid">
-      <div class="integration-item">
-        <img class="integration-logo tally-logo" src="/assets/logos/integrations/tally.png" alt="Tally Prime" loading="eager" />
-        <span>Tally Prime</span>
+    <div class="problem-gap-bridge">
+      <span>Nyx places purpose-built agents inside this operational gap.</span>
+      <i aria-hidden="true"></i>
+      <a href="#what-we-do">Meet the agents <b aria-hidden="true">↓</b></a>
+    </div>
+  </div>
+</section>
+
+<section class="agent-deploy" id="what-we-do" aria-labelledby="agent-deploy-title">
+  <div class="container">
+    <div class="agent-deploy-head">
+      <div>
+        <span class="agent-deploy-kicker">Agents ready to deploy</span>
+        <h2 id="agent-deploy-title">The work, <em>handled.</em></h2>
       </div>
-      <div class="integration-item">
-        <img class="integration-logo" src="/assets/logos/integrations/erp.svg" alt="" aria-hidden="true" loading="eager" />
-        <span>ERP systems</span>
-      </div>
-      <div class="integration-item">
-        <img class="integration-logo sap-logo" src="/assets/logos/integrations/sap.svg" alt="SAP" loading="eager" />
-        <span>SAP</span>
-      </div>
-      <div class="integration-item">
-        <img class="integration-logo" src="/assets/logos/integrations/whatsapp.svg" alt="WhatsApp" loading="eager" />
-        <span>WhatsApp</span>
-      </div>
-      <div class="integration-item">
-        <img class="integration-logo" src="/assets/logos/integrations/email.svg" alt="Email" loading="eager" />
-        <span>Email</span>
-      </div>
-      <div class="integration-item">
-        <img class="integration-logo workspace-logo" src="/assets/logos/integrations/google-workspace.svg" alt="Google Workspace" loading="eager" />
-        <span>Google Workspace</span>
+      <p>Purpose-built agents read the work, check it against live business data, and execute approved actions across TallyPrime, SAP, and WhatsApp.</p>
+    </div>
+
+    <div class="agent-deploy-shell" data-agent-deploy>
+      <div class="agent-deploy-stage">
+        <article class="agent-deploy-panel is-active" id="agent-panel-verify" data-agent-panel="verify" data-agent-index="01">
+          <div class="agent-panel-copy">
+            <span class="agent-panel-label">Purchase document verification</span>
+            <h3>Check purchase documents before accounting or payment.</h3>
+            <p>Reads purchase and delivery documents, groups related files, and flags missing, duplicate, or mismatched details for human review.</p>
+          </div>
+          <div class="agent-visual agent-visual--verify" aria-label="An invoice, purchase order and receipt being matched and verified">
+            <div class="agent-doc-stack" aria-hidden="true"><i></i><i></i><div><span>INV</span><b>INV-2841</b><small>Meenakshi Steel</small></div></div>
+            <div class="agent-flow-line" aria-hidden="true"><i></i></div>
+            <div class="agent-check-card">
+              <div class="agent-card-head"><span>Purchase document check</span><small>3 documents</small></div>
+              <ul>
+                <li><span>Purchase order</span><b>Matched</b></li>
+                <li><span>Goods receipt</span><b>Matched</b></li>
+                <li class="is-review"><span>Taxable value</span><b>Review ₹1,240</b></li>
+              </ul>
+              <div class="agent-decision"><i></i><span>Exception prepared for approval</span></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="agent-deploy-panel" id="agent-panel-payments" data-agent-panel="payments" data-agent-index="02">
+          <div class="agent-panel-copy">
+            <span class="agent-panel-label">Bank reconciliation</span>
+            <h3>Reconcile bank receipts with Tally.</h3>
+            <p>Matches incoming transactions to customers, ledgers, and open bills, prevents duplicates, and creates Receipt vouchers only after approval.</p>
+          </div>
+          <div class="agent-visual agent-visual--payments" aria-label="A bank transaction matched with invoices and posted to TallyPrime">
+            <div class="agent-bank-line"><small>NEFT CREDIT</small><strong>₹4,80,000</strong><span>Shakti Steel Traders</span></div>
+            <div class="agent-match-path" aria-hidden="true"><span></span><i></i><span></span></div>
+            <div class="agent-ledger-card">
+              <div><small>TallyPrime ledger</small><b>Shakti Steel Traders</b></div>
+              <ul><li><span>INV-4471</span><b>₹3,20,000</b></li><li><span>INV-4502</span><b>₹1,60,000</b></li></ul>
+              <p><i></i>Matched · ready to post</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="agent-deploy-panel" id="agent-panel-discounts" data-agent-panel="discounts" data-agent-index="03">
+          <div class="agent-panel-copy">
+            <span class="agent-panel-label">Cash-discount recovery</span>
+            <h3>Recover discounts that no longer qualify.</h3>
+            <p>Checks payment timing against Tally terms, calculates the recoverable amount, and prepares a Debit Note for approval without duplicating a recovery.</p>
+          </div>
+          <div class="agent-visual agent-visual--discounts" aria-label="A customer discount entitlement being calculated and prepared as a credit note">
+            <div class="agent-rule-card"><small>SCHEME RULE</small><b>2% cash discount</b><span>Payment within 10 days</span></div>
+            <div class="agent-calc"><span>₹8,40,000</span><i>×</i><span>2%</span><i>=</i><strong>₹16,800</strong></div>
+            <div class="agent-note-card"><small>DEBIT NOTE · DRAFT</small><b>DN-2026-0184</b><span><i></i>Recovery verified</span></div>
+          </div>
+        </article>
+
+        <article class="agent-deploy-panel" id="agent-panel-customer" data-agent-panel="customer" data-agent-index="04">
+          <div class="agent-panel-copy">
+            <span class="agent-panel-label">Steel sales on WhatsApp</span>
+            <h3>Take steel orders through WhatsApp.</h3>
+            <p>Understands English, Hindi, and Hinglish, collects complete order details, confirms the request, and creates an order or sales enquiry.</p>
+          </div>
+          <div class="agent-visual agent-visual--customer" aria-label="A WhatsApp customer request answered using current ERP information">
+            <div class="agent-chat">
+              <p class="is-in">Need 25 MT of TMT 12mm delivered to Raipur next Tuesday.</p>
+              <div class="agent-chat-thinking"><i></i><i></i><i></i><span>Checking customer and order details</span></div>
+              <p class="is-out">Order summary ready. Confirm before I create the sales enquiry.</p>
+            </div>
+            <div class="agent-context-chip"><small>CUSTOMER VERIFIED</small><b>Saved delivery site · 1 item</b></div>
+          </div>
+        </article>
+
+        <article class="agent-deploy-panel" id="agent-panel-sap" data-agent-panel="sap" data-agent-index="05">
+          <div class="agent-panel-copy">
+            <span class="agent-panel-label">SAP invoice &amp; collections</span>
+            <h3>Send SAP invoices. Follow up on what’s due.</h3>
+            <p>Verifies recipients, sends invoices through WhatsApp or email, prevents duplicates, and follows live receivables until payment or escalation.</p>
+          </div>
+          <div class="agent-visual agent-visual--sap" aria-label="SAP invoices moving through recipient validation, delivery and status updates">
+            <div class="agent-sap-list">
+              <div><span>9001842</span><b>Recipient verified</b></div>
+              <div class="is-active"><span>9001843</span><b>Delivering PDF</b></div>
+              <div><span>9001844</span><b>Duplicate prevented</b></div>
+            </div>
+            <div class="agent-sap-result"><span><i></i>Delivered</span><strong>WhatsApp</strong><small>Status written back to SAP</small></div>
+          </div>
+        </article>
       </div>
     </div>
   </div>
 </section>
 
-<section class="cl2">
+<section class="execution-rail" id="how-it-works" aria-labelledby="execution-title">
+  <div class="container">
+    <div class="execution-head">
+      <div>
+        <span class="execution-kicker">What Nyx agents handle</span>
+        <h2 id="execution-title">More than extraction. <em>They carry the work forward.</em></h2>
+      </div>
+      <p>Nyx agents combine unstructured inputs, live business context, company rules, and approved system actions to complete operational workflows.</p>
+    </div>
+
+    <div class="execution-capabilities">
+      <article class="execution-capability">
+        <span class="execution-number">01</span>
+        <div class="execution-capability-mark"><i aria-hidden="true"></i><span>Documents &amp; messages</span></div>
+        <h3>Inputs they understand</h3>
+        <p>Purchase documents, bank statements, SAP invoices, email, and WhatsApp requests.</p>
+      </article>
+      <article class="execution-capability">
+        <span class="execution-number">02</span>
+        <div class="execution-capability-mark"><i aria-hidden="true"></i><span>Live business data</span></div>
+        <h3>Context they verify</h3>
+        <p>Customer ledgers, open bills, invoice references, payment allocations, scheme rules, and previous orders.</p>
+      </article>
+      <article class="execution-capability">
+        <span class="execution-number">03</span>
+        <div class="execution-capability-mark"><i aria-hidden="true"></i><span>Rules &amp; exceptions</span></div>
+        <h3>Decisions they prepare</h3>
+        <p>Document exceptions, receipt matches, discount recovery, order summaries, and payment follow-up priorities.</p>
+      </article>
+      <article class="execution-capability execution-capability--action">
+        <span class="execution-number">04</span>
+        <div class="execution-capability-mark"><i aria-hidden="true"></i><span>Approved system action</span></div>
+        <h3>Actions they complete</h3>
+        <p>Create approved Tally vouchers, raise sales enquiries, deliver verified invoices, send reminders, and record every outcome.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="integrations" id="integrations" aria-labelledby="integrations-title">
+  <div class="container">
+    <div class="integrations-head">
+      <div>
+        <span class="integrations-kicker">Connected systems</span>
+        <h2 id="integrations-title">Works inside the tools <em>you already run on.</em></h2>
+      </div>
+      <p>Nyx reads live context, moves verified data, and returns approved actions to the systems your team already uses.</p>
+    </div>
+
+    <div class="integration-strip" aria-label="Systems and channels supported by Nyx">
+      <div class="integration-chip">
+        <img class="integration-strip-logo tally-logo" src="/assets/logos/integrations/tally.png" alt="" aria-hidden="true" />
+        <div class="integration-copy"><span>TallyPrime</span><small>Ledgers, vouchers &amp; reconciliation</small></div>
+      </div>
+      <div class="integration-chip">
+        <img class="integration-strip-logo" src="/assets/logos/integrations/erp.svg" alt="" aria-hidden="true" />
+        <div class="integration-copy"><span>ERP systems</span><small>Live records &amp; approved actions</small></div>
+      </div>
+      <div class="integration-chip">
+        <img class="integration-strip-logo sap-logo" src="/assets/logos/integrations/sap.svg" alt="" aria-hidden="true" />
+        <div class="integration-copy"><span>SAP</span><small>Finance &amp; operational workflows</small></div>
+      </div>
+      <div class="integration-chip">
+        <img class="integration-strip-logo" src="/assets/logos/integrations/whatsapp.svg" alt="" aria-hidden="true" />
+        <div class="integration-copy"><span>WhatsApp</span><small>Customer &amp; team actions</small></div>
+      </div>
+      <div class="integration-chip">
+        <img class="integration-strip-logo" src="/assets/logos/integrations/email.svg" alt="" aria-hidden="true" />
+        <div class="integration-copy"><span>Email</span><small>Documents &amp; follow-ups</small></div>
+      </div>
+      <div class="integration-chip">
+        <img class="integration-strip-logo workspace-logo" src="/assets/logos/integrations/google-workspace.svg" alt="" aria-hidden="true" />
+        <div class="integration-copy"><span>Google Workspace</span><small>Shared files &amp; approvals</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cl2" id="customer-proof" aria-labelledby="customer-proof-title">
   <div class="container">
     <div class="cl2-head">
       <div class="cl2-ey"><i></i>Organisations we have worked with<i></i></div>
-      <h2 class="cl2-title">Built alongside teams doing <em>real operational work</em></h2>
+      <h2 class="cl2-title" id="customer-proof-title">Built alongside teams doing <em>real operational work</em></h2>
+      <p class="cl2-intro">Shaped around the documents, approvals, customer conversations, and system work that keep operations moving.</p>
     </div>
   </div>
 
@@ -167,7 +348,7 @@ const moreProducts = [
 
   <div class="container">
     <div class="cl2-cap" id="client-caption" aria-live="polite">
-      <span><b>{clients.length} organisations</b><em class="sep">·</em><em>steel, manufacturing, education, hospitality and public institutions</em></span>
+      <span><b>And many more</b><em class="sep">·</em><em>Across steel, manufacturing, education, hospitality and public institutions</em></span>
     </div>
   </div>
 </section>
@@ -338,7 +519,8 @@ const moreProducts = [
 
 </template>
 <main>
-  <section class="section" id="what-we-do">
+  <template data-replaced-how="true">
+  <section class="section" id="how-it-works">
     <div class="container">
       <div class="sh">
         <span class="stag">How Nyx works</span>
@@ -401,7 +583,9 @@ const moreProducts = [
       </div>
     </div>
   </section>
+  </template>
 
+  <template data-removed-workflows-and-guardrails="true">
   <section class="section prod-section" id="products">
     <div class="container">
       <div class="sh">
@@ -500,6 +684,7 @@ const moreProducts = [
     </div>
   </section>
 
+  </template>
   <section class="section more-section" id="more-products">
     <div class="container">
       <div class="more-layout">

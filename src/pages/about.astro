@@ -34,24 +34,30 @@ import MainLayout from '../layouts/MainLayout.astro';
     .ab-hero h1 em{display:block;font-weight:400;font-style:italic;color:var(--ab-accent)}
     .ab-hero p{max-width:42ch;margin:1.25rem 0 0;font-size:clamp(.84rem,1.05vw,.98rem);font-weight:300;line-height:1.75;color:var(--ab-soft)}
 
-    .ab-summary{padding:5.5rem 0 5rem;border-bottom:1px solid var(--ab-line)}
-    .ab-summary__grid{display:grid;grid-template-columns:.7fr 1.3fr;gap:clamp(2.5rem,7vw,6.5rem);align-items:start}
+    .ab-summary{min-height:100svh;padding:clamp(4rem,7vw,6rem) 0;display:flex;align-items:center;border-bottom:1px solid var(--ab-line)}
+    .ab-summary__grid{display:grid;grid-template-columns:.82fr 1.18fr;gap:clamp(3rem,8vw,7.5rem);align-items:center}
     .ab-eyebrow{display:block;margin-bottom:.65rem;font-family:var(--ab-mono);font-size:.64rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--ab-accent)}
     .ab-summary h2,.ab-founders h2,.ab-cta h2{margin:0;font-family:var(--ab-display);font-size:clamp(2rem,3.4vw,3rem);font-weight:400;line-height:1.1;letter-spacing:-.018em}
+    .ab-summary h2{max-width:12ch;font-size:clamp(2.5rem,4.2vw,4rem);line-height:1.02}
     .ab-summary h2 em{font-style:italic;color:var(--ab-accent)}
-    .ab-summary__copy{display:grid;gap:1rem;padding-top:.2rem}
-    .ab-summary__copy p{max-width:64ch;margin:0;font-size:.96rem;font-weight:300;line-height:1.82;color:var(--ab-soft)}
+    .ab-summary__copy{display:grid;gap:1.25rem;padding-top:.2rem}
+    .ab-summary__copy p{max-width:59ch;margin:0;font-size:.98rem;font-weight:300;line-height:1.78;color:var(--ab-soft)}
+    .ab-summary__copy p:first-child{font-size:clamp(1.05rem,1.35vw,1.2rem);line-height:1.65;color:var(--ab-ink)}
 
-    .ab-founders{padding:5rem 0 5.5rem;background:var(--ab-deep);color:#f4f2ff}
-    .ab-founders__head{margin-bottom:2rem}
-    .ab-founders .ab-eyebrow{color:#a99cff}
-    .ab-founders__grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.25rem}
-    .ab-founder{overflow:hidden;border:1px solid rgba(169,156,255,.28);border-radius:18px;background:var(--ab-white);color:var(--ab-ink);box-shadow:0 18px 48px rgba(11,6,32,.18)}
-    .ab-founder__photo{width:100%;height:430px;background:#292832;overflow:hidden}
-    .ab-founder__photo img{display:block;width:100%;height:100%;object-fit:contain;object-position:center;filter:none;transform:none;transition:none}
-    .ab-founder__meta{padding:1.25rem 1.35rem 1.35rem}
-    .ab-founder h3{margin:0 0 .15rem;font-family:var(--ab-display);font-size:1.55rem;font-weight:400;line-height:1.1}
-    .ab-founder p{margin:0;font-family:var(--ab-mono);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ab-muted)}
+    .ab-founders{position:relative;isolation:isolate;min-height:100svh;padding:clamp(4.5rem,6vw,5.5rem) 0;display:flex;align-items:center;background:#21164e;color:#f4f2ff;overflow:hidden}
+    .ab-founders::before{content:'';position:absolute;inset:0;z-index:-1;opacity:.55;background-image:linear-gradient(rgba(169,156,255,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(169,156,255,.055) 1px,transparent 1px);background-size:64px 64px;mask-image:linear-gradient(to bottom,transparent,#000 16%,#000 84%,transparent)}
+    .ab-founders__head{display:flex;align-items:flex-end;justify-content:space-between;gap:2rem;margin-bottom:1.75rem;padding-bottom:1.4rem;border-bottom:1px solid rgba(169,156,255,.2)}
+    .ab-founders .ab-eyebrow{color:#b7adff}
+    .ab-founders__head h2{color:#fff}
+    .ab-founders__grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0;border:1px solid rgba(169,156,255,.22);background:rgba(255,255,255,.018)}
+    .ab-founder{min-width:0;padding:1.25rem;background:transparent;color:#f4f2ff}
+    .ab-founder+ .ab-founder{border-left:1px solid rgba(169,156,255,.22)}
+    .ab-founder__photo{width:100%;height:clamp(350px,31vw,455px);background:#292832;overflow:hidden;border:1px solid rgba(244,242,255,.12)}
+    .ab-founder__photo img{display:block;width:100%;height:100%;object-fit:contain;object-position:center;filter:saturate(.88) contrast(1.02);transform:none;transition:none}
+    .ab-founder__meta{display:grid;grid-template-columns:1fr auto;align-items:end;gap:.2rem 1.5rem;padding:1.15rem .15rem .2rem;border-top:1px solid rgba(169,156,255,.16)}
+    .ab-founder__index{grid-column:1/-1;margin-bottom:.5rem;font-family:var(--ab-mono);font-size:.56rem;letter-spacing:.14em;text-transform:uppercase;color:#b7adff}
+    .ab-founder h3{margin:0;font-family:var(--ab-display);font-size:clamp(1.65rem,2.2vw,2.15rem);font-weight:400;line-height:1;color:#fff}
+    .ab-founder p{margin:0 0 .12rem;font-family:var(--ab-mono);font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(244,242,255,.62);text-align:right}
 
     .ab-cta{padding:4.5rem 0;text-align:center;border-top:1px solid var(--ab-line)}
     .ab-cta h2{max-width:18ch;margin:0 auto}
@@ -76,10 +82,20 @@ import MainLayout from '../layouts/MainLayout.astro';
       .ab-hero h1 em{display:inline;color:var(--ab-accent)}
       .ab-hero p{max-width:35rem;margin:1.15rem auto 0;font-size:.86rem;line-height:1.7}
       .ab-hero__image{position:static;order:2;width:100%;height:auto;margin-top:-18px;object-fit:contain;object-position:center;-webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 28px);mask-image:linear-gradient(to bottom,transparent 0,#000 28px)}
-      .ab-summary{padding:4rem 0}
-      .ab-founders{padding:4rem 0}
+      .ab-summary{min-height:100svh;padding:2rem 0 8rem}
+      .ab-summary__grid{gap:1.5rem}
+      .ab-summary h2{max-width:11ch;font-size:clamp(2.4rem,11vw,3rem)}
+      .ab-summary__copy{gap:1rem}
+      .ab-summary__copy p{font-size:.9rem;line-height:1.68}
+      .ab-summary__copy p:first-child{font-size:1rem;line-height:1.65}
+      .ab-founders{min-height:0;padding:4rem 0}
+      .ab-founders__head{display:block;margin-bottom:1.5rem;padding-bottom:1rem}
       .ab-founders__grid{grid-template-columns:1fr}
-      .ab-founder__photo{height:min(118vw,440px)}
+      .ab-founder{padding:1rem}
+      .ab-founder+ .ab-founder{border-left:0;border-top:1px solid rgba(169,156,255,.22)}
+      .ab-founder__photo{height:min(112vw,430px)}
+      .ab-founder__meta{grid-template-columns:1fr;gap:.2rem;padding-top:1rem}
+      .ab-founder p{text-align:left}
       .ab-cta{padding:3.8rem 0}
     }
   </style>
@@ -99,7 +115,7 @@ import MainLayout from '../layouts/MainLayout.astro';
 
   <main>
     <section class="ab-hero">
-      <img class="ab-hero__image" src="/assets/images/about-no-text.png" alt="Nyx AI agent connecting business systems and operational teams" fetchpriority="high" />
+      <img class="ab-hero__image" src="/assets/images/nyx-about-agent-workflows-hero.png" alt="Nyx AI agent coordinating verified workflows across business systems" width="1672" height="941" fetchpriority="high" />
       <div class="ab-container ab-hero__inner">
         <div class="ab-hero__copy">
           <h1>We build AI agents for the work <em>between business systems.</em></h1>
@@ -111,12 +127,12 @@ import MainLayout from '../layouts/MainLayout.astro';
     <section class="ab-summary">
       <div class="ab-container ab-summary__grid">
         <div>
-          <span class="ab-eyebrow">About Nyx</span>
-          <h2>Operational AI that moves work <em>forward.</em></h2>
+          <span class="ab-eyebrow">How Nyx works</span>
+          <h2>From scattered inputs to a <em>verified result.</em></h2>
         </div>
         <div class="ab-summary__copy">
-          <p>Business work rarely lives in one place. It moves between documents, messages, approvals, TallyPrime, SAP, ERP platforms, and the people responsible for making decisions.</p>
-          <p>Nyx builds dependable AI agents for that space between systems—bringing together the context, rules, checks, and actions needed to complete a workflow without losing human ownership.</p>
+          <p>Nyx agents understand the documents, messages, and live system data behind an operational task, then apply your rules to determine the next step.</p>
+          <p>They coordinate the workflow across TallyPrime, SAP, ERP, email, and WhatsApp—pausing for approval when needed and recording every action back in the right system.</p>
         </div>
       </div>
     </section>
@@ -130,11 +146,11 @@ import MainLayout from '../layouts/MainLayout.astro';
         <div class="ab-founders__grid">
           <article class="ab-founder">
             <div class="ab-founder__photo"><img src="/Yash.png" alt="Yash Puri" loading="lazy" decoding="async" /></div>
-            <div class="ab-founder__meta"><h3>Yash Puri</h3><p>Co-Founder &amp; CEO</p></div>
+            <div class="ab-founder__meta"><span class="ab-founder__index">01 · Founder</span><h3>Yash Puri</h3><p>Co-Founder &amp; CEO</p></div>
           </article>
           <article class="ab-founder">
             <div class="ab-founder__photo"><img src="/Shubham.png" alt="Shubham Tribhuwan" loading="lazy" decoding="async" /></div>
-            <div class="ab-founder__meta"><h3>Shubham Tribhuwan</h3><p>Co-Founder &amp; CPO</p></div>
+            <div class="ab-founder__meta"><span class="ab-founder__index">02 · Founder</span><h3>Shubham Tribhuwan</h3><p>Co-Founder &amp; CPO</p></div>
           </article>
         </div>
       </div>
